@@ -1,5 +1,6 @@
 @media(max-width: 1500px){
     #root{
-        zoom: 0.85;
+        zoom: 0.89;
+        background-color: white;
     }
 }
