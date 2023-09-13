@@ -1,0 +1,82 @@
+/* PrivacyPolicy.css */
+
+body.bb-logedout nav.bb-navbar {
+    display: none;
+  }
+  
+  body.bb-logedout header.bb-top-head-logedin {
+    display: none;
+  }
+  
+  body.bb-logedout header.bb-foot-head-logedin {
+    display: none;
+  }
+  
+  body.bb-navbar-logedin .bb-top-menubar-logedout {
+    display: none;
+  }
+  
+  body.bb-logedout .bb-top-menubar-logedout {
+    display: block;
+  }
+  
+  .FeedbackWidget__Tab {
+    display: none !important;
+  }
+  
+  /* bb Footer CSS import from about page */
+  .bb-footer-bfor-login .footer-wrap {
+    background: #171919;
+  }
+  
+  .bb-footer-bfor-login section.widget {
+    box-shadow: none;
+    background: transparent;
+    margin-bottom: 0px;
+    padding-top: 10px !important;
+    padding-bottom: 5px !important;
+    border-color: transparent;
+  }
+  
+  .bb-footer-bfor-login section.widget p {
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 10px !important;
+  }
+  
+  .bb-footer-bfor-login .widget-heading h4 {
+    color: #fff;
+  }
+  
+  .bb-footer-bfor-login ul.social-icons.standard li a {
+    display: inline !important;
+    float: left;
+    margin-right: 38px;
+    padding-top: 30px;
+    font-size: 23px;
+    color: #fff;
+  }
+  
+  .bb-footer-bfor-login .footer-wrap {
+    background: #171919;
+    padding: 50px 0px 50px 0px;
+  }
+  
+  .bb-custom-color-171919 {
+    color: #171919;
+  }
+  
+  .bb-privacy-policy-page p {
+    font-size: 15px;
+    color: #767676;
+  }
+  
+  p.bb-full-width.full_width_para b {
+    color: #171919;
+    font-family: 'Futura';
+    font-weight: 700;
+    margin-top: 0.5rem !important;
+    display: block;
+    margin-bottom: 1.9rem;
+  }
+  

@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'futura-bold';
+    src: local("futura-bold"),
+      url("../../Fonts/unicode.futurab.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: 'futura';
+    src: local("futura"),
+      url("../../Fonts/OpenSans-VariableFont_wdth\,wght.ttf") format("truetype");
+  }
+.project-top{
+    border-radius: 5px;
+    background-image: linear-gradient(to right, #ff5566, #c67724, #7e8829, #3a895a, #008080);
+    height: 35px;
+}
+.project-top h6{
+    padding-top: 8px;
+}
+.left-td{
+    float: left;
+}
+.right-td{
+    float: right;
+}
+.project-deatils4 span{
+    margin-left: 15px;
+    float: left;
+  }
+.projectdetail-last span{
+margin-left: 15px;
+margin-top: 8px;
+float: left;
+}
+.project-top-details{
+    width:95%;
+    border-radius: 5px;
+    padding: auto;
+    border-style: none;
+    padding-top: 8px;
+    padding-bottom: 5px;
+    background-image: linear-gradient(to right, #ff5566, #c67724, #7e8829, #3a895a, #008080);
+   }
+@media (max-width: 786px){
+    .projectdetail-last span{
+        margin-left: 20px;
+        margin-top: 8px;
+        float: left;
+        margin-right: 5px;
+        }
+}

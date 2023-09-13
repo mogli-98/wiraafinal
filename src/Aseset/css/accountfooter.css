@@ -1,0 +1,77 @@
+/* .Accountfooter{
+    background-color: rgba(0, 0, 0,0.2);
+    display: flex;
+}
+
+.Accountfooter img{
+    height: 20px;
+    margin-left:30px;
+    float: left;
+
+    /* height: '20px', marginLeft: '30px',float:'left'  */
+/* } */
+
+
+
+
+
+
+
+.Account_footer {
+    /* background-color: #333; */
+    background-color: rgba(0, 0, 0,0.2);
+    color: #fff;
+    /* padding: 20px 0; */
+    text-align: center;
+    height: 7vh;
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: #333; */
+    color: #fff;
+    /* padding: 20px 0; */
+    /* text-align: center; */
+
+    
+  }
+
+  .Account_footercontent{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* background-color: blue; */
+    height:7vh;
+    /* position: fixed; */
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    /* background-color: #333; */
+    /* color: #fff; */
+    /* margin: 20px 0px; */
+    text-align: center;
+  }
+
+  .Account_footer img {
+    float: left;
+    margin-left: 30px;
+    height:20px;
+  }
+  
+  .footer p {
+    margin: 0;
+  }
+
+  @media (max-width: 1000px){
+    .Account_footer {      
+        background-color: rgba(0, 0, 0,0.2);
+        color: #fff;        
+        height: 15vh;
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        color: #fff;        
+        
+      }
+  }

@@ -1,0 +1,221 @@
+@font-face {
+    font-family: 'Helvetica-Bold';
+    src: local("Helvetica-Bold"),
+      url("../../Fonts/Helvetica-Bold.ttf") format("truetype");
+  }
+  @font-face {
+    font-family: 'Helvetica';
+    src: local("Helvetica"),
+      url("../../Fonts/Helvetica.ttf") format("truetype");
+  }
+  h1,h2,h3,h4,h5,h6{
+    font-family:Helvetica-Bold ;
+  }
+.learn-top-h6{
+    font-size: 48px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 95px;
+    padding-bottom: 25px;
+    color: #171919;
+    font-family: futura;
+    white-space: nowrap;
+}
+.learn-top-p{
+    text-align: left;
+    font-size: 22px;
+    padding-bottom: 5px;
+    color: #171919;
+    font-family: 'Futura';
+    line-height: 30px;
+}
+.para_sub_top{
+    margin-bottom: 50px;
+    font-family: opensans;
+}
+.img_custom_banner{
+    width: 100%;
+    margin: 0 auto;
+    display: block;
+    margin-top: 105px;
+}
+.btn_apply{
+    background: linear-gradient(90deg, #e04, #d06);
+    height: 60px;
+    border: none;
+    border-radius: 5px;
+    padding-top: -2.5rem;
+    width: 45%;
+    display: block;
+    color: #fff;
+    font-family: 'Futura';
+    font-size: 20px;
+}
+.margin-msg {
+    padding-top: 3rem;
+    padding-bottom: 7rem;
+}
+.margin-msg h2{
+    font-size: 40px;
+    color: #171919;
+    font-family: Futura;
+
+    line-height: 1.2em!important;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 600;
+}
+.font-size_grow h2 {
+    font-size: 40px;
+    text-align: center;
+    font-family: Futura;
+    color: #222;
+    line-height: 1.2em!important;
+    margin-bottom: 0;
+    margin-top: 0;
+    font-weight: 600;
+}
+.learn-business-card{
+    background-color: #fed;
+    padding: 20px;
+    /* border-right: 10px solid #fff; */
+
+    margin-right: 15px;
+    border-radius: 10px;
+}
+.card-row{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.card-img-learn{
+    height: 50%;
+    width: 50%;
+}
+.card-text-1{
+    font-family: futura;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    padding-top: 25px;
+}
+.card-text-
+{
+    font-family: opensans;
+    font-size: 14px;
+}
+.learn-benfit{
+    font-size: 48px;
+    font-weight: bold;
+    text-align: left;
+    padding-top: 65px;
+    padding-bottom: 25px;
+    color: #171919;
+    font-family: futura;
+    white-space: nowrap;
+}
+.learn-benfit-ul{
+    padding-top: 20px;
+    padding-right: 0;
+    padding-left: 0;
+    margin: 0;
+}
+.learn-benfit-ul li::before{
+    content: '';
+    background-image: url(http://revolutiontravelcrm.braininventory.com/public/crm/assets/img/hand-point-right-solid.svg);
+    width: 20px !IMPORTANT;
+    height: 20px !important;
+    display: inline-block;
+    background-repeat: no-repeat;
+    margin-right: 14px;
+    position: relative;
+    top: 5px;
+}
+.learn-benfit-ul li{
+    list-style: none;
+    /* margin-left: 15px; */
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #171919;
+    
+    background: #fed;
+    padding-left: 19px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-right: 19px;
+    font-weight: 600;
+}
+.learn-benfit-img{
+  
+    width: 100% !important;
+    margin: 15% auto;
+    display: block;
+}
+.learn-faq{
+    font-size: 48px;
+    font-weight: bold;
+    ;
+    padding-top: 65px;
+    padding-bottom: 25px;
+    color: #171919;
+    font-family: futura;
+    white-space: nowrap;
+    line-height: 1.2em!important;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.bi-person-heart{
+    float: right;
+}
+.overview p{
+    font-family: Helvetica-Bold;
+}
+.overview ul{
+    font-family: Helvetica-Bold;
+}
+.aboutus h1 {
+font-family:Helvetica-Bold;
+font-size: 50px;
+margin-bottom: 30px;
+}
+.aboutus p{
+    font-family: Helvetica;
+    font-size: 19px;
+}
+.model-button{
+    margin-left: 20%;
+    background-image: linear-gradient(to right, #ff5566, #c67724, #7e8829, #3a895a, #008080);
+    width: 150px;
+    border-style: none;
+    color: #fff;
+    border-radius: 8px;
+}
+@media screen and (max-width: 480px) {
+    .learn-top-h6{
+        font-size: 32px;
+        font-weight: bold;
+        text-align: left;
+        padding-top: 15px;
+        padding-bottom: 16px;
+        color: #171919;
+        font-family: futura;
+        white-space: normal;
+    }  
+    .learn-top-p{
+        font-size: 20px;
+    }
+    .btn_apply{
+        width: 100%;
+        margin-left: 0 !important;
+    }
+    .margin-msg h2 {
+        font-size: 30px;
+        font-family: Futura;
+        color: #222;
+        line-height: 1.2em!important;
+        margin-bottom: 0;
+        margin-top: 0;
+        font-weight: 600;
+        padding: 20px;
+       
+    }
+  
+}

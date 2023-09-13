@@ -1,0 +1,41 @@
+/* styles.css */
+
+.alpha_ol {
+    list-style-type: upper-alpha;
+  }
+  
+  .alpha_ol li {
+    margin: 15px 25px;
+    color: #444;
+    /* font-family: 'OpenSans'; */
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  p {
+    color: #444;
+    /* font-family: 'OpenSans'; */
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  .heading {
+    font-size: 20px;
+    /* font-family:  sans-serif; */
+    font-weight: 400;
+    margin-top: 50px !important;
+  }
+  
+  .main_head {
+    font-size: 30px;
+    text-align: center;
+    padding-top: 25px;
+    padding-bottom: 25px;
+    color: #171919;
+    font-family: futura;
+  }
+  
+  .navbar-nav {
+    float: right !important;
+  }
+  
