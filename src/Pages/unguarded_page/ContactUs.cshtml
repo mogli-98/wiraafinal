@@ -1,0 +1,335 @@
+﻿@using BLL.BusinessModels
+@model ContactViewModel
+@{
+    ViewBag.Title = "ContactUs";
+   
+}
+<link rel="stylesheet" type="text/css" href="~/Content/css1/main.css">
+
+
+<style>
+    /*contact page*/
+    body {
+        background-color: #f9f9f9 !important;
+    }
+
+    .bb-full-width {
+        float: left;
+        width: 100%;
+    }
+
+    .bb-contact-container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0px auto 30px auto;
+        display: table;
+        padding: 0px 20px;
+    }
+
+    .bb-contact-box {
+        box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+        padding: 15px 20px 15px 20px;
+        background-color: #ffffff;
+        border-radius: 10px;
+    }
+
+    .bb-label-contact {
+        font-size: 16px;
+        font-family: opensans;
+        color: #171919;
+    }
+
+    .bb-input-contact {
+        padding: 12px 20px 12px 20px;
+        border: 1px solid #767676;
+        font-family: opensans;
+        font-weight: 400;
+        color: #505260;
+    }
+
+    .bb-contact-form-submit {
+        background: #04f;
+        font-family: Futura;
+        text-transform: uppercase;
+        font-size: 14px;
+        margin-top: 20px;
+        border-radius: 5px;
+        font-weight: 400;
+        width: 100%;
+        padding: 16px 0px;
+        color: #ffffff;
+    }
+
+    .bb-contact-form-submit {
+        margin-top: 10px;
+    }
+
+    .bb-contact-box-saprator {
+        float: left;
+        width: 100%;
+        margin: 30px 0px 20px 0px;
+    }
+
+        .bb-contact-box-saprator span {
+            position: relative;
+            font-size: 15px;
+            font-family: 'OpenSans';
+        }
+
+            .bb-contact-box-saprator span:after {
+                content: '';
+                display: inline-block;
+                width: 50px;
+                height: 2px;
+                background-color: #999999;
+                position: absolute;
+                right: -60px;
+                top: 10px;
+            }
+
+            .bb-contact-box-saprator span:before {
+                content: '';
+                display: inline-block;
+                width: 50px;
+                height: 2px;
+                background-color: #999999;
+                position: absolute;
+                left: -60px;
+                top: 10px;
+            }
+
+    .bb-contat-social-sec {
+        margin: 0px 0px 10px 0;
+    }
+
+    .bb-contat-social-box {
+        width: auto;
+        margin: 10px auto 10px auto;
+        display: table;
+    }
+
+        .bb-contat-social-box a {
+            vertical-align: middle;
+            display: inline-block;
+            margin: 0 10px;
+        }
+
+        .bb-contat-social-box svg {
+            width: 30px;
+            height: 30px;
+            transition-duration: 300ms;
+        }
+
+            .bb-contat-social-box svg:hover {
+                color: #04f;
+            }
+
+    .bb-contat-social-sec .bb-mail-link {
+        color: #04f !important;
+        margin-bottom: 15px;
+        display: inline-block;
+        font-family: 'Futura';
+        font-size: 18px;
+    }
+
+    nav.navbar.bb-navbar {
+        display: none;
+    }
+</style>
+
+
+<div class="bb-full-width bb-top-menubar-logedout">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-6 pr-0">
+                <a href="/" class="d-inline-block float-left"> <img src="/Content/img/logow.png" class="img-fluid img-custom-header"></a>
+                @*<a href="/User/GetPostOrderInfo" class="find-project-link-before-login"><span>Find </span><span>Projects</span></a>*@
+            </div>
+            <div class="col-xl-3 col-6 pl-0 ml-auto">
+                <ul class="join-under set_newlog float-right">
+                    <li><a href="/Account/Login" data-signin="signup">Login</a></li>
+                    <li class="active-list"><a href="/Account/Signup" data-signin="signup">Join</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bb-full-width">
+    <div class="bb-contact-container">
+        <div class="bb-full-width bb-contact-box">
+            <div class="bb-full-width text-center">
+                <h2 class="head-welcome bb-full-width">Contact Us</h2>
+            </div>
+            <div class="bb-full-width">
+                @using (Html.BeginForm("ContactUs", "Home", FormMethod.Post, htmlAttributes: new
+                { @class = "bb-full-width" }))
+                {
+                    <div class="form-group">
+                        <label class="bb-label-contact" for="">Name</label>
+                        @*<input type="text" class="form-control bb-input-contact" id="" placeholder="Enter Your Name" required="">*@
+                        @Html.TextBoxFor(m => m.Name, null, htmlAttributes: new { @class = "form-control bb-input-contact", @placeholder = "Enter your name" })
+                        @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label class="bb-label-contact" for="">Contact</label>
+                        @*<input type="text" class="form-control bb-input-contact" id="" placeholder="Enter Your Contact" required="">*@
+                        @Html.TextBoxFor(m => m.Contact, null, htmlAttributes: new { @class = "form-control bb-input-contact", @placeholder = "Enter your mobile number" })
+                        @Html.ValidationMessageFor(m => m.Contact, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label class="bb-label-contact" for="">Email</label>
+                        @*<input type="email" class="form-control bb-input-contact" id="" placeholder="Enter Your Email" required="">*@
+                        @Html.TextBoxFor(m => m.Email, null, htmlAttributes: new { @class = "form-control bb-input-contact", @placeholder = "Enter your email" })
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <label class="bb-label-contact" for="">Message</label>
+                        @*<textarea class="form-control bb-input-contact" placeholder="Type Your Message..." required="" width="100%" rows="5"></textarea>*@
+                        @Html.TextAreaFor(m => m.Message, htmlAttributes: new { @class = "form-control bb-input-contact", @placeholder = "Enter your message" })
+                        @Html.ValidationMessageFor(m => m.Message, "", new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" class="bb-full-width btn bb-contact-form-submit" id="">
+                    </div>
+
+                }
+
+            </div>
+
+            <div class="bb-contact-box-saprator text-center">
+                <span class="">Or Connect With</span>
+            </div>
+
+            <div class="bb-full-width bb-contat-social-sec">
+                <div class="bb-full-width">
+                    <div class="bb-contat-social-box">
+                        <a href="https://instagram.com/wiraaworld" target="_blank">
+                            <svg class="svg-inline--fa fa-instagram fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="instagram" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z"></path></svg>
+                        </a>
+                        <a href=" https://www.linkedin.com/company/wiraa" target="_blank">
+                            <svg class="svg-inline--fa fa-linkedin fa-w-14" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="linkedin" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" data-fa-i2svg=""><path fill="currentColor" d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+                        </a>
+                        <a href="https://www.facebook.com/wiraaworld" target="_blank">
+                            <svg class="svg-inline--fa fa-facebook fa-w-16" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="facebook" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" data-fa-i2svg=""><path fill="currentColor" d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.78 90.69 226.38 209.25 245V327.69h-63V256h63v-54.64c0-62.15 37-96.48 93.67-96.48 27.14 0 55.52 4.84 55.52 4.84v61h-31.28c-30.8 0-40.41 19.12-40.41 38.73V256h68.78l-11 71.69h-57.78V501C413.31 482.38 504 379.78 504 256z"></path></svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="bb-full-width text-center">
+                    <a class="text-info bb-mail-link">hello@wiraa.com</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!--Footer start-->
+<div class="bb-full-width bb-footer-bfor-login">
+    <div class="footer-wrap">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <section class="widget">
+                            <img src="~/Content/img/logow_white.png" style="margin-bottom: 20px; width: 100%; max-width: 170px;">
+                            <p class="pull-bottom-small">
+                                Connect With Experts
+                            </p>
+                            <p>
+                                <!-- <a href="page-about-us-2.html">Read More →</a> -->
+                            </p>
+                        </section>
+                    </div>
+                    <div class="col-sm-2 col-6">
+                        <section class="widget">
+                            <div class="widget-heading">
+                                <!-- <h4>Contact Us</h4> -->
+                            </div>
+                            <div class="footer-contact-info">
+                                <ul>
+                                    <li>
+                                        <a href="/Account/Signup"><p>Join</p></a>
+                                    </li>
+                                    <li>
+                                        <a href="/Home/AboutUs"><p>About</p></a>
+                                    </li>
+                                    <li>
+                                        <a href="/Home/faq"><p>FAQ</p></a>
+                                    </li>
+                                    <li>
+                                        <a href="https://wiraa.com/blog/"><p>Blog</p></a>
+                                    </li>
+                                </ul>
+                                <br>
+                            </div>
+                        </section>
+                    </div>
+                    <div class="col-sm-2 col-6">
+                        <section class="widget">
+                            <div class="widget-heading">
+                                <!-- <h4>Contact Us</h4> -->
+                            </div>
+                            <div class="footer-contact-info">
+                                <ul>
+                                    <li>
+                                        <a href="/Home/career"><p>Career</p></a>
+                                    </li>
+                                    <li>
+                                        <a href="/Home/contactUs"><p>Contact</p></a>
+                                    </li>
+                                    <li>
+                                        <a href="/home/PrivacyPolicy"><p>Privacy</p></a>
+                                    </li>
+                                    <li>
+                                        <a href="/Home/Terms"><p>Terms</p></a>
+                                    </li>
+                                </ul>
+                                <br>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div class="col-sm-3">
+                        <section class="widget">
+                            <div class="widget-heading">
+                                <h4>Follow Us</h4>
+                            </div>
+                            <ul class="social-icons standard">
+                                <li class="youtube"><a href="https://instagram.com/wiraaworld" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                                <li class="googleplus"><a href=" https://www.linkedin.com/company/wiraa" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+                                <li class="facebook"><a href="https://www.facebook.com/wiraaworld" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                            </ul>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<!--footer end-->
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ('@ViewBag.Message'== "Success") {
+            alert('Thank you for contact us!!');
+            window.location.href = "/Home/Contactus";
+        }
+    });
+</script>
+
+
+
+

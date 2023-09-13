@@ -1,0 +1,124 @@
+@font-face {
+  font-family: 'futura-bold';
+  src: local("futura-bold"),
+    url("../../Fonts/unicode.futurab.ttf") format("truetype");
+}
+@font-face {
+  font-family: 'futura';
+  src: local("futura"),
+    url("../../Fonts/OpenSans-VariableFont_wdth\,wght.ttf") format("truetype");
+}
+.PostRequirement-top span {
+  font-size: 30px;
+  font-weight: bold;
+  font-family: Futura;
+  margin-left: 8px;
+  margin-top: 20px !important;
+}
+.PostRequirement-top svg{
+ margin-top: -15px;
+ margin-left: 30px;
+}
+.PostRequirement2 p {
+
+  font-size: 16px;
+  font-family: 'OpenSans';
+  line-height: 20px;
+  /* margin-left: 10px; */
+  color: #767676;
+}
+.PostRequirement4 span{
+  margin-left: 15px;
+  float: left;
+}
+.password {
+  background-color: black;
+  border-color: black;
+  height: 30px;
+  border-radius: 6px;
+  color: #fff;
+  white-space: nowrap;
+  margin-right: 10px;
+}
+.password2 {
+  border-color: #767676;
+  background-color: #fff;
+  white-space: nowrap;
+  border-radius: 6px;
+  height: 30px;
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+.table1 td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  width: 100px;
+}
+
+.tbl {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+
+.container-left-first {
+  margin-top: 10px;
+  margin-bottom: 20px;
+
+}
+.container-left-first-span {
+ margin-left: 15px;
+font-size: 18px;
+ 
+ 
+}
+.container-left-second {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.container-search{
+  margin-left: 10px;
+}
+.container-search svg{
+  margin-left:40px ;
+}
+.container-search h6{
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: 700;
+}
+.container-search p{
+  margin-left: -110px;
+  margin-top: -10px;
+  text-align: center;
+}
+.table-header th{
+ text-align: center;
+  border: 0;
+}
+.project-button{
+  background-color: black;
+  color: #fff;
+  border-radius: 20px;
+  margin-left: 20px;
+  white-space: nowrap;
+  padding: 2 2 2 2;
+  width: 100px;
+}
+.project-table th{
+  color: black;
+}
+
+
+  .PostRequirem {
+    margin-left: -25px !important;
+  }
+
+  @media (max-width: 786px){
+    .PostRequirem{
+      margin-left: 10px !important;
+      margin-right: 10px !important;
+      margin-top: 20px;
+    }
+  }

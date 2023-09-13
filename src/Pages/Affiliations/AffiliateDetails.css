@@ -1,0 +1,28 @@
+.butn{
+    color: #008080;
+}
+.searchbtn{
+    margin-top: 8px;
+    margin-left: 25px;
+    width: 200%;
+    border-radius: 30px;
+    border: 1px solid grey;
+}
+.Box{
+    display: flex;
+    justify-content: space-around;
+    background-color:lightgoldenrodyellow;
+    border: none;
+    border-radius: 25px; 
+   height: 120px; 
+   padding-top: 40px;
+   margin-top: 20px;
+   margin-bottom: 20px;
+    
+
+}
+h5{
+    font-weight: 600;
+    padding-left: 30px;
+    
+}

@@ -1,0 +1,184 @@
+.dashboradfree-card-top{
+    background-image: linear-gradient(to right, #ff5566, #c67724, #7e8829, #3a895a, #008080);
+    border-radius: 8px;
+    border-style: none;
+  }
+.dashboradfree-card-top-div{
+  display: flex;
+} 
+.dashboradfree-card-top-div p{
+  float: right;
+  color: #fff;
+  margin-left: 70px;
+  align-items: center;
+  margin: auto;
+  font-size: 17px;
+  font-family:Helvetica-Bold;
+}
+.freedashboard-create{
+    background-color: #fff;
+    width: 20%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    margin-left: 50px;
+    border-style: none;
+    color: #008080;
+    font-weight: 600;
+    font-family: Helvetica;
+    letter-spacing: 1px;
+}
+.freedashboard-top-img{
+   
+    margin-left: 90px;
+    height: 50px;
+    /* margin-bottom: -28px; */
+}
+.freedash-top-text{
+    background-color: #008080;
+    color: #fff;
+    border-radius: 5px;
+    padding: auto;
+    height: 15px;
+
+}
+.shadow{
+  box-shadow: 3 px 10px px #9E9E9E;
+}
+.freedash-top-text p{
+  font-size: 8px;
+  align-items:center ;
+  padding: auto;
+
+}
+.pricing-top-text{
+line-height: 15px;
+margin-top: 50px;
+font-family: Helvetica;
+font-size: 18px;
+}
+.pricing-table1 ul{
+  border-radius: 8px;
+  background-color: #fcefdf !important;
+  list-style-type: none;
+  text-align: center;
+  font-size: small;
+}
+.pricing-table2 ul{
+  border-radius: 8px;
+  background-color: #e0ddfc !important;
+  list-style-type: none;
+  text-align: center;
+  font-size: small;
+}
+.pricing-table3 ul { 
+  border-radius: 8px;
+  background-color: #f6d7d7 !important;
+  list-style-type: none;
+  text-align: center;
+  font-size: small;
+}
+.pricing-table li{
+ margin-top: 20px;
+}
+.priceidiv{
+  height: 40px;
+  color: #008080;
+  font-size: 18px;
+  font-family: Helvetica-Bold;
+  font-weight: 800;
+}
+.priceidiv2{
+  text-decoration-line: line-through;
+}
+.priceidiv1 p{
+ 
+  line-height: 5px;
+  
+}
+.userproject{
+  margin-left: 15px;
+  float: left;
+}
+.pricing-table button{
+  border-radius: 8px;
+  border-color: #008080;
+  background-color: #008080;
+  color: #fff;
+  border-style: solid;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 30%;
+}
+.pricing-tableli{
+  -webkit-text-decoration-line: line-through; /* Safari */
+  text-decoration-line: line-through;
+}
+.card-no-top{
+    background-color: #008080;
+    color: #fff;
+    text-align: center;
+    border-radius: 10px;
+    height: 40px;
+    padding-top: 8px;
+    width: 50%;
+   margin-left: 40%;
+}
+.freedash-project div{
+    border: 1px solid #d4c8c8;
+    border-top: 1px !important;
+}
+.freedash-project span{
+font-size: 13px;
+margin-bottom: 5px;
+margin-left: 8px;
+color: #928787;
+}
+.latest-project-free span{
+float: right;
+padding: 2px;
+font-size: 11px;
+
+}
+.latest-question-free span{
+  float: right;
+  padding: 2px;
+  font-size: 15px;
+  font-weight: 700;
+  color: black !important;
+  }
+.last-card-freedash-1{
+    float: left;
+    color: #fff;
+}
+.last-card-freedash-2{
+    float:right;
+    color: #fff;
+}
+.last-card-freedash-3{
+    margin-left: 18%;
+}
+.lastcard-free{
+    background: radial-gradient(circle at 24.1% 68.8%, rgb(50, 50, 50) 0%, rgb(0, 0, 0) 99.4%);
+}
+.project-button1{
+    background-color: #fff !important;
+    border-style: none;
+    color: black;
+}
+.columns {
+    float: left;
+    width: 33.3%;
+    padding: 8px;
+  }
+  .top-dashpro{
+    font-family:Helvetica;
+    font-size: 12px;
+   
+    float: left;
+  }
+  
+  .price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+  }
+  

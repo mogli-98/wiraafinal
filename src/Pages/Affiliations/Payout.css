@@ -1,0 +1,32 @@
+.btn21{
+      
+        padding:6px 60px ;
+        /* background-color: #008080; */
+        /* color: white;  */
+        margin-top: 50px; 
+        border: 2px solid #008080; 
+        color: #008080; 
+        border-radius: 6px;
+        font-weight: 600;
+    
+
+}
+.btn20{
+    border-radius: 6px;
+    border: none;
+    font-weight: 600;
+}
+.btn40{
+    margin-bottom: 50px;
+}
+.PaymentMethod{
+    height: 40px; 
+}
+
+.month{
+    width: 200px;
+    height:40px;
+    border-radius: 5px;
+    border-color:grey;
+
+}

@@ -1,0 +1,129 @@
+/* ContactPage.css */
+
+/* Paste your CSS styles here */
+body {
+    background-color: #f9f9f9 !important;
+}
+
+.bb-full-width {
+    float: left;
+    width: 100%;
+}
+
+.bb-contact-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0px auto 30px auto;
+    display: table;
+    padding: 0px 20px;
+}
+
+.bb-contact-box {
+    box-shadow: 0px 0px 10px rgba(0,0,0,.1);
+    padding: 15px 20px 15px 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.bb-label-contact {
+    font-size: 16px;
+    font-family: opensans;
+    color: #171919;
+}
+
+.bb-input-contact {
+    padding: 12px 20px 12px 20px;
+    border: 1px solid #767676;
+    font-family: opensans;
+    font-weight: 400;
+    color: #505260;
+}
+
+.bb-contact-form-submit {
+    background: #04f;
+    font-family: Futura;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 20px;
+    border-radius: 5px;
+    font-weight: 400;
+    width: 100%;
+    padding: 16px 0px;
+    color: #ffffff;
+}
+
+.bb-contact-form-submit {
+    margin-top: 10px;
+}
+
+.bb-contact-box-saprator {
+    float: left;
+    width: 100%;
+    margin: 30px 0px 20px 0px;
+}
+
+.bb-contact-box-saprator span {
+    position: relative;
+    font-size: 15px;
+    font-family: 'OpenSans';
+}
+
+.bb-contact-box-saprator span:after {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 2px;
+    background-color: #999999;
+    position: absolute;
+    right: -60px;
+    top: 10px;
+}
+
+.bb-contact-box-saprator span:before {
+    content: '';
+    display: inline-block;
+    width: 50px;
+    height: 2px;
+    background-color: #999999;
+    position: absolute;
+    left: -60px;
+    top: 10px;
+}
+
+.bb-contat-social-sec {
+    margin: 0px 0px 10px 0;
+}
+
+.bb-contat-social-box {
+    width: auto;
+    margin: 10px auto 10px auto;
+    display: table;
+}
+
+.bb-contat-social-box a {
+    vertical-align: middle;
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.bb-contat-social-box svg {
+    width: 30px;
+    height: 30px;
+    transition-duration: 300ms;
+}
+
+.bb-contat-social-box svg:hover {
+    color: #04f;
+}
+
+.bb-contat-social-sec .bb-mail-link {
+    color: #04f !important;
+    margin-bottom: 15px;
+    display: inline-block;
+    font-family: 'Futura';
+    font-size: 18px;
+}
+
+nav.navbar.bb-navbar {
+    display: none;
+}
