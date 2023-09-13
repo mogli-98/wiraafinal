@@ -9,7 +9,7 @@ import Startupimg5 from '../../Aseset/css/startupimg/wiraastartup2.jpg';
 import Navbar from '../../Layout/Header';
 import Accountfootor from '../../Layout/Accountfooter';
 import { useState } from 'react';
-import { TextField } from '@mui/material';
+// import { TextField } from '@mui/material';
 
 
 
@@ -249,7 +249,7 @@ function WiraaStartup() {
 
                     <Container>
                         <h2 style={{ marginTop: '20px' }}>Startup Details</h2>
-                        <Row style={{ marginTop: '20px' }}>
+                        {/* <Row style={{ marginTop: '20px' }}>
                             <Col sm={3}>
                                 <label style={{ fontSize: '18px', fontWeight: 600, marginLeft: '20px' }}>Startup:</label>
 
@@ -277,13 +277,6 @@ function WiraaStartup() {
                                 <TextField style={{ width: '100%' }} id="outlined-basic" type='email' placeholder='Email ID' size='small' variant="outlined" />
                             </Col>
                         </Row>
-
-
-
-
-
-
-
                         <Row style={{ marginTop: '20px' }}>
                             <Col sm={3}>
                                 <label style={{ fontSize: '18px', fontWeight: 600, marginLeft: '20px' }}>Phone No. :</label>
@@ -306,7 +299,7 @@ function WiraaStartup() {
                                     rows={2} fullWidth
                                     maxRows={4} id="outlined-basic" type='text' placeholder='Enter Note ' variant="outlined" />
                             </Col>
-                        </Row>
+                        </Row> */}
                         <Row>
                             <Col>
 

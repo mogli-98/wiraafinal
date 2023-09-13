@@ -83,13 +83,12 @@ function Homepage() {
       <section >
         <Container className='mt-5'>
           <Row className='pt-5'>
-            <Col sm={4} style={{marginTop:'65px'}} > <h3 className='header' >Hire top talents from  <span style={{ color: '#008080' }}>anywhere</span> </h3>
+            <Col sm={5} style={{marginTop:'65px'}} > <span className='header' >Hire top talents from  <span style={{ color: '#008080' }}>anywhere</span> </span>
               <p className='subheader' style={{backgroundColor:'ButtonHighlight'}} >We’re available on Android devices and platforms.
               </p>
             </Col>
-            <Col sm={3}><center><img src={Picture10} alt="" style={{ width: '82%',marginTop:'50px',marginLeft:'20px' }} /></center></Col>
-            <Col sm={1}></Col>
-            <Col sm={4}><img src={Picture9} alt="" style={{ width: "80%",height:'100%' }} /></Col>
+            <Col sm={3}><img src={Picture10} alt="" style={{ width: '82%',marginTop:'50px' }} /></Col>
+            <Col sm={4}><img src={Picture9} alt="" style={{ width: "80%",height:'100%',float:"right" }} /></Col>
           </Row>
 
         </Container>
@@ -197,7 +196,7 @@ function Homepage() {
                     <h3 className='text-center' style={{ fontSize: '40px' }}>Unlock the secrets to successful freelancing</h3>
                     <p className='text-center mt-5' style={{ fontSize: '20px', fontWeight: 'medium' }}>Become a successful freelancer and learn tips and tricks from the experts to thrive in any industry.</p>
 
-                    <button className='mt-5 home-learn' ><b>Start Learnings</b>
+                    <button className='mt-5 home-learn' style={{color:'white'}} ><b>Start Learnings</b>
                     </button>
 
                   </Col>
@@ -219,7 +218,7 @@ function Homepage() {
             </Col>
             <Col sm={1}></Col>
 
-            <Col sm={5} className=' mt-5' >
+            <Col sm={5} className=' mt-2' >
               <center>
                 <h3>Ready to start your project?</h3>
                 <p className='startproject_p'>Be a part of a global professional community, make friends, work independently, run your own business and choose your own clients and projects.</p>
