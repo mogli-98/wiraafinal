@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Card, Modal, Form } from "react-bootstrap";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Auth from "../Auth.model";
+import { TextField } from "@mui/material";
 function ProtfolioCard(props) {
     const { data } = props;
     const [isHovered1, setIsHovered1] = useState(false);
@@ -53,7 +54,7 @@ function ProtfolioCard(props) {
         onMouseLeave={() => setIsHovered1(false)}
     >
         <div className="containerhover" style={{ border: isHovered1 ? "2px solid #008080" : "0px solid transparent", borderRadius: "5px" }}>
-            <img src={`http://demo.wiraa.com${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
+            <img src={`https://wiraa.com${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
             <div className="overlay">
                 <div className="containerhovertext">
                     {data?.AboutMe}
@@ -67,8 +68,8 @@ function ProtfolioCard(props) {
                         <p className='small '> <img src={`http://demo.wiraa.com${data.ProfilePic}`} alt="Avatar" className="m-1" style={{ width: "20px", height: '20px', borderRadius: "50px" }} /><b>{data.FirstName}{data.LastName}</b></p>
                     </td>
                     <td className="frloo">
-                        <ion-icon name="heart-outline"></ion-icon> <span className='small'>{data.likesCount}</span>
-                        <ion-icon name="chatbox-ellipses-outline"  ></ion-icon> <span className='small'>{data.commentCount}</span>
+                        <ion-icon name="heart-outline"></ion-icon> <span className='small'>{data.LikeCount}</span>
+                        <ion-icon name="chatbox-ellipses-outline"  ></ion-icon> <span className='small'>{data.CommentCount}</span>
                     </td>
                 </tr>
             </tbody>
@@ -88,11 +89,12 @@ function ProtfolioCard(props) {
                         <input type="number" style={{display:'none'}} name="postIdtemp"  value={outid}
                            />
                             <InputGroup className="mb-3  rounded-circle">
-                                <input type="rext"
+                                <TextField type="rext"
                                     placeholder="Comment Here..."
                                     aria-label="Recipient's username"
                                     aria-describedby="basic-addon2"
                                     name='comment'
+                                    size="small"
                                     onChange={handleInputChange}
                                 />
                                 <button id="basic-addon2" className="btn" type="submit" style={{ borderColor: "#efefef", borderWidth: "2px" }}>Post</button>

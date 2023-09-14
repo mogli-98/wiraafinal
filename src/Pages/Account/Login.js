@@ -45,7 +45,7 @@ const Login = () => {
             <Row>
               <Col sm={3}>
               </Col>
-              <Col sm={6} className='signup mb-4 mt-5'>
+              <Col sm={6} className='signup mb-4 mt-2'>
                 <center><img src={wirralogo} alt="" className="mb-4" /></center>
                 <Card className="shadow-5 login-card" style={{ boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }}>
                   <h2 style={{ marginTop: "20px", marginLeft: "50px" }}>Login</h2>

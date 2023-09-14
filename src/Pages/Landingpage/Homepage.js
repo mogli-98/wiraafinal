@@ -218,7 +218,7 @@ function Homepage() {
             </Col>
             <Col sm={1}></Col>
 
-            <Col sm={5} className=' mt-2' >
+            <Col sm={5} className=' mt-5' >
               <center>
                 <h3>Ready to start your project?</h3>
                 <p className='startproject_p'>Be a part of a global professional community, make friends, work independently, run your own business and choose your own clients and projects.</p>

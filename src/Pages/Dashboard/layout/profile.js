@@ -10,8 +10,8 @@ function Profile() {
     const [profileData,setProfileData] = useState([]);
 
     useEffect(() => {
-        const id = localStorage.getItem("id");
-       Auth.Profile({id}).then((response)=>{
+        const userId  = localStorage.getItem("UserID");
+       Auth.Profile({userId }).then((response)=>{
         setProfileData(response.data);
         console.log(response.data)
        });

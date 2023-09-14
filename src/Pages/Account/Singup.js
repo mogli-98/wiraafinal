@@ -43,7 +43,7 @@ function Singup() {
             <Row>
               <Col sm={3}> 
               </Col>
-              <Col sm={6} className='signup mb-4 mt-5'>
+              <Col sm={6} className='signup mb-3 mt-2'>
                     
                <center><img src={wirralogo} alt="" className="mb-4" /></center>
                  <Card className='shadow-3 ' >
