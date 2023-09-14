@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
 import { Row, Col, Card } from "react-bootstrap";
-import '../../../Aseset/css/dashboard.css'
+import '../../../asset/css/dashboard.css'
 import Modal from 'react-bootstrap/Modal';
-import test from "../../../Aseset/image/test.JPG";
-import test1 from "../../../Aseset/image/test1.png";
+import test from "../../../asset/image/test.JPG";
+import test1 from "../../../asset/image/test1.png";
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 

@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
 import Sidenav from '../layout/Sidenav';
 import Topnav from '../layout/topnav';
-import test from "../../../Aseset/image/test.JPG";
-import "../../../Aseset/css/dashboard.css"
+import test from "../../../asset/image/test.JPG";
+import "../../../asset/css/dashboard.css"
 import Modal from 'react-bootstrap/Modal';
-import test2 from "../../../Aseset/image/test2.png"
+import test2 from "../../../asset/image/test2.png"
 function Orderdetails() {
     const [activeTab, setActiveTab] = useState("Tab1");
 

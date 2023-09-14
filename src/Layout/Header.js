@@ -1,5 +1,5 @@
 import React from 'react';
-import Wiraalogo from "../Aseset/image/Wiraalogo.png";
+import Wiraalogo from "../asset/image/Wiraalogo.png";
 import { Link } from "react-router-dom";
 
 function Navbar() {

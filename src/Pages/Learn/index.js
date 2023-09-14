@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import "../../Aseset/css/learn.css";
-import topbanner from "../../Aseset/image/Learn/topbanner.jpg"
-import suitcase from "../../Aseset/image/Learn/suitcase.png"
-import checkmark from "../../Aseset/image/Learn/checkmark.png"
-import clap from "../../Aseset/image/Learn/clap.png"
-import bulb12 from "../../Aseset/image/Learn/bulb12.jpg"
+import "../../asset/css/learn.css";
+import topbanner from "../../asset/image/Learn/topbanner.jpg"
+import suitcase from "../../asset/image/Learn/suitcase.png"
+import checkmark from "../../asset/image/Learn/checkmark.png"
+import clap from "../../asset/image/Learn/clap.png"
+import bulb12 from "../../asset/image/Learn/bulb12.jpg"
 import Accordion from 'react-bootstrap/Accordion';
 import Footor from '../../Layout/Footor';
 import { Link } from 'react-router-dom'; 

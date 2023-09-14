@@ -1,8 +1,8 @@
 import React, { useState ,useEffect} from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
-import '../../Aseset/css/dashboard.css'
+import '../../asset/css/dashboard.css'
 import Sidenav from './layout/Sidenavbar';
-import test from "../../Aseset/image/test.JPG";
+import test from "../../asset/image/test.JPG";
 import Topnav from './layout/topnavbar';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';

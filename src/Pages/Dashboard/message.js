@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
-import '../../Aseset/css/dashboard.css'
+import '../../asset/css/dashboard.css'
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
 

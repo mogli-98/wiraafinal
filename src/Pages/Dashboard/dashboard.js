@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import Sidenav from "./layout/Sidenav";
-import '../../Aseset/css/dashboard.css'
+import '../../asset/css/dashboard.css'
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Portfolio from './layout/portfolio';

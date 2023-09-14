@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Table } from 'react-bootstrap';
-import "../../../Aseset/css/project.css"
+import "../../../asset/css/project.css"
 import Sidenav from '../layout/Sidenav';
 import Topnav from '../layout/topnav';
 import Orderbook from '../../../Model/Order.model';

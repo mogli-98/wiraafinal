@@ -1,11 +1,11 @@
 import React from 'react';
-import '../../Aseset/css/Wiraastartup.css'; // Import your CSS file for styling
+import '../../asset/css/Wiraastartup.css'; // Import your CSS file for styling
 import { Container, Row, Col, Button } from 'react-bootstrap'; // Import Bootstrap components
-import Startupimg1 from '../../Aseset/css/startupimg/wiraastartup1.jpg';
-import Startupimg2 from '../../Aseset/css/startupimg/wiraastartup5.jpg';
-import Startupimg3 from '../../Aseset/css/startupimg/wiraastartup4.jpg';
-import Startupimg4 from '../../Aseset/css/startupimg/wiraastartup3.jpg';
-import Startupimg5 from '../../Aseset/css/startupimg/wiraastartup2.jpg';
+import Startupimg1 from '../../asset/css/startupimg/wiraastartup1.jpg';
+import Startupimg2 from '../../asset/css/startupimg/wiraastartup5.jpg';
+import Startupimg3 from '../../asset/css/startupimg/wiraastartup4.jpg';
+import Startupimg4 from '../../asset/css/startupimg/wiraastartup3.jpg';
+import Startupimg5 from '../../asset/css/startupimg/wiraastartup2.jpg';
 import Navbar from '../../Layout/Header';
 import Accountfootor from '../../Layout/Accountfooter';
 import { useState } from 'react';

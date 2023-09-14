@@ -1,6 +1,6 @@
 import React from 'react';
-import "../../Aseset/css/AccfooProfessionalAgreement.css";
-import Wiralogo from "../../Aseset/image/Wiraalogowhite.png";
+import "../../asset/css/AccfooProfessionalAgreement.css";
+import Wiralogo from "../../asset/image/Wiraalogowhite.png";
 import Accountfootor from '../../Layout/Accountfooter';
 
 function ProfessionalServiceAgreement() {

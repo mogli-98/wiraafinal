@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import { Container, Row, Col, Card, Table } from 'react-bootstrap';
-import "../../Aseset/css/project.css"
-import WiraaLogo from '../../Aseset/image/Wiraalogo.png';
+import "../../asset/css/project.css"
+import WiraaLogo from '../../asset/image/Wiraalogo.png';
 import { Link } from 'react-router-dom';
 import clientBoard from '../../Model/clientdash';
 function PostRequirement() {

@@ -1,8 +1,8 @@
 import React from 'react';
 
-import "../../Aseset/css/AccfooContactus.css";
-import Wiraalogo from "../../Aseset/image/Wiraalogo.png";
-import Wiraaalogo from "../../Aseset/image/Wiraalogowhite.png";
+import "../../asset/css/AccfooContactus.css";
+import Wiraalogo from "../../asset/image/Wiraalogo.png";
+import Wiraaalogo from "../../asset/image/Wiraalogowhite.png";
 import Accountfootor from '../../Layout/Accountfooter';
 
 function ContactComponent() {

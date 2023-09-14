@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../Aseset/css/PrivacyPolicy.css"; // Import your CSS file for styling
+import "../../asset/css/PrivacyPolicy.css"; // Import your CSS file for styling
 import Accountfootor from '../../Layout/Accountfooter';
 // import myImage from './myImage.jpg'; // Import your image
 

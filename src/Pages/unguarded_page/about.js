@@ -1,8 +1,8 @@
 import React from "react";
 import Header from "../../Layout/Header"
 import {Container ,Row,Col,Card} from "react-bootstrap";
-import aboutus from "../../Aseset/image/aboutus.png";
-import wiraa from "../../Aseset/image/wiraa.jpg"
+import aboutus from "../../asset/image/aboutus.png";
+import wiraa from "../../asset/image/wiraa.jpg"
 import Accountfootor from "../../Layout/Accountfooter";
 function Aboutus(){
     return (

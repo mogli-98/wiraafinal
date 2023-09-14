@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
-import '../../Aseset/css/dashboard.css'
+import '../../asset/css/dashboard.css'
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
-import test from '../../Aseset/image/test.JPG'
+import test from '../../asset/image/test.JPG'
 function Messaages(props) {
     const [activeTab, setActiveTab] = useState("Tab1");
 

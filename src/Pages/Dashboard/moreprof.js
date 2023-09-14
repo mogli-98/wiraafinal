@@ -2,7 +2,7 @@ import React  from 'react';
 import {Container,  Row, Col, Card } from "react-bootstrap";
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
-import bookbulb from '../../Aseset/image/bookbulb.png'
+import bookbulb from '../../asset/image/bookbulb.png'
 
 
 function Moreprof() {

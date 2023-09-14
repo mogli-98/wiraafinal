@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
-import '../../Aseset/css/dashboard.css'
+import '../../asset/css/dashboard.css'
 import Sidenav from './layout/Sidenav';
-import test2 from "../../Aseset/image/test2.png";
-import test from "../../Aseset/image/test.JPG";
+import test2 from "../../asset/image/test2.png";
+import test from "../../asset/image/test.JPG";
 import Topnav from './layout/topnav';
 import Auth from '../../Model/Auth.model';
 

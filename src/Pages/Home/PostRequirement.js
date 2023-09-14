@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import "../../Aseset/css/postrequirement.css"
+import "../../asset/css/postrequirement.css"
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import WiraaLogo from '../../Aseset/image/Wiraalogo.png';
+import WiraaLogo from '../../asset/image/Wiraalogo.png';
 import { Link } from 'react-router-dom';
 function PostRequirement() {
     return (

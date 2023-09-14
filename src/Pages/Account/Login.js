@@ -1,11 +1,11 @@
 import React ,{useState} from "react";
 import { Container, Row, Col, Card } from 'react-bootstrap'
-import '../../Aseset/css/account.css';
+import '../../asset/css/account.css';
 // import InputGroup from 'react-bootstrap/InputGroup';
 import Auth from "../../Model/Auth.model";
 import { Link } from "react-router-dom";
 import { TextField } from '@mui/material';
-import wirralogo from '../../Aseset/image/Wiraalogo.png';
+import wirralogo from '../../asset/image/Wiraalogo.png';
 import Accountfooter from '../../Layout/Accountfooter';
 import { helper } from '../../lib/helper';
 const Login = () => {

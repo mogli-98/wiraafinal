@@ -1,13 +1,13 @@
 import React,{useState} from 'react';
 import { Container, Row, Col,Card} from "react-bootstrap";
-import "../../Aseset/css/freelanceredashboard.css";
+import "../../asset/css/freelanceredashboard.css";
 import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
-import bookbag from '../../Aseset/image/freelancerdash/bookbag.png'
+import bookbag from '../../asset/image/freelancerdash/bookbag.png'
 
-import topcard2 from '../../Aseset/image/freelancerdash/topcard2.png'
-import topcard3 from '../../Aseset/image/freelancerdash/topcard3.png'
-import topcard4 from '../../Aseset/image/freelancerdash/topcard4.png'
+import topcard2 from '../../asset/image/freelancerdash/topcard2.png'
+import topcard3 from '../../asset/image/freelancerdash/topcard3.png'
+import topcard4 from '../../asset/image/freelancerdash/topcard4.png'
 // import { Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 // import Form from 'react-bootstrap/Form';

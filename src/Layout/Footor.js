@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Row, Col } from 'react-bootstrap';
-import Wiraalogowhite from "../Aseset/image/Wiraalogowhite.png"
+import Wiraalogowhite from "../asset/image/Wiraalogowhite.png"
 import { Link } from 'react-router-dom';
 function Footor() {
   return (

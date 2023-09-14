@@ -1,10 +1,10 @@
 import React ,{useEffect,useState} from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
-import "../../Aseset/css/freelanceredashboard.css";
+import "../../asset/css/freelanceredashboard.css";
 import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
-import test from '../../Aseset/image/test.JPG'
-import veg from '../../Aseset/image/freelancerdash/veg.png'
+import test from '../../asset/image/test.JPG'
+import veg from '../../asset/image/freelancerdash/veg.png'
 import { Link } from "react-router-dom";
 import { useParams } from 'react-router-dom';
 import ProjectDetail from '../../Model/project.model';

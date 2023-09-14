@@ -1,8 +1,8 @@
 import React ,{useEffect, useState}from 'react';
 import { Container, Row, Col,Card } from 'react-bootstrap';
-import "../../Aseset/css/postrequirement.css"
+import "../../asset/css/postrequirement.css"
 import Form from 'react-bootstrap/Form';
-import WiraaLogo from '../../Aseset/image/Wiraalogo.png';
+import WiraaLogo from '../../asset/image/Wiraalogo.png';
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
 import DataTable from 'react-data-table-component';

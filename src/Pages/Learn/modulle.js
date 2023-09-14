@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Card, Accordion } from 'react-bootstrap';
-import "../../Aseset/css/postrequirement.css"
+import "../../asset/css/postrequirement.css"
 import Form from 'react-bootstrap/Form';
-import WiraaLogo from '../../Aseset/image/Wiraalogo.png';
+import WiraaLogo from '../../asset/image/Wiraalogo.png';
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table';
-import '../../Aseset/css/learn.css'
-import model from '../../Aseset/image/model.png'
+import '../../asset/css/learn.css'
+import model from '../../asset/image/model.png'
 import Sidenav from '../Dashboard/layout/Sidenav';
 import Topnav from '../Dashboard/layout/topnav';
 function Project() {

@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
-import '../../../Aseset/css/dashboard.css'
+import '../../../asset/css/dashboard.css'
 import Sidenav from '../layout/Sidenav';
-import test2 from "../../../Aseset/image/test2.png";
+import test2 from "../../../asset/image/test2.png";
 import Modal from 'react-bootstrap/Modal';
 import Topnav from '../layout/topnav';
-import bookbulb from '../../../Aseset/image/bookbulb.png'
-import nonotifi from '../../../Aseset/image/nonotifi.png'
+import bookbulb from '../../../asset/image/bookbulb.png'
+import nonotifi from '../../../asset/image/nonotifi.png'
 function Messages() {
     
     return (

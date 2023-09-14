@@ -1,8 +1,8 @@
 import React from 'react';
-import Wiraalogo from "../../../Aseset/image/Wiraalogo.png";
+import Wiraalogo from "../../../asset/image/Wiraalogo.png";
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Popover from 'react-bootstrap/Popover';
-import  "../../../Aseset/css/dashboard.css"
+import  "../../../asset/css/dashboard.css"
 import {
   CDBSidebar,
   CDBSidebarContent,

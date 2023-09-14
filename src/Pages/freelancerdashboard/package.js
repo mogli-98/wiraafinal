@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col } from "react-bootstrap";
-import "../../Aseset/css/freelanceredashboard.css";
+import "../../asset/css/freelanceredashboard.css";
 import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
 

@@ -1,8 +1,8 @@
 import React from 'react';
 // import './UserAgreement.css';
-import "../../Aseset/css/AccfooUserAgreement.css";
+import "../../asset/css/AccfooUserAgreement.css";
 import Accountfootor from '../../Layout/Accountfooter';
-// import Wiraalogo from "../../Aseset/image/Wiraalogo.png";
+// import Wiraalogo from "../../asset/image/Wiraalogo.png";
 
 const UserAgreement = () => {
     return (

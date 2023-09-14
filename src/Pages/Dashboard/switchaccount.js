@@ -3,7 +3,7 @@ import {Container, Row, Col, Card, Dropdown, Form} from "react-bootstrap";
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
 import { Link } from 'react-router-dom';
-import bookbulb from "../../Aseset/image/bookbulb.png"
+import bookbulb from "../../asset/image/bookbulb.png"
 import Switchform from '../../Model/switch.model';
 function SwitchAccount() {
     const [Qualifi , setQualifi] = useState([]);

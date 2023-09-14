@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card, Table } from 'react-bootstrap';
-import "../../Aseset/css/project.css"
+import "../../asset/css/project.css"
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
 import { Link } from 'react-router-dom';

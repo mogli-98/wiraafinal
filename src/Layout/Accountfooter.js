@@ -1,10 +1,10 @@
 import React from 'react'
 // import { Container, Row, Col } from 'react-bootstrap';
-import Wiraalogo from "../Aseset/image/Wiraalogo.png"
+import Wiraalogo from "../asset/image/Wiraalogo.png"
 import { Link } from 'react-router-dom';
 // import React from 'react';
-// import '../Aseset/css/Accountfootor.css' ;
-import "../Aseset/css/accountfooter.css";
+// import '../asset/css/Accountfootor.css' ;
+import "../asset/css/accountfooter.css";
 
 
 function Accountfootor() {

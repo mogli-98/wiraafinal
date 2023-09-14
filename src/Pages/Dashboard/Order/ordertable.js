@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card, Form } from 'react-bootstrap';
-import "../../../Aseset/css/project.css"
+import "../../../asset/css/project.css"
 import Sidenav from '../layout/Sidenav';
 import Topnav from '../layout/topnav';
-import orderpost from '../../../Aseset/image/orderpost.png'
+import orderpost from '../../../asset/image/orderpost.png'
 import DataTable from 'react-data-table-component';
 import Orderbook from '../../../Model/Order.model';
 import { Link } from 'react-router-dom';
