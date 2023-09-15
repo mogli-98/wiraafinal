@@ -12,7 +12,7 @@ const Auth = {
     },
     async Profile(data) {
         return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/people/${data.userId}?page=1&per_page=9`));
+            `https://wiraa-api.azurewebsites.net/api/v1/people/${data.userId}?page=1&per_page=15`));
     },
     async Portfolio(data) {
         return (await axios.get(

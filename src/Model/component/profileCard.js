@@ -8,21 +8,21 @@ function ProfileCard(props){
     const {data} = props;
     const [isHovered1, setIsHovered1] = useState(false);
     const [userpro , setuserPro] = useState([]);
-    useEffect(() => {
-        Auth.Myprofile().then((response)=>{
-        setuserPro(response.data);
-        });
-    },[])
+    // useEffect(() => {
+    //     Auth.Myprofile().then((response)=>{
+    //     setuserPro(response.data);
+    //     });
+    // },[])
     console.log(props);
     return  <Card style=
         {{
-            width: "100%",
+          
             height: "100%",
             backgroundColor:"#efefef",
             border: isHovered1 ? "2px solid #008080" : "1px solid transparent",
             transition: "border  ease-in-out",
             "flex":"1 1 30%",
-            "margin":"18px"
+            "margin":"8px"
         }}
             onMouseEnter={() => setIsHovered1(true)}
             onMouseLeave={() => setIsHovered1(false)}
@@ -34,7 +34,7 @@ function ProfileCard(props){
         </center>
         <div className=''>
             <h5 className='mt-3 text-center '><b> {data.FirstName}</b></h5>
-            <p className='text-center  textstyle'>web developer</p>     
+            <p className='text-center  textstyle'>{data.OccupationName}</p>     
         </div>
         <Container>
             <Row className='mb-3'>
@@ -42,7 +42,7 @@ function ProfileCard(props){
                     <div style={{ display: isHovered1 ? ' none' : 'block' }}
                     onMouseEnter={() => setIsHovered1(true)}
                     onMouseLeave={() => setIsHovered1(false)}>
-                    <h6 className='text-center'>193</h6>
+                    <h6 className='text-center'>{data.FollowerCount}</h6>
                     <p className='text-center' 
                     >Followers </p>
                     </div>
@@ -58,7 +58,7 @@ function ProfileCard(props){
                     <div style={{ display: isHovered1 ? ' none' : 'block' }}
                     onMouseEnter={() => setIsHovered1(true)}
                     onMouseLeave={() => setIsHovered1(false)}>
-                    <h6 className='text-center'>222</h6>
+                    <h6 className='text-center'>{data.PostCount}</h6>
                       <p className='text-center'>Portfolio</p></div>
                     {isHovered1 && (
                         <center>

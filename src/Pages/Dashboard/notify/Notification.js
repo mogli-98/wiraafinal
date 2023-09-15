@@ -8,8 +8,9 @@ function Nonotiftyy() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const id = localStorage.getItem("id");
-    clientBoard.allNotifi({id}).then((respnse) =>{
+    const userProfileId = localStorage.getItem("UserID");
+    console.log(userProfileId)
+    clientBoard.allNotifi({userProfileId}).then((respnse) =>{
        
             if(respnse?.data)
             {

@@ -31,7 +31,7 @@ export function toast1(title, text = "", icon = "warning") {
     timerProgressBar: false,
     showConfirmButton: false,
     position: 'top-end',
-    timer: 1500,
+    timer: 3000,
     heightAuto: 'false',
     height: '100px'
   });
@@ -51,7 +51,7 @@ export function confirm(title, text, icon = "success",  cancelButton = false, co
 }
 
 export function capitalizeLetter(string) {
-  if (string != "") {
+  if (string !== "") {
     const words = string.split(" ");
     const capitalizedWords = words.map(word => {
       return word.charAt(0).toUpperCase() + word.slice(1);

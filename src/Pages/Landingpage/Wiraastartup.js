@@ -27,8 +27,8 @@ function WiraaStartup() {
 
     return (
         <>
-
-            <div className="page">
+   <div style={{backgroundColor:'white'}}>     
+   <div className="page">
                 <Navbar />
                 <Container>
                     <Row>
@@ -314,7 +314,7 @@ function WiraaStartup() {
             </div>
 
             <Accountfootor />
-
+            </div>       
         </>
     );
 }

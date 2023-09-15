@@ -34,7 +34,7 @@
     margin: 0 auto;
     display: block;
     width: 150px;
-    margin-top: 25px;
+    /* margin-top: 15px; */
 }
 
 .career-h3 {
@@ -69,6 +69,6 @@
 }
 
 .career-h4 {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }

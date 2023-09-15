@@ -1,12 +1,17 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import '../../asset/css/career.css'; // Import your CSS file if you have one
 import Image1 from "../../asset/image/aboutus.png"
 import Navbar from '../../Layout/Header';
 import Accountfootor from '../../Layout/Accountfooter';
 
 function Career() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
     return (
         <>
+        <div style={{backgroundColor:'white'}}>
         <Navbar/>
         <center>
     <div className="career_container">
@@ -70,6 +75,7 @@ function Career() {
     </center>
 
     <Accountfootor/>
+    </div>
 
     </>
     );

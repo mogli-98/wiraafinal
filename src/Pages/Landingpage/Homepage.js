@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { Container, Row, Col, Card } from 'react-bootstrap';
 import "../../asset/css/homepage.css";
 import Picture1 from '../../asset/image/Picture1.png';
@@ -11,14 +11,16 @@ import Picture7 from '../../asset/image/Picture7.png';
 import Picture8 from '../../asset/image/Picture8.png';
 import Picture9 from '../../asset/image/Picture9.png';
 import Picture10 from '../../asset/image/Picture11.png';
-import Picture12 from '../../asset/image/Picture12.png';
-import Picture13 from '../../asset/image/Picture13.png';
-import Picture14 from '../../asset/image/Picture14.png';
-import Picture15 from '../../asset/image/Picture15.png';
-import Picture16 from '../../asset/image/Picture16.png';
-import Picture17 from '../../asset/image/Picture17.png';
-import Picture18 from '../../asset/image/Picture18.png';
-import Picture19 from '../../asset/image/Picture19.png';
+
+import Picture12 from '../../asset/image/Business.png';
+import Picture13 from '../../asset/image/creativity.png';
+import Picture14 from '../../asset/image/engineering.png';
+import Picture15 from '../../asset/image/it.png';
+import Picture16 from '../../asset/image/Lifestyle.png';
+import Picture17 from '../../asset/image/megaphone.png';
+import Picture18 from '../../asset/image/knowledge.png';
+import Picture19 from '../../asset/image/Writing.png';
+
 import Picture20 from '../../asset/image/Picture20.png';
 import SectionBanner from '../../asset/image/Sectionbanner.jpg'
 import connect from "../../asset/image/connect.png";
@@ -28,11 +30,16 @@ import { Link } from "react-router-dom";
 // import WiraaStartup from './Wiraastartup';
 // import { Box } from 'react-bootstrap-icons';
 function Homepage() {
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       {/* Top-banner-section */}
-      <section>
-        <Container fluid className='mt-5 '>
+      <section style={{backgroundColor:'white'}}>
+        <Container fluid className='pt-5 '>
           <Row className='pt-0' >
             {/* <Col sm={1} className="mt-5" >
 
@@ -80,15 +87,15 @@ function Homepage() {
         </Container>
       </section>
       {/* TRUSTED-section */}
-      <section >
-        <Container className='mt-5'>
-          <Row className='pt-5'>
-            <Col sm={5} style={{marginTop:'65px'}} > <span className='header' >Hire top talents from  <span style={{ color: '#008080' }}>anywhere</span> </span>
-              <p className='subheader' style={{backgroundColor:'ButtonHighlight'}} >We’re available on Android devices and platforms.
+      <section  style={{backgroundColor:'white'}}>
+        <Container className='pt-4'>
+          <Row className='pt-4'>
+            <Col sm={5} style={{marginTop:'30px'}} > <span className='header' >Hire top talents from  <span style={{ color: '#008080' }}>anywhere</span> </span>
+              <p className='subheader' style={{backgroundColor:'ButtonHighlight',}} >We’re available on Android devices and platforms.
               </p>
             </Col>
-            <Col sm={3}><img src={Picture10} alt="" style={{ width: '82%',marginTop:'50px' }} /></Col>
-            <Col sm={4}><img src={Picture9} alt="" style={{ width: "80%",height:'100%',float:"right" }} /></Col>
+            <Col sm={3}><img src={Picture10} alt="" style={{ width: '82%',marginTop:'30px',marginLeft:'10px' }} /></Col>
+            <Col sm={4}><img src={Picture9} alt="" style={{ width: "80%",height:'100%',float:"right"}} /></Col>
           </Row>
 
         </Container>
@@ -108,28 +115,28 @@ function Homepage() {
           <Row className='pt-5 '>
             <Col sm={3} xs={6}>
               <div className='card-box' style={{ textAlign: 'center' }}>
-                <img src={Picture12} alt="" className='card-img' style={{ display: 'block', margin: 'auto' }} />
+                <img src={Picture12} alt="" className='card-img' style={{ height:'60px',width:'60px',display: 'block', margin: 'auto' }} />
                 <h1>Business</h1>
               </div>
             </Col>
             <Col sm={3} xs={6}>
               <div className='card-box' style={{ textAlign: 'center' }}
               >
-                <img src={Picture13} alt="" className='card-img' />
+                <img src={Picture13} alt="" className='card-img' style={{height:'60px',width:'60px'}} />
                 <h1>Creative</h1>
               </div>
             </Col>
             <Col sm={3} xs={6}>
               <div className='card-box' style={{ textAlign: 'center' }}
               >
-                <img src={Picture14} alt="" className='card-img' />
+                <img src={Picture14} alt="" className='card-img' style={{height:'60px',width:'60px'}} />
                 <h1>Engineering</h1>
               </div>
             </Col>
             <Col sm={3} xs={6}>
               <div className='card-box' style={{ textAlign: 'center' }}
               >
-                <img src={Picture15} alt="" className='card-img' />
+                <img src={Picture15} alt="" className='card-img' style={{height:'60px',width:'60px'}} />
                 <h1>IT</h1>
               </div>
             </Col>
@@ -137,25 +144,25 @@ function Homepage() {
           <Row className='pt-5 pb-5'>
             <Col sm={3} md={3} xs={6}>
               <div className='card-box'>
-                <img src={Picture16} alt="" className='card-img' />
+                <img src={Picture16} alt="" className='card-img' style={{height:'60px',width:'60px'}} />
                 <h1>Lifestyle</h1>
               </div>
             </Col>
             <Col sm={3} md={3} xs={6}>
               <div className='card-box'>
-                <img src={Picture17} alt="" className='card-img' />
+                <img src={Picture17} alt="" className='card-img' style={{height:'60px',width:'60px'}} />
                 <h1>Marketing</h1>
               </div>
             </Col>
             <Col sm={3} xs={6}>
               <div className='card-box'>
-                <img src={Picture18} alt="" className='card-img' />
+                <img src={Picture18} alt="" className='card-img' style={{height:'60px',width:'60px'}} />
                 <h1>Study</h1>
               </div>
             </Col>
             <Col sm={3} xs={6}>
               <div className='card-box'>
-                <img src={Picture19} alt="" className='card-img' />
+                <img src={Picture19} alt="" className='card-img' style={{height:'60px',width:'60px'}} />
                 <h1>Writing</h1>
               </div>
             </Col>

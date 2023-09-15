@@ -7,50 +7,69 @@ import Modal from 'react-bootstrap/Modal';
 import Topnav from './layout/topnav';
 import bookbulb from '../../asset/image/bookbulb.png'
 import clientBoard from '../../Model/clientdash';
+import { helper } from '../../lib/helper';
+
+
 function Notification() {
     const [allnotifi, setallNotifi] = useState([]);
-    const [selectedOptions, setSelectedOptions] = useState([]);
-    const [dataList, setDataList] = useState([]);
+
+
     const [activeTab, setActiveTab] = useState("Tab1");
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(true);
-    const [formData, setFormData] = useState({
-        Id: '',
-     
 
-    });
     const handleClick = (tab) => {
         setActiveTab(tab);
     };
-    const onOptionSelected = (notificationID) => {
-        var options = selectedOptions;
-        notificationID = notificationID.target.value;
-        console.log("selectedOptions", notificationID, options)
-        if (options.indexOf(notificationID) > -1) options.splice(options.indexOf(notificationID), 1)
-        else options.push(notificationID);
-        setSelectedOptions(options);
-        console.log("selectedOptions", selectedOptions)
-    }
-    useEffect(() => {
-        const id = localStorage.getItem("id");
-        clientBoard.allNotifi({id}).then((response) => {
+    const Unread = async () => {
+        const userProfileId = localStorage.getItem("UserID");
+        clientBoard.Unreadnotice({userProfileId}).then((response) => {
             // localStorage.setItem('delid' ,response.data[0]['notificationID']);
             console.log(response.data)
             setallNotifi(response.data);
-        })
-    }, [])
-    const notiDelete = () => {
-        
-      
-        console.log("selectedOptions", selectedOptions)
-    
-        const form = new FormData();       
-        form.append("Id", selectedOptions)
-        clientBoard.datadelete(form).then((res) =>{
-            console.log(res.data)
-            alert(`Deleted successfully!`);
+        }).catch((error) => {
+            console.log("error => ", error)
         })
     }
+    const Read = async (notificationId ) => {
+
+        const userProfileId = localStorage.getItem("UserID");
+      
+        clientBoard.Readnotice({userProfileId ,notificationId}).then((response) => {
+            // localStorage.setItem('delid' ,response.data[0]['notificationID']);
+            console.log(response.data)
+           alert("Notification Read Successfully")
+        }).catch((error) => {
+            console.log("error => ", error)
+        })
+    }
+    const fetchData = async () => {
+        const userProfileId = localStorage.getItem("UserID");
+        clientBoard.allNotifi({userProfileId}).then((response) => {
+            // localStorage.setItem('delid' ,response.data[0]['notificationID']);
+            console.log(response.data)
+            setallNotifi(response.data);
+        }).catch((error) => {
+            console.log("error => ", error)
+        })
+    }
+    const onDelete = (id) => {
+        helper.sweetalert.confirm('Are you sure?', "You won't be able to revert this!", "warning", true).then((result) => {
+            if (result.isConfirmed) {
+                const userProfileId = localStorage.getItem("UserID");
+                console.log(userProfileId)
+                clientBoard.deleteNotice({userProfileId}).then((res) => {
+                    console.log(res.data)
+                    helper.sweetalert.toast("Deleted", 'All Notification has been delete Successfuly', 'success')
+                    fetchData();
+                })
+
+            }
+        })
+    }
+   useEffect(() => {
+    fetchData();
+   }, [])
     
     return (
         <>
@@ -72,7 +91,7 @@ function Notification() {
                                                         className={`tab text-center ${activeTab === "Tab2" ? "active" : ""}`}
                                                         onClick={() => handleClick("Tab2")}
                                                     >
-                                                        <button className='notifi-unread-button'> <ion-icon name="mail-unread-outline"></ion-icon>Unread</button>
+                                                        <button className='notifi-unread-button' onClick={Unread}> <ion-icon name="mail-unread-outline"></ion-icon>Unread</button>
                                                     </div>
                                                 </Col>
                                                 <Col className=''>
@@ -80,7 +99,7 @@ function Notification() {
                                                         className={`tab text-center ${activeTab === "Tab3" ? "active" : ""}`}
                                                         onClick={() => handleClick("Tab3")}
                                                     >
-                                                        <button className='notifi-delete-button' onClick={notiDelete} ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3-fill" viewBox="0 0 16 16">
+                                                        <button className='notifi-delete-button' onClick={onDelete} ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3-fill" viewBox="0 0 16 16">
                                                             <path d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1    .5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
                                                         </svg>Delete</button>
                                                     </div>
@@ -94,8 +113,8 @@ function Notification() {
                                                         <Card style={{ backgroundColor: "#efefef" }} className='m-2'>
                                                             <div>
 
-                                                                <p className='m-2'>  <input type="checkbox" name='Id' onChange={onOptionSelected} value={pdata.notificationID}   />
-                                                                    <img src={`http://demo.wiraa.com/${pdata.profilePic}`} alt="" height={40} width={40} style={{ borderRadius: "8px" }} className="m-2" />{pdata.comments}<span className='small text-disable m-2'> 2h</span> </p>
+                                                                <p className='m-2'> 
+                                                                    <img src={`http://demo.wiraa.com/${pdata.profilePic}`} alt="" height={40} width={40} style={{ borderRadius: "8px" }} className="m-2" />{pdata.Comments}<span className='small text-disable m-2'> 2</span> </p>
                                                             
                                                             </div>
                                                         </Card>
@@ -105,43 +124,32 @@ function Notification() {
                                                 </div></>}
                                             {activeTab === "Tab2" && <>
                                                 <div className='m-3'>
-                                                    <Card style={{ backgroundColor: "#efefef" }}>
-                                                        <div>
+                                                {allnotifi && allnotifi.map((pdata) =>
+                                                        <Card style={{ backgroundColor: "#efefef" ,cursor:'pointer'}} className='m-2'  onClick={() => {Read(pdata.NotificationID) }}>
+                                                            <div>
 
-                                                            <p className='m-2'> <img src={test2} alt="" height={30} width={40} style={{ borderRadius: "8px" }} className="m-2" /><b>Mohit Kushwaha</b> commented on your portfolio.<span className='small text-disable m-2'> 21h</span> </p>
-                                                        </div>
-                                                    </Card>
-                                                    <Card style={{ backgroundColor: "#efefef" }}>
-                                                        <div>
+                                                                <p className='m-2'> 
+                                                                    <img src={`http://demo.wiraa.com/${pdata.profilePic}`} alt="" height={40} width={40} style={{ borderRadius: "8px" }} className="m-2" />{pdata.Comments}<span className='small text-disable m-2'> 2h</span> </p>
+                                                            
+                                                            </div>
+                                                        </Card>
 
-                                                            <p className='m-2'> <img src={test2} alt="" height={30} width={40} style={{ borderRadius: "8px" }} className="m-2" /><b>Mohit Kushwaha</b> commented on your portfolio.<span className='small text-disable m-2'> 21h</span> </p>
-                                                        </div>
-                                                    </Card>
-                                                    <Card style={{ backgroundColor: "#efefef" }}>
-                                                        <div>
+                                                    )}
 
-                                                            <p className='m-2'> <img src={test2} alt="" height={30} width={40} style={{ borderRadius: "8px" }} className="m-2" /><b>Mohit Kushwaha</b> commented on your portfolio.<span className='small text-disable m-2'> 21h</span> </p>
-                                                        </div>
-                                                    </Card>
                                                 </div></>}
                                             {activeTab === "Tab3" && <>
                                                 <div className='m-3'>
-                                                    <div
-                                                        className="modal show"
-                                                        style={{ display: 'block', position: 'initial' }}
-                                                    >
-                                                        <Modal.Dialog>
-                                                            <Modal.Header closeButton>
-                                                                <Modal.Title>Notification Delete</Modal.Title>
-                                                            </Modal.Header>
-                                                            <Modal.Footer>
-                                                                
-                                                                <Button variant="primary" onClick={handleClose}>
-                                                                    Close
-                                                                </Button>
-                                                            </Modal.Footer>
-                                                        </Modal.Dialog>
-                                                    </div>
+                                                {allnotifi && allnotifi.map((pdata) =>
+                                                        <Card style={{ backgroundColor: "#efefef" }} className='m-2'>
+                                                            <div>
+
+                                                                <p className='m-2'> 
+                                                                    <img src={`http://demo.wiraa.com/${pdata.profilePic}`} alt="" height={40} width={40} style={{ borderRadius: "8px" }} className="m-2" />{pdata.Comments}<span className='small text-disable m-2'> 2h</span> </p>
+                                                            
+                                                            </div>
+                                                        </Card>
+
+                                                    )}
                                                 </div></>}
                                         </div>
                                     </div>
