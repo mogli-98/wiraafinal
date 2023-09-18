@@ -11,73 +11,58 @@ function Hiretalent() {
     const [city , setCity] = useState([]);
     const [formData, setFormData] = useState({
     postreqID: 0,
-    pR_Description: "",
-    pR_FKCatID: '',
-    pR_FKSubCategoryID: '',
-    expertise: '',
-    serviceMode: '',
-    city:'',
-    serviceStartDate:'',
+    title : "",
+    projectDescription : '',
+    category : '',
+    subCategory : '',
+    country : '',
+    mobile :'',
+    currency :'',
     budget: '',
     workType: '',
-    postStatus: '',
-    postExpireDate: '',
-    postValidity: '',
-    validityStatus: '',
-    userid: '',
-    applyDat:'',
-    preferService: '',
-    directUserId: '',
-    ProjectDescription:"",
-    Duration:"",
-    Country:"",
-    MobileNo:"",
-
+    isFeatured : '',
+    preferService:'',
+    duration:"",
+    city:'',
+    serviceMode:'',
 });
-      const handleInputChange = (event) => {
-        setFormData({
-          ...formData,
-          [event.target.name]: event.target.value,
-        });
-      };
-    const handleSubmit = (event) => {
-        console.log(event);
-        event.preventDefault();
-        const formdata = new FormData();
-        Auth.PostRequest(formdata)
-            .then((response) => {
-                console.log(response.data, "yes data update");
-                // Display success message to the user
-            })
-            .catch((error) => {
-                console.log(error);
-                // Display error message to the user
-            });
-    };
+//       const handleInputChange = (event) => {
+//         setFormData({
+//           ...formData,
+//           [event.target.name]: event.target.value,
+//         });
+//       };
+//     const handleSubmit = (event) => {
+//         console.log(event);
+//         event.preventDefault();
+//         const formdata = new FormData();
+//         Auth.PostRequest(formdata)
+//             .then((response) => {
+//                 console.log(response.data, "yes data update");
+//                 // Display success message to the user
+//             })
+//             .catch((error) => {
+//                 console.log(error);
+//                 // Display error message to the user
+//             });
+//     };
    
-    useEffect(() => {
-    Auth.GetCategory().then((response) =>{
-setCategory(response.data)
-console.log(response.data)
 
-    }
-    )
-    }, [])
-    useEffect(() => {
-        Auth.GetSubCategory().then((response) =>{
-            setGetSubCategory(response.data)
-    console.log(response.data)
+//     useEffect(() => {
+//         Auth.GetSubCategory().then((response) =>{
+//             setGetSubCategory(response.data)
+//     console.log(response.data)
     
-        }
-        )
-        }, [])
+//         }
+//         )
+//         }, [])
         
-        useEffect(() => {
-            Auth.City().then((response) =>{
-                setCity(response.data)
-                console.log(response.data)
-            })
-            }, [])
+//         useEffect(() => {
+//             Auth.City().then((response) =>{
+//                 setCity(response.data)
+//                 console.log(response.data)
+//             })
+//             }, [])
             
     return (
         <>
@@ -94,7 +79,7 @@ console.log(response.data)
                             <Row>
                                 <Col sm={8} className="square border-end ">
                                     <h3 className='text-center mt-5'>Find talent your way</h3>
-                                    <Form className='m-4' onClick={handleSubmit}>
+                                    <Form className='m-4' >
                                         <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
                                             <Form.Label>Project Title: <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -102,7 +87,7 @@ console.log(response.data)
                                             <Form.Control type="email" placeholder="I am looking for...." 
                                             vlue={formData.ProjectDescription}
                                             name='ProjectDescription'
-                                            onChange={handleInputChange}
+                                             
                                             />
                                         </Form.Group>
                                         <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlTextarea1">
@@ -112,7 +97,7 @@ console.log(response.data)
                                             <Form.Control as="textarea" rows={3} placeholder="Our requriments are...."
                                              value={formData.pR_Description}
                                              name='pR_Description'
-                                             onChange={handleInputChange}
+                                              
                                             />
                                         </Form.Group>
                                         <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlTextarea1">
@@ -129,11 +114,11 @@ console.log(response.data)
                                                         }}
                                                             value={formData.pR_FKCatID}
                                                             name='pR_FKCatID'
-                                                            onChange={handleInputChange}
+                                                             
                                                     >
                                                         {
                                                             category && category.map((categorylist )=>
-                                                              <option value={categorylist.curriculumID}>{categorylist.curriculumName}</option>)
+                                                              <option value={categorylist.CurriculumID}>{categorylist.CurriculumName}</option>)
                                                         }
                                                     </select>
                                                 </Col>
@@ -145,7 +130,7 @@ console.log(response.data)
                                                             }}
                                                         value={formData.pR_FKSubCategoryID}
                                                         name='pR_FKSubCategoryID'
-                                                        onChange={handleInputChange}>
+                                                         >
                                                             {
                                                                 GetSubCategory && GetSubCategory.map((SubCategory) =>
                                                                 <option value={SubCategory.id}> {SubCategory.gradeName}</option>
@@ -186,7 +171,7 @@ console.log(response.data)
                                                     <Form.Control type="text" placeholder="Phone Number"
                                                     value={formData.MobileNo}
                                                     name='MobileNo'
-                                                    onChange={handleInputChange}></Form.Control>
+                                                     ></Form.Control>
                                                     
                                                 </Col>
                                             </Row>
@@ -217,7 +202,7 @@ console.log(response.data)
                                                         }}
                                                         value={formData.budget}
                                                     name='budget'
-                                                    onChange={handleInputChange}
+                                                     
                                                     />
                                                 </Col>
                                                 <Col><p className='mt-2'><b>to</b></p></Col>
@@ -228,7 +213,7 @@ console.log(response.data)
                                                     }}
                                                     value={formData.budget}
                                                     name='budget'
-                                                    onChange={handleInputChange}
+                                                     
                                                     /></Col>
                                                 <Col sm={3}>
 
@@ -285,7 +270,7 @@ console.log(response.data)
                                                     <Form.Control placeholder="Global"
                                                      value={formData.Country}
                                                      name='Country'
-                                                     onChange={handleInputChange} />
+                                                       />
                                                 </Col>
                                                 <Col sm={4}>
                                                     <Form.Control type="email" placeholder="Local" />

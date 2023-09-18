@@ -7,7 +7,6 @@ import Affiliate from '../../Model/Affilate.model';
 
 function Orderdetailsbrief() {
     const [affi, setAfii] = useState();
-    const [report, setReport] = useState();
     //model for copunn
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -65,7 +64,7 @@ function Orderdetailsbrief() {
                                 <Topnav />
 
 
-                                <Row>
+                                <Row className='mt-3'>
                                     <Col>
                                         <div className='editAffiliate'>
 
@@ -178,20 +177,18 @@ function Orderdetailsbrief() {
                                     </Container>
 
                                 </Modal>
-                                <Modal show={show1} onHide={handleClose1}>
-                                    <Container>
-
-                                        <h3>Report</h3>
-                                        <p>Check your monthly affiliation Report </p>
-
+                                <Modal show={show1} onHide={handleClose1} size='lg'>
+                                    <Container >
+                                        <h3 className='text-center mt-3'>Report</h3>
+                                        <p  className='text-center  '>Check your monthly affiliation Report </p>
                                         <Row>
                                             <Col sm={4}>
-                                                <Form.Group className="mb-3" controlId="formBasiclink">
+                                                <Form.Group className="mb-3" controlId="formBasiclink" style={{width:"90%" ,marginLeft:'20px'}}>
                                                     <Form.Control type="text" placeholder="Suresh Srivastav" />
                                                 </Form.Group>
                                             </Col>
                                             <Col sm={4}>
-                                                <select name="Month" id="Month" className='month' style={{ width: '100%', height: '35px' }} >
+                                                <select name="Month" id="Month" className='month' style={{ width: '90%', height: '35px',marginLeft:'10px' }} >
                                                     <option value="Jan" disabled>Month</option>
                                                     <option value="feb">Febuary</option>
                                                     <option value="march">March</option>
@@ -201,7 +198,7 @@ function Orderdetailsbrief() {
                                             </Col>
 
                                             <Col sm={4}>
-                                                <select name="Month" id="Month" className='month' style={{ width: '100%', height: '35px' }} >
+                                                <select name="Month" id="Month" className='month'style={{ width: '90%', height: '35px',marginLeft:'px' }} >
                                                     <option value="Jan" disabled>Year</option>
                                                     <option value="feb">Febuary</option>
                                                     <option value="march">March</option>
@@ -260,7 +257,7 @@ function Orderdetailsbrief() {
                                     </Container>
 
                                 </Modal>
-                                <Modal show={show2} onHide={handleClose2}>
+                                <Modal show={show2} onHide={handleClose2} size='lg'>
                                     <Container>
 
                                         <center><h3 className='mt-3'>Payout</h3>
@@ -268,40 +265,18 @@ function Orderdetailsbrief() {
 
                                         <Row>
                                             <Col sm={6}>
-                                                <Form.Group className="mb-3" controlId="formBasiclink">
+                                                <Form.Group className="" controlId="formBasiclink">
                                                     <Form.Control type="text" placeholder="Suresh Srivastav" />
-                                                </Form.Group></Col>
+                                                </Form.Group>
+                                            </Col>
                                             <Col sm={6}>
-                                                <Form.Group className="mb-3" controlId="formBasiclink">
+                                                <Form.Group className="" controlId="formBasiclink">
                                                     <Form.Control type="link" placeholder="Payout no.04" />
-                                                </Form.Group></Col>
+                                                </Form.Group>
+                                                </Col>
                                         </Row>
-
-
-                                        {/* <Row>
-                                            <Col sm={2}>
-
-                                                <select name="Month" id="Month" className='month' >
-                                                    <option value="Jan" disabled>Month</option>
-                                                    <option value="feb">Febuary</option>
-                                                    <option value="march">March</option>
-                                                    <option value="April" selected>April</option>
-                                                </select>
-                                            </Col>
-                                            <Col sm={2}>
-                                                <select name="Year" id="Year" className='month' >
-                                                    <option value="Jan" disabled>Year</option>
-                                                    <option value="feb">Febuary</option>
-                                                    <option value="march">March</option>
-                                                    <option value="April" selected>April</option>
-                                                </select>
-
-                                            </Col>
-                                        </Row> */}
-
-
-                                        <Row  >
-                                            <Col sm={12} style={{ marginTop: '15px' }}>
+                                        <Row>
+                                            <Col sm={12}>
                                                 <Form.Group className="mb-3" controlId="formBasiclink">
                                                     <Form.Control type="text" style={{ height: '80px' }} placeholder="Note for payment method" />
                                                 </Form.Group></Col>

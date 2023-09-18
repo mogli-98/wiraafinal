@@ -24,9 +24,8 @@ function Nonotiftyy() {
   return (
     <div>
       {userData ? (
-             <Notification data={userData} /> 
+        <Notification data={userData} /> 
       ) : (
-  
         <Nonotifty data={userData} />
       )}
     </div>

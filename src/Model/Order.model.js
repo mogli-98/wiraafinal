@@ -13,12 +13,12 @@ const Orderbook =
     },
     async ordertable(data){
         return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/order/all/${data.id}?page=1&per_page=10`
+            `https://wiraa-api.azurewebsites.net/api/v1/order/allOrders/${50313}?page=1&per_page=10`,data
         ))
     },
     async orderdetails(data){
         return(await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/order/${data}`
+            `https://wiraa-api.azurewebsites.net/api/v1/order/detailById/${data.order_id}`
         ))
     },
     async allanswer(data){

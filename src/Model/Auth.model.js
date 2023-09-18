@@ -50,9 +50,8 @@ const Auth = {
     },
     async Userporfiolio(data) {
         return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/portfolio/${data.id}
-                `
-        ))
+            `https://wiraa-api.azurewebsites.net/api/v1/people/peopleById/${data.userId}` ))
+            
     },
     async PostRequest(data) {
         return (await axios.post(
@@ -61,7 +60,7 @@ const Auth = {
     },
     async GetCategory(data) {
         return (await axios.get(
-            `https://wiraa.com/api/Users/GetCategory`
+            `https://wiraa-api.azurewebsites.net/api/v1/static/getAllCategory`
         ))
     },
     async GetSubCategory(data) {

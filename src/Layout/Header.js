@@ -12,7 +12,7 @@ function Navbar() {
         </div>
         <div className="navbar-right">
          
-          <Link to='/learn'className="learn"><button style={{ border:'none',backgroundColor:'transparent'}}><b> Learn </b></button></Link>
+          <Link to='/Module'className="learn"><button style={{ border:'none',backgroundColor:'transparent'}}><b> Learn </b></button></Link>
           <Link to='/Wiraastartup'className="startup"> <button style={{ border:'none',backgroundColor:'transparent'}}><b>Startup</b> </button> </Link>
           <Link to='/Account/login'><button className="navbar-button login"><b>Login</b></button></Link>
           <Link to="/Account/singup"><button className="navbar-button join"><b>Signup</b></button></Link>

@@ -16,7 +16,7 @@ function Orderdetailsbrief() {
 
         {
             name: 'Title',
-            selector: (row) => row.PR_Description,
+            selector: (row) => row.Title,
             
             cell: row => {
                 // console.log(row)
@@ -27,7 +27,7 @@ function Orderdetailsbrief() {
                     "text-overflow": "ellipsis",
                     borderRightColor
                     }}>
-                        <Link to={`/Orderdetailsbreief/${row.PostreqID}`}>{row.PR_Description}</Link></div>
+                        <Link to={`/Orderdetailsbreief/${row.PostreqID}`}>{row.Title}</Link></div>
                 )
             },
             maxWidth: "450px", 
@@ -40,18 +40,35 @@ function Orderdetailsbrief() {
         },
         {
             name: 'Due Date ',
-            selector: (row) => row.ApplyDate,
+            selector: (row) => row.DueDate,
             maxWidth: "120px",
         },
         {
             name: 'Due Date',
-            selector: (row) => row.PostExpireDate,
+            selector: (row) => row.ApplyDate,
             maxWidth: "120px",
+        },
+        {
+            name: 'Status',
+            selector: (row) => row.Status,
+            maxWidth: "120px",
+            cell: row => {
+                if (row.Status === 'Closed') {
+                    return<><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="red" class="bi bi-dot" viewBox="0 0 16 16">
+                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                  </svg></>;
+                  } else if (row.Status === 'Open') {
+                    return<><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" class="bi bi-dot" viewBox="0 0 16 16">
+                    <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"/>
+                  </svg></>;
+                  }},
+                
+            
         },
     ]
     useEffect(() => {
-        const id = localStorage.getItem("id");
-        Orderbook.ordertable({ id }).then((respnse) => {
+        const userId  = localStorage.getItem("UserID");
+        Orderbook.ordertable({ userId }).then((respnse) => {
             console.log(respnse.data)
             setoederTable(respnse.data)
             setStatus(respnse?.data?.PostStatus)

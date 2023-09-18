@@ -10,6 +10,15 @@
     url("../../Fonts/Helvetica.ttf") format("truetype");
 }
 
+/* DataTable.css */
+.svg-red {
+  fill: red; /* Change the fill color to red */
+}
+
+.svg-default {
+  fill: black; /* Change the fill color to the default color */
+}
+
 .dhxSNJ {
   position: fixed !important;
   background-color: #fff !important;
@@ -461,8 +470,8 @@ a {
 
 .switch {
   margin-right: 20px;
-  border-radius: 5px;
-  width: 105px;
+  border-radius: 20px;
+  width: 80px;
   color: #008080;
   border-color: #008080;
   background-color: #fff;
@@ -500,8 +509,8 @@ color: #7e8829 !important;
 
 .hire {
   margin-right: 0px;
-  border-radius: 5px;
-  width: 105px;
+  border-radius: 20px;
+  width: 80px;
   background-color: #008080;
   border-style: none;
   border-color: #008080;

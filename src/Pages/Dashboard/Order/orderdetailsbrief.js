@@ -12,7 +12,8 @@ function Orderdetailsbrief() {
 
     useEffect(() => {
         console.log(params, "new data");
-        Orderbook.orderdetails(params.id).then((respone) => {
+        const order_id = params.id;
+        Orderbook.orderdetails({order_id}).then((respone) => {
             console.log(respone.data)
             setOrderDetails(respone.data)
         })
@@ -43,7 +44,7 @@ function Orderdetailsbrief() {
                                             <Card className='m-3' style={{ background: "#efefef", borderStyle: 'none' }}>
                                                 <div className=' m-3 project-details'>
                                                     <p><b>Tilte</b>
-                                                        <br />Graphic Designer for brand identity
+                                                        <br />{orderdetails[0]?.Title}
                                                     </p>
                                                     <p className='mt-4'><b>Description</b>
                                                         <br />
@@ -51,7 +52,7 @@ function Orderdetailsbrief() {
                                                     </p>
 
                                                     <p className='pt-3'><b>Category</b>
-                                                        <br />Creative - Graphic Design
+                                                        <br />{orderdetails[0]?.Category}
                                                     </p>
                                                     <p className='mt-3'><b>Budget</b>
                                                         <br />INR {orderdetails[0]?.Budget} /-
@@ -67,23 +68,23 @@ function Orderdetailsbrief() {
                                                 <tbody>
                                                     <tr>
                                                         <td className='left-td'>Status</td>
-                                                        <td className='right-td text-success'><b>{orderdetails[0]?.PostStatus}</b></td>
+                                                        <td className='right-td text-success'><b>{orderdetails[0]?.Status}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td className='left-td'>Order Date</td>
-                                                        <td className='right-td'><b>{orderdetails[0]?.PostExpireDate}</b></td>
+                                                        <td className='right-td'><b>{orderdetails[0]?.ApplyDate}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td className='left-td'>Due Date</td>
-                                                        <td className='right-td'><b>05/12/2022</b></td>
+                                                        <td className='right-td'><b>{orderdetails[0]?.DueDate}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td className='left-td'>Responser</td>
-                                                        <td className='right-td'><b>49</b></td>
+                                                        <td className='right-td'><b>{orderdetails[0]?.response}</b></td>
                                                     </tr>
                                                     <tr>
                                                         <td className='left-td'>Order Number</td>
-                                                        <td className='right-td'><b>49</b></td>
+                                                        <td className='right-td'><b>{orderdetails[0]?.orderNumber}</b></td>
                                                     </tr>
                                                 </tbody>
                                             </Table>

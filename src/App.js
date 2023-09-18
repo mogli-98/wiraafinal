@@ -75,8 +75,6 @@ function App() {
               <Route path='/ContactComponent' element={<ContactComponent/>}/>
               <Route path='/ProfessionalServiceAgreement' element={<ProfessionalServiceAgreement/>}/>
               <Route path='/UserAgreement' element={<UserAgreement/>}/>
-
-
             {/* User-Dashborad link */}
               <Route path='/user/dashboard' element={<Dashboard/>}/>
             {/* Order page link*/}

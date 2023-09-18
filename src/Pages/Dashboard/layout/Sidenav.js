@@ -10,10 +10,11 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from 'cdbreact';
-import { NavLink ,Link  } from 'react-router-dom';
+import { NavLink ,Link,useLocation  } from 'react-router-dom';
 
 const Sidebar = () => {
 
+  const location = useLocation();
 
   return (
     <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial'}}>
@@ -34,9 +35,9 @@ const Sidebar = () => {
             <NavLink exact to="/Order"  activeClassName="active" >
               <CDBSidebarMenuItem  className="text-dark "> <ion-icon name="paper-plane-outline"></ion-icon><h4 className='chh'>Orders</h4></CDBSidebarMenuItem>
             </NavLink>
-            <Link exact to="/user/Project"  >
+            {/* <Link exact to="/user/Project"  >
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="briefcase-outline" ></ion-icon><h4 className='chh'>Projects</h4></CDBSidebarMenuItem>
-            </Link>
+            </Link> */}
             <NavLink exact to="/Message" >
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="mail-outline"></ion-icon><h4 className='chh'>Messages</h4></CDBSidebarMenuItem>
             </NavLink>

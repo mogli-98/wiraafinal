@@ -8,11 +8,7 @@ function ProfileCard(props){
     const {data} = props;
     const [isHovered1, setIsHovered1] = useState(false);
     const [userpro , setuserPro] = useState([]);
-    // useEffect(() => {
-    //     Auth.Myprofile().then((response)=>{
-    //     setuserPro(response.data);
-    //     });
-    // },[])
+
     console.log(props);
     return  <Card style=
         {{
