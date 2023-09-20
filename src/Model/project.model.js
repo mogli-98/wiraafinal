@@ -4,7 +4,7 @@ const ProjectDetail = {
                                                                 
     async Allproject(data) {
         return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/project?page=1&per_page=10
+            `https://wiraaback.azurewebsites.net/api/v1/project?page=1&per_page=10
             `
         ));
     },

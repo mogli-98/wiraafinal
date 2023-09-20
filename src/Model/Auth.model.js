@@ -4,19 +4,19 @@ const Auth = {
 
     async login(data) {
         return (await axios.post(
-            `https://wiraa-api.azurewebsites.net/api/v1/auth/login`, data));
+            `https://wiraaback.azurewebsites.net/api/v1/auth/login`, data));
     },
     async singUp(data) {
         return (await axios.post(
-            `https://wiraa-api.azurewebsites.net/api/v1/auth/signup`, data));
+            `https://wiraaback.azurewebsites.net/api/v1/auth/signup`, data));
     },
     async Profile(data) {
         return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/people/${data.userId}?page=1&per_page=15`));
+            `https://wiraaback.azurewebsites.net/api/v1/people/${data.userId}?page=1&per_page=15`));
     },
     async Portfolio(data) {
         return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/portfolio/all/${data.user_id}?page=1&per_page=9`));
+            `https://wiraaback.azurewebsites.net/api/v1/portfolio/all/${data.user_id}?page=1&per_page=9`));
     },
     async userProfile(data) {
         return (await axios.get(
@@ -45,12 +45,12 @@ const Auth = {
     },
     async addcomments(data) {
         return (await axios.post(
-            `https://wiraa-api.azurewebsites.net/api/v1/portfolio/addComment`, data
+            `https://wiraaback.azurewebsites.net/api/v1/portfolio/addComment`, data
         ))
     },
     async Userporfiolio(data) {
         return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/people/peopleById/${data.userId}` ))
+            `https://wiraaback.azurewebsites.net/api/v1/people/peopleById/${data.userId}` ))
             
     },
     async PostRequest(data) {
@@ -60,7 +60,7 @@ const Auth = {
     },
     async GetCategory(data) {
         return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/static/getAllCategory`
+            `https://wiraaback.azurewebsites.net/api/v1/static/getAllCategory`
         ))
     },
     async GetSubCategory(data) {
