@@ -4,9 +4,10 @@ import "./MyAffiliations.css"
 import Sidenav from '../Dashboard/layout/Sidenav';
 import Topnav from '../Dashboard/layout/topnav';
 import Affiliate from '../../Model/Affilate.model';
-
+import DataTable from 'react-data-table-component';
 function Orderdetailsbrief() {
     const [affi, setAfii] = useState();
+    const [report , setReport] = useState();
     //model for copunn
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -41,14 +42,65 @@ function Orderdetailsbrief() {
 
         })
     }, [])
-    // useEffect(() => {
-    //     Affiliate.Report().then((respone) =>{
-    //     console.log(respone.data)
-    //     setReport(respone.data)
+    useEffect(() => {
+        Affiliate.Report().then((respone) =>{
+        console.log(respone.data)
+        setReport(respone.data)
 
-    //     })
-    // }, [])
+        })
+    }, [])
+const columns = [
+    {
+        name:"Id",
+        selector: (row) => row.AffiliateId,
+        width:"50px",
+    },
+    {
+        name:"Affiliate ",
+        selector: (row) => row.AffiliateCode,
+    },
+    {
+        name:"Date ",
+        selector: (row) => row.affliateStartDate,
+    },
+    {
+        name:"Amount",
+        selector: (row) => row.PayableCommission,
+    },
+    {
+        name:"Coupon",
+        selector: (row) => row.CouponCode,
+    },
+    {
+        name:"Commission",
+        selector: (row) => row.CouponTotalCommission,
+    },
+    {
+        name:"Status",
+        selector: (row) => row.ConversionStatus,
+        cell: row => {
+            if (row.ConversionStatus === '1') {
+                return<><p style={{color:"green",fontWeight:"700"}}>Converted</p></>;
+              } else if (row.ConversionStatus === '2') {
+                return<><p style={{color:"red",fontWeight:"700"}}>Dropped</p></>;
+              }},
+            
+    },
 
+]
+    const customStyles = {
+
+    rows: {
+        style: {
+          border: '1px solid white', // Add a border to the table rows
+        },
+      },
+      Cell: {
+        style: {
+          border: '1px solid white', // Add a border to the table rows
+        },
+      },
+};
     return (
         <>
             <>
@@ -57,37 +109,28 @@ function Orderdetailsbrief() {
                         <Col sm={1} xs={2} className=''>
                             <Sidenav />
                         </Col>
-
-
                         <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
                             <Container className='square border border-bottom-0'>
                                 <Topnav />
-
-
                                 <Row className='mt-3'>
                                     <Col>
                                         <div className='editAffiliate'>
-
-                                            <button className='myaff_button' onClick={handleShow5}>Edit Affiliate</button>
+                                            {/* <button className='myaff_button' onClick={handleShow5}>Edit Affiliate</button> */}
                                             <button className='myaff_button'>Create Coupon</button>
                                             <button className='myaff_button' onClick={handleShow} >Report</button>
                                             {/* <p style={{float:'right' ,position:'relative'}}>₹2</p>   */}
                                             <button className='myaff_button1' onClick={handleShow2}>Payout</button>
                                         </div>
-
                                     </Col>
                                 </Row>
-
-
                                 <Row>
                                     <Col>
                                         <div className="table">
                                             <div className="table_affi">
-                                                <h6 className='m-2' style={{ color: '#008080' }} onClick={handleShow4}>All Affiliates</h6>
-
+                                                <h6 className='' style={{ color: '#008080',marginTop:'10px',marginLeft:"22px" }} onClick={handleShow4}>All Visitors</h6>
                                                 <button className='butn' onClick={handleShow1} >Copy Link </button>
                                             </div>
-                                            <Table style={{ border: '2px solid lightgrey' }}>
+                                            {/* <Table style={{ border: '2px solid lightgrey' }}>
                                                 <thead>
                                                     <tr>
                                                         <th style={{ borderBottom: '1px solid black' }}>ID</th>
@@ -115,11 +158,15 @@ function Orderdetailsbrief() {
                                                     )}
 
                                                 </tbody>
-                                            </Table>
+                                            </Table> */}
+                                            <DataTable
+                                            customStyles={customStyles}
+                                            columns={columns}
+                                            data={affi}
+                                            />
                                         </div>
                                     </Col>
                                 </Row>
-
                                 <Modal show={show} onHide={handleClose}>
                                     <Container >
                                         <Row>
@@ -183,8 +230,8 @@ function Orderdetailsbrief() {
                                         <p  className='text-center  '>Check your monthly affiliation Report </p>
                                         <Row>
                                             <Col sm={4}>
-                                                <Form.Group className="mb-3" controlId="formBasiclink" style={{width:"90%" ,marginLeft:'20px'}}>
-                                                    <Form.Control type="text" placeholder="Suresh Srivastav" />
+                                                <Form.Group className="mb-3" controlId="formBasiclink" style={{width:"90%" }}>
+                                                    <Form.Control type="text" placeholder="Suresh Srivastav" defaultValue={report?.[0].AffiliateCode} />
                                                 </Form.Group>
                                             </Col>
                                             <Col sm={4}>
@@ -216,7 +263,7 @@ function Orderdetailsbrief() {
                                                     <Card>
                                                         <center>
                                                             <h5 className='mt-3'>Unpaid Affiliates</h5>
-                                                            <p>2032</p>
+                                                            <p>{report?.[0].Dropped}</p>
                                                         </center>
                                                     </Card>
                                                 </Col>
@@ -224,7 +271,7 @@ function Orderdetailsbrief() {
                                                     <Card>
                                                         <center>
                                                             <h5 className='mt-3'>Paid Affiliates</h5>
-                                                            <p>02</p>
+                                                            <p>{report?.[0].Converted}</p>
                                                         </center>
                                                     </Card>
                                                 </Col>
@@ -236,15 +283,15 @@ function Orderdetailsbrief() {
                                                     <Card>
                                                         <center>
                                                             <h5 className='mt-3'>Total Affiliates</h5>
-                                                            <p>3982</p>
+                                                            <p>{report?.[0].TotalSignup}</p>
                                                         </center>
                                                     </Card>
                                                 </Col>
                                                 <Col sm={6}>
                                                     <Card>
-                                                        <center>
+                                                        <center>₹
                                                             <h5 className='mt-3'>Total Commissions</h5>
-                                                            <p>₹33,329</p>
+                                                            <p> ₹ {report?.[0].PayoutAmount}/-</p>
                                                         </center>
                                                     </Card>
                                                 </Col>

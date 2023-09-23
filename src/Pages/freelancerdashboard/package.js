@@ -21,11 +21,11 @@ function Package() {
             <Container className='square border border-bottom-0'>
               <Topnavbar />
               <Row >
-                <div className='pricing-top-text mb-4'>
+                {/* <div className='pricing-top-text mb-4'>
                   <p className='text-center'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
                   <p className='text-center'>Change Your Plans Anytime</p>
-                </div>
-              <Col sm={4} xs={12}>
+                </div> */}
+              {/* <Col sm={4} xs={12}>
                 <div className='pricing-table1 pricing-table  '> 
                 <ul className='pt-2'>
                       <li><b>Basic</b></li>
@@ -90,7 +90,176 @@ function Package() {
                       <button><b>Select</b></button>
                       </ul>  
                 </div>
-              </Col>
+              </Col> */}
+              <div className="container mt-4">
+
+<table className="styled-table">
+    <thead>
+        <tr>
+            <th>Client Dashboard</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {/* {Array.from({ length: 11 }, (_, rowIndex) => (
+            <tr key={rowIndex}>
+                {Array.from({ length: 4 }, (_, colIndex) => (
+                    <td key={colIndex}>Data {rowIndex * 4 + colIndex + 1}</td>
+                ))}
+            </tr>
+        ))} */}
+        <tr>
+            <td style={{color:'grey',fontWeight:700}}>
+                Order Listing
+            </td>
+            <td style={{fontWeight:600}}>
+                Normal
+            </td>
+            <td style={{fontWeight:600}}>
+                Featured
+            </td>
+            <td style={{fontWeight:600}}>
+                Featured
+            </td>
+        </tr>
+
+        <tr>
+            <td style={{color:'grey',fontWeight:700}}>
+                Job Posting
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+        </tr>
+
+
+        <tr style={{ height: '40px' }}>
+            <td style={{color:'grey',fontWeight:700}}>
+                Verified Professionals
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+        </tr>
+
+        <tr style={{ height: '40px' }}>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+            <td>
+
+            </td>
+        </tr>
+
+        <tr>
+            <th style={{ fontWeight: 700 }}>Professional Dashboard</th>
+            <th></th>
+            <th></th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <td style={{color:'grey',fontWeight:700}}>
+                Project Credits
+            </td>
+            <td style={{fontWeight:600}}>
+                05
+            </td>
+            <td style={{fontWeight:600}}>
+                50
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+        </tr>
+
+        <tr>
+            <td style={{color:'grey',fontWeight:700}}>
+                Project Commission
+            </td>
+            <td style={{fontWeight:600}}>
+                15%
+            </td>
+            <td style={{fontWeight:600}}>
+                10%
+            </td>
+            <td style={{fontWeight:600}}>
+                05%
+            </td>
+        </tr>
+
+        <tr>
+            <td style={{color:'grey',fontWeight:700}}>
+                Profile Listing
+            </td>
+            <td style={{fontWeight:600}}>
+                Normal
+            </td>
+            <td style={{fontWeight:600}}>
+                Featured
+            </td>
+            <td style={{fontWeight:600}}>
+                Featured
+            </td>
+        </tr>
+
+        <tr>
+            <td style={{color:'grey',fontWeight:700}}>
+                Project alert
+            </td>
+            <td style={{fontWeight:600}}>
+                Normal
+            </td>
+            <td style={{fontWeight:600}}>
+                1 hour advance alert
+            </td>
+            <td style={{fontWeight:600}}>
+                1 hour advance alert
+            </td>
+        </tr>
+
+        <tr>
+            <td style={{color:'grey',fontWeight:700}}>
+                Project bookmark
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+            <td style={{fontWeight:600}}>
+                Unlimited
+            </td>
+        </tr>
+
+
+
+
+
+    </tbody>
+</table>
+</div>
               </Row>
 
             </Container>

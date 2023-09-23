@@ -1,18 +1,15 @@
-import axios from "axios";
+import axiosInstance from "../lib/axiosInstance";
 
 const Affiliate = {
                                                                 
     async allAffi(data) {
-        return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/affiliate/all?page=1&per_page=10
-            `
+        return (await axiosInstance.get(
+            `/affiliate/visitor/1`
         ));
     },
     async Report(data) {
-        return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/affiliate/report/2
-            `
-        ))
+        return (await axiosInstance.get(
+            `/affiliate/report/1`  ,data        ))
     }
 
               

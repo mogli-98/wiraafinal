@@ -12,7 +12,7 @@ function Nonotiftyy() {
     console.log(userProfileId)
     clientBoard.allNotifi({userProfileId}).then((respnse) =>{
        
-            if(respnse?.data)
+            if(respnse?.data.length === 0)
             {
                 setUserData(respnse?.data);
             }
@@ -24,9 +24,9 @@ function Nonotiftyy() {
   return (
     <div>
       {userData ? (
-        <Notification data={userData} /> 
+        <Notification  /> 
       ) : (
-        <Nonotifty data={userData} />
+        <Nonotifty  data={userData} />
       )}
     </div>
   );

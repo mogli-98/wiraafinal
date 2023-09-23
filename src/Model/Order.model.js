@@ -1,34 +1,44 @@
-import axios from  "axios";
+import axiosInstance from "../lib/axiosInstance";
 const Orderbook =
 {
     async community(data) {
-        return (await axios.get(
+        return (await axiosInstance.get(
             `http://demo.wiraa.com/api/Question/GetAllQuestion?userId=${data.id}`
         ));
     },
     async Myquestion(data) {
-        return( await axios.get(
+        return( await axiosInstance.get(
             `http://demo.wiraa.com/api/Question/GetMyQuestion?userId=${data.id}`
         ))
     },
     async ordertable(data){
-        return (await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/order/allOrders/${50313}?page=1&per_page=10`,data
+        return (await axiosInstance.get(
+            `/order/allOrders/${data.userId}?page=1&per_page=10`,data
         ))
     },
     async orderdetails(data){
-        return(await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/order/detailById/${data.order_id}`
+        return(await axiosInstance.get(
+            `/order/detailById/${data.order_id}`
+        ))
+    },
+    async orderclosed(data){
+        return(await axiosInstance.get(
+            `/order/orderClose`
+        ))
+    },
+    async interestedProfessinal(data){
+        return(await axiosInstance.get(
+            `/order/interestedProfessional/${data.orderId }`
         ))
     },
     async allanswer(data){
-        return(await axios.get(
+        return(await axiosInstance.get(
             `http://demo.wiraa.com/api/Question/GetMyAnswer?userId=${data.id}`
         ))
     }
     ,async favproject(data){
-        return(await axios.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/project/favorite/${data.id}`
+        return(await axiosInstance.get(
+            `/project/favorite/${data.id}`
         ))
     }
  

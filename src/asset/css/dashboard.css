@@ -799,6 +799,20 @@ color: #7e8829 !important;
   width: 0px;
   display: flow-root !important;
 }
+.styled-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.styled-table th, .styled-table td {
+  border: 1px solid #000; /* Add borders to th and td elements */
+  padding: 8px;
+  text-align: center;
+}
+
+.styled-table th {
+  background-color: #f2f2f2; /* Add a background color to table headers */
+}
 
 @media screen and (max-width: 480px) {
   .bPQHAq .head-div .icon-suffix {

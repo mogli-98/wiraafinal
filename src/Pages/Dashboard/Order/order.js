@@ -4,15 +4,15 @@ import Ordertable from "./ordertable";
 import Orderbook from "../../../Model/Order.model";
 
 function Order() {
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const id = localStorage.getItem("id");
-        Orderbook.ordertable({id}).then((respnse) =>{
-            if(respnse?.data)
+    const userId  = localStorage.getItem("UserID");
+        Orderbook.ordertable({userId}).then((respnse) =>{
+            if(respnse?.data.length  === 0)
             {
-                setUserData(respnse.data.data);
+                setUserData(respnse.data);
             }
         setLoading(false);
       })
@@ -21,10 +21,10 @@ function Order() {
 
   return (
     <div>
-      {userData ? (
-        <NOorder />
+      {userData?.length > 0 ? (
+        <NOorder data={userData} />
       ) : (
-        <Ordertable data={userData} />
+        <Ordertable  />
       )}
     </div>
   );

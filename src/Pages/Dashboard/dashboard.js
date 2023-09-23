@@ -7,11 +7,37 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Portfolio from './layout/portfolio';
 import Profile from './layout/profile';
 import Topnav from './layout/topnav';
+import { useEffect } from 'react';
+import Switchform from '../../Model/switch.model';
+import Select from "react-select";
 
-// import { Link } from "react-router-dom";
 function Dashboard(props) {
-    const [selectedOptions, setSelectedOptions] = useState();
+    const [selectedOptions, setSubCategory] = useState(null);
+    // const [selectedOptions, setSelectedOptions] = useState();
     const [showComponent, setShowComponent] = useState(false);
+    useEffect(() => {
+        Switchform.AllSubcategorynoid().then((response) =>{
+            setSubCategory(response.data)
+            console.log(response.data)
+            
+                }
+                )
+                }, [])
+    const columns = [
+        {
+          name:'subcategory',
+          selector: (row) => row.GradeName, 
+        },
+        {
+            name:'ID',
+            selector: (row) => row.GradeID, 
+          }
+    ]
+
+
+      const Customstyles = {
+        width:'100%',backgroundColor:'#efefef',borderRadius:'21px',borderStyle:'none'
+      }
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -25,13 +51,16 @@ function Dashboard(props) {
                             <Row>
                                 <Col>
                                     <div className='' style={{ backgroundColor: "#efefef", borderRadius: "25px" }}>
-                                        <InputGroup className='mt-4 mb-4  search-outer-container'>
-                                            <Form.Control
-                                                placeholder="&#xF002; Search Portfolio"
-                                                aria-label="Search Portfolio"
-                                                className='searchbox'
-                                                style={{ backgroundColor: "#efefef" }}
-                                            />
+                                       <InputGroup className='mt-4 mb-4  search-outer-container'>
+                                            <Select
+                                            style={Customstyles.select}
+                                                options={columns}
+                                                placeholder="Select color"
+                                                defaultValue={selectedOptions}
+                                                onChange={setSubCategory}
+                                                isSearchable={true}
+                                                
+                                                />
                                             <div className="button-check">
                                                 <div className="button1 b2 new-class-toggle " id="button-10" >
                                                     <input type="checkbox" className="checkbox"

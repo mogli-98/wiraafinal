@@ -12,8 +12,8 @@ function Topnavbar() {
                         </div>
                         <div className="navbar-right1">
 
-                            <Link to='/Switchaccount'><button className="navbar-button switch"><b>Switch Account</b></button></Link>
-                            <Link to="/Hiretalent"><button className="navbar-button hire"><b>Hire talent</b></button></Link>
+                            <Link to='/Switchaccount'><button className="navbar-button switch"><b>Switch </b></button></Link>
+                            <Link to="/Hiretalent"><button className="navbar-button hire"><b>Hire </b></button></Link>
 
                         </div>
                     </nav>

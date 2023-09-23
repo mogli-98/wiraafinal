@@ -44,7 +44,7 @@
 }
 .table_affi{
     border: 2px solid grey;
-    height: 60px;
+    height:40px;
     display: flex;
     justify-content: space-between;
 
@@ -53,6 +53,6 @@
     background-color: white;
     padding-right : 30px;
     font-weight: 600;
-   color: grey;
-   border: none;
+    color: grey;
+    border: none;
 }

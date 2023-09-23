@@ -10,6 +10,7 @@ function ProtfolioCard(props) {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
     const [comment, setcomment] = useState();
+    const [allcomment , setallcomment] =  useState();
     const [outid, setOutid] = useState(0)
     const isStatusTrue = useState(
         { isStatusTrue: data.UserLiked === 0 }
@@ -21,6 +22,7 @@ function ProtfolioCard(props) {
     const openCheckoutModal = (id) => {
         setOutid(id);
         handleShow(true);
+        fetchdata(outid)
     }
     const handleInputChange = (event) => {
         setFormData({
@@ -28,7 +30,16 @@ function ProtfolioCard(props) {
             [event.target.name]: event.target.value,
         });
     };
-
+    const fetchdata = async (outid) =>{
+       
+      const id = outid
+        Auth.AllComments(id).then((res) => {
+            setallcomment(res.data)
+        })
+            .catch((error) => {
+                console.log("error => ", error)
+            })
+    }
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
@@ -84,14 +95,12 @@ function ProtfolioCard(props) {
                 <Container>
                     <Row>
                         <Col>
-                        <div>
+                        <div style={{ width: "-webkit-fill-available", height: '220px' ,border:"1px solid black"}}>
                             <img src={`http://demo.wiraa.com${data.ImageURL}`} alt="Avatar" className="m-1" style={{ width: "-webkit-fill-available", height: '220px' }} />
-                            <div className="frloo">
-                                <p><ion-icon name="heart-outline" ion-icon1 ></ion-icon> <span>{data?.likesCount}</span>
-                                    <ion-icon name="chatbox-ellipses-outline" className="ion-icon1"></ion-icon> <span>{data.commentCount}</span></p>
-                            </div>
-                            <p className='small mt-4'>{data?.Description}</p>
-                            <div style={{ borderRadius: "20px" }}>
+                            
+                            
+                        </div>
+                        <div style={{ borderRadius: "20px" ,position:'relative',bottom:'0'}}className="mt-2" >
                                 <form onSubmit={handleSubmit} >
                                     <input type="number" style={{ display: 'none' }} name="postId" value={outid}
                                     />
@@ -108,36 +117,19 @@ function ProtfolioCard(props) {
                                     </InputGroup>
                                 </form>
                             </div>
-                        </div>
                         </Col>
-                        <Col></Col>
+                        <Col>
+                        <p className='small mt-1'>{data?.Description} <ion-icon name="heart-outline" ion-icon1 ></ion-icon> <span>{data?.LikesCount}</span></p>
+                            <div style={{height:"20vh"}}>
+                            {allcomment && allcomment.map((commentlist) =>
+                        
+                              <p>  {commentlist.FirstName} - {commentlist?.Comment}</p>    )}
+                            </div>
+                           
+                        </Col>
                     </Row>
                 </Container>
-                {/* <div>
-                    <img src={`http://demo.wiraa.com${data.ImageURL}`} alt="Avatar" className="m-1" style={{ width: "-webkit-fill-available", height: '220px' }} />
-                    <div className="frloo">
-                        <p><ion-icon name="heart-outline" ion-icon1 ></ion-icon> <span>{data?.likesCount}</span>
-                            <ion-icon name="chatbox-ellipses-outline" className="ion-icon1"></ion-icon> <span>{data.commentCount}</span></p>
-                    </div>
-                    <p className='small mt-4'>{data?.Description}</p>
-                    <div style={{borderRadius: "20px"}}>
-                        <form onSubmit={handleSubmit} >
-                        <input type="number" style={{display:'none'}} name="postId"  value={outid}
-                           />
-                            <InputGroup className="mb-3  rounded-circle">
-                                <TextField type="rext"
-                                    placeholder="Comment Here..."
-                                    aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2"
-                                    name='comment' required
-                                    size="small"
-                                    onChange={handleInputChange}
-                                />
-                                <button id="basic-addon2" className="btn" type="submit" style={{ borderColor: "#efefef", borderWidth: "2px" }}>Post</button>
-                            </InputGroup>
-                        </form>
-                    </div>
-                </div> */}
+             
             </Modal.Body>
         </Modal>
     </>
