@@ -1,27 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, Dropdown, Form } from "react-bootstrap";
+import { Container, Row, Col, Card,  Form } from "react-bootstrap";
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
-import { Link } from 'react-router-dom';
+
 import bookbulb from "../../asset/image/bookbulb.png"
 import Switchform from '../../Model/switch.model';
+import AllCountryList from './layout/AllCountrylist'
+import AllCitylistID from './layout/AllCitylistID';
 function SwitchAccount() {
-    const [Qualifi, setQualifi] = useState([]);
-    const [CityFillter, setCityFillter] = useState('');
-    // useEffect(() => {
-    //     Switchform.Qualification().then((response) =>{
-    //         console.log(response.data);
-    //         setQualifi(response.data);
-    //     });
-    // }, [])
-    // useEffect(() => {
-    //     Switchform.City().then((response) =>{
-    //         console.log(response.data);
-    //         setCityFillter(response.data);
-    //     });
-    // }, [])
-
-
+    const [selectedOption, setSelectedOption] = useState([1]);
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -35,7 +22,7 @@ function SwitchAccount() {
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row>
-                                <Col sm={7} className=" square border-end mt-4">
+                                <Col sm={8} className=" square border-end mt-4">
                                     <h5 className='text-center'>Find great works</h5>
                                     <Form className='m-4'>
                                         <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
@@ -84,14 +71,14 @@ function SwitchAccount() {
                                             <Form.Label> <span style={{ fontSize: '18px' }}>About me: </span>  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                             </svg></Form.Label>
-                                            <Form.Control as="textarea" rows={3} placeholder="Please enter a headline" className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
+                                            <Form.Control as="textarea"name='aboutMe' rows={3} placeholder="Please enter a headline" className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
                                         </Form.Group>
                                         <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlTextarea1">
                                             <Form.Label> <span style={{ fontSize: '18px' }}>Experience: </span>    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                             </svg>
                                                 <span style={{ fontSize: '12px', color: 'grey', fontWeight: 600 }}> ( Min 25 words ) </span>  </Form.Label>
-                                            <Form.Control as="textarea" rows={3} placeholder="Please enter work experience" className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
+                                            <Form.Control as="textarea" name='experience' rows={3} placeholder="Please enter work experience" className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
                                         </Form.Group>
 
 
@@ -99,29 +86,11 @@ function SwitchAccount() {
 
                                             <Row>
                                                 <Col sm={6}>
-                                                    <Form.Label> <span style={{ fontSize: '18px' }}> Country:</span>  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
-                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                                    </svg></Form.Label>
-                                                    <Form.Control placeholder="Your Country" className='formborder' value={CityFillter} onChange={(e) => setCityFillter(e.target.value)} style={{ paddingLeft: '20px', fontSize: '17px' }} />
+                                                <AllCountryList onSelect={setSelectedOption} />
+                                            
                                                 </Col>
                                                 <Col sm={6}>
-                                                    <Form.Label> <span style={{ fontSize: '18px' }}> City:</span>  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
-                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                                    </svg></Form.Label>
-
-                                                    <Form.Control placeholder="Your City" className='formborder' value={CityFillter} onChange={(e) => setCityFillter(e.target.value)} style={{ paddingLeft: '20px', fontSize: '17px' }} />
-
-                                                    {/* <Dropdown>
-                                                        <Dropdown.Toggle id="dropdown-basic" placeholder='Choose Occupation' style={{ backgroundColor: "#fff",borderColor: "#797979", width: "-webkit-fill-available", float: "left",paddingLeft:'20px',fontSize:'17px' }}>
-                                                            Choose occupation
-                                                        </Dropdown.Toggle>
-
-                                                        <Dropdown.Menu style={{ height: '130px', overflowY: "scroll" }}>
-                                                            {Qualifi && Qualifi.map((qualdata) => <Dropdown.Item href="#/">{qualdata.qualificationName}</Dropdown.Item>)}
-                                                        </Dropdown.Menu>
-                                                    </Dropdown> */}
-
-
+                                                <AllCitylistID selectedOption={selectedOption}/>
                                                 </Col>
                                             </Row>
 
@@ -144,10 +113,113 @@ function SwitchAccount() {
                                             </Row>
 
                                         </Form.Group>
-                                        <center> <Link to="/Switchaccount-next"><button className='next'>Next</button></Link></center>
+
+
+
+
+                                        <Container className='moreprof'>
+                                            <Row className='square border-end'>
+                                                <p className='mt-4 mb-4'><b></b></p>
+                                                <Col>
+                                                    <Card style={{ backgroundColor: "grey", border:'2px solid grey' }}>
+                                                        <p style={{fontWeight:600,color:'white',fontSize:'16px'}} >Bussines</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col>
+                                                    <Card style={{ border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Creative</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col>
+                                                    <Card   style={{ border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Engineering</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col>
+                                                    <Card  style={{ border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>IT</p>
+                                                    </Card>
+                                                </Col>
+                                            </Row>
+                                            <Row className=' square border-end'>
+                                                <Col className='mt-3'>
+                                                    <Card  style={{ border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Lifestyle</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col className='mt-3'>
+                                                    <Card  style={{ border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Marketing</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col className='mt-3'>
+                                                    <Card  style={{ border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Study</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col className='mt-3'>
+                                                    <Card  style={{ border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Writing</p>
+                                                    </Card>
+                                                </Col>
+                                            </Row>
+                                            <hr className='mt-5' />
+                                            <Row >
+                                                <Col className='mt-3 pt-3'>
+                                                    <Card style={{ background: "#efefef" ,border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey'}}>Accounting & Finance</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col className='mt-3 pt-3'>
+                                                    <Card style={{ background: "#efefef",border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey'}}>Bussiness Consulting</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col className='mt-3 pt-3'>
+                                                    <Card style={{border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey'}}> Customer Support</p>
+                                                    </Card>
+                                                </Col>
+                                            </Row>
+                                            <Row className=''>
+                                                <Col className='pt-4'>
+                                                    <Card style={{  border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey'}}> Yoga</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col className='pt-4'>
+                                                    <Card style={{  border:'2px solid grey'}}>
+                                                        <p style={{fontSize:'16px',color:'grey'}}> Sport</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col className=' pt-4'>
+                                                    <Card style={{border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey'}}> Dance</p>
+                                                    </Card>
+                                                </Col>
+                                                <Col className=' pt-4'>
+                                                    <Card style={{border:'2px solid grey' }}>
+                                                        <p style={{fontSize:'16px',color:'grey'}}> Fitness</p>
+                                                    </Card>
+                                                </Col>
+                                            </Row>
+                                            <hr className='mt-4' />
+                                            {/* <center><button  className='moreprof-submit'>Submit</button></center> */}
+                                        </Container>
+
+
+
+
+
+
+                                        <center>
+                                            {/* <Link to="/Switchaccount-next"> */}
+                                                <button style={{fontWeight:600,padding:'8px',marginTop:'20px',border:'none',backgroundColor:'#008080',width:'160px',borderRadius:'8px',color:'white'}} className=''>Submit</button>
+                                            {/* </Link> */}
+                                        </center>
                                     </Form>
                                 </Col>
-                                <Col sm={5} className='p-1' >
+                                <Col sm={4} className='p-1' >
                                     <div className='last-left-span' style={{ backgroundColor: '#f5f5f5', width: "-webkit-fill-available" }} >
                                         <div className=''>
                                             <center><img style={{ height: '80px', width: '80px' }} src={bookbulb} alt="" className='switchaccount-img' />

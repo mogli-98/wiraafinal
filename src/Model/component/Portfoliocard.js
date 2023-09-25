@@ -66,7 +66,7 @@ function ProtfolioCard(props) {
             onMouseLeave={() => setIsHovered1(false)}
         >
             <div className="containerhover" style={{ border: isHovered1 ? "2px solid #008080" : "0px solid transparent", borderRadius: "5px" }} onClick={() => (openCheckoutModal(data.PostID))}>
-                <img src={`https://wiraa-api.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
+                <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
                 <div className="overlay">
                     <div className="containerhovertext">
                         {data?.AboutMe}
@@ -96,7 +96,7 @@ function ProtfolioCard(props) {
                     <Row>
                         <Col>
                         <div style={{ width: "-webkit-fill-available", height: '220px' ,border:"1px solid black"}}>
-                            <img src={`http://demo.wiraa.com${data.ImageURL}`} alt="Avatar" className="m-1" style={{ width: "-webkit-fill-available", height: '220px' }} />
+                        <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
                             
                             
                         </div>

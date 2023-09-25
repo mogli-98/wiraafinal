@@ -14,7 +14,7 @@ const clientBoard = {
     },
     async allNotifi(data) {
         return (await axiosInstance.get(
-            `/notification/all/${data.userProfileId}?page=1&per_page=10`, data
+            `https://wiraa-api.azurewebsites.net/api/v1/notification/all/${data.userProfileId}?page=1&per_page=10`, data
         ))
     },
     async userpro(data) {

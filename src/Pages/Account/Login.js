@@ -46,8 +46,9 @@ const Login = () => {
         const accessToken = response?.data?.token;
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem("UserID", response.data.user[0].UserID);
-
+        localStorage.setItem("userProfileId", response.data.user[0].UsersProfileID);
         window.location.replace("/user/dashboard")
+        console.log( response?.data)
         helper.sweetalert.toast("Welcome Back")
       }
     })

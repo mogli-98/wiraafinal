@@ -30,6 +30,19 @@ const Auth = {
             `
         );
     },
+
+
+    async addLikes(data) {
+        return (await axiosInstance.post(
+            `http://demo.wiraa.com/api/Post/AddRemoveLike`
+        ))
+    },
+
+    async Myprofile(data) {
+        return (await axiosInstance.get(
+            `http://demo.wiraa.com/api/Profile/GetProfile?userId=${data.id}`
+        ))
+    },
     async addcomments(data) {
         return (await axiosInstance.post(
             `/portfolio/addComment`, data
@@ -37,20 +50,29 @@ const Auth = {
     },
     async Userporfiolio(data) {
         return (await axiosInstance.get(
-            `/people/peopleById/${data.userId}` ))     
+            `/people/peopleById/${data.userId}` ))
+            
+    },
+    async PostRequest(data) {
+        return (await axiosInstance.post(
+            `http://demo.wiraa.com/api/Users/SavePostRequirement`
+        ))
     },
     async GetCategory(data) {
         return (await axiosInstance.get(
             `/static/getAllCategory`
         ))
     },
-    async AllComments(data) {
+    async GetSubCategory(data) {
         return (await axiosInstance.get(
-            `/portfolio/gellAllCommentByPortfolioId/1?page=1&per_page=10`
+            `https://wiraa.com/api/Users/GetSubCategory?catId=5`
         ))
     },
- 
-   
+    async City(data) {
+        return (await axiosInstance.get(
+            `https://wiraa.com/api/Profile/GetCity`
+        ))
+    }
 
 
 

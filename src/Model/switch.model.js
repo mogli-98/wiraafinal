@@ -26,9 +26,14 @@ const Switchform = {
            `/static/getAllSubcategory` ,data)
            )
     },
-    async Allcitylist(data){
+    async AllCountryList(data){
         return(await axiosInstance.get(
            `/static/getAllCountry` ,data)
+           )
+    },
+    async AllCityListId(data){
+        return(await axiosInstance.get(
+           `/static/getCityByCountryId/${data.countryId}` ,data)
            )
     }
 }

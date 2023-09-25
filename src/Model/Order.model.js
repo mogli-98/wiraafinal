@@ -13,22 +13,12 @@ const Orderbook =
     },
     async ordertable(data){
         return (await axiosInstance.get(
-            `/order/allOrders/${data.userId}?page=1&per_page=10`,data
+            `/order/allOrders/${50313}?page=1&per_page=10`,data
         ))
     },
     async orderdetails(data){
         return(await axiosInstance.get(
             `/order/detailById/${data.order_id}`
-        ))
-    },
-    async orderclosed(data){
-        return(await axiosInstance.get(
-            `/order/orderClose`
-        ))
-    },
-    async interestedProfessinal(data){
-        return(await axiosInstance.get(
-            `/order/interestedProfessional/${data.orderId }`
         ))
     },
     async allanswer(data){
