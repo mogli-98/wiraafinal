@@ -14,7 +14,7 @@ const clientBoard = {
     },
     async allNotifi(data) {
         return (await axiosInstance.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/notification/all/${data.userProfileId}?page=1&per_page=10`, data
+            `/notification/all/${data.userProfileId}?page=1&per_page=10`, data
         ))
     },
     async userpro(data) {
@@ -27,28 +27,23 @@ const clientBoard = {
             `http://demo.wiraa.com/api/project/GetAllProjectsByExpertise?Id=${data.id}`
         ))
     },
-    async datadelete(data) {
-        console.log(data)
-        return (await axiosInstance.get(
-            `http://demo.wiraa.com/api/Notification/DeleteNotification?Id=${data.id}`
-        ))
-    },    
+   
     async deleteNotice(data) {
         console.log(data)
         return (await axiosInstance.delete(
-            `https://wiraa-api.azurewebsites.net/api/v1/notification/deleteAllNotifications/${data.userProfileId}`
+            `/notification/deleteAllNotifications/${data.userProfileId}`
         ))
     },
     async Unreadnotice(data) {
         console.log(data)
         return (await axiosInstance.get(
-            `https://wiraa-api.azurewebsites.net/api/v1/notification/getUnreadNotifications/${data.userProfileId}?page=1&per_page=10`
+            `/notification/getUnreadNotifications/${data.userProfileId}?page=1&per_page=10`
         ))
     },
     async Readnotice(data) {
         console.log(data)
         return (await axiosInstance.patch(
-            `https://wiraa-api.azurewebsites.net/api/v1/notification/readNotification/${data.userProfileId}/${data.notificationId}`
+            `/notification/readNotification/${data.userProfileId}/${data.notificationId}`
         ))
     }
 

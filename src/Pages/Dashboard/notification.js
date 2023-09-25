@@ -49,6 +49,11 @@ function Notification() {
             // localStorage.setItem('delid' ,response.data[0]['notificationID']);
             console.log(response.data)
             setallNotifi(response.data);
+            if(response.data.isRead === true)
+            return<>
+            
+            </>
+
         }).catch((error) => {
             console.log("error => ", error)
         })
@@ -110,13 +115,13 @@ function Notification() {
                                             {activeTab === "Tab1" && <>
                                                 <div className='m-3'>
                                                     {allnotifi && allnotifi.map((pdata) =>
-                                                        <Card style={{ backgroundColor: "#efefef" }} className='m-2'>
+                                                        <Card style={{ backgroundColor: pdata.isRead ? 'white' : ' #efefef' }} className='m-2'>
                                                             <div>
 
-                                                                <p className='m-2'> 
-                                                                    <img src={`http://demo.wiraa.com/${pdata.profilePic}`} alt="" height={40} width={40} style={{ borderRadius: "8px" }} className="m-2" />{pdata.Comments}<span className='small text-disable m-2'> 2</span> </p>
-                                                            
-                                                            </div>
+                                                            <p className='m-2'>
+                                                                    <img src={`http://.wiraa.com/${pdata.profilePic}`} alt="" height={40} width={40} style={{ borderRadius: "8px" }} className="m-2" /> <span style={{ fontSize: '20px' }}><b> {pdata.FirstName}</b> </span> <span style={{ fontSize: '18px' }}>{pdata.Comments} </span>  <span className='small text-disable m-2'><span style={{ color: 'grey', fontSize: '16px' }}>2 h  </span>   </span>
+                                                                </p>
+                                                                </div>
                                                         </Card>
 
                                                     )}
@@ -125,7 +130,7 @@ function Notification() {
                                             {activeTab === "Tab2" && <>
                                                 <div className='m-3'>
                                                 {allnotifi && allnotifi.map((pdata) =>
-                                                        <Card style={{ backgroundColor: "#efefef" ,cursor:'pointer'}} className='m-2'  onClick={() => {Read(pdata.NotificationID) }}>
+                                                        <Card style={{ cursor:'pointer',backgroundColor: pdata.isRead ? '#efefef' : 'red',}} className='m-2'  onClick={() => {Read(pdata.NotificationID) }}>
                                                             <div>
 
                                                                 <p className='m-2'> 

@@ -35,6 +35,23 @@ const Switchform = {
         return(await axiosInstance.get(
            `/static/getCityByCountryId/${data.countryId}` ,data)
            )
+    },
+    async getAllOccupationList(data){
+        return(await axiosInstance.get(
+           `/static/getAllOccupationList` ,data)
+           )
+    }
+    ,
+    async getAllQualificationList(data){
+        return(await axiosInstance.get(
+           `/static/getAllOccupationList` ,data)
+           )
+    }
+    ,
+    async CreateProfessinoal(data){
+        return(await axiosInstance.post(
+           `/static/professinaol/createProfessional` ,data)
+           )
     }
 }
 export default Switchform;

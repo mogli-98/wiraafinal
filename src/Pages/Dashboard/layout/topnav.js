@@ -13,7 +13,7 @@ const  Topnav =({ activeLinkName } )  => {
                             <h4><b>{activeLinkName}</b></h4>
                         </div>
                         <div className="navbar-right1 mt-1">
-                            <Link to='/Switchaccount'><button className="navbar-button switch"><b>Switch <sup style={{color:'red',fontWeight:600}}> pro</sup> </b></button></Link>
+                            <Link to='/Switchacc'><button className="navbar-button switch"><b>Switch <sup style={{color:'red',fontWeight:600}}> pro</sup> </b></button></Link>
                             <Link to="/Hiretalent"><button className="navbar-button hire"><b>Hire </b></button></Link>
                         </div>
                     </nav>

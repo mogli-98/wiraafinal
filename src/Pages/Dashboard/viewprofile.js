@@ -6,6 +6,8 @@ import test2 from "../../asset/image/test2.png";
 import test from "../../asset/image/test.JPG";
 import Topnav from './layout/topnav';
 import Auth from '../../Model/Auth.model';
+import More from '../../asset/image/more.jpeg'
+import { grey } from '@mui/material/colors';
 
 function Viewprofile() {
     const [activeTab, setActiveTab] = useState("Tab1");
@@ -47,38 +49,42 @@ function Viewprofile() {
                     <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
-                            <Row className='mt-5'>
-                                <Col sm={7}>
-                                    <Card className='order-detail-profile' style={{ backgroundColor: "#efefef" }}>
+                            <Row className='mt-1'>
+                                <Col  className=" square border-end" sm={8}>
+                                    <Card className='order-detail-profile' style={{ backgroundColor: "#efefef",border:'none',borderRadius:'40px',borderBottomLeftRadius:'0px' }}>
+                                        <span style={{display:'flex',justifyContent:'flex-end',marginRight:'20px',color:'grey'}}> <img style={{color:'lightgrey',height:'30px',width:'30px',marginTop:'20px'}} src={More} alt="IMG" /> </span>
                                         <center>
-                                            <img src={test2} alt="" className='mt-5' />
-                                            <h6 className='mt-4'><b>{userport?.FirstName}</b></h6><br />
-                                            <p>{userport?.OccupationName}</p>
+                                            <img style={{height:'100px',width:'100px'}} src={test2} alt="" className='mt-0' />
+                                            <h6 style={{fontSize:'20px'}} className='mt-4'><b>{userport?.FirstName}</b></h6><br />
+                                            {/* <p>{userport?.OccupationName}</p> */}
                                         </center>
-                                        <Container>
+                                        <Container >
                                             <Row className='mb-3'>
                                                 <Col className='square border-end'><h6 className='text-center'>{userport?.totalFollowers}</h6>
-                                                    <p className='text-center'>Followers</p>
+                                                    <p style={{fontSize:'18px',fontWeight:600 ,color:'grey'}}  className='text-center'>Followers</p>
                                                 </Col>
                                                 <Col className='square border-start'>
-                                                    <h6 className='text-center'>{userport?.PostCount}</h6>
-                                                    <p className='text-center'>Portfolio</p>
+                                                    <h6 style={{fontSize:'20px'}} className='text-center'>{userport?.PostCount}</h6>
+                                                    <p style={{fontSize:'18px',fontWeight:600 ,color:'grey'}} className='text-center'>Orders</p>
                                                 </Col>
+                                               
                                             </Row>
+                                            
                                         </Container>
+                                        <center><button style={{width:'25%',padding:'7px',marginTop:'25px',marginBottom:'40px',backgroundColor:'black',color:'white',border:'none',borderRadius:'10px'}}> Edit Profile</button></center>
                                     </Card>
                                     <div className="tabs-container">
                                         <Container>
                                             <Row className='mt-3 mb-3'>
-                                                <Col className=''>
+                                                {/* <Col className=''>
                                                     <div
                                                         className={`tab text-center ${activeTab === "Tab1" ? "active" : ""}`}
                                                         onClick={() => handleClick("Tab1")}
                                                     >
                                                         <span className="text-center" style={{ cursor: " pointer" }}> <b>Info</b></span>
                                                     </div>
-                                                </Col>
-                                                <Col className=''>
+                                                </Col> */}
+                                                {/* <Col className=''>
                                                     <div
                                                         className={`tab text-center ${activeTab === "Tab2" ? "active" : ""}`}
                                                         onClick={() => handleClick("Tab2")}
@@ -86,7 +92,7 @@ function Viewprofile() {
                                                     >
                                                         <span className="text-center" style={{ cursor: " pointer" }}> <b>Portfilo</b></span>
                                                     </div>
-                                                </Col>
+                                                </Col> */}
                                                 {/* <Col className=''>
                                                     <div
                                                         className={`tab text-center ${activeTab === "Tab3" ? "active" : ""}`}
@@ -102,15 +108,15 @@ function Viewprofile() {
 
 
                                             {activeTab === "Tab1" && <>
-                                                <div className='m-3'>
-                                                    <p><b>About</b></p>
+                                                <div className='m-2'>
+                                                    <p style={{fontSize:'16px'}}><b>About:</b></p>
                                                     <p> {userport?.AboutMe}
                                                     </p>
-                                                    <p><b>Experience</b></p>
+                                                    <p style={{fontSize:'16px'}}><b>Experience:</b></p>
                                                     <p>{userport?.ExperienceName} </p>
-                                                    <p><b>Qualification</b></p>
+                                                    <p style={{fontSize:'16px'}}><b>Qualification:</b></p>
                                                     <p>{userport?.QualificationName}</p>
-                                                    <p><b>City</b></p>
+                                                    <p style={{fontSize:'16px'}}><b>City:</b></p>
                                                     <p>{userport?.CityName}</p>
                                                 </div></>}
                                             {activeTab === "Tab2" && <>
@@ -175,11 +181,11 @@ function Viewprofile() {
                                     </div>
                                 </Col>
                                 <Col md={4} className="">
-                                    <h6><b>Similar Profiles</b></h6>
-                                    <Card className='mt-5' style={{ borderRadius: "0px", backgroundColor: "#efefef" }}>
+                                    <h6 style={{fontSize:'20px',marginTop:'20px',marginLeft:'30px'}}><b>Explore</b></h6>
+                                    <Card className='mt-3' style={{ border:'none', backgroundColor: "#efefef",borderRadius:'10px' }}>
 
-                                        <div className='order-details-container'>
-                                            <img src={test} alt="" className='order-details-img m-3' />
+                                        <div  className='order-details-container mt-2'>
+                                            <img style={{height:'60px',width:'60px'}} src={test} alt="" className='order-details-img m-2' />
                                             <div className='order-details-container-text'>
                                                 <h6><b>Chandan Innovation Pvt Ltd</b></h6><br />
                                                 <p>Graphic Designer</p>
@@ -189,11 +195,11 @@ function Viewprofile() {
                                         <Container>
                                             <Row className='mb-3'>
                                                 <Col className='square border-end'><h6 className='text-center'>193</h6>
-                                                    <p className='text-center'>Followers</p>
+                                                    <p style={{fontSize:'15px',color:'grey',fontWeight:600}} className='text-center'>Followers</p>
                                                 </Col>
                                                 <Col className='square border-start'>
                                                     <h6 className='text-center'>222</h6>
-                                                    <p className='text-center'>Portfolio</p>
+                                                    <p style={{fontSize:'15px',color:'grey',fontWeight:600}} className='text-center'>Portfolio</p>
                                                 </Col>
                                             </Row>
                                         </Container>
@@ -202,10 +208,10 @@ function Viewprofile() {
 
 
                                     </Card>
-                                    <Card className='mt-5' style={{ borderRadius: "0px", backgroundColor: "#efefef" }}>
+                                    <Card className='mt-3' style={{ border:'none', backgroundColor: "#efefef",borderRadius:'10px' }}>
 
-                                        <div className='order-details-container'>
-                                            <img src={test} alt="" className='order-details-img m-3' />
+                                        <div className='order-details-container mt-2'>
+                                            <img style={{height:'60px',width:'60px'}} src={test} alt="" className='order-details-img m-2' />
                                             <div className='order-details-container-text'>
                                                 <h6><b>Chandan Innovation Pvt Ltd</b></h6><br />
                                                 <p>Graphic Designer</p>
@@ -215,11 +221,11 @@ function Viewprofile() {
                                         <Container>
                                             <Row className='mb-3'>
                                                 <Col className='square border-end'><h6 className='text-center'>193</h6>
-                                                    <p className='text-center'>Followers</p>
+                                                    <p style={{fontSize:'15px',color:'grey',fontWeight:600}} className='text-center'>Followers</p>
                                                 </Col>
                                                 <Col className='square border-start'>
                                                     <h6 className='text-center'>222</h6>
-                                                    <p className='text-center'>Portfolio</p>
+                                                    <p style={{fontSize:'15px',color:'grey',fontWeight:600}} className='text-center'>Portfolio</p>
                                                 </Col>
                                             </Row>
                                         </Container>
@@ -228,10 +234,10 @@ function Viewprofile() {
 
 
                                     </Card>
-                                    <Card className='mt-5' style={{ borderRadius: "0px", backgroundColor: "#efefef" }}>
+                                    <Card className='mt-3' style={{ border:'none', backgroundColor: "#efefef",borderRadius:'10px' }}>
 
-                                        <div className='order-details-container'>
-                                            <img src={test} alt="" className='order-details-img m-3' />
+                                        <div className='order-details-container mt-2'>
+                                            <img style={{height:'60px',width:'60px'}} src={test} alt="" className='order-details-img m-2' />
                                             <div className='order-details-container-text'>
                                                 <h6><b>Chandan Innovation Pvt Ltd</b></h6><br />
                                                 <p>Graphic Designer</p>
@@ -241,18 +247,18 @@ function Viewprofile() {
                                         <Container>
                                             <Row className='mb-3'>
                                                 <Col className='square border-end'><h6 className='text-center'>193</h6>
-                                                    <p className='text-center'>Followers</p>
+                                                    <p style={{fontSize:'15px',color:'grey',fontWeight:600}} className='text-center'>Followers</p>
                                                 </Col>
                                                 <Col className='square border-start'>
                                                     <h6 className='text-center'>222</h6>
-                                                    <p className='text-center'>Portfolio</p>
+                                                    <p style={{fontSize:'15px',color:'grey',fontWeight:600}} className='text-center'>Portfolio</p>
                                                 </Col>
                                             </Row>
                                         </Container>
                                     </Card>
                                 </Col>
-                                <Col sm={1}>
-                                </Col>
+                                {/* <Col sm={1}>
+                                </Col> */}
                             </Row>
                         </Container>
 
@@ -264,4 +270,4 @@ function Viewprofile() {
     )
 }
 
-export default Viewprofile
+export default Viewprofile;

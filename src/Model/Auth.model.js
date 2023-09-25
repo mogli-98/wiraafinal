@@ -72,6 +72,11 @@ const Auth = {
         return (await axiosInstance.get(
             `https://wiraa.com/api/Profile/GetCity`
         ))
+    },
+    async Allcomment(data) {
+        return (await axiosInstance.get(
+            `/portfolio/gellAllCommentByPortfolioId/${data.id}?page=1&per_page=5`
+        ))
     }
 
 

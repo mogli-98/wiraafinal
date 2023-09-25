@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import Switchform from '../../../Model/switch.model';
 
 function Dropdown1({ onSelect }) {
-    const [GetSubCategory, setGetSubCategory] = useState([]);
-    const [CountryList, setCountryList] = useState('');
+    const [GetSubCategory, setGetSubCategory] = useState();
+    const [CountryList, setCountryList] = useState([]);
     const handleDropdownChange = (e) => {
         const selectedValue = e.target.value;
         onSelect(selectedValue);
@@ -19,8 +19,8 @@ function Dropdown1({ onSelect }) {
         <div>
            <select id="cars"
                 style={{ width: "-webkit-fill-available", height: "40px" ,border: '2px solid lightgrey',borderRadius:"8px"}}
-                // onChange={handleDropdownChange}
-                name='pR_FKCatID'
+                onChange={handleDropdownChange}
+                name='countryId'
                 placeholder='Category'
             >
                 {

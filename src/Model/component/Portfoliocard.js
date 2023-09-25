@@ -31,9 +31,9 @@ function ProtfolioCard(props) {
         });
     };
     const fetchdata = async (outid) =>{
-       
+       console.log(outid)
       const id = outid
-        Auth.AllComments(id).then((res) => {
+        Auth.Allcomment({id}).then((res) => {
             setallcomment(res.data)
         })
             .catch((error) => {
@@ -53,7 +53,7 @@ function ProtfolioCard(props) {
             })
     }
 
-    // const isStatusTrue = data.UserLiked === 1;
+  
     return <>
         <Card
             style={{
@@ -123,7 +123,7 @@ function ProtfolioCard(props) {
                             <div style={{height:"20vh"}}>
                             {allcomment && allcomment.map((commentlist) =>
                         
-                              <p>  {commentlist.FirstName} - {commentlist?.Comment}</p>    )}
+                              <p>  {commentlist?.FirstName} - {commentlist?.Comment}</p>    )}
                             </div>
                            
                         </Col>

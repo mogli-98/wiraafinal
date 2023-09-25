@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card,  Form } from "react-bootstrap";
+import { Container, Row, Col, Card, Form } from "react-bootstrap";
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
 
@@ -7,8 +7,85 @@ import bookbulb from "../../asset/image/bookbulb.png"
 import Switchform from '../../Model/switch.model';
 import AllCountryList from './layout/AllCountrylist'
 import AllCitylistID from './layout/AllCitylistID';
+import AllCategory from './layout/AllCategory';
 function SwitchAccount() {
+    const [textColor, setTextColor] = useState('black');
     const [selectedOption, setSelectedOption] = useState([1]);
+    const [GetSubCategory, setGetSubCategory] = useState([]);
+    const [OccupaqtionList, setOccupaqtionList] = useState();
+    const [AllQualificationListt, setAllQualificationListt] = useState([1]);
+    const [ShowSubCategory , setShowSubcategory] =useState ()
+    useEffect(() => {
+        Switchform.getAllOccupationList().then((response) => {
+            console.log(response.data);
+            setOccupaqtionList(response.data);
+        });
+    }, [])
+    useEffect(() => {
+        Switchform.getAllQualificationList().then((response) => {
+            console.log(response.data);
+            setAllQualificationListt(response.data);
+        });
+    }, [])
+    useEffect(() => {
+        Switchform.Allcategory().then((response) => {
+            setGetSubCategory(response.data)
+            console.log(response.data)
+        }
+        )
+    }, [])
+  
+    const ShowSubcatogery =(CurriculumID) => {
+            console.log(CurriculumID)
+            const categoryId = (CurriculumID);
+            Switchform.Allsubcategory({categoryId}).then((response) => {
+                setShowSubcategory(response.data)
+                console.log(response.data)
+               
+                
+            })
+        }
+        
+      const [formdata ,setformdata] = useState({
+        mobile :"",
+        aboutMe :"",
+        experience :"",
+        countryId :"",
+        cityId :'',
+        occupationId :"",
+        qualificationName :"",
+        qualificationId :"",
+        categoryId :"",
+        subCategoryId:'',
+        files:"",
+      });
+      const handleInputChange = (event) => {
+
+        setformdata({
+            ...formdata,
+            [event.target.name]: event.target.value,
+        });
+
+
+    };
+    const handleSubmit = (event) => {
+
+        event.preventDefault();
+        const form = new FormData(event.target);
+        form.append("userId", localStorage.getItem("UserID"));
+        form.append("userProfileId", localStorage.getItem("userProfileId"));
+        
+        console.log(form)
+        Switchform.CreateProfessinoal(form)
+            .then((response) => {
+                console.log(response.data, "Add New Business");
+                  
+             
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -16,15 +93,13 @@ function SwitchAccount() {
                     <Col sm={1} xs={2} className=''>
                         <Sidenav />
                     </Col>
-
-
                     <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row>
                                 <Col sm={8} className=" square border-end mt-4">
                                     <h5 className='text-center'>Find great works</h5>
-                                    <Form className='m-4'>
+                                    <form onSubmit={handleSubmit} className='m-4'>
                                         <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
                                             <Form.Label style={{ fontSize: '18px' }}>Profile image: <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -50,19 +125,7 @@ function SwitchAccount() {
                                                     <Form.Label> <span style={{ fontSize: '18px' }}>Phone No.: </span>   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg></Form.Label>
-                                                    {/* <Dropdown> */}
-                                                    {/* <Dropdown.Toggle id="dropdown-basic" style={{ backgroundColor: "#fff", color: "black", borderColor: "#797979", width: "-webkit-fill-available", float: "left" }}>
-                                                            Choose occupation
-                                                        </Dropdown.Toggle> */}
-                                                    <Form.Control placeholder="Your Phone No." className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
-
-
-                                                    {/* <Dropdown.Menu>
-                                                            <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                                                            <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                                                            <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-                                                        </Dropdown.Menu> */}
-                                                    {/* </Dropdown> */}
+                                                    <Form.Control placeholder="Your Phone No." name='mobile' className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
                                                 </Form.Group>
 
                                             </Col>
@@ -71,7 +134,7 @@ function SwitchAccount() {
                                             <Form.Label> <span style={{ fontSize: '18px' }}>About me: </span>  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                             </svg></Form.Label>
-                                            <Form.Control as="textarea"name='aboutMe' rows={3} placeholder="Please enter a headline" className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
+                                            <Form.Control as="textarea" name='aboutMe' rows={3} placeholder="Please enter a headline" className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
                                         </Form.Group>
                                         <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlTextarea1">
                                             <Form.Label> <span style={{ fontSize: '18px' }}>Experience: </span>    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
@@ -86,11 +149,11 @@ function SwitchAccount() {
 
                                             <Row>
                                                 <Col sm={6}>
-                                                <AllCountryList onSelect={setSelectedOption} />
-                                            
+                                                    <AllCountryList onSelect={setSelectedOption} />
+
                                                 </Col>
                                                 <Col sm={6}>
-                                                <AllCitylistID selectedOption={selectedOption}/>
+                                                    <AllCitylistID selectedOption={selectedOption} />
                                                 </Col>
                                             </Row>
 
@@ -102,122 +165,78 @@ function SwitchAccount() {
                                                     <Form.Label> <span style={{ fontSize: '18px' }}>Occupation:</span> <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg></Form.Label>
-                                                    <Form.Control placeholder="Choose Occupation" className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
+                                                    <select id="cars"
+                                                        style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }}
+                                                        // onChange={handleDropdownChange}
+                                                        name='qualificationName'
+                                                        placeholder='Category'
+                                                    >
+                                                        {
+                                                            OccupaqtionList && OccupaqtionList.map((listCountry) =>
+                                                                <option value={listCountry.OccupationID}>{listCountry.OccupationName}</option>)
+                                                        }
+                                                    </select>
                                                 </Col>
                                                 <Col sm={6}>
                                                     <Form.Label> <span style={{ fontSize: '18px' }}> Qualification: </span> <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg></Form.Label>
-                                                    <Form.Control placeholder="Choose Qualification" className='formborder' style={{ paddingLeft: '20px', fontSize: '17px' }} />
-                                                </Col>
+                                                    <select id="cars"
+                                                        style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }}
+                                                        // onChange={handleDropdownChange}
+                                                        name='qualificationId'
+                                                        placeholder='Category'
+                                                    >
+                                                        {
+                                                            AllQualificationListt && AllQualificationListt.map((listCountry) =>
+                                                                <option value={listCountry.QualificationID}>{listCountry.QualificationName}</option>)
+                                                        }
+                                                    </select>                                                </Col>
                                             </Row>
 
                                         </Form.Group>
 
 
 
+                                       
 
-                                        <Container className='moreprof'>
                                             <Row className='square border-end'>
-                                                <p className='mt-4 mb-4'><b></b></p>
-                                                <Col>
-                                                    <Card style={{ backgroundColor: "grey", border:'2px solid grey' }}>
-                                                        <p style={{fontWeight:600,color:'white',fontSize:'16px'}} >Bussines</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col>
-                                                    <Card style={{ border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Creative</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col>
-                                                    <Card   style={{ border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Engineering</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col>
-                                                    <Card  style={{ border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>IT</p>
-                                                    </Card>
-                                                </Col>
+                                               
+                                           
+                                            {GetSubCategory && GetSubCategory.map((categorylist) =>
+                                             <Col sm={3}>
+                                                    <label className='label-radio' style={{width:"100%"}}>
+                                                    <input type="radio" name="categoryId" value={categorylist.CurriculumID} class=" d-none" id="demo1" />
+                                            <div className='card mt-2'  onClick={() => { ShowSubcatogery(categorylist.CurriculumID) }} value={categorylist.CurriculumID}style={{ border: `2px solid lightgrey`, borderRadius: "8px",  cursor: 'pointer',}} ><center  style={{ color: textColor }}>{categorylist.CurriculumName}</center></div>
+                                            </label>
+                                             </Col>
+                                            )}
+                                        
+                                               
                                             </Row>
-                                            <Row className=' square border-end'>
-                                                <Col className='mt-3'>
-                                                    <Card  style={{ border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Lifestyle</p>
-                                                    </Card>
+                                            <hr/>
+                                            <Row className='square border-end'>
+                                               
+                                           
+                                               {ShowSubCategory && ShowSubCategory.map((categorylist) =>
+                                                <Col sm={4}>
+                                                      <label className='label-radio'  style={{width:"100%"}}>
+                                                      <input type="radio" name="subcategoryId" value={categorylist.subcategoryId} class=" d-none" id="demo1" />
+                                               <div className='card mt-2'  value={categorylist.subcategoryId} style={{ border: '2px solid lightgrey', borderRadius: "8px",height:'50px'}} 
+                                                ><center>{categorylist.subcategoryName}</center></div>
+                                              </label>
                                                 </Col>
-                                                <Col className='mt-3'>
-                                                    <Card  style={{ border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Marketing</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col className='mt-3'>
-                                                    <Card  style={{ border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Study</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col className='mt-3'>
-                                                    <Card  style={{ border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey',fontWeight:600}}>Writing</p>
-                                                    </Card>
-                                                </Col>
-                                            </Row>
-                                            <hr className='mt-5' />
-                                            <Row >
-                                                <Col className='mt-3 pt-3'>
-                                                    <Card style={{ background: "#efefef" ,border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey'}}>Accounting & Finance</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col className='mt-3 pt-3'>
-                                                    <Card style={{ background: "#efefef",border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey'}}>Bussiness Consulting</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col className='mt-3 pt-3'>
-                                                    <Card style={{border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey'}}> Customer Support</p>
-                                                    </Card>
-                                                </Col>
-                                            </Row>
-                                            <Row className=''>
-                                                <Col className='pt-4'>
-                                                    <Card style={{  border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey'}}> Yoga</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col className='pt-4'>
-                                                    <Card style={{  border:'2px solid grey'}}>
-                                                        <p style={{fontSize:'16px',color:'grey'}}> Sport</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col className=' pt-4'>
-                                                    <Card style={{border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey'}}> Dance</p>
-                                                    </Card>
-                                                </Col>
-                                                <Col className=' pt-4'>
-                                                    <Card style={{border:'2px solid grey' }}>
-                                                        <p style={{fontSize:'16px',color:'grey'}}> Fitness</p>
-                                                    </Card>
-                                                </Col>
-                                            </Row>
-                                            <hr className='mt-4' />
-                                            {/* <center><button  className='moreprof-submit'>Submit</button></center> */}
-                                        </Container>
-
-
-
-
-
+                                               )}
+                                           
+                                                  
+                                               </Row>
 
                                         <center>
-                                            {/* <Link to="/Switchaccount-next"> */}
-                                                <button style={{fontWeight:600,padding:'8px',marginTop:'20px',border:'none',backgroundColor:'#008080',width:'160px',borderRadius:'8px',color:'white'}} className=''>Submit</button>
-                                            {/* </Link> */}
+                                         
+                                            <button style={{ fontWeight: 600, padding: '8px', marginTop: '20px', border: 'none', backgroundColor: '#008080', width: '160px', borderRadius: '8px', color: 'white' }} className=''>Submit</button>
+                                           
                                         </center>
-                                    </Form>
+                                    </form>
                                 </Col>
                                 <Col sm={4} className='p-1' >
                                     <div className='last-left-span' style={{ backgroundColor: '#f5f5f5', width: "-webkit-fill-available" }} >

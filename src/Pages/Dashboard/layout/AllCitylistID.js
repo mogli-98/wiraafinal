@@ -19,7 +19,7 @@ function AllCitylistID({ selectedOption }) {
   return (
     <div>
       <label></label>
-      <select  style={{ width: "-webkit-fill-available", height: "40px" ,border: '2px solid lightgrey',borderRadius:"8px"}}>
+      <select  style={{ width: "-webkit-fill-available", height: "40px" ,border: '2px solid lightgrey',borderRadius:"8px"}} name='cityId'>
       {
                     cityList && cityList.map((categorylist) =>
                         <option value={categorylist.CityID} >{categorylist.CityName}</option>)
