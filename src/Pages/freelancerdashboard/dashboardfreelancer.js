@@ -33,8 +33,8 @@ function Freelancerdashboard (props) {
                                     <Card className='dashboradfree-card-top'>
                                         <div className='dashboradfree-card-top-div'>
                                             <button className='freedashboard-create' onClick={handleShow}>Create Portfoilo</button>
-                                            <img src={bookbag} alt="" className='freedashboard-top-img'/>
-                                            <p ><b>Showcase your best works and achievements</b></p>
+                                            <img style={{zIndex:1000}} src={bookbag} alt="" className='freedashboard-top-img'/>
+                                            <p style={{fontSize:'20px'}}><b>Showcase your best works and achievements</b></p>
                                         </div>
                                     </Card>
                                 </Col>
@@ -51,28 +51,28 @@ function Freelancerdashboard (props) {
                                         </center>
                                     </Card>
                                 </Col> */}
-                                <Col sm={4} xs={6} className='pb-3'>
+                                <Col sm={6} xs={6} className='pb-3'>
                                     <Card style={{backgroundColor:"#efefef",borderStyle:'none'}}>
                                         <center>
-                                            <img src={topcard2} alt="" className='mt-2'height={40} />
+                                            <img src={topcard2} alt="" className='mt-4'height={40} />
                                         </center>
-                                        <Row className='mt-3 mb-3 pb-1'>
+                                        <Row  className='mt-3 mb-3 pb-1'>
                                             <Col>
                                                 <div className="card-no-top ">96</div> 
                                             </Col>
                                             <Col>
                                                 <div className='top-dashpro'>
                                                 <span style={{color:"#008080"}}><b>Projects</b></span><br />
-                                                <span style={{color:"#008080"}} className='small'>9 this months</span>
+                                                <span className='thismonths' style={{color:"#008080"}} >9 this months</span>
                                                 </div>
                                             </Col>
                                         </Row>
                                     </Card>
                                 </Col>
-                                <Col sm={4} xs={6}>
+                                <Col sm={6} xs={6}>
                                     <Card style={{backgroundColor:"#efefef",borderStyle:'none'}}>
                                         <center>
-                                            <img src={topcard3} alt="" className='mt-2'height={40} />
+                                            <img src={topcard3} alt="" className='mt-4'height={40} />
                                         </center>
                                         <Row className='mt-3 mb-3 pb-1'>
                                             <Col>
@@ -81,14 +81,14 @@ function Freelancerdashboard (props) {
                                             <Col>
                                                 <div className='top-dashpro '>
                                                 <span style={{color:"#008080"}} className='big'><b>Portfolios</b></span><br />
-                                                <span style={{color:"#008080"}} className='small'>32 this months</span>
+                                                <span style={{color:"#008080"}} className='thismonths'>32 this months</span>
                                                 </div>
                                             </Col>
                                         </Row>
                                     </Card>
                                 </Col>
-                                <Col sm={4} xs={6}>
-                                <Card style={{backgroundColor:"#efefef",borderStyle:'none'}}>
+                                {/* <Col sm={4} xs={6}> */}
+                                {/* <Card style={{backgroundColor:"#efefef",borderStyle:'none'}}>
                                         <center>
                                             <img src={topcard4} alt="" className='mt-2'height={40} />
                                         </center>
@@ -103,83 +103,102 @@ function Freelancerdashboard (props) {
                                                 </div>
                                             </Col>
                                         </Row>
-                                    </Card>
-                                </Col>
+                                    </Card> */}
+                                {/* </Col> */}
                             </Row>
                             <Row>
                                 <Col className='freedash-project'>
-                                    <p className='mt-2'>Latest Project:</p>
-                                    <div >
+                                    <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',border:'none'}}>
+                                        <p style={{fontSize:'18px',color:'black'}} className='mt-2 mb-1'>Latest Project:</p>
+
+                                        <p className='mt-2 mb-1'>Explore all</p>
+
+                                    </div>
+                                    
+
+                                    <div style={{border:'2px solid lightgrey'}}>
                                         
-                                        <div className="latest-project-free">
+                                        <div style={{border:'2px solid lightgrey'}}  className="latest-project-free">
                                             <span className='m-2 small'>INR 2000 - 5000 / Lump - Sum</span>
                                         </div>
-                                        <p className='m-2'>Chandan</p>
-                                        <span className=' small'> Graphic Designer for brand identity</span>
+                                        <p style={{fontSize:'18px'}} className='m-2'>Chandan</p>
+                                        <span style={{fontSize:'14px'}} className=' small'> Graphic Designer for brand identity</span>
                                      
                                     </div>
-                                    <div >
+                                    <div style={{border:'2px solid lightgrey'}}>
                                         
                                         <div className="latest-project-free">
                                             <span className='m-2 small'>INR 2000 - 5000 / Lump - Sum</span>
                                         </div>
-                                        <p className='m-2'>Chandan</p>
-                                        <span className=' small'> Graphic Designer for brand identity</span>
+                                        <p style={{fontSize:'18px'}} className='m-2'>Chandan</p>
+                                        <span style={{fontSize:'14px'}} className=' small'> Graphic Designer for brand identity</span>
                                      
-                                    </div><div >
+                                    </div>
+                                    <div style={{border:'2px solid lightgrey'}}>
                                         
                                         <div className="latest-project-free">
                                             <span className='m-2 small'>INR 2000 - 5000 / Lump - Sum</span>
                                         </div>
-                                        <p className='m-2'>Chandan</p>
-                                        <span className=' small'> Graphic Designer for brand identity</span>
+                                        <p style={{fontSize:'18px'}} className='m-2'>Chandan</p>
+                                        <span style={{fontSize:'14px'}} className=' small'> Graphic Designer for brand identity</span>
                                      
-                                    </div><div >
+                                    </div>
+                                    <div style={{border:'2px solid lightgrey'}}>
                                         
                                         <div className="latest-project-free">
                                             <span className='m-2 small'>INR 2000 - 5000 / Lump - Sum</span>
                                         </div>
-                                        <p className='m-2'>Chandan</p>
-                                        <span className=' small'> Graphic Designer for brand identity</span>
+                                        <p style={{fontSize:'18px'}} className='m-2'>Chandan</p>
+                                        <span style={{fontSize:'14px'}} className=' small'> Graphic Designer for brand identity</span>
                                      
                                     </div>
                                 </Col>
                                 <Col className='freedash-project'>
-                                <p className='mt-2'>Latest Questions:</p>
-                                <div >
+                                {/* <p className='mt-2'>Latest Questions:</p> */}
+                                <div style={{display:'flex',justifyContent:'space-between',alignItems:'center',border:'none'}}>
+                                        <p style={{fontSize:'18px',color:'black'}} className='mt-2 mb-1'>Latest Questions:</p>
+
+                                        <p className='mt-2 mb-1'>Explore all</p>
+
+                                    </div>
+                                <div style={{backgroundColor:'ButtonHighlight'}} >
                                         
-                                        <div className="latest-question-free">
+                                        <div style={{paddingRight:'30px',border:'2px solid lightgrey'}}  className="latest-question-free ">
                                             <span className='m-2'>60</span>
                                         </div>
-                                        <p className='m-2'>Gunagya Innovations - <span>Nutritionist</span></p>
-                                        <p className='m-1 small'> What are best signs of having a metabolism and what are…. 1 hour ago</p>
+                                        <p style={{fontSize:'18px'}} className='m-2'>Gunagya Innovations - <span>Nutritionist</span></p>
+                                        {/* <hr style={{color:'lightgrey'}} /> */}
+                                        <p style={{fontSize:'14px',color:'grey'}} className='m-1 small'> What are best signs of having a metabolism and what are…. 1 hour ago</p>
                                      
                                     </div>
-                                    <div >
+                                    <div style={{backgroundColor:'ButtonHighlight'}} >
                                         
-                                        <div className="latest-project-free">
-                                            <span className='m-2'>INR 2000 - 5000 / Lump - Sum</span>
+                                        <div style={{paddingRight:'30px'}} className="latest-question-free ">
+                                            <span className='m-2'>3</span>
                                         </div>
-                                        <p className='m-2'>chandan</p>
-                                        <p className='m-1'> Graphic Designer for brand identity</p>
+                                        <p style={{fontSize:'18px'}} className='m-2'>chandan</p>
+                                        {/* <hr style={{color:'lightgrey'}} /> */}
+                                        <p style={{fontSize:'14px',color:'grey'}} className='m-1'> Graphic Designer for brand identity</p>
                                      
                                     </div>
-                                    <div >
+                                    <div style={{paddingRight:'30px',backgroundColor:'ButtonHighlight',border:'2px solid lightgrey'}}>
                                         
-                                        <div className="latest-project-free">
-                                            <span className='m-2'>INR 2000 - 5000 / Lump - Sum</span>
+                                        <div className="latest-question-free ">
+                                            <span className='m-2'>12</span>
                                         </div>
-                                        <p className='m-2'>chandan</p>
-                                        <p className='m-1'> Graphic Designer for brand identity</p>
+                                        <p style={{fontSize:'18px'}} className='m-2'>chandan</p>
+                                        {/* <hr style={{color:'lightgrey'}} /> */}
+                                        <p style={{fontSize:'14px',color:'grey'}} className='m-1'> Graphic Designer for brand identity</p>
                                      
                                     </div>
-                                    <div >
+                                    <div style={{paddingRight:'30px',backgroundColor:'ButtonHighlight',border:'2px solid lightgrey'}}>
                                         
-                                        <div className="latest-project-free">
-                                            <span className='m-2'>INR 2000 - 5000 / Lump - Sum</span>
+                                        <div className="latest-question-free ">
+                                            <span className='m-2'>39</span>
                                         </div>
-                                        <p className='m-2'>chandan</p>
-                                        <p className='m-1'> Graphic Designer for brand identity</p>
+                                        <p style={{fontSize:'18px'}} className='ml-2'>chandan</p>
+                                        {/* <hr style={{color:'lightgrey'}} /> */}
+                                        <p style={{fontSize:'14px',color:'grey'}} className='m-1'> Graphic Designer for brand identity</p>
                                      
                                     </div>
                                 </Col>
@@ -189,9 +208,9 @@ function Freelancerdashboard (props) {
                                 <Col>
                                     <Card className='m-2 lastcard-free' >
                                         <div className='last-card-freedash'>
-                                            <p className='last-card-freedash-1 m-2'>Remaining monthly credits - 2 / 5</p>
-                                            <button className="freedashboard-create last-card-freedash-3">Upgrade</button>
-                                            <p className='last-card-freedash-2 m-2'>Current Package - Basic Plan</p>
+                                            <p style={{fontSize:'18px',fontWeight:500,padding:'5px'}} className='last-card-freedash-1 m-2'>Remaining monthly credits - 2 / 5</p>
+                                            <button style={{padding:'5px',width:'15%'}} className="freedashboard-create last-card-freedash-3">Upgrade</button>
+                                            <p style={{fontSize:'18px',fontWeight:500,padding:'5px'}} className='last-card-freedash-2 m-2'>Current Package - Basic Plan</p>
                                         </div>
                                     </Card>
                                 </Col>

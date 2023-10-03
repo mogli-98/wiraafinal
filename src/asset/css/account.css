@@ -35,3 +35,16 @@
     font-weight: bold;
  
 }
+.filee {
+    position: relative;
+    overflow: hidden;
+    float: right;
+    background-color: #008080;    
+  }
+.inputselectfile {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }

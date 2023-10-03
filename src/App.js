@@ -68,7 +68,7 @@ function App() {
               <Route path='/Home/Projectdetails' element={<Projectdetails/>}/>
               <Route path='/Projeectdetailss/:id' element={<Projeectdetailss/>}/>
               <Route path='/learn' element={<Index/>}/>
-              <Route path='/Profiledetails' element={<Profiledetails/>}/>
+              <Route path='/Profiledetails/:id' element={<Profiledetails/>}/>
               <Route path='/About Us' element={<Aboutus/>}/>
               <Route path='/Career' element={<Career/>}/>
               <Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}/>
@@ -80,7 +80,7 @@ function App() {
             {/* Order page link*/}
               <Route path='/Order' element={<Order/>}/>
               <Route path='/Ordertable' element={<Ordertable/>}/>
-              <Route path='/Orderdetails' element={<Orderdetails/>}/>
+              <Route path='/Orderdetails/:id' element={<Orderdetails/>}/>
               <Route path='/Orderdetailsbreief/:id' element={<Orderdetailsbrief/>}/>
             {/*project page link*/}
               <Route path='/user/Project' element={<Clientproject/>}/>

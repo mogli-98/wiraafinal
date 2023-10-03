@@ -22,7 +22,7 @@ function ProfileCard(props){
         }}
             onMouseEnter={() => setIsHovered1(true)}
             onMouseLeave={() => setIsHovered1(false)}
-            onClick={ ()=>window.location.href=`/Profiledetails?id=${data.fkUserProfileID}`  }
+            onClick={ ()=>window.location.href=`/Profiledetails/${data.UserID}`  }
         >
         <center>
         <img src={`http://demo.wiraa.com/${data.profilePic}`} alt="" className=" portfolio-image"   />

@@ -9,8 +9,8 @@ function Portfolio() {
     const [protfoliData,setprotfoliData] = useState([]);
    
     useEffect(() => {
-        const user_id= localStorage.getItem("UserID");
-       Auth.Portfolio({user_id}).then((response)=>{
+        const userProfileId= localStorage.getItem("userProfileId");
+       Auth.Portfolio({userProfileId}).then((response)=>{
         
         console.log(response.data);
         setprotfoliData(response.data);

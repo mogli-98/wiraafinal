@@ -1,51 +1,40 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card,Modal  } from "react-bootstrap";
-import '../../../asset/css/dashboard.css'
-import Sidenav from './Sidenav';
-import test2 from "../../../asset/image/test2.png";
-import test from "../../../asset/image/test.JPG";
-import Topnav from './topnav';
-import Auth from '../../../Model/Auth.model';
-import More from '../../../asset/image/more.jpeg'
+import { Container, Row, Col, Card } from "react-bootstrap";
+import '../../asset/css/dashboard.css'
+import Sidenav from './layout/Sidenav';
+import test2 from "../../asset/image/test2.png";
+import test from "../../asset/image/test.JPG";
+import Topnav from './layout/topnav';
+import Auth from '../../Model/Auth.model';
+import More from '../../asset/image/more.png'
 import { grey } from '@mui/material/colors';
-import { useParams } from 'react-router-dom';
 
 function Explorepage() {
-    const params = useParams();
     const [activeTab, setActiveTab] = useState("Tab1");
-    const [Freelancer, setFreelancer] = useState();
+    const [Mypotrfolio, setMyportfolio] = useState();
     const [userport, setUserPort] = useState();
-    const [MyDetails, setMyDetails] = useState();
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
     const handleClick = (tab) => {
         setActiveTab(tab);
     };
 
     // const router = useSea();
 
-    useEffect(() => {
-        // var url = new URLSearchParams(window.location.search)
-        // const id = url.get("id");
-        const userId  = params.id;
-        Auth.userProfile({userId}).then((response) => {
-            console.log(response.data);
-            setMyDetails(response.data);
-        });
-    }, [])
     // useEffect(() => {
-    //     const userId   = localStorage.getItem("userID");
-    //     Auth.Userporfiolio({userId}).then((response) => {
+    //     // var url = new URLSearchParams(window.location.search)
+    //     // const id = url.get("id");
+    //     const id = localStorage.getItem("id");
+    //     Auth.Myprofile({ id }).then((response) => {
     //         console.log(response.data);
-    //         setUserPort(response.data);
+    //         setMyDetails(response.data);
     //     });
     // }, [])
     useEffect(() => {
-        Auth.getthreeprofile().then((response) => {
-            console.log(response.data);
-            setFreelancer(response.data);
+        // var url = new URLSearchParams(window.location.search)
+        // const id = url.get("id");
+        const userId = localStorage.getItem("UserID");
+        Auth.Userporfiolio({ userId }).then((response) => {
+            console.log(response.data[0]);
+            setUserPort(response.data[0]);
         });
     }, [])
     return (
@@ -55,42 +44,47 @@ function Explorepage() {
                     <Col sm={1} xs={2} className=''>
                         <Sidenav />
                     </Col>
+
+
                     <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row className='mt-1'>
                                 <Col className=" square border-end" sm={8}>
-                                    <Card className='order-detail-profile' style={{ backgroundColor: "#efefef", border: 'none', borderRadius: '40px', borderBottomLeftRadius: '-50px' }}>
-                                        <span style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px', color: 'grey' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px', marginTop: '20px' }} src={More} alt="IMG"  onClick={handleShow} /> </span>
+                                    <Card className='order-detail-profile' style={{ backgroundColor: "#efefef", border: 'none', borderRadius: '40px', borderBottomLeftRadius: '0px' }}>
+                                        <span style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px', color: 'grey' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px', marginTop: '20px' }} src={More} alt="IMG" /> </span>
                                         <center>
                                             <img style={{ height: '100px', width: '100px' }} src={test2} alt="" className='mt-0' />
-                                            <h6 style={{ fontSize: '20px' }} className='mt-4'><b>{MyDetails?.[0]?.FirstName}</b></h6><br />
-                                            <p>{MyDetails?.[0]?.OccupationName}</p>
+                                            <h6 style={{ fontSize: '20px' }} className='mt-4'><b>{userport?.FirstName}</b></h6><br />
+                                            {/* <p>{userport?.OccupationName}</p> */}
                                         </center>
                                         <Container >
                                             <Row className='mb-3'>
-                                                <Col className='square border-end'><h6 className='text-center'>{MyDetails?.[0]?.totalFollowers}</h6>
+                                                <Col className='square border-end'><h6 className='text-center'>{userport?.totalFollowers}</h6>
                                                     <p style={{ fontSize: '18px', fontWeight: 600, color: 'grey' }} className='text-center'>Followers</p>
                                                 </Col>
                                                 <Col className='square border-start'>
-                                                    <h6 style={{ fontSize: '20px' }} className='text-center'>{MyDetails?.[0]?.PostCount}</h6>
+                                                    <h6 style={{ fontSize: '20px' }} className='text-center'>{userport?.PostCount}</h6>
                                                     <p style={{ fontSize: '18px', fontWeight: 600, color: 'grey' }} className='text-center'>Orders</p>
                                                 </Col>
+
                                             </Row>
+                                            <center>                                            <button style={{ padding: '7px', marginTop: '25px', marginBottom: '40px', backgroundColor: 'black', color: 'white', border: 'none', borderRadius: '10px', paddingLeft: '35px', paddingRight: '35px' }}> Edit Profile</button>
+                                            </center>
                                         </Container>
                                     </Card>
                                     <div className="tabs-container">
                                         <Container>
                                             <Row className='mt-3 mb-3'>
-                                                <Col className=''>
+                                                {/* <Col className=''>
                                                     <div
                                                         className={`tab text-center ${activeTab === "Tab1" ? "active" : ""}`}
                                                         onClick={() => handleClick("Tab1")}
                                                     >
                                                         <span className="text-center" style={{ cursor: " pointer" }}> <b>Info</b></span>
                                                     </div>
-                                                </Col>
-                                                <Col className=''>
+                                                </Col> */}
+                                                {/* <Col className=''>
                                                     <div
                                                         className={`tab text-center ${activeTab === "Tab2" ? "active" : ""}`}
                                                         onClick={() => handleClick("Tab2")}
@@ -98,7 +92,7 @@ function Explorepage() {
                                                     >
                                                         <span className="text-center" style={{ cursor: " pointer" }}> <b>Portfilo</b></span>
                                                     </div>
-                                                </Col>
+                                                </Col> */}
                                                 {/* <Col className=''>
                                                     <div
                                                         className={`tab text-center ${activeTab === "Tab3" ? "active" : ""}`}
@@ -116,14 +110,14 @@ function Explorepage() {
                                             {activeTab === "Tab1" && <>
                                                 <div className='m-2'>
                                                     <p style={{ fontSize: '16px' }}><b>About:</b></p>
-                                                    <p> {MyDetails?.[0]?.AboutMe}
+                                                    <p> {userport?.AboutMe}
                                                     </p>
                                                     <p style={{ fontSize: '16px' }}><b>Experience:</b></p>
-                                                    <p>{MyDetails?.[0]?.ExperienceName} </p>
+                                                    <p>{userport?.ExperienceName} </p>
                                                     <p style={{ fontSize: '16px' }}><b>Qualification:</b></p>
-                                                    <p>{MyDetails?.[0]?.QualificationName}</p>
+                                                    <p>{userport?.QualificationName}</p>
                                                     <p style={{ fontSize: '16px' }}><b>City:</b></p>
-                                                    <p>{MyDetails?.[0]?.CityName}</p>
+                                                    <p>{userport?.CityName}</p>
                                                 </div></>}
                                             {activeTab === "Tab2" && <>
                                                 <div className='m-3'>
@@ -188,47 +182,84 @@ function Explorepage() {
                                 </Col>
                                 <Col md={4} className="">
                                     <h6 style={{ fontSize: '20px', marginTop: '20px', marginLeft: '30px' }}><b>Explore</b></h6>
-                                    {Freelancer && Freelancer.map((freelist) => 
-                                   <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
+                                    <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
 
-                                   <div className='order-details-container mt-2'>
-                                       <img style={{ height: '60px', width: '60px' }} src={test} alt="" className='order-details-img m-3' />
-                                       <div className='order-details-container-text'>
-                                           <h6><b>{freelist?.FirstName} {freelist?.LastName}</b></h6><br />
-                                           <p>{freelist.OccupationName}</p>
-                                       </div>
+                                        <div className='order-details-container mt-2'>
+                                            <img style={{ height: '60px', width: '60px' }} src={test} alt="" className='order-details-img m-3' />
+                                            <div className='order-details-container-text'>
+                                                <h6><b>Chandan Innovation Pvt Ltd</b></h6><br />
+                                                <p>Graphic Designer</p>
+                                            </div>
 
-                                   </div>
-                                   <Container>
-                                       <Row className='mb-3'>
-                                           <Col className='square border-end'><h6 className='text-center'>{freelist.FollowerCount}</h6>
-                                               <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
-                                           </Col>
-                                           <Col className='square border-start'>
-                                               <h6 className='text-center'>{freelist.PostCount}</h6>
-                                               <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Portfolio</p>
-                                           </Col>
-                                       </Row>
-                                   </Container>
-
+                                        </div>
+                                        <Container>
+                                            <Row className='mb-3'>
+                                                <Col className='square border-end'><h6 className='text-center'>193</h6>
+                                                    <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
+                                                </Col>
+                                                <Col className='square border-start'>
+                                                    <h6 className='text-center'>222</h6>
+                                                    <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Portfolio</p>
+                                                </Col>
+                                            </Row>
+                                        </Container>
 
 
 
-                               </Card>
-                                   )}
+
+                                    </Card>
+                                    <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
+
+                                        <div className='order-details-container mt-2'>
+                                            <img style={{ height: '60px', width: '60px' }} src={test} alt="" className='order-details-img m-3' />
+                                            <div className='order-details-container-text'>
+                                                <h6><b>Chandan Innovation Pvt Ltd</b></h6><br />
+                                                <p>Graphic Designer</p>
+                                            </div>
+
+                                        </div>
+                                        <Container>
+                                            <Row className='mb-3'>
+                                                <Col className='square border-end'><h6 className='text-center'>193</h6>
+                                                    <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
+                                                </Col>
+                                                <Col className='square border-start'>
+                                                    <h6 className='text-center'>222</h6>
+                                                    <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Portfolio</p>
+                                                </Col>
+                                            </Row>
+                                        </Container>
+
+
+
+
+                                    </Card>
+                                    <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
+
+                                        <div className='order-details-container mt-2'>
+                                            <img style={{ height: '60px', width: '60px' }} src={test} alt="" className='order-details-img m-3' />
+                                            <div className='order-details-container-text'>
+                                                <h6><b>Chandan Innovation Pvt Ltd</b></h6><br />
+                                                <p>Graphic Designer</p>
+                                            </div>
+
+                                        </div>
+                                        <Container>
+                                            <Row className='mb-3'>
+                                                <Col className='square border-end'><h6 className='text-center'>193</h6>
+                                                    <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
+                                                </Col>
+                                                <Col className='square border-start'>
+                                                    <h6 className='text-center'>222</h6>
+                                                    <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Portfolio</p>
+                                                </Col>
+                                            </Row>
+                                        </Container>
+                                    </Card>
                                 </Col>
-
+                                {/* <Col sm={1}>
+                                </Col> */}
                             </Row>
-                            <Modal show={show} onHide={handleClose} size='sm'>
-        <Modal.Header closeButton>
-        
-        </Modal.Header>
-        <Modal.Body>Report
-            <br/>
-            Block
-        </Modal.Body>
-       
-      </Modal>
                         </Container>
 
                     </Col>

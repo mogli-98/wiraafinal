@@ -4,7 +4,7 @@ import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+// import InputGroup from 'react-bootstrap/InputGroup';
 function Setting() {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -54,11 +54,11 @@ function Setting() {
                             <Row>
                                 <Col sm={2}></Col>
                                 <Col sm={10}>
-                                    <Card className=' mt-5' onClick={handleShow} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff" }}>
+                                    <Card className='mt-5' onClick={handleShow} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff",borderRadius:'10px' }}>
                                         <div className='m-2 setting-text'>
-                                            <p className='mt-3'><b>Email Address:</b></p>
-                                            <p>Upload Email address of your account
-                                            </p>
+                                            <p style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Email Address:</b></p>
+                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Upload Email address of your account  </p>
+                                           
                                         </div>
                                     </Card>
                                 </Col>
@@ -67,10 +67,10 @@ function Setting() {
                             <Row>
                                 <Col sm={2}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-3' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff" }}>
+                                    <Card className='mt-3' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff",borderRadius:'10px' }}>
                                         <div className='m-2 setting-text'>
-                                            <p className='mt-3'><b>Phone Number:</b></p>
-                                            <p>Upload Phone number in case you have trouble signing in</p>
+                                            <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Phone Number:</b></p>
+                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Upload Phone number in case you have trouble signing in</p>
                                         </div>
                                     </Card>
                                 </Col>
@@ -79,10 +79,10 @@ function Setting() {
                             <Row>
                                 <Col sm={2}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-3' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff" }}>
+                                    <Card className='mt-3' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff",borderRadius:'10px' }}>
                                         <div className='m-2 setting-text'>
-                                            <p className='mt-3'><b>Change Password:</b></p>
-                                            <p>Choose a strong password that you are not using anywhere</p>
+                                            <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Change Password:</b></p>
+                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Choose a strong password that you are not using anywhere</p>
                                         </div>
                                     </Card>
                                 </Col>
@@ -91,10 +91,10 @@ function Setting() {
                             <Row>
                                 <Col sm={2}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-3' style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff" }}>
+                                    <Card className='mt-3' style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff",borderRadius:'10px' }}>
                                         <div className='m-2 setting-text'>
-                                            <p className='mt-3'><b>Block Accounts:</b></p>
-                                            <p>When you block someone, that person won’t be able to follow or message you</p>
+                                            <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Block Accounts:</b></p>
+                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>When you block someone, that person won’t be able to follow or message you</p>
                                         </div>
                                     </Card>
                                 </Col>
@@ -103,10 +103,10 @@ function Setting() {
                             <Row>
                                 <Col sm={2}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-3' style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff" }}>
+                                    <Card className='mt-3 mb-4' style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff" ,borderRadius:'10px'}}>
                                         <div className='m-2 setting-text'>
-                                            <p className='mt-3'><b>Deactivate Account:</b></p>
-                                            <p>Temporarily deactivate your Wiraa account</p>
+                                            <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Deactivate Account:</b></p>
+                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Temporarily deactivate your Wiraa account</p>
                                         </div>
                                     </Card>
                                 </Col>
@@ -119,9 +119,10 @@ function Setting() {
                     <Modal.Body>
                         <div>
                             <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-                                <Form.Label>Update Email </Form.Label>
+                                <Form.Label style={{fontSize:'18px'}}>Update Email </Form.Label>
                                 <Form.Control placeholder="Please enter your update Email" />
                             </Form.Group>
+                            <button style={{float:'right',backgroundColor:'#008080',color:'white',border:'none',borderRadius:'5px',padding:'4px 10px',marginTop:'5px',fontWeight:600}}> Submit </button>
 
                         </div>
 
@@ -134,7 +135,7 @@ function Setting() {
                         <div>
                             <form onClick={handleSubmitPhone} >
                                 <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-                                    <Form.Label>Update Phone Number: </Form.Label>
+                                    <Form.Label  style={{fontSize:'18px'}}>Update Phone Number: </Form.Label>
                                     <Form.Control
                                         placeholder="Please enter your update Phone Number"
                                         name='cl_cont'
@@ -142,7 +143,8 @@ function Setting() {
                                         type="number"
                                         onChange={handleInputChange}
                                     />
-                                    <button className='hire' style={{ width: '100%' }}>Update Number</button>
+                                    {/* <button className='hire' style={{ width: '100%' }}>Update Number</button> */}
+                                    <button style={{float:'right',backgroundColor:'#008080',color:'white',border:'none',borderRadius:'5px',padding:'4px 10px',marginTop:'8px',fontWeight:600}}> Submit </button>
                                 </Form.Group>
 
                             </form>
@@ -156,9 +158,10 @@ function Setting() {
                     <Modal.Body>
                         <div>
                             <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-                                <Form.Label>Change Password </Form.Label>
+                                <Form.Label  style={{fontSize:'18px'}}>Change Password </Form.Label>
                                 <Form.Control placeholder="Change Password" />
                             </Form.Group>
+                            <button style={{float:'right',backgroundColor:'#008080',color:'white',border:'none',borderRadius:'5px',padding:'4px 10px',marginTop:'5px',fontWeight:600}}> Submit </button>
 
                         </div>
 

@@ -12,17 +12,16 @@ const Auth = {
     },
     async Profile(data) {
         return await axiosInstance.get(
-            `/people/${data.userId}?page=1&per_page=15`);
+            `/people/getAllPeople/${data.userId}?page=1&per_page=9`);
     },
     async Portfolio(data) {
         return await axiosInstance.get(
-            `/portfolio/all/${data.user_id}?page=1&per_page=9`);
+            `/portfolio/all/${data.userProfileId}?page=1&per_page=9`);
     },
     async userProfile(data) {
-        return await axiosInstance.get(
-            `http://demo.wiraa.com/api/Profile/GetProfile?userId=${data.id}
-            `
-        );
+        return (await axiosInstance.get(
+            `/people/peopleById/${data.userId}`, data 
+        ));
     },
     async projectNew(data) {
         return await axiosInstance.get(
@@ -44,18 +43,16 @@ const Auth = {
         ))
     },
     async addcomments(data) {
-        return (await axiosInstance.post(
-            `/portfolio/addComment`, data
-        ))
+        return (await axiosInstance.post(`/portfolio/addComment`, data))
     },
     async Userporfiolio(data) {
         return (await axiosInstance.get(
-            `/people/peopleById/${data.userId}` ))
+            `/people/peopleById/${data.userId}`))
             
     },
     async PostRequest(data) {
         return (await axiosInstance.post(
-            `http://demo.wiraa.com/api/Users/SavePostRequirement`
+            `/project/addProject`,data
         ))
     },
     async GetCategory(data) {
@@ -75,9 +72,21 @@ const Auth = {
     },
     async Allcomment(data) {
         return (await axiosInstance.get(
-            `/portfolio/gellAllCommentByPortfolioId/${data.id}?page=1&per_page=5`
+            `/portfolio/gellAllCommentByPortfolioId/${data.postId}?page=1&per_page=5`
+        ))
+    },
+    async AddLike(data) {
+        return (await axiosInstance.patch(
+            `/portfolio/addLikeUnlike`,data
         ))
     }
+    ,
+    async getthreeprofile(data) {
+        return (await axiosInstance.get(
+            `/profile/RandomFreelancer`,data
+        ))
+    }
+
 
 
 

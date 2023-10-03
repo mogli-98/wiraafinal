@@ -130,7 +130,7 @@ function Notification() {
                                             {activeTab === "Tab2" && <>
                                                 <div className='m-3'>
                                                 {allnotifi && allnotifi.map((pdata) =>
-                                                        <Card style={{ cursor:'pointer',backgroundColor: pdata.isRead ? '#efefef' : 'red',}} className='m-2'  onClick={() => {Read(pdata.NotificationID) }}>
+                                                        <Card style={{ cursor:'pointer',backgroundColor: '#efefef' }} className='m-2'  onClick={() => {Read(pdata.NotificationID) }}>
                                                             <div>
 
                                                                 <p className='m-2'> 

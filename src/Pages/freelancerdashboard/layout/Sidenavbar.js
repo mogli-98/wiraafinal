@@ -30,9 +30,9 @@ const Sidebar = () => {
             <NavLink exact to="/Professionalsdashboard" activeClassName="activeClicked">
               <CDBSidebarMenuItem  className="text-dark"> <ion-icon name="home-outline"></ion-icon><h4 className='chh'>Home</h4></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Community" activeClassName="activeClicked">
+            {/* <NavLink exact to="/Community" activeClassName="activeClicked">
               <CDBSidebarMenuItem  className="text-dark"> <ion-icon name="paper-plane-outline"></ion-icon><h4 className='chh'>Community</h4></CDBSidebarMenuItem>
-            </NavLink>
+            </NavLink> */}
             <NavLink exact to="/UserProject" activeClassName="activeClicked">
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="briefcase-outline" ></ion-icon><h4 className='chh'>Projects</h4></CDBSidebarMenuItem>
             </NavLink>
@@ -41,6 +41,12 @@ const Sidebar = () => {
             </NavLink>
             <NavLink exact to="/Notification"  activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Notifications</h4></CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/Notification"  activeClassName="activeClicked">
+              <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Learn</h4></CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/Notification"  activeClassName="activeClicked">
+              <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Package</h4></CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/Editproflie" className='navvlink' activeClassName="activeClicked">
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="person-outline"></ion-icon><h4 className='chh'>Profile</h4></CDBSidebarMenuItem>

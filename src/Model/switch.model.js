@@ -44,13 +44,13 @@ const Switchform = {
     ,
     async getAllQualificationList(data){
         return(await axiosInstance.get(
-           `/static/getAllOccupationList` ,data)
+           `/static/getAllQualificationList` ,data)
            )
     }
     ,
     async CreateProfessinoal(data){
         return(await axiosInstance.post(
-           `/static/professinaol/createProfessional` ,data)
+           `/professional/createProfessional` ,data)
            )
     }
 }

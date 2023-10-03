@@ -12,32 +12,26 @@ import Switchform from '../../Model/switch.model';
 import Select from "react-select";
 
 function Dashboard(props) {
-    const [selectedOptions, setSubCategory] = useState(null);
+    const [notiType, setNotiType] = useState("all");
+    const [options, setSubCategory] = useState([]);
     // const [selectedOptions, setSelectedOptions] = useState();
     const [showComponent, setShowComponent] = useState(false);
     useEffect(() => {
-        Switchform.AllSubcategorynoid().then((response) =>{
-            setSubCategory(response.data)
+        Switchform.AllSubcategorynoid().then((response) => {
+            const apiOptions = response.data.map(item => ({
+                value: item.GradeID,
+                label: item.GradeName,
+              }));
+            setSubCategory(apiOptions)
             console.log(response.data)
-            
-                }
-                )
-                }, [])
-    const columns = [
-        {
-          name:'subcategory',
-          selector: (row) => row.GradeName, 
-        },
-        {
-            name:'ID',
-            selector: (row) => row.GradeID, 
-          }
-    ]
 
+        }
+        )
+    }, [])
 
-      const Customstyles = {
-        width:'100%',backgroundColor:'#efefef',borderRadius:'21px',borderStyle:'none'
-      }
+    const Customstyles = {
+        width: '100%', backgroundColor: '#efefef', borderRadius: '21px', borderStyle: 'none'
+    }
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -50,29 +44,47 @@ function Dashboard(props) {
                             <Topnav />
                             <Row>
                                 <Col>
-                                    <div className='' style={{ backgroundColor: "#efefef", borderRadius: "25px" }}>
-                                       <InputGroup className='mt-4 mb-4  search-outer-container'>
-                                            <Select
-                                            style={Customstyles.select}
-                                                options={columns}
-                                                placeholder="Select color"
-                                                defaultValue={selectedOptions}
-                                                onChange={setSubCategory}
-                                                isSearchable={true}
-                                                
+                                    <div style={{ display: "flex", backgroundColor: '#efefef', borderRadius: "30px", border: "1px solid black" }} className='mt-4 mb-4'>
+
+                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px", width: '100%' }}>
+                                            <InputGroup style={{ borderStyle: 'none' }} className='  search-outer-container'>
+
+                                                <Select
+                                                    options={options}
+                                                    isClearable
+                                                    styles={{
+                                                        border: 'none',
+                                                        display: 'flex',
+
+
+                                                        clearIndicator: () => ({
+                                                            color: 'red',
+
+                                                        }),
+                                                        control: () => ({
+                                                            border: 'none', paddingTop: '5px', paddingLeft: '20px', display: 'flex', width: '600px'
+
+                                                        }),
+                                                        dropdownIndicator: () => ({
+                                                            display: 'none'
+                                                        })
+                                                    }}
                                                 />
-                                            <div className="button-check">
-                                                <div className="button1 b2 new-class-toggle " id="button-10" >
-                                                    <input type="checkbox" className="checkbox"
-                                                        checked={showComponent}
-                                                        onChange={() => setShowComponent(!showComponent)} />
-                                                    <div className="knobs">
-                                                        <span>Portfolio</span>
-                                                    </div>
-                                                    <div className="layer"></div>
+                                            </InputGroup>
+
+                                        </div>
+                                        <div className="button-check" style={{ float: 'right' }}>
+                                            <div style={{ float: 'right' }} className="button1 b2 new-class-toggle " id="button-10" >
+                                                <input type="checkbox" className="checkbox"
+                                                    checked={showComponent}
+                                                    onChange={() => setShowComponent(!showComponent)} />
+                                                <div className="knobs">
+                                                    <span>Portfolio</span>
                                                 </div>
+                                                <div className="layer"></div>
                                             </div>
-                                        </InputGroup>
+                                        </div>
+
                                     </div>
                                 </Col>
                             </Row>

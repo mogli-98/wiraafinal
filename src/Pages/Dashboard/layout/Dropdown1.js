@@ -20,7 +20,7 @@ function Dropdown1({ onSelect }) {
             <select id="cars"
                 style={{ width: "-webkit-fill-available", height: "40px" ,border: '2px solid lightgrey',borderRadius:"8px"}}
                 onChange={handleDropdownChange}
-                name='pR_FKCatID'
+                name='category'
                 placeholder='Category'
             >
                 {

@@ -8,7 +8,7 @@ import DataTable from 'react-data-table-component';
 import Orderbook from '../../../Model/Order.model';
 import { Link } from 'react-router-dom';
 import moment from 'moment';
-function Orderdetailsbrief() {
+function Ordertable() {
     const [oederTable, setoederTable] = useState([]);
     const [activeLink, setActiveLink] = useState('');
     const [status, setStatus] = useState('');
@@ -33,12 +33,17 @@ function Orderdetailsbrief() {
             name: 'Budget',
             selector: (row) => row.Budget,
             maxWidth: "100px",
+            cell:row =>{
+                return <>
+                <span>₹ {row.Budget}</span>
+                </>
+            }
         },
         {
-            name: 'Due Date ',
+            name: 'Order Date ',
             selector: (row) => row.DueDate,
             cell:row =>{
-                return <div> {moment(row.DueDate).format('DD-MM-YYYY')} </div>
+                return <div> {moment(row.DueDate).format('DD/MM/YYYY')} </div>
             },
             maxWidth: "120px",
         },
@@ -46,12 +51,12 @@ function Orderdetailsbrief() {
             name: 'Due Date',
             selector: (row) => row.ApplyDate,
             cell:row =>{
-                return <div> {moment(row.ApplyDate  ).format('DD-MM-YYYY')} </div>
+                return <div> {moment(row.ApplyDate  ).format('DD/MM/YYYY')} </div>
             },
             maxWidth: "120px",
         },
         {
-            name: 'Status',
+            name: '',
             selector: (row) => row.Status,
             maxWidth: "120px",
             cell: row => {
@@ -69,7 +74,7 @@ function Orderdetailsbrief() {
     ]
     useEffect(() => {
         const userId = localStorage.getItem("UserID");
-        Orderbook.ordertable({ userId }).then((respnse) => {
+        Orderbook.ordertable({userId}).then((respnse) => {
             console.log(respnse.data)
             setoederTable(respnse.data)
             setStatus(respnse?.data?.PostStatus)
@@ -158,4 +163,4 @@ function Orderdetailsbrief() {
     )
 }
 
-export default Orderdetailsbrief
+export default Ordertable;
