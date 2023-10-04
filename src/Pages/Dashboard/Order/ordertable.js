@@ -41,17 +41,17 @@ function Ordertable() {
         },
         {
             name: 'Order Date ',
-            selector: (row) => row.DueDate,
+            selector: (row) => row.ApplyDate,
             cell:row =>{
-                return <div> {moment(row.DueDate).format('DD/MM/YYYY')} </div>
+                return <div> {moment(row.ApplyDate).format('DD/MM/YYYY')} </div>
             },
             maxWidth: "120px",
         },
         {
             name: 'Due Date',
-            selector: (row) => row.ApplyDate,
+            selector: (row) => row.DueDate,
             cell:row =>{
-                return <div> {moment(row.ApplyDate  ).format('DD/MM/YYYY')} </div>
+                return <div> {moment(row.DueDate).format('DD/MM/YYYY')} </div>
             },
             maxWidth: "120px",
         },

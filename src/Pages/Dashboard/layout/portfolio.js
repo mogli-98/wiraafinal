@@ -8,14 +8,17 @@ import Portfoliocard from '../../../Model/component/Portfoliocard';
 function Portfolio() {
     const [protfoliData,setprotfoliData] = useState([]);
    
-    useEffect(() => {  
+    const fetchdata = () => {
         const userProfileId= localStorage.getItem("userProfileId");
-       Auth.Portfolio({userProfileId}).then((response)=>{  
+       Auth.Portfolio({userProfileId}).then((response)=>{
+        
         console.log(response.data);
         setprotfoliData(response.data);
        });
+    }
+    useEffect(() => {
+    fetchdata();
     }, [])
-
     return (
         <>
             {/* <Container > */}
@@ -25,7 +28,7 @@ function Portfolio() {
                     "flexWrap":"wrap",
                     "flexDirection":"row"
                 }
-            }>
+            } onClick={fetchdata}>
                 {/* <Col sm={4}> */}
                     {protfoliData && protfoliData.map((pdata)=> <Portfoliocard data={pdata} /> )}
                 {/* </Col> */}

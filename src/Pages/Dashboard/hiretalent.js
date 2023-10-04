@@ -10,6 +10,7 @@ import Dropdown1 from './layout/Dropdown1';
 import Dropdown2 from './layout/Dropdown2';
 import Accordion from 'react-bootstrap/Accordion';
 import Switchform from '../../Model/switch.model';
+import { helper } from '../../lib/helper';
 function Hiretalent() {
     const [selectedOption, setSelectedOption] = useState([1]);
     const [GetSubCategory, setGetSubCategory] = useState([]);
@@ -22,7 +23,8 @@ function Hiretalent() {
         country: '',
         mobile: '',
         currency: '',
-        budget: '',
+        budgetStart: '',
+        budgetEnd :'',
         workType: '',
         isFeatured: '',
         preferService: '',
@@ -47,7 +49,7 @@ function Hiretalent() {
         Auth.PostRequest(formdata)
             .then((response) => {
                 console.log(response.data, "yes data update");
-                // Display success message to the user
+                helper.sweetalert.toast("Project Submit Sucessfully")
             })
             .catch((error) => {
                 console.log(error);
@@ -174,21 +176,21 @@ function Hiretalent() {
                                                             width: "-webkit-fill-available"
                                                             , height: "40px", fontSize: '16px'
                                                         }}
-                                                        name='budget'
+                                                        name='budgetStart'
 
                                                     />
                                                 </Col>
                                                 <Col><p className='mt-2'><b style={{ fontSize: '18px' }}>to</b></p></Col>
-                                                {/* <Col sm={3}>
+                                                <Col sm={3}>
                                                     <input className='form-control-lg' type="text" placeholder='e.g 20,000' style={{
                                                         borderRadius: '5px', border: '2px solid lightgrey',
                                                         width: "-webkit-fill-available"
                                                         , height: "40px", fontSize: '16px'
                                                     }}
                                                        
-                                                        name='budget'
+                                                        name='budgetEnd'
 
-                                                    /></Col> */}
+                                                    /></Col>
                                                 <Col sm={3}>
 
                                                     <select className='form-control-lg' name="workType" id="cars" style={{

@@ -8,7 +8,7 @@ function SwitchAcc() {
 
   useEffect(() => {
     // Check if UserID exists in localStorage
-    const storedUserID = localStorage.getItem('userProfileId');
+    const storedUserID = localStorage.getItem('UserType');
     if (storedUserID) {
       setUserID(Number(storedUserID));
     }

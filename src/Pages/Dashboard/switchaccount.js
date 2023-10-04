@@ -53,7 +53,7 @@ function SwitchAccount() {
         countryId: "",
         cityId: '',
         occupationId: "",
-        qualificationName: "",
+        // qualificationName: "",
         qualificationId: "",
         categoryId: "",
         subCategoryId: '',

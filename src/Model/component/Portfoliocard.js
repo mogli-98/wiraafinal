@@ -23,6 +23,7 @@ function ProtfolioCard(props) {
         Auth.Allcomment({postId}).then((res) => {
             setallcomment(res.data)
             openCheckoutModal(PostID)
+          
         })
             .catch((error) => {
                 console.log("error => ", error)
@@ -48,8 +49,9 @@ function ProtfolioCard(props) {
         formData.append("userProfileId", localStorage.getItem("userProfileId"));
         Auth.addcomments(formData).then((res) => {
             setcomment(res.data)
+           
             alert("comment Add")
-            fetchdata();
+        
 
         })
             .catch((error) => {
@@ -64,16 +66,14 @@ function ProtfolioCard(props) {
         Auth.AddLike(formData).then((res) => {
             // setallcomment(res.data)
             //console.log(res)
-            fetchdata();
+         
 
         })
             .catch((error) => {
                 console.log("error => ", error)
             })
     }
-useEffect(() => {
-fetchdata();
-}, [])
+
     return <>
         <Card
             style={{
@@ -124,9 +124,27 @@ fetchdata();
                             <div style={{ width: "-webkit-fill-available", height: '220px', border: "1px solid black" }}>
                                 <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
 
-
                             </div>
-                            <div style={{ borderRadius: "20px", position: 'relative', bottom: '0' }} className="mt-2" >
+                            
+                        </Col>
+                        <Col>
+                            <p className='small mt-1'>{data?.Description} {data.UserLiked !== 0 ? (
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className='bi bi-heart-fill' viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                                </svg>
+                            ) : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className='bi bi-heart-fill' viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                            </svg>} <span>{data?.LikesCount}</span></p>
+                          
+                               <div style={{ height: "135px" ,overflowY:'scroll'}}>
+                                    {allcommentss && allcommentss?.map((commentlist) =>
+                                            <div style={{ height: "30px" }}>
+                                                <p>  {commentlist?.FirstName} - {commentlist?.Comment}</p>   
+                                            </div>
+                                        )} 
+                               </div>
+                           
+                            <div style={{ borderRadius: "20px", position: 'relative', marginBottom: '0px' }} className="mt-2" >
                                 <form onSubmit={handleSubmit} >
                                     <input type="number" style={{ display: 'none' }} name="postId" value={outid}
                                     />
@@ -143,21 +161,6 @@ fetchdata();
                                     </InputGroup>
                                 </form>
                             </div>
-                        </Col>
-                        <Col>
-                            <p className='small mt-1'>{data?.Description} {data.UserLiked !== 0 ? (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className='bi bi-heart-fill' viewBox="0 0 16 16">
-                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                                </svg>
-                            ) : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className='bi bi-heart-fill' viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                            </svg>} <span>{data?.LikesCount}</span></p>
-                            <div style={{ height: "5px" }}>
-                                {allcommentss && allcommentss?.map((commentlist) =>
-
-                                    <p>  {commentlist?.FirstName} - {commentlist?.Comment}</p>)}
-                            </div>
-
                         </Col>
                     </Row>
                 </Container>

@@ -47,6 +47,7 @@ const Login = () => {
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem("UserID", response.data.user[0].UserID);
         localStorage.setItem("userProfileId", response.data.user[0].UsersProfileID);
+        localStorage.setItem("UserType", response.data.user[0].UserType);
         window.location.replace("/user/dashboard")
         console.log( response?.data)
         helper.sweetalert.toast("Welcome Back")
@@ -65,7 +66,7 @@ const Login = () => {
           <Row>
             <Col sm={3}>
             </Col>
-            <Col sm={6} className='signup  '>
+            <Col sm={6} xs={12} className='signup  '>
               <center> <Link to="/"> <img src={wirralogo} alt="" className="mb-5" /></Link> </center>
               <Card className="shadow-5 login-card" style={{ border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }}>
                 <h2 style={{ marginTop: "20px", marginLeft: "50px" }}>Login</h2>

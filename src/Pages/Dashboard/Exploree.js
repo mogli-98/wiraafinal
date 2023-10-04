@@ -6,7 +6,7 @@ import test2 from "../../asset/image/test2.png";
 import test from "../../asset/image/test.JPG";
 import Topnav from './layout/topnav';
 import Auth from '../../Model/Auth.model';
-import More from '../../asset/image/more.png'
+// import More from '../../asset/image/more.png'
 import { grey } from '@mui/material/colors';
 
 function Explorepage() {
@@ -52,7 +52,7 @@ function Explorepage() {
                             <Row className='mt-1'>
                                 <Col className=" square border-end" sm={8}>
                                     <Card className='order-detail-profile' style={{ backgroundColor: "#efefef", border: 'none', borderRadius: '40px', borderBottomLeftRadius: '0px' }}>
-                                        <span style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px', color: 'grey' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px', marginTop: '20px' }} src={More} alt="IMG" /> </span>
+                                        {/* <span style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px', color: 'grey' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px', marginTop: '20px' }} src={More} alt="IMG" /> </span> */}
                                         <center>
                                             <img style={{ height: '100px', width: '100px' }} src={test2} alt="" className='mt-0' />
                                             <h6 style={{ fontSize: '20px' }} className='mt-4'><b>{userport?.FirstName}</b></h6><br />

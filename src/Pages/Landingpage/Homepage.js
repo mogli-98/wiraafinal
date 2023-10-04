@@ -27,6 +27,11 @@ import connect from "../../asset/image/connect.png";
 import negotiate from "../../asset/image/negotiate.png";
 import verified from "../../asset/image/verified.png";
 import { Link } from "react-router-dom";
+import Hiretalent from '../Dashboard/hiretalent';
+
+import Explorepage from '../Dashboard/Exploree'; 
+
+
 // import WiraaStartup from './Wiraastartup';
 // import { Box } from 'react-bootstrap-icons';
 function Homepage() {
@@ -38,14 +43,14 @@ function Homepage() {
   return (
     <>
       {/* Top-banner-section */}
-      <section style={{backgroundColor:'white'}}>
-        <Container fluid className='pt-5 '>
+      <section xs={12} style={{backgroundColor:'white'}}>
+        <Container xs={12} sm={12} fluid className='pt-5 '>
           <Row className='pt-0' >
             {/* <Col sm={1} className="mt-5" >
 
             </Col> */}
 
-            <Col sm={2} className="mb-5 d-none d-sm-block" style={{paddingLeft:'10vh'}} >
+            <Col sm={2} className="mb-5 d-none d-sm-block" style={{paddingLeft:'8vh'}} >
               <img src={Picture1} alt="" className='p-1' style={{ width: '28vh' }} />
               <img src={Picture2} alt="" className='p-1' style={{ width: '28vh' }} />
             </Col>
@@ -71,7 +76,7 @@ function Homepage() {
 
 
 
-            <Col sm={2} className="mb-5 d-none d-sm-block " style={{paddingLeft:'7vh'}}>
+            <Col sm={2} className="mb-5 d-none d-sm-block " style={{paddingLeft:'8vh'}}>
               <img src={Picture5} alt="" className='p-1' style={{ width: '28vh'}} />
               <img src={Picture6} alt="" className='p-1' style={{ width: '28vh' }} />
             </Col>
@@ -90,12 +95,12 @@ function Homepage() {
       <section  style={{backgroundColor:'white'}}>
         <Container className='pt-4'>
           <Row className='pt-4'>
-            <Col sm={5} style={{marginTop:'30px'}} > <span className='header' >Hire top talents from  <span style={{ color: '#008080' }}>anywhere</span> </span>
-              <p className='subheader' style={{backgroundColor:'ButtonHighlight',}} >We’re available on Android devices and platforms.
+            <Col sm={5} style={{marginTop:'30px'}} > <span className='header' >Hire top talents from  <span className='anywhere' style={{ color: '#008080' }}>anywhere</span> </span>
+              <p className='subheader' style={{backgroundColor:'ButtonHighlight'}} >We’re available on Android devices and platforms.
               </p>
             </Col>
-            <Col sm={3}><img src={Picture10} alt="" style={{ width: '82%',marginTop:'30px',marginLeft:'10px' }} /></Col>
-            <Col sm={4}><img src={Picture9} alt="" style={{ width: "80%",height:'100%',float:"right"}} /></Col>
+            <Col sm={3}><img src={Picture10} alt="" className='Picture10' style={{ width: '82%',marginTop:'30px',marginLeft:'10px' }} /></Col>
+            <Col sm={4}><img src={Picture9} alt="" className='Picture09' style={{ width: "80%",height:'100%',float:"right"}} /></Col>
           </Row>
 
         </Container>
@@ -173,7 +178,7 @@ function Homepage() {
         <Container fluid >
           <Row className='pt-5 pb-5'>
             <Col>
-              <h1 className='text-center' style={{ fontSize: '45px' }}>Hire smarter, not harder</h1>
+              <h1 className='text-center hiresmarternotharder' >Hire smarter, not harder</h1>
               <p className='text-center' style={{ fontSize: '22px', color: 'grey' }}>Find, connect, and hire the best talents to work on projects without any cost</p>
             </Col>
           </Row>
@@ -207,8 +212,10 @@ function Homepage() {
                     </button>
 
                   </Col>
-                  <Col sm={7}>
-                    <img src={Picture20} alt="" style={{ width: "90%" }} />
+                  <Col sm={7} >
+                    <img className='Picture020' src={Picture20} alt=""
+                    //  style={{ width: "90%" }}
+                      />
                   </Col>
                 </Row>
               </Card>
@@ -233,17 +240,20 @@ function Homepage() {
                 <p  className='startproject_p'>Join us today and discover the freedom, flexibility, and fulfilment that come with freelancing.
                 </p>
                 <br /><br /><br /><br />
-                <button className=''>Live your passion</button>
+                <button className='Liveyourpassion'>Live your passion</button>
               </center>
             </Col>
             <Col sm={1}></Col>
           </Row>
         </Container>
+        
+        {/* <Explorepage /> */}
 
 
       </section>
 
       {/* <WiraaStartup/> */}
+      {/* <Hiretalent/> */}
     </>
   )
 }
