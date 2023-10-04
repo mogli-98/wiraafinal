@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Modal, Form, Container, Row, Col } from "react-bootstrap";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Auth from "../Auth.model";
@@ -11,29 +11,27 @@ function ProtfolioCard(props) {
     const handleShow = () => setShow(true);
     const [comment, setcomment] = useState();
     const [allcommentss, setallcomment] = useState();
-    const [outid, setOutid] = useState(0)
+    const [outid, setOutid] = useState([])
 
     const [formData, setFormData] = useState({
         comment: '',
         postId: '',
     });
-    const fetchdata = async (outid) => {
+    const fetchdata = async (PostID) => {
         //console.log(outid)
-        const postId = outid
-        Auth.Allcomment({ postId }).then((res) => {
+        const postId = PostID
+        Auth.Allcomment({postId}).then((res) => {
             setallcomment(res.data)
-            console.log("comments =>", res)
-            openCheckoutModal()
+            openCheckoutModal(PostID)
         })
             .catch((error) => {
                 console.log("error => ", error)
             })
     }
-    const openCheckoutModal = (id) => {
-        setOutid(id);
-    
+    const openCheckoutModal = (PostID) => {
+        setOutid(PostID); 
         Likeadd(outid)
-        handleShow(true);  
+        handleShow(true);
     }
     const handleInputChange = (event) => {
         setFormData({
@@ -41,14 +39,18 @@ function ProtfolioCard(props) {
             [event.target.name]: event.target.value,
         });
     };
-    
-    const handleSubmit = async (event) => {
+
+    const handleSubmit = async (event ) => {
         event.preventDefault();
+
         const formData = new FormData(event.target);
+
         formData.append("userProfileId", localStorage.getItem("userProfileId"));
         Auth.addcomments(formData).then((res) => {
             setcomment(res.data)
-            alert("comment ADD")
+            alert("comment Add")
+            fetchdata();
+
         })
             .catch((error) => {
                 console.log("error => ", error)
@@ -62,12 +64,16 @@ function ProtfolioCard(props) {
         Auth.AddLike(formData).then((res) => {
             // setallcomment(res.data)
             //console.log(res)
+            fetchdata();
+
         })
             .catch((error) => {
                 console.log("error => ", error)
             })
     }
-
+useEffect(() => {
+fetchdata();
+}, [])
     return <>
         <Card
             style={{
@@ -95,10 +101,10 @@ function ProtfolioCard(props) {
                         </td>
                         <td className="frloo">
                             {data.UserLiked !== 0 ? (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={ () => {Likeadd(data?.PostID); console.log("data?.id", data?.PostID)}} className='bi bi-heart-fill' viewBox="0 0 16 16"style={{cursor:"pointer"}}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
                                 </svg>
-                            ) : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={ () => {Likeadd(data?.PostID); console.log("data?.id", data?.PostID)}} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{cursor:"pointer"}}>
+                            ) : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
                                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
                             </svg>}
 

@@ -10,7 +10,7 @@ import clientBoard from '../../Model/clientdash';
 import { helper } from '../../lib/helper';
 import { Link } from 'react-router-dom';
 
-function Notification() {
+function Unreadnotification() {
     const [allnotifi, setallNotifi] = useState([]);
     const [activeTab, setActiveTab] = useState("Tab1");
     const [show, setShow] = useState(false);
@@ -18,7 +18,7 @@ function Notification() {
     const handleClick = (tab) => {
         setActiveTab(tab);
     };
-    const Unread = async () => {
+    const fetchData = async () => {
         const userProfileId = localStorage.getItem("UserID");
         clientBoard.Unreadnotice({ userProfileId }).then((response) => {
             // localStorage.setItem('delid' ,response.data[0]['notificationID']);
@@ -35,26 +35,13 @@ function Notification() {
         clientBoard.Readnotice({ userProfileId, notificationId }).then((response) => {
             // localStorage.setItem('delid' ,response.data[0]['notificationID']);
             console.log(response.data)
-            alert("Notification Read Successfully")
+            helper.sweetalert.toast("Notification Read Successfully.")
+            fetchData();
         }).catch((error) => {
             console.log("error => ", error)
         })
     }
-    const fetchData = async () => {
-        const userProfileId = localStorage.getItem("UserID");
-        clientBoard.allNotifi({ userProfileId }).then((response) => {
-            // localStorage.setItem('delid' ,response.data[0]['notificationID']);
-            console.log(response.data)
-            setallNotifi(response.data);
-            if (response.data.isRead === true)
-                return <>
 
-                </>
-
-        }).catch((error) => {
-            console.log("error => ", error)
-        })
-    }
     const onDelete = (id) => {
         helper.sweetalert.confirm('Are you sure?', "You won't be able to revert this!", "warning", true).then((result) => {
             if (result.isConfirmed) {
@@ -89,12 +76,12 @@ function Notification() {
                                         <Container>
                                             <Row className='mt-3 mb-4'>
                                                 <Col className=''>
-                                                    <Link to='/User/Notifications'>
+                                                    <Link to='/User/Notification'>
                                                     <button className='notifi-unread-button' style={{ border: '1px solid black' }}>
                                                          <svg style={{color:'grey',paddingRight:'4px'}}  xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
                                                         <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                                         <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                                                    </svg>  <span style={{fontSize:'15px',fontWeight:600}}>Unread</span></button></Link>
+                                                    </svg>  <span style={{fontSize:'15px',fontWeight:600}}>All Notification</span></button></Link>
                                                 </Col>
                                                 <Col className=''>
 
@@ -110,7 +97,7 @@ function Notification() {
                                             {activeTab === "Tab1" && <>
                                                 <div className='m-3'>
                                                     {allnotifi && allnotifi.map((pdata) =>
-                                                        <Card style={{ backgroundColor: pdata.isRead ? 'white' : ' #efefef' }} className='m-2'>
+                                                        <Card style={{ backgroundColor: ' #efefef' ,cursor:'pointer'}} className='m-2'onClick={() => {Read(pdata.NotificationID) }}>
                                                             <div>
 
                                                                 <p className='m-2'>
@@ -154,4 +141,4 @@ function Notification() {
     )
 }
 
-export default Notification;
+export default Unreadnotification;

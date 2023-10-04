@@ -20,10 +20,13 @@ function Orderdetails() {
             // console.log(respone.data.status)
 
             {
-                window.location.replace(`/Orderdetails/${params.id}`)
+            console.log("respone.data.status")
+             alert("no data found")
             }
         else{ setInterestedPeople(respone.data)}
            
+        }).catch((error) => {
+            console.log("error => ", error)
         })
     }, [])
     const [activeTab, setActiveTab] = useState("Tab1");

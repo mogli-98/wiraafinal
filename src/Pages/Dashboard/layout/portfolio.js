@@ -8,16 +8,14 @@ import Portfoliocard from '../../../Model/component/Portfoliocard';
 function Portfolio() {
     const [protfoliData,setprotfoliData] = useState([]);
    
-    useEffect(() => {
+    useEffect(() => {  
         const userProfileId= localStorage.getItem("userProfileId");
-       Auth.Portfolio({userProfileId}).then((response)=>{
-        
+       Auth.Portfolio({userProfileId}).then((response)=>{  
         console.log(response.data);
         setprotfoliData(response.data);
        });
     }, [])
-            
-    
+
     return (
         <>
             {/* <Container > */}

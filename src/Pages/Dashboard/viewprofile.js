@@ -17,17 +17,7 @@ function Viewprofile() {
         setActiveTab(tab);
     };
 
-    // const router = useSea();
-
-    // useEffect(() => {
-    //     // var url = new URLSearchParams(window.location.search)
-    //     // const id = url.get("id");
-    //     const id = localStorage.getItem("id");
-    //     Auth.Myprofile({ id }).then((response) => {
-    //         console.log(response.data);
-    //         setMyDetails(response.data);
-    //     });
-    // }, [])
+  
     useEffect(() => {
         // var url = new URLSearchParams(window.location.search)
         // const id = url.get("id");

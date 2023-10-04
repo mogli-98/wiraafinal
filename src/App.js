@@ -50,6 +50,7 @@ import PrivacyPolicy from './Pages/unguarded_page/Privacypolicy';
 import ContactComponent from './Pages/unguarded_page/AccfooContactus';
 import ProfessionalServiceAgreement from './Pages/unguarded_page/ProfessionalAgreement';
 import UserAgreement from './Pages/unguarded_page/UserAgreement';
+import Unreadnotification from './Pages/Dashboard/Unreadnotification';
 
 function App() {
   return (
@@ -89,6 +90,7 @@ function App() {
             {/* Leran page link */} 
               <Route path='/Notification' element={<Nonotifiy/>} />
               <Route path='/User/Notification' element={<Notificationn/>}/>
+              <Route path='/User/Notifications' element={<Unreadnotification/>}/>
               <Route path='/Profile' element={<Viewprofile/>} />
               <Route path='/Module' element={<Modulle/  >}/>
               <Route path='/user/Setting' element={<Setting/>}/>

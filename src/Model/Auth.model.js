@@ -85,6 +85,11 @@ const Auth = {
         return (await axiosInstance.get(
             `/profile/RandomFreelancer`,data
         ))
+    },
+    async updateprofile (data) {
+        return (await axiosInstance.get(
+            `/profile/updateProfile/${data.userId}`,data
+        ))
     }
 
 

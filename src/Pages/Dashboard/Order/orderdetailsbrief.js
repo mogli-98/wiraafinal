@@ -41,27 +41,28 @@ function Orderdetailsbrief() {
     }
 })
 }
-const interestedPeople = async () => {
+// const interestedPeople = async () => {
     
-    setButtonName('Data Changed');
-    const orderId  = params.id;
+//     setButtonName('Data Changed');
+//     const orderId  = params.id;
    
-    Orderbook.interestedProfessinal({orderId }).then((res) => {
-        // setHolioday(res.data.data.holidays)
-        console.log(res.data)
-        if (res.data.lenght !== 0) {
-            setInterested();
-            setButtonName('Requirements');
-          } else {
-            setOrderDetails();
-            setButtonName('Professionals');
-          }
-    }).catch((error) => {
-        console.log("error => ", error)
-    })
-}
+//     Orderbook.interestedProfessinal({orderId}).then((res) => {
+//         // setHolioday(res.data.data.holidays)
+//         console.log(res.data)
+//         if (res.data.lenght !== 0) {
+//             setInterested();
+//             setButtonName('Requirements');
+//           } else {
+//             setOrderDetails();
+//             setButtonName('Professionals');
+//           }
+//     }).catch((error) => {
+//         console.log("error => ", error)
+//     })
+// }
+
     return (
-        <>
+
             <>
                 <Container fluid className='dashboard-conatiner-top' >
                     <Row>
@@ -163,7 +164,7 @@ const interestedPeople = async () => {
                     </Row>
                 </Container>
             </>
-        </>
+
     )
 }
 

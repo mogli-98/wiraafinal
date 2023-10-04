@@ -50,7 +50,7 @@ const Switchform = {
     ,
     async CreateProfessinoal(data){
         return(await axiosInstance.post(
-           `/professional/createProfessional` ,data)
+           `/professional/createProfessional` , data )
            )
     }
 }

@@ -12,7 +12,10 @@ import Switchform from '../../Model/switch.model';
 import Select from "react-select";
 
 function Dashboard(props) {
-    const [notiType, setNotiType] = useState("all");
+    const handleChange = (selectedOption) => {
+        console.log('Selected option:', selectedOption);
+        // You can perform any action with the selectedOption here
+      };
     const [options, setSubCategory] = useState([]);
     // const [selectedOptions, setSelectedOptions] = useState();
     const [showComponent, setShowComponent] = useState(false);
@@ -52,6 +55,7 @@ function Dashboard(props) {
                                                 <Select
                                                     options={options}
                                                     isClearable
+                                                    onChange={handleChange}
                                                     styles={{
                                                         border: 'none',
                                                         display: 'flex',
