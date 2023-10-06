@@ -51,6 +51,7 @@ import ContactComponent from './Pages/unguarded_page/AccfooContactus';
 import ProfessionalServiceAgreement from './Pages/unguarded_page/ProfessionalAgreement';
 import UserAgreement from './Pages/unguarded_page/UserAgreement';
 import Unreadnotification from './Pages/Dashboard/Unreadnotification';
+import FreeProjectdetails from './Pages/freelancerdashboard/freeproject/FreeProject';
 
 function App() {
   return (
@@ -85,6 +86,7 @@ function App() {
               <Route path='/Orderdetailsbreief/:id' element={<Orderdetailsbrief/>}/>
             {/*project page link*/}
               <Route path='/user/Project' element={<Clientproject/>}/>
+              <Route path='/FreeProject/:id' element={<FreeProjectdetails/>}/>
               <Route path='/user/Projectdetails' element={<Dashprojectdetails/>}/>
               <Route path='/Home/StartUp' element={<StartUp/>} />
             {/* Leran page link */} 

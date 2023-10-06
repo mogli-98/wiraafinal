@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, Form } from 'react-bootstrap';
+import { Container, Row, Col, Card } from 'react-bootstrap';
 import "../../../asset/css/project.css"
 import Sidenav from '../layout/Sidenav';
 import Topnav from '../layout/topnav';
@@ -94,14 +94,12 @@ function Ordertable() {
                 fontWeight: 700,
                 display:'flex',
                 justifyContent:'center',
-                // textAlign: 'center',
-                // border:'1px solid grey'
-                // border: '1px solid #000', // Add a border to the table rows
+              
             },
         },
         rows: {
             style: {
-                border: '1px solid lightgrey', // Add a border to the table rows
+                border: '1px solid lightgrey', 
                 fontSize: '16px',
                 fontWeight:400,
                 display:'flex',
@@ -111,7 +109,7 @@ function Ordertable() {
         },
         Cell: {
             style: {
-                border: '1px solid lightgrey', // Add a border to the table rows
+                border: '1px solid lightgrey', 
             },
         },
     };
@@ -140,10 +138,7 @@ function Ordertable() {
                                     </Col>
                                 </Row>
                                 <Row>
-                                    {/* <Form className='mt-2'>
-                                        <Form.Control type="text" className='square rounded-pill CiSearch' placeholder="Search Project" style={{ backgroundColor: "#efefef", height: "40px" }} />
-                                        
-                                    </Form> */}
+                                    
                                     <div className="order_post mt-2" style={{ border: "1px solid grey", width: '97.5%',marginLeft:'11px' }}>
                                         <p style={{ fontSize: '20px', color: '#008080', fontWeight: 600 }} className='m-3'>All Orders</p>
                                     </div>

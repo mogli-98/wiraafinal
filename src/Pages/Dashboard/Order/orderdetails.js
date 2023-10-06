@@ -8,14 +8,14 @@ import Modal from 'react-bootstrap/Modal';
 import test2 from "../../../asset/image/test2.png";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import Orderbook from '../../../Model/Order.model';
+import OrderModal from '../../../modal/Order.modal';
 function Orderdetails() {
     const params = useParams();
     const [interestedPeople, setInterestedPeople]  =useState()
     useEffect(() => {
         console.log(params, "Orderid");
         const orderId = params.id;
-        Orderbook.Interest({orderId}).then((respone) => {
+        OrderModal.Interest({orderId}).then((respone) => {
             if(respone.data.status === false)
             // console.log(respone.data.status)
 
@@ -49,7 +49,7 @@ function Orderdetails() {
         const orderId = params.id
         console.log(InterestedUserId)
         const proUserId = InterestedUserId;
-        Orderbook.InterestAnswer({orderId},{proUserId}).then((response) => {
+        OrderModal.InterestAnswer({orderId},{proUserId}).then((response) => {
                 console.log(response.data)  
                 setAnswerOrders(response.data);
                 handleShow(true);

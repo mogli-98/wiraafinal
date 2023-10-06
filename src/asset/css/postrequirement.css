@@ -98,12 +98,29 @@ font-size: 18px;
   border: 0;
 }
 .project-button{
+  background-color: black !important;
+  color: #fff;
+  border-radius: 20px;
+  margin-left: 20px;
+  white-space: nowrap;
+  width: 100px;
+}
+.project-button1{
   background-color: black;
   color: #fff;
   border-radius: 20px;
   margin-left: 20px;
   white-space: nowrap;
   padding: 2 2 2 2;
+  width: 100px;
+}
+.project-button2{
+  background-color: black;
+  color: #fff;
+  border-radius: 20px;
+  margin-left: 20px;
+  white-space: nowrap;
+ 
   width: 100px;
 }
 .project-table th{

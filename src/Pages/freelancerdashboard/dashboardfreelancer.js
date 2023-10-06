@@ -28,7 +28,7 @@ function Freelancerdashboard (props) {
                     <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
                         <Container  className='square border border-bottom-0'>
                             <Topnavbar />
-                            <Row>
+                            <Row className='mt-4 '>
                                 <Col >
                                     <Card className='dashboradfree-card-top'>
                                         <div className='dashboradfree-card-top-div'>

@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Card, Modal } from 'react-bootstrap'
 import '../../asset/css/account.css';
-// import InputGroup from 'react-bootstrap/InputGroup';
-import Auth from "../../Model/Auth.model";
 import { Link } from "react-router-dom";
 import { Button, TextField } from '@mui/material';
 import wirralogo from '../../asset/image/Wiraalogo.png';
@@ -15,11 +13,11 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import AuthModal from "../../modal/Auth.modal";
 const Login = () => {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
-  const [error, setError] = useState('');
   const [showPassword, setShowPassword] = React.useState(false);
 
   const handleClickShowPassword = () => setShowPassword((show) => !show);
@@ -40,7 +38,7 @@ const Login = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
-    Auth.login(form).then((response) => {
+    AuthModal.login(form).then((response) => {
 
       if (response.data.status === true) {
         const accessToken = response?.data?.token;

@@ -3,8 +3,8 @@ import { Container, Row, Col, Card, Form, Table, Modal } from 'react-bootstrap';
 import "./MyAffiliations.css"
 import Sidenav from '../Dashboard/layout/Sidenav';
 import Topnav from '../Dashboard/layout/topnav';
-import Affiliate from '../../Model/Affilate.model';
 import DataTable from 'react-data-table-component';
+import AffiliateModel from '../../modal/Affiliate.modal';
 function Orderdetailsbrief() {
     const [affi, setAfii] = useState();
     const [report , setReport] = useState();
@@ -36,14 +36,14 @@ function Orderdetailsbrief() {
     const handleShow5 = () => setShow5(true);
 
     useEffect(() => {
-        Affiliate.allAffi().then((respone) => {
+        AffiliateModel.allAffi().then((respone) => {
             console.log(respone.data)
             setAfii(respone.data)
 
         })
     }, [])
     useEffect(() => {
-        Affiliate.Report().then((respone) =>{
+        AffiliateModel.Report().then((respone) =>{
         console.log(respone.data)
         setReport(respone.data)
 

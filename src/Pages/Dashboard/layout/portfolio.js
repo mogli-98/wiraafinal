@@ -1,17 +1,12 @@
 import React,{useState,useEffect} from 'react';
-import {Container } from "react-bootstrap";
 import '../../../asset/css/dashboard.css'
-import { Link } from 'react-router-dom';
-import Auth from '../../../Model/Auth.model';
 import Portfoliocard from '../../../Model/component/Portfoliocard';
-
+import PortfolioModal from '../../../modal/Portfolio.modal';
 function Portfolio() {
     const [protfoliData,setprotfoliData] = useState([]);
-   
     const fetchdata = () => {
         const userProfileId= localStorage.getItem("userProfileId");
-       Auth.Portfolio({userProfileId}).then((response)=>{
-        
+       PortfolioModal.Portfolio({userProfileId}).then((response)=>{
         console.log(response.data);
         setprotfoliData(response.data);
        });

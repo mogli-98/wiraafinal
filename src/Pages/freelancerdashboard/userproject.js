@@ -4,11 +4,10 @@ import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
 import Form from 'react-bootstrap/Form';
 import DataTable from 'react-data-table-component';
-import clientBoard from '../../Model/clientdash';
-// import Orderbook from '../../Model/Order.model';
 import { Link } from 'react-router-dom';
+import ProjectModal from '../../modal/Project.modal';
+import moment from 'moment';
 function Userproject() {
-
     const [Userproj, setUserproj] = useState([]);
     const [Proexport, setProexport] = useState([]);
     const [activeTab, setActiveTab] = useState("Tab1");
@@ -16,6 +15,7 @@ function Userproject() {
         setActiveTab(tab);
     };
     const [fillColor, setFillColor] = useState("lightgrey"); // Initial fill color, can be any valid color
+
 
     const handleButtonClick = () => {
       // Change the color on each button click
@@ -25,23 +25,23 @@ function Userproject() {
     const columns = [
         {
             name: 'Client Name',
-            selector: (row) => row.userName,
+            selector: (row) => row.FirstName,
             maxWidth:'70px'
         },
         
 
         {
             name: 'Description',
-            selector: (row) => row.ProjectDescription,
-            maxWidth:'500px',
+            selector: (row) => row.Description,
+          
             cell: row => {
                 // console.log(row)
                 return (
                     <div style={{ 
                         "height":"20px",
-                    "overflow":'hidden',
-                    "text-overflow": "ellipsis"}}>
-                            <Link to={`/ProProjectDetails/${row.questionId}`}>11</Link>
+                        "overflow":'hidden',
+                        "text-overflow": "ellipsis"}}>
+                            <Link to={`/FreeProject/${row.ProjectId}`}>{row.Description}</Link>
                           </div>
                     // <Route path=":id" element={<Orderdetailsbreief />} />
                    
@@ -50,34 +50,71 @@ function Userproject() {
         },
         {
             name: 'Budget',
-            selector: (row) => row.designation,
+            selector: (row) => row.Budget,
         },
         {
             name: 'Date',
-            selector: (row) => row.applyDate,
+            selector: (row) => row.ApplyDate,
+            cell:row =>{
+                return <div> {moment(row.ApplyDate).format('DD/MM/YYYY')} </div>
+            },
         }
          
     ]
     useEffect(() => {
-        const id = localStorage.getItem("id");
-        clientBoard.userpro({id}).then((response)=>{
+        ProjectModal.Allproject().then((response)=>{
         console.log(response.data);
         setUserproj(response.data);
      
     });
     }, [])
     useEffect(() => {
-        const id = localStorage.getItem("id");
-        clientBoard.userproexpert({id}).then((response)=>{
+        ProjectModal.Allproject().then((response)=>{
         console.log(response.data);
         setProexport(response.data);
      
     });
     }, [])
-    // useEffect(() => {
-    //     const id = localStorage.getItem("id");
-    //     Orderbook.favproject({id}).then((response) =>)
-    // }, [])
+    useEffect(() => {
+        const userId  = localStorage.getItem("UserID");
+        ProjectModal.getExpertiseByUserId({userId}).then((response) =>{
+        setProexport(response.data);
+        console.log(response.data);
+
+    });
+    }, [])
+    const customStyles = {
+
+        // table:{
+        //     style:{
+        //         border:'1px solid lightgrey'
+        //     },
+        // },
+        headCells: {
+            style: {
+                fontSize: '13px',
+                fontWeight: 700,
+                display:'flex',
+                justifyContent:'center',
+              
+            },
+        },
+        rows: {
+            style: {
+                border: '1px solid lightgrey', 
+                fontSize: '16px',
+                fontWeight:400,
+                display:'flex',
+                justifyContent:'center',                
+                backgroundColor: '#eee'
+            },
+        },
+        Cell: {
+            style: {
+                border: '1px solid lightgrey', 
+            },
+        },
+    };
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -96,20 +133,21 @@ function Userproject() {
                                         <div
                                             className={`tab  ${activeTab === "Tab1" ? "active" : ""}`}
                                             onClick={() => handleClick("Tab1")}
+                                           
                                         >
-                                            <button className='project-button userproject'>Newest</button>
+                                            <button className={`userproject  ${activeTab === "Tab1" ? "project-button " : ""}`} >Newest</button>
                                         </div>
                                         <div
-                                            className={`tab  ${activeTab === "Tab1" ? "active" : ""}`}
+                                            className={`tab  ${activeTab === "Tab2" ? "active" : ""}`}
                                             onClick={() => handleClick("Tab2")}
                                         >
-                                            <button className='project-button project-button1 userproject'>Expertize</button>
+                                             <button className={`userproject  ${activeTab === "Tab2" ? "project-button " : ""}`} >Expertize</button>
                                         </div>
                                         <div
-                                            className={`tab  ${activeTab === "Tab1" ? "active" : ""}`}
+                                            className={`tab  ${activeTab === "Tab3" ? "active" : ""}`}
                                             onClick={() => handleClick("Tab3")}
                                         >
-                                            <button className='project-button project-button1 userproject'>Accepted</button>
+                                            <button className={`userproject  ${activeTab === "Tab3" ? "project-button " : ""}`} >Accepted</button>
                                         </div>
                                         <svg xmlns="http://www.w3.org/2000/svg" onClick={handleButtonClick} width="25" height="25" fill={fillColor} class="bi bi-heart-fill" viewBox="0 0 16 16"style={{position:'relative',float:'right'}}>
                                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
@@ -121,6 +159,7 @@ function Userproject() {
                                                 columns={columns}
                                                 data={Userproj}
                                                 pagination
+                                                customStyles = {customStyles }
                                             />
                                             </div>
                                             </>
@@ -131,6 +170,7 @@ function Userproject() {
                                                 columns={columns}
                                                 data={Proexport}
                                                 pagination
+                                                customStyles = {customStyles }
                                             />
                                             </div>
                                             </>

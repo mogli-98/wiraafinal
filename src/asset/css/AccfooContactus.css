@@ -1,9 +1,9 @@
 /* ContactPage.css */
 
 /* Paste your CSS styles here */
-/* body {
-    background-color: #f9f9f9 !important;
-} */
+body {
+    background-color: white !important;
+}
 
 .bb-full-width {
     float: left;

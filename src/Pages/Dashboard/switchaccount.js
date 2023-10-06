@@ -6,10 +6,8 @@ import bookbulb from "../../asset/image/bookbulb.png"
 import Switchform from '../../Model/switch.model';
 import AllCountryList from './layout/AllCountrylist'
 import AllCitylistID from './layout/AllCitylistID';
-import AllCategory from './layout/AllCategory';
-import { Link } from 'react-router-dom';
+
 function SwitchAccount() {
-    const [textColor, setTextColor] = useState('black');
     const [selectedOption, setSelectedOption] = useState([1]);
     const [GetSubCategory, setGetSubCategory] = useState([]);
     const [OccupaqtionList, setOccupaqtionList] = useState();
@@ -223,7 +221,7 @@ function SwitchAccount() {
                                                 <Col sm={3}xs={4}>
                                                     <label className='label-radio' style={{ width: "100%" }}>
                                                         <input type="radio"   onChange={handleInputChange} name="categoryId" value={categorylist.CurriculumID} class=" d-none " id="demo1" />
-                                                        <div className='card mt-2' onClick={() => (ShowSubcatogery(categorylist.CurriculumID), handleButtonClick(categorylist.CurriculumName))} value={categorylist.CurriculumID} style={{ border: `2px solid lightgrey`, borderRadius: "8px", cursor: 'pointer', backgroundColor: selectedButton === categorylist.CurriculumName ? 'lightgrey' : '' }} ><center style={{ color: textColor }}>{categorylist.CurriculumName}</center></div>
+                                                        <div className='card mt-2' onClick={() => (ShowSubcatogery(categorylist.CurriculumID) , handleButtonClick(categorylist.CurriculumName))} value={categorylist.CurriculumID} style={{ border: `2px solid lightgrey`, borderRadius: "8px", cursor: 'pointer', backgroundColor: selectedButton === categorylist.CurriculumName ? 'lightgrey' : '' }} ><center >{categorylist.CurriculumName}</center></div>
                                                     </label>
                                                 </Col>
                                             )}

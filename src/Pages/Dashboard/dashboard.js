@@ -10,6 +10,7 @@ import Topnav from './layout/topnav';
 import { useEffect } from 'react';
 import Switchform from '../../Model/switch.model';
 import Select from "react-select";
+import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
 function Dashboard(props) {
     const handleChange = (selectedOption) => {
@@ -32,9 +33,7 @@ function Dashboard(props) {
         )
     }, [])
 
-    const Customstyles = {
-        width: '100%', backgroundColor: '#efefef', borderRadius: '21px', borderStyle: 'none'
-    }
+
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -42,7 +41,7 @@ function Dashboard(props) {
                     <Col sm={1} xs={2} className=''>
                         <Sidenav />
                     </Col>
-                    <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row>
@@ -59,8 +58,6 @@ function Dashboard(props) {
                                                     styles={{
                                                         border: 'none',
                                                         display: 'flex',
-
-
                                                         clearIndicator: () => ({
                                                             color: 'red',
 
@@ -94,8 +91,10 @@ function Dashboard(props) {
                             </Row>
                             {showComponent ? <Profile /> : <Portfolio />}
                         </Container>
+                        <Phoneviewfooter/>
                     </Col>
                 </Row>
+               
             </Container>
 
 

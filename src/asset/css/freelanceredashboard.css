@@ -97,8 +97,11 @@ font-size: 18px;
   
 }
 .userproject{
-  margin-left: 15px;
+  margin-left: 20px;
   float: left;
+  background-color: #fff;
+  border-style: none;
+  width: 100px;
 }
 .pricing-table button{
   border-radius: 8px;

@@ -27,13 +27,6 @@ import connect from "../../asset/image/connect.png";
 import negotiate from "../../asset/image/negotiate.png";
 import verified from "../../asset/image/verified.png";
 import { Link } from "react-router-dom";
-import Hiretalent from '../Dashboard/hiretalent';
-
-import Explorepage from '../Dashboard/Exploree'; 
-
-
-// import WiraaStartup from './Wiraastartup';
-// import { Box } from 'react-bootstrap-icons';
 function Homepage() {
 
   useEffect(() => {

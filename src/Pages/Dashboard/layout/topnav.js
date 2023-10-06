@@ -8,7 +8,7 @@ const  Topnav =({ activeLinkName } )  => {
         <>
             <Row className="square border-bottom">
                 <Col sm={12} >
-                    <nav className="navbar mt-4 ">
+                    <nav className="navbar" style={{height:'85px'}}>
                         <div className="left-side mt-1">
                             <h4><b>{activeLinkName}</b></h4>
                         </div>

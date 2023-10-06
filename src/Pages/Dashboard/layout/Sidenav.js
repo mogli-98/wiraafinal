@@ -17,7 +17,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial'}}>
+    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial',position:'fixed'}} className='d-none d-sm-block'>
       <CDBSidebar textColor="#fff" backgroundColor="#333">
       <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
         <NavLink exact to="/" activeClassName="active">

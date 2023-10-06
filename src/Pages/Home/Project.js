@@ -116,60 +116,7 @@ function Project() {
 
                             <Form className='m-2'>
 
-                                {/* <Form.Control type="text"  className='square rounded-pill CiSearch' placeholder="Search Project"  style={{backgroundColor:"#efefef",height:"40px"}}/>
-                                <Table responsive className="table table-bordered mt-4 project-table table-responsive">
-                                    <thead>
-                                        <tr style={{borderColor:"black"}}> 
-                                            <td colSpan="4">
-                                                <button className='project-button'>Newest</button>
-                                            </td>
-                                        </tr>
-                                        <tr className='table-header square border-start square border-end'>
-                                            <th scope="col">Client</th>
-                                            <th scope="col" >Description</th>
-                                            <th scope="col">Budget</th>
-                                            <th scope="col">Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr style={{backgroundColor:"rgb(255, 153, 0, .5)"}}>
-                                            <td style={{borderLeftColor:"green",borderLeftWidth:"3px"}}><Link to="/Home/Projectdetails">Suresh</Link></td>
-                                            <td>Content writer to convert videos in content</td>
-                                            <td className='text-center'>₹18,000 - ₹25,000</td>
-                                            <td>24/11/2022</td>
-                                        </tr>
-                                        <tr style={{backgroundColor:"#efefef"}}>
-                                            <td style={{borderLeftColor:"red",borderLeftWidth:"3px"}}>Prachi info</td>
-                                            <td>Copywriter /UXWriter/ContentCreator </td>
-                                            <td className='text-center'>₹10,100-₹20,000</td>
-                                            <td>24/1/2023</td>
-                                        </tr>
-                                        <tr style={{backgroundColor:"#efefef"}}>
-                                            <td style={{borderLeftColor:"green",borderLeftWidth:"3px"}}>Marketwiser</td>
-                                            <td>Full Stack Mobile Developer with Flutter</td>
-                                            <td className='text-center'>₹10,100-₹20,000</td>
-                                            <td>24/9/2022</td>
-                                        </tr>
-                                        <tr style={{backgroundColor:"#efefef"}}>
-                                            <td style={{borderLeftColor:"green",borderLeftWidth:"3px"}}>Chandan</td>
-                                            <td>We are looking for a Flutter Developer who could respone...</td>
-                                            <td className='text-center'>$100-$200</td>
-                                            <td>24/12/2022</td>
-                                        </tr>
-                                        <tr style={{backgroundColor:"#efefef"}}>
-                                            <td style={{borderLeftColor:"green",borderLeftWidth:"3px"}}>Priyanka</td>
-                                            <td>ICO/IEm/IDO Developer for Secure Blockchain</td>
-                                            <td className='text-center'>₹100010-₹5059565</td>
-                                            <td>2/11/2022</td>
-                                        </tr>
-                                        <tr style={{backgroundColor:"#efefef"}}>
-                                            <td style={{borderLeftColor:"green",borderLeftWidth:"3px"}}>Gunagya</td>
-                                            <td>Content writer to wrtie blogs for our sports website.</td>
-                                            <td className='text-center'>$18-$10</td>
-                                            <td>1/2/2023</td>
-                                        </tr>
-                                    </tbody>
-                                </Table> */}
+                                
                                 <DataTable className='bordered'
                                                 columns={columns}
                                                 data={allQues}

@@ -1,15 +1,27 @@
 
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import { Col, Container, Row, Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Auth from "../Auth.model";
+import ProfileModal from "../../modal/Profile.modal";
 
 function ProfileCard(props){
     const {data} = props;
     const [isHovered1, setIsHovered1] = useState(false);
-    const [userpro , setuserPro] = useState([]);
 
-    console.log(props);
+
+    // console.log(props);
+    const fetchdata = (UsersProfileID) => {
+        console.log(UsersProfileID)
+        const followProfileId = UsersProfileID;
+        console.log(followProfileId)
+        const userProfileId= localStorage.getItem("userProfileId");
+        ProfileModal.Followunfollow({userProfileId},{followProfileId}).then((response)=>{
+        
+        console.log(response.data);
+        // setprotfoliData(response.data);
+       });
+    }
+
     return  <Card style=
         {{
           
@@ -22,14 +34,14 @@ function ProfileCard(props){
         }}
             onMouseEnter={() => setIsHovered1(true)}
             onMouseLeave={() => setIsHovered1(false)}
-            onClick={ ()=>window.location.href=`/Profiledetails/${data.UserID}`  }
+            // onClick={ ()=>window.location.href=`/Profiledetails/${data.UserID}`  }
         >
         <center>
         <img src={`http://demo.wiraa.com/${data.profilePic}`} alt="" className=" portfolio-image"   />
      
         </center>
         <div className=''>
-            <h5 className='mt-3 text-center '><b> {data.FirstName}</b></h5>
+            <h5 className='mt-3 text-center '><b> {data.FirstName} {data.LastName}</b></h5>
             <p className='text-center  textstyle'>{data.OccupationName}</p>     
         </div>
         <Container>
@@ -38,29 +50,49 @@ function ProfileCard(props){
                     <div style={{ display: isHovered1 ? ' none' : 'block' }}
                     onMouseEnter={() => setIsHovered1(true)}
                     onMouseLeave={() => setIsHovered1(false)}>
-                    <h6 className='text-center'>{data.FollowerCount}</h6>
+                        {data.FollowerCount === null ? (
+                         <h6 className='text-center'>0</h6>
+                            ) :   <h6 className='text-center'>{data.FollowerCount}</h6>}
+                    {/* <h6 className='text-center'>{data.FollowerCount}</h6> */}
                     <p className='text-center' 
                     >Followers </p>
                     </div>
                     {isHovered1 && (
-                    <center><Link to="Home/PostRequirement"><button style={{
-                        backgroundColor:"#008080",color:"#fff",
-                        borderStyle:"none",width:"70%",
-                        borderRadius:"8px",marginTop:"12px"
-                    }}>Follow</button></Link></center>
+                        data.IsFollow === 1 ? (
+                            <center>
+                                {/* <Link to="Home/PostRequirement"> */}
+                                    <button style={{
+                                        backgroundColor:"#008080",color:"#fff", 
+                                        borderStyle:"none",padding:'4px',width:'100%',
+                                        borderRadius:"8px",marginTop:"12px"
+                                        }}
+                                        onClick={() => {fetchdata(data.UsersProfileID) }}
+                                    >Unfollow</button></center>
+                               ) :  <center>
+                                <button style={{
+                                backgroundColor:"#008080",color:"#fff",
+                                borderStyle:"none",padding:'4px',width:'100%',
+                                borderRadius:"8px",marginTop:"12px"
+                            }} onClick={() => {fetchdata(data.UsersProfileID) }}
+                            >Follow</button></center>
+                    
+                   
                     )}
                 </Col>
                 <Col className=''>
                     <div style={{ display: isHovered1 ? ' none' : 'block' }}
                     onMouseEnter={() => setIsHovered1(true)}
                     onMouseLeave={() => setIsHovered1(false)}>
-                    <h6 className='text-center'>{data.PostCount}</h6>
+                         {data.PostCount === null ? (
+                         <h6 className='text-center'>0</h6>
+                            ) :   <h6 className='text-center'>{data.PostCount}</h6>}
+                    
                       <p className='text-center'>Portfolio</p></div>
                     {isHovered1 && (
                         <center>
                             <button style={{
                             backgroundColor:"black",color:"#fff",
-                            borderStyle:"none",width:"70%",
+                            borderStyle:"none",padding:'4px',width:'100%',
                             borderRadius:"8px",marginTop:"12px"
                             }}> Profile</button>
                         </center>

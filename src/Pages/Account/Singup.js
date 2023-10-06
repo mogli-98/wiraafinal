@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import { Container, Row, Col, Card } from 'react-bootstrap'
 import '../../asset/css/account.css'
-import Auth from '../../Model/Auth.model';
 import { Link } from "react-router-dom";
 import { TextField } from '@mui/material';
 import wirralogo from '../../asset/image/Wiraalogo.png';
@@ -14,6 +13,7 @@ import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
+import AuthModal from '../../modal/Auth.modal';
 function Singup() {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -38,16 +38,14 @@ function Singup() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const formData = new FormData(event.target);
-    Auth.singUp(formData)
+    AuthModal.singUp(formData)
       .then((response) => {
         console.log(response.data);
         helper.sweetalert.toast("Registered Successfully")
-        // Display success message to the user
         window.location.replace("/user/dashboard")
       })
       .catch((error) => {
         console.log(error);
-        // Display error message to the user
       });
   };
   return (
@@ -67,8 +65,6 @@ function Singup() {
                   <TextField id="outlined-basic" required onChange={handleInputChange} name='firstName' label=" First Name" fullWidth placeholder=" Your First Name" variant="outlined" size='small' />
                   <TextField id="outlined-basic" required onChange={handleInputChange} name='lastName' className='mt-3' label=" Last Name" fullWidth placeholder=" Your Last Name" variant="outlined" size='small' />
                   <TextField id="outlined-basic" required onChange={handleInputChange} name='email' className='mt-3 mb-3' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" size='small' />
-                  {/* <TextField id="outlined-basic" required onChange={handleInputChange} name='password' className='mt-3' label=" Password" fullWidth  placeholder=" Your Password(6+characters)"  variant="outlined" size='small'  /> */}
-
                   <FormControl fullWidth variant="outlined">
                     <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
                     <OutlinedInput

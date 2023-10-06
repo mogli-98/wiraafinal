@@ -1,34 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Accordion } from 'react-bootstrap';
 import "../../asset/css/postrequirement.css"
-import Form from 'react-bootstrap/Form';
-import WiraaLogo from '../../asset/image/Wiraalogo.png';
 import { Link } from 'react-router-dom';
-import Table from 'react-bootstrap/Table';
 import '../../asset/css/learn.css'
 import model from '../../asset/image/model.png'
 import Sidenav from '../Dashboard/layout/Sidenav';
 import Topnav from '../Dashboard/layout/topnav';
-import Modulelist from '../../Model/Moduldetail.module';
 import Test from '../../asset/image/test1.png'
+import LearnModal from '../../modal/Learn.modal';
 function Project() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
     useEffect(() => {
-        Modulelist.Modulelist().then((response) => {
+        LearnModal.Modulelist().then((response) => {
             setCourseList(response.data)
             console.log(response.data)
         })
     }, [])
     useEffect(() => {
-        Modulelist.Modulelistdetails().then((response) => {
+        LearnModal.Modulelistdetails().then((response) => {
             setCourseListdetails(response.data)
             console.log(response.data)
         })
     }, [])
     return (
         <>
-            <Container fluid className='dashboard-conatiner-top bg-light' style={{backgroundColor:"white"}}>
+            <Container fluid className='dashboard-conatiner-top ' >
                 <Row>
                     <Col sm={1} xs={2} className=''>
                         <Sidenav />

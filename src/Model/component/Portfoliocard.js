@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Card, Modal, Form, Container, Row, Col } from "react-bootstrap";
+import React, { useState } from "react";
+import { Card, Modal, Container, Row, Col } from "react-bootstrap";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Auth from "../Auth.model";
 import { TextField } from "@mui/material";
@@ -9,7 +9,6 @@ function ProtfolioCard(props) {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-    const [comment, setcomment] = useState();
     const [allcommentss, setallcomment] = useState();
     const [outid, setOutid] = useState([])
 
@@ -48,7 +47,6 @@ function ProtfolioCard(props) {
 
         formData.append("userProfileId", localStorage.getItem("userProfileId"));
         Auth.addcomments(formData).then((res) => {
-            setcomment(res.data)
            
             alert("comment Add")
         
@@ -120,14 +118,14 @@ function ProtfolioCard(props) {
             <Modal.Body>
                 <Container>
                     <Row>
-                        <Col>
+                        <Col xs={12}>
                             <div style={{ width: "-webkit-fill-available", height: '220px', border: "1px solid black" }}>
                                 <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
 
                             </div>
                             
                         </Col>
-                        <Col>
+                        <Col xs={12}>
                             <p className='small mt-1'>{data?.Description} {data.UserLiked !== 0 ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className='bi bi-heart-fill' viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />

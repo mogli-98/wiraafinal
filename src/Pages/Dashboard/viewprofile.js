@@ -7,11 +7,9 @@ import test from "../../asset/image/test.JPG";
 import Topnav from './layout/topnav';
 import Auth from '../../Model/Auth.model';
 import More from '../../asset/image/more.jpeg'
-import { grey } from '@mui/material/colors';
 
 function Viewprofile() {
     const [activeTab, setActiveTab] = useState("Tab1");
-    const [Mypotrfolio, setMyportfolio] = useState();
     const [userport, setUserPort] = useState();
     const handleClick = (tab) => {
         setActiveTab(tab);

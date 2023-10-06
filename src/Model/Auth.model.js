@@ -90,6 +90,12 @@ const Auth = {
         return (await axiosInstance.get(
             `/profile/updateProfile/${data.userId}`,data
         ))
+    },
+    async Followunfollow (data , data2) {
+        return (await axiosInstance.get(
+            `/profile/FreelancerFollowUnfollow/${data.userProfileId}/${data2.followProfileId}`  ,  data
+            
+        ))
     }
 
 
