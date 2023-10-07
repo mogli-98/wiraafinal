@@ -67,8 +67,8 @@ function Setting() {
                             <Row>
                                 <Col sm={2}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-3' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff",borderRadius:'10px' }}>
-                                        <div className='m-2 setting-text'>
+                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', width: "100%", borderColor: "#fff",borderRadius:'10px' }}>
+                                        <div className='m-1 setting-text'>
                                             <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Phone Number:</b></p>
                                             <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Upload Phone number in case you have trouble signing in</p>
                                         </div>
@@ -77,15 +77,16 @@ function Setting() {
 
                             </Row>
                             <Row>
-                                <Col sm={2}></Col>
+                                <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-3' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff",borderRadius:'10px' }}>
-                                        <div className='m-2 setting-text'>
-                                            <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Change Password:</b></p>
-                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Choose a strong password that you are not using anywhere</p>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Change Password:</b></p>
+                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>Choose a strong password that you are not using anywhere</p>
                                         </div>
                                     </Card>
                                 </Col>
+                                <Col sm={1}></Col>
 
                             </Row>
                             <Row>

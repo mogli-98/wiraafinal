@@ -58,7 +58,7 @@ function Ordertable() {
         {
             name: '',
             selector: (row) => row.Status,
-            maxWidth: "120px",
+            width: "60px",
             cell: row => {
                 if (row.Status === 'Closed') {
                     return <><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="red" class="bi bi-dot" viewBox="0 0 16 16">

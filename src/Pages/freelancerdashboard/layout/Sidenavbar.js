@@ -42,10 +42,10 @@ const Sidebar = () => {
             <NavLink exact to="/Notification"  activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Notifications</h4></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Notification"  activeClassName="activeClicked">
+            <NavLink exact to="/Module"  activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Learn</h4></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Notification"  activeClassName="activeClicked">
+            <NavLink exact to="/Package"  activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Package</h4></CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/Editproflie" className='navvlink' activeClassName="activeClicked">
@@ -78,15 +78,13 @@ const Sidebar = () => {
             </Popover>
           }
         >
-            <NavLink   to="#/" onClick={placement} activeClassName="activeClicked">
+            <NavLink   to="#/"  activeClassName="activeClicked">
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon><h4 className='chh'>More</h4></CDBSidebarMenuItem>
             </NavLink>
             </OverlayTrigger>
       ))}
           </CDBSidebarMenu>
-        </CDBSidebarContent>
-        
-                        
+        </CDBSidebarContent>              
       </CDBSidebar>
     </div>
   );

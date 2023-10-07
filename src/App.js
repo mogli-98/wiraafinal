@@ -33,6 +33,7 @@ import Dashprojectdetails from './Pages/Dashboard/dashporjectdetails';
 import Messagedetails from './Pages/Dashboard/messagedetails';
 import Projeectdetailss from './Pages/Dashboard/projectdetailss';
 import Modulle from './Pages/Learn/modulle';
+import Module from './Pages/Dashboard/package';
 import Aboutus from './Pages/unguarded_page/about';
 import Userproject from './Pages/freelancerdashboard/userproject';
 import Chat from './Pages/Dashboard/chat';
@@ -94,7 +95,8 @@ function App() {
               <Route path='/User/Notification' element={<Notificationn/>}/>
               <Route path='/User/Notifications' element={<Unreadnotification/>}/>
               <Route path='/Profile' element={<Viewprofile/>} />
-              <Route path='/Module' element={<Modulle/  >}/>
+              <Route path='/Module' element={<Modulle/>}/>
+              <Route path='/Module' element={<Module/>}/>
               <Route path='/user/Setting' element={<Setting/>}/>
               <Route path='/Switchaccount' element={<SwitchAccount/>}/>
               <Route path='/Hiretalent' element={<Hiretalent/>}/>

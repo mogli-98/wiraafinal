@@ -66,14 +66,14 @@ function Orderdetailsbrief() {
             <>
                 <Container fluid className='dashboard-conatiner-top' >
                     <Row>
-                        <Col sm={1} xs={2} className=''>
+                        <Col sm={1} className=''>
                             <Sidenav />
                         </Col>
-                        <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
+                        <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                             <Container className='square border border-bottom-0'>
                                 <Topnav />
                                 <Row>
-                                    <Col sm={8} className="project square border-end border-start">
+                                    <Col sm={8} xs={12} className="project square border-end border-start">
                                         <div >
                                         <div className='m-3 '>
                                         <Link to={`/Orderdetails/${params.id}`}>

@@ -23,8 +23,8 @@ const ProjectModal = {
         ));
     },
     async getMarkfavproject(data , data2) {
-        return (await axiosInstance.get(
-            `/project/addProjectToFavorite/${data.uid}/${data.pid}` , data
+        return (await axiosInstance.post(
+            `/project/addProjectToFavorite/${data.uid}/${data2.pid}`,
         ));
     }
     

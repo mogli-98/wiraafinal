@@ -17,6 +17,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
+   <>
     <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial',position:'fixed'}} className='d-none d-sm-block'>
       <CDBSidebar textColor="#fff" backgroundColor="#333">
       <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
@@ -47,6 +48,12 @@ const Sidebar = () => {
             <NavLink exact to="/Profile" >
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="person-outline"></ion-icon><h4 className='chh'>Profile</h4></CDBSidebarMenuItem>
             </NavLink>
+            <NavLink exact to="/Module"  activeClassName="activeClicked">
+              <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Learn</h4></CDBSidebarMenuItem>
+            </NavLink>
+            <NavLink exact to="/Package" >
+              <CDBSidebarMenuItem  className="text-dark"><ion-icon name="person-outline"></ion-icon><h4 className='chh'>Package</h4></CDBSidebarMenuItem>
+            </NavLink>
             <NavLink exact to="/user/Setting"  activeClassName="active">
               <CDBSidebarMenuItem className="text-dark"><ion-icon name="settings-outline"></ion-icon><h4 className='chh'>Settings</h4></CDBSidebarMenuItem>
             </NavLink>
@@ -62,7 +69,6 @@ const Sidebar = () => {
                
                
                <div className=' chhh'>
-               <ion-icon name="book-outline"></ion-icon><h4 className='chh'>Learn</h4>
                <ion-icon name="headset-outline"></ion-icon><h4 className='chh'>Support</h4>
                <ion-icon name="document-text-outline"></ion-icon><h4 className='chh'>Terms</h4>
                <ion-icon name="document-text-outline"></ion-icon><h4 className='chh'>Policy</h4>
@@ -74,7 +80,7 @@ const Sidebar = () => {
             </Popover>
           }
         >
-            <NavLink   to="#/" onClick={placement} activeClassName="active">
+            <NavLink   to="#/"  activeClassName="active">
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon><h4 className='chh'>More</h4></CDBSidebarMenuItem>
             </NavLink>
             </OverlayTrigger>
@@ -85,6 +91,9 @@ const Sidebar = () => {
                         
       </CDBSidebar>
     </div>
+    <div>
+      
+    </div></>
   );
 };
 

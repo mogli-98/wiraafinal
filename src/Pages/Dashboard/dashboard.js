@@ -38,7 +38,7 @@ function Dashboard(props) {
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1} xs={2} className=''>
+                    <Col sm={1} className=''>
                         <Sidenav />
                     </Col>
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
@@ -48,7 +48,7 @@ function Dashboard(props) {
                                 <Col>
                                     <div style={{ display: "flex", backgroundColor: '#efefef', borderRadius: "30px", border: "1px solid black" }} className='mt-4 mb-4'>
 
-                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px", width: '100%' }}>
+                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px", width: '100%' }} className='d-none d-sm-block'>
                                             <InputGroup style={{ borderStyle: 'none' }} className='  search-outer-container'>
 
                                                 <Select
