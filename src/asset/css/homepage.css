@@ -10,6 +10,11 @@
     url("../../Fonts/Helvetica.ttf") format("truetype");
 }
 
+
+.jGeaPm {
+  border-style: none !important;
+}
+
 p {
   font-family: Helvetica;
 }

@@ -56,10 +56,11 @@ function Header() {
 
           <Nav className=" me-auto" style={{display:'flex',justifyContent:'flex-end',alignItems:'center',marginLeft:'98%'}}>
             
-              <Link to='/Module' className="learn"><button style={{ border: 'none', backgroundColor: 'transparent' }}><b> Learn </b></button></Link>
+              <Link to='/Learrn' className="learn"><button style={{ border: 'none', backgroundColor: 'transparent' }}><b> Learn </b></button></Link>
               <Link to='/Wiraastartup' className="startup"> <button style={{ border: 'none', backgroundColor: 'transparent' }}><b>Startup</b> </button> </Link>
               <Link to='/Account/login'><button className="navbar-button login headerloginbutton"><b>Login</b></button></Link>
-              <Link to="/Account/singup"><button className="navbar-button join headersignupbutton"><b>Signup</b></button></Link>
+              <Link to="/Account/singup"><button className="navbar-button join headersignupbutton d-none d-sm-block " style={{marginRight:'60px'}}><b>Signup</b></button></Link>
+              <Link to="/Account/singup"><button className="navbar-button join headersignupbutton d-block d-sm-none " ><b>Signup</b></button></Link>
             
 
 
@@ -69,7 +70,7 @@ function Header() {
               <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
-              </NavDropdown.Item>
+              </NavDropdown.Item>50px
               <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">

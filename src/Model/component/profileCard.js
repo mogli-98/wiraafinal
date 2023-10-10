@@ -106,4 +106,4 @@ function ProfileCard(props){
     </Card>
 }
 
-export default ProfileCard
+export default ProfileCard;

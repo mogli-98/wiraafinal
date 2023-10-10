@@ -53,6 +53,8 @@ import ProfessionalServiceAgreement from './Pages/unguarded_page/ProfessionalAgr
 import UserAgreement from './Pages/unguarded_page/UserAgreement';
 import Unreadnotification from './Pages/Dashboard/Unreadnotification';
 import FreeProjectdetails from './Pages/freelancerdashboard/freeproject/FreeProject';
+import TermsandCondition from './Pages/unguarded_page/Termsandcondition';
+import Learnwithoutlogin from './Pages/Learn/Learnwithoutlogin';
 
 function App() {
   return (
@@ -77,12 +79,13 @@ function App() {
               <Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}/>
               <Route path='/ContactComponent' element={<ContactComponent/>}/>
               <Route path='/ProfessionalServiceAgreement' element={<ProfessionalServiceAgreement/>}/>
+              <Route path='/Termsandcondition' element={<TermsandCondition/>}/>
               <Route path='/UserAgreement' element={<UserAgreement/>}/>
             {/* User-Dashborad link */}
               <Route path='/user/dashboard' element={<Dashboard/>}/>
             {/* Order page link*/}
               <Route path='/Order' element={<Order/>}/>
-              <Route path='/Ordertable' element={<Ordertable/>}/>
+              {/* <Route path='/Ordertable' element={<Ordertable/>}/> */}
               <Route path='/Orderdetails/:id' element={<Orderdetails/>}/>
               <Route path='/Orderdetailsbreief/:id' element={<Orderdetailsbrief/>}/>
             {/*project page link*/}
@@ -96,6 +99,7 @@ function App() {
               <Route path='/User/Notifications' element={<Unreadnotification/>}/>
               <Route path='/Profile' element={<Viewprofile/>} />
               <Route path='/Module' element={<Modulle/>}/>
+              <Route path='/Learrn' element={<Learnwithoutlogin/>}/>
               <Route path='/Module' element={<Module/>}/>
               <Route path='/user/Setting' element={<Setting/>}/>
               <Route path='/Switchaccount' element={<SwitchAccount/>}/>

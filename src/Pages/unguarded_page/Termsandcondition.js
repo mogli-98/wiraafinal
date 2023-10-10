@@ -1,10 +1,15 @@
-import React from 'react';
+
+import React, { useEffect } from 'react';
 // import Logo from '../../Aseset/image/Wiraalogo.png';
 import '../../asset/css/Termsandcondition.css';
 import Navbar from '../../Layout/Header';
 import Accountfootor from '../../Layout/Accountfooter';
 
 export default function TermsandCondition() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
     return (
         <>
             <div style={{backgroundColor:'white'}}>

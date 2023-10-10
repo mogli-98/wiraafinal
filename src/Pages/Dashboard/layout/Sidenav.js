@@ -1,7 +1,8 @@
+
 import React from 'react';
 import Wiraalogo from "../../../asset/image/Wiraalogo.png";
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Popover from 'react-bootstrap/Popover';
+// import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+// import Popover from 'react-bootstrap/Popover';
 import { IoHomeOutline } from 'react-icons/io5';
 import { IoPaperPlaneOutline } from 'react-icons/io5';
 import { IoMailOutline } from 'react-icons/io5';
@@ -30,11 +31,11 @@ const Sidebar = () => {
         <CDBSidebar textColor="#fff" backgroundColor="#333">
           <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
             <NavLink exact to="/" activeClassName="active">
-              <img src={Wiraalogo} alt="" width={120} style={{ }} />
+              <img style={{marginLeft:'50px'}} src={Wiraalogo} alt="" width={120} />
             </NavLink>
           </CDBSidebarHeader>
 
-          <CDBSidebarContent className="sidebar-content">
+          <CDBSidebarContent className="sidebar-content" style={{paddingLeft:'20px'}}>
             <CDBSidebarMenu>
               <NavLink exact to="/user/dashboard"
                 activeClassName="active"

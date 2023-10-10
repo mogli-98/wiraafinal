@@ -1,10 +1,15 @@
-import React from "react";
+import React,{useEffect} from "react";
 import Header from "../../Layout/Header"
 import { Container, Row, Col } from "react-bootstrap";
 import aboutus from "../../asset/image/aboutus.png";
 import wiraa from "../../asset/image/wiraa.jpg"
 import Accountfootor from "../../Layout/Accountfooter";
 function Aboutus() {
+
+    useEffect(() => {
+        window.scrollTo(0, 0)
+    }, [])
+   
     return (
         <>
             <div style={{ backgroundColor: 'white' }}>
@@ -45,8 +50,9 @@ function Aboutus() {
             </Row> */}
 
                 </Container>
-                <Accountfootor />
+                
             </div>
+            <Accountfootor />
         </>
 
     )

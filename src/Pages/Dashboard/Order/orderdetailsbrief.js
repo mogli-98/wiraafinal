@@ -34,7 +34,7 @@ function Orderdetailsbrief() {
                                 <Row>
                                     <Col sm={8} xs={12} className="project square border-end border-start">
                                         <div >
-                                        <div className='m-3 '>
+                                        <div className='m-4 '>
                                         <Link to={`/Orderdetails/${params.id}`}>
                                                 <button style={{border:'1px solid black'}} className='order-details-requirements' > 
                                                 <svg style={{color:'grey',paddingRight:'4px'}} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person-plus-fill" viewBox="0 0 16 16">
@@ -56,7 +56,7 @@ function Orderdetailsbrief() {
                                                
                                                 </button>
                                             </div>
-                                            <Card className='m-3' style={{ background: "#efefef", borderStyle: 'none',borderRadius:'15px',border:'none',boxShadow:'8px 8px 8px -5px' }}>
+                                            <Card className='m-1' style={{ background: "#efefef", borderStyle: 'none',borderRadius:'15px',border:'none',boxShadow:'8px 8px 8px -5px' }}>
                                                 <div className=' m-3 project-details'>
                                                     <p><b>Tilte</b>
                                                         <br />{orderdetails?.[0]?.Title}

@@ -129,18 +129,18 @@ function WiraaStartup() {
 
                                 <Col sm={6} style={{ padding: '0' }}
                                 >
-                                    <p className='startup-h6'>App development isn't a one-end-done engegement.</p>
-                                    <p className='startups-h6 '>Wiraa Care is a fixed-price add-on plan that ensure your app <br /> keeps getting better and works well once your MVp is delivered. </p>
+                                    <p className='startup-h6 mt-5'>App development isn't a one-end-done engegement.</p>
+                                    <p className='startups-h6 '>Wiraa Care is a fixed-price add-on plan that ensure your app <br /> keeps getting better and works well once your MVP is delivered. </p>
 
                                     <Row>
                                         <Col className='extra_content' sm={12} >
 
                                             <p className='startup_p'>Wiraa Care Benefits</p>
-                                            <li style={{ fontSize: '18px', marginTop: '25px' }}><span style={{ fontSize: "20px", fontWeight: 600 }}>Keep you Team:</span>       <span   >Keep a team in place once your MVP in finished </span>   </li>
-                                            <li style={{ fontSize: '18px', marginTop: '25px' }}> <span style={{ fontSize: "20px", fontWeight: 600 }}>Predictable Growth:</span> <span  >Fixed monthly resource allocation for new features.</span>  </li>
-                                            <li style={{ fontSize: '18px', marginTop: '25px' }}>  <span style={{ fontSize: "20px", fontWeight: 600 }}>Quick Fixes:</span>       <span  > Quickly fix any bugs or downtime problems.</span> </li>
-                                            <li style={{ fontSize: '18px', marginTop: '25px' }}><span style={{ fontSize: "20px", fontWeight: 600 }}> Handle More Users:</span>  <span  >On-call support for sudden usage increases</span> </li>
-                                            <li style={{ fontSize: '18px', marginTop: '25px', marginBottom: '20px' }}><span style={{ fontSize: "20px", fontWeight: 600 }}>stay Updated:</span>        <span  >Regular upgrades to libraries and third-party dependencies</span>   </li>
+                                            <li style={{ fontSize: '18px', marginTop: '20px' }}><span style={{ fontSize: "20px", fontWeight: 600 }}>Keep you Team:</span>       <span   >Keep a team in place once your MVP in finished </span>   </li>
+                                            <li style={{ fontSize: '18px', marginTop: '20px' }}> <span style={{ fontSize: "20px", fontWeight: 600 }}>Predictable Growth:</span> <span  >Fixed monthly resource allocation for new features.</span>  </li>
+                                            <li style={{ fontSize: '18px', marginTop: '20px' }}>  <span style={{ fontSize: "20px", fontWeight: 600 }}>Quick Fixes:</span>       <span  > Quickly fix any bugs or downtime problems.</span> </li>
+                                            <li style={{ fontSize: '18px', marginTop: '20px' }}><span style={{ fontSize: "20px", fontWeight: 600 }}> Handle More Users:</span>  <span  >On-call support for sudden usage increases</span> </li>
+                                            <li style={{ fontSize: '18px', marginTop: '20px', marginBottom: '20px' }}><span style={{ fontSize: "20px", fontWeight: 600 }}>stay Updated:</span>        <span  >Regular upgrades to libraries and third-party dependencies</span>   </li>
 
 
                                         </Col>
@@ -149,7 +149,7 @@ function WiraaStartup() {
                                 </Col>
                                 <Col sm={6}>
                                     <div className="imagecontent">
-                                        <img className='startupimg' src={Startupimg5} alt="" />
+                                        <img className='startupimg' style={{marginLeft:'40px'}} src={Startupimg5} alt="" />
                                     </div>
                                 </Col>
 

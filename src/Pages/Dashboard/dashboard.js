@@ -80,9 +80,6 @@ function Dashboard(props) {
                                                     options={options}
                                                     isClearable
                                                     className='d-none d-sm-block'
-                                                    
-                                                    
-                                                    
                                                     styles={{
                                                         border: 'none',
                                                         display: 'flex',

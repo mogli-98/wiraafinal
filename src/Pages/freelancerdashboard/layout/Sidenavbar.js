@@ -54,7 +54,7 @@ const Sidebar = () => {
             <NavLink exact to="/Setting"  activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"><ion-icon name="settings-outline"></ion-icon><h4 className='chh'>Settings</h4></CDBSidebarMenuItem>
             </NavLink>
-            {['top'].map((placement) => (
+            {/* {['top'].map((placement) => (
         <OverlayTrigger
           trigger="click"
           key={placement}
@@ -82,7 +82,7 @@ const Sidebar = () => {
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon><h4 className='chh'>More</h4></CDBSidebarMenuItem>
             </NavLink>
             </OverlayTrigger>
-      ))}
+      ))} */}
           </CDBSidebarMenu>
         </CDBSidebarContent>              
       </CDBSidebar>

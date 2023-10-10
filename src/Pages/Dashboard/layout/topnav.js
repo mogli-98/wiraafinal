@@ -8,14 +8,14 @@ const Topnav = ({ activeLinkName }) => {
 
     return (
         <>
-            <Row className="square border-bottom  d-none d-sm-block">
+            <Row style={{height:'73px'}} className="square border-bottom  d-none d-sm-block">
 
                 <Col sm={12} >
                     <nav className="navbar mt-2 ">
                         <div className="left-side mt-1">
                             <h4><b>{activeLinkName}</b></h4>
                         </div>
-                        <div className="navbar-right1 mt-1 mb-2 ">
+                        <div className="navbar-right1 mt-2 mb-2 ">
                             <Link to='/Switchacc'><button className="navbar-button switch"><b>Switch <sup style={{ color: 'red', fontWeight: 600 }}> pro</sup> </b></button></Link>
                             <Link to="/Hiretalent"><button className="navbar-button hire"><b>Hire </b></button></Link>
                         </div>

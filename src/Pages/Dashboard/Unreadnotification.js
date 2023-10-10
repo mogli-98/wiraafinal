@@ -9,6 +9,7 @@ import bookbullb from '../../asset/image/bookbulb.png'
 import clientBoard from '../../Model/clientdash';
 import { helper } from '../../lib/helper';
 import { Link } from 'react-router-dom';
+import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
 function Unreadnotification() {
     const [allnotifi, setallNotifi] = useState([]);
@@ -64,17 +65,17 @@ function Unreadnotification() {
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1} xs={2} className=''>
+                    <Col sm={1}  className=' d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-                    <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row className=''>
                                 <Col sm={8}>
                                     <div className="tabs-container">
                                         <Container>
-                                            <Row className='mt-3 mb-4'>
+                                            <Row className='mt-4 mb-4'>
                                                 <Col className=''>
                                                     <Link to='/User/Notification'>
                                                         <button className='notifi-unread-button' style={{ marginLeft: '22px', fontSize: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px' }}>
@@ -95,7 +96,7 @@ function Unreadnotification() {
                                         </Container>
                                         <div className="tab-content">
                                             {activeTab === "Tab1" && <>
-                                                <div className='m-3'>
+                                                <div className='m-1'>
                                                     {allnotifi && allnotifi.map((pdata) =>
                                                         <Card style={{ backgroundColor: ' #efefef', cursor: 'pointer', border: 'none' }} className='m-2' onClick={() => { Read(pdata.NotificationID) }}>
                                                             <div>
@@ -143,7 +144,7 @@ function Unreadnotification() {
                                         </div>
                                     </div>
 
-                                    <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2'>
+                                    <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2 d-none d-sm-block'>
                                         <Link to='/About Us'  >                                             <span style={{ paddingRight: '10px', color: 'grey' }}>                                                 About </span>                                         </Link>                                         <Link to='/Career'>                                             <span style={{ paddingRight: '10px', color: 'grey' }}>Career</span>                                         </Link>
                                         <Link to='/Termsandcondition'>                                             <span style={{ color: 'grey' }}>Term of services</span>                                         </Link>
                                         <br />
@@ -173,6 +174,7 @@ function Unreadnotification() {
                     </Col>
                 </Row>
             </Container>
+            <Phoneviewfooter/>
 
         </>
     )

@@ -4,11 +4,13 @@ import "../../asset/css/postrequirement.css"
 import { Link } from 'react-router-dom';
 import '../../asset/css/learn.css'
 import model from '../../asset/image/model.png'
-import Sidenav from '../Dashboard/layout/Sidenav';
-import Topnav from '../Dashboard/layout/topnav';
+// import Sidenav from '../Dashboard/layout/Sidenav';
+// import Topnav from '../Dashboard/layout/topnav';
 import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
-function Project() {
+import Wiraalogo from '../../asset/image/Wiraalogo.png';
+import orderpost from "../../asset/image/orderpost.png";
+function Learnwithoutlogin() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
     useEffect(() => {
@@ -28,11 +30,52 @@ function Project() {
             <Container fluid className='dashboard-conatiner-top ' >
                 <Row>
                     <Col sm={1} xs={2} className='d-none d-sm-block'>
-                        <Sidenav />
+                        {/* <Sidenav /> */}
+                        <div style={{ marginLeft: '60px', display: 'flex', height: '100vh', overflow: 'scroll initial', position: 'fixed' }} className='d-none d-sm-block'>
+
+                            <img className='mt-4 p-2' style={{ marginLeft: '30px' }} src={Wiraalogo} alt="Logo" />
+
+
+                            <div style={{ marginLeft: '30px', marginTop: '40px' }}>
+                                <Link to='/Account/login'>
+                                    <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-arrow-right-circle container-left-first " viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+                                    </svg><span className='container-left-first-span' style={{ fontSize: '30px', marginLeft: '30px' }}>Login</span>
+                                </Link><br />
+
+                                <Link to='/Account/singup'>
+                                    <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-plus container-left-second" viewBox="0 0 16 16">
+                                        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                                        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                                    </svg><span className='container-left-first-span' style={{ fontSize: '30px' }}>  Singup </span>
+                                </Link>
+                            </div>
+
+
+                            <div style={{ marginLeft: '30px', marginTop: '70px' }}>
+                                <center>
+                                  <img src={orderpost} alt="" />  
+                                </center>
+                                
+                            </div>
+                            <div style={{marginTop:'30px'}}>
+                                <p className='p-1' style={{ margin: '10px',color:'#008080',fontSize:'25px' }}>Become an <b>expert <br /> in you industry...</b> </p>
+
+                                <p className='p-1' style={{color:'grey',fontSize:'20px',margin:'10px'}}>Accelerate your career <br /> <center>in Freelancing</center> </p>
+                            </div>
+
+
+
+
+
+                        </div>
                     </Col>
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav />
+                            {/* <Topnav /> */}
+                            <h2 className='pt-4 '>Learn</h2>
+                            <hr style={{ color: 'grey' }} />
+
                             <Row >
                                 <Col sm={8} className='scrollable squarew '  >
                                     <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
@@ -73,7 +116,7 @@ function Project() {
                                         <Col sm={12} >
                                             <Row>
                                                 <Col sm={6}>
-                                                    <ul style={{paddingLeft:'40px'}}>
+                                                    <ul style={{ paddingLeft: '40px' }}>
                                                         <li style={{ listStyle: 'none', color: 'black', fontWeight: 600, marginTop: '12px' }}>
                                                             <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
                                                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -128,7 +171,7 @@ function Project() {
                                     <Row className='d-block d-sm-none'>
                                         <p className='mt-4' style={{ fontSize: "16px", paddingLeft: "45px" }}><b>Course Include :</b></p>
                                         <Col >
-                                            <ul style={{paddingLeft:'20px'}}>
+                                            <ul style={{ paddingLeft: '20px' }}>
                                                 <li style={{ listStyle: 'none', color: 'black', fontWeight: 600, marginTop: '12px' }}>
                                                     <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
                                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -152,7 +195,7 @@ function Project() {
                                             </ul>
                                         </Col>
                                         <Col>
-                                            <ul style={{paddingLeft:'20px'}}>
+                                            <ul style={{ paddingLeft: '20px' }}>
                                                 <li style={{ listStyle: 'none', marginTop: '10px', color: 'black', fontWeight: '600' }}>
                                                     <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-view-stacked" viewBox="0 0 16 16">
                                                         <path d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3z" />
@@ -216,7 +259,7 @@ function Project() {
                                 <Col sm={4} >
                                     <Card className=' mt-2 mb-4 shadow-2 ' style={{ boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
                                         <img src={model} alt="" style={{ width: "100%" }} className='p-2' />
-                                        <ul style={{ listStyle: "none",paddingLeft:'20px' }}>
+                                        <ul style={{ listStyle: "none", paddingLeft: '20px' }}>
                                             <p className='mt-2' style={{ fontSize: '16px', fontWeight: 600, color: 'black' }}> <b>This Course includes : </b>  </p>
                                             <li> <p className='small' style={{ fontSize: '14px' }}>
                                                 <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
@@ -255,36 +298,29 @@ function Project() {
 
 
                                         <div className='d-none d-sm-block' >
-                                            <center>                                           
-                                            <p className='text-center'>
-                                                <span className='text-center' style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
-                                                <span className='text-center pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080', marginRight: '25px' }}>₹4999 </b>
-                                                </span>
-                                            </p>
+                                            <center>
+                                                <p className='text-center'>
+                                                    <span className='text-center' style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
+                                                    <span className='text-center pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080', marginRight: '25px' }}>₹4999 </b>
+                                                    </span>
+                                                </p>
 
-                                            <button style={{ height: '35px', width: '160px', marginBottom: "40px",marginRight:'80px' }} className='model-button'> Buy Now</button>
-                                             </center>
+                                                <button style={{ height: '35px', width: '160px', marginBottom: "40px", marginRight: '80px' }} className='model-button'> Buy Now</button>
+                                            </center>
                                         </div>
 
 
                                         <div className='d-block d-sm-none mb-5' >
-                                          <div className='p-2' style={{ display:'flex',justifyContent:'space-between',alignItems:'center',backgroundColor:'ButtonHighlight' }} >                                                                                        
-                                            <p style={{display:'flex',alignItems:'center',paddingTop:'10px'}}>
-                                                <span  style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
-                                                <span className=' pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080'}}>₹4999 </b>
-                                                </span>
-                                            </p>
+                                            <div className='p-2' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'ButtonHighlight' }} >
+                                                <p style={{ display: 'flex', alignItems: 'center', paddingTop: '10px' }}>
+                                                    <span style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
+                                                    <span className=' pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080' }}>₹4999 </b>
+                                                    </span>
+                                                </p>
 
-                                            <button style={{ height: '35px', fontSize:'18px' }} className='model-button'> Buy Now</button>
-                                            </div> 
+                                                <button style={{ height: '35px', fontSize: '18px' }} className='model-button'> Buy Now</button>
+                                            </div>
                                         </div>
-
-
-
-
-
-
-
 
                                     </Card>
                                 </Col>
@@ -298,4 +334,4 @@ function Project() {
     )
 }
 
-export default Project;
+export default Learnwithoutlogin;

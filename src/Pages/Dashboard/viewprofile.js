@@ -9,6 +9,7 @@ import Auth from '../../Model/Auth.model';
 import More from '../../asset/image/more.jpeg'
 import Switchform from '../../Model/switch.model';
 import ProfileModal from '../../modal/Profile.modal';
+import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
 function Viewprofile() {
     const [activeTab, setActiveTab] = useState("Tab1");
@@ -82,22 +83,22 @@ function Viewprofile() {
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1} xs={2} className=''>
+                    <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
 
 
-                    <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
-                            <Row className='mt-1'>
+                            <Row className='mt-4'>
                                 <Col className=" square border-end" sm={8}>
                                     <Card className='order-detail-profile' style={{ backgroundColor: "#efefef", border: 'none', borderRadius: '40px', borderBottomLeftRadius: '0px' }}>
                                         <span style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px', color: 'grey' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px', marginTop: '20px' }} src={More} alt="IMG" /> </span>
                                         <center>
                                             <img style={{ height: '100px', width: '100px' }} src={test2} alt="" className='mt-0' />
                                             <h6 style={{ fontSize: '20px' }} className='mt-4'><b>{userport?.FirstName}</b></h6><br />
-                                            {/* <p>{userport?.OccupationName}</p> */}
+                                            <p>{userport?.OccupationName}</p>
                                         </center>
                                         <Container >
                                             <Row className='mb-3'>
@@ -361,6 +362,7 @@ function Viewprofile() {
                     </Modal.Body>
                 </Modal>
             </Container>
+            <Phoneviewfooter/>
 
         </>
     )

@@ -25,7 +25,7 @@ export default function Phoneviewfooter() {
     return (
         <>
 
-            <Card className='d-block d-sm-none' style={{ height: '7vh', border: 'none', marginTop: '10px', boxShadow: '2px 4px 4px #9E9E9E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <Card className='d-block d-sm-none' style={{ padding:'10px',border: 'none', marginTop: '10px', boxShadow: '2px 4px 4px #9E9E9E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
                 <Container>
 
@@ -124,23 +124,23 @@ export default function Phoneviewfooter() {
                                     >
                                         <CDBSidebarMenuItem className="text-dark mt-5 "> <ion-icon name="home-outline"></ion-icon><h4 className='chh'>Home</h4></CDBSidebarMenuItem>
                                     </NavLink>
-                                    <NavLink exact to="/Order" activeClassName="active" >
+                                    <NavLink exact href="/Order" activeClassName="active" >
                                         <CDBSidebarMenuItem className="text-dark "> <ion-icon name="paper-plane-outline"></ion-icon><h4 className='chh'>Orders</h4></CDBSidebarMenuItem>
                                     </NavLink>
 
-                                    <NavLink exact to="/Message" >
+                                    <NavLink exact href="/Message" >
                                         <CDBSidebarMenuItem className="text-dark"><ion-icon name="mail-outline"></ion-icon><h4 className='chh'>Messages</h4></CDBSidebarMenuItem>
                                     </NavLink>
-                                    <NavLink exact to="/User/Notification" activeClassName="active">
+                                    <NavLink exact href="/User/Notification" activeClassName="active">
                                         <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Notifications</h4></CDBSidebarMenuItem>
                                     </NavLink>
-                                    <NavLink exact to="/Profile" >
+                                    <NavLink exact href="/Profile" >
                                         <CDBSidebarMenuItem className="text-dark"><ion-icon name="person-outline"></ion-icon><h4 className='chh'>Profile</h4></CDBSidebarMenuItem>
                                     </NavLink>
-                                    <NavLink exact to="/user/Setting" activeClassName="active">
+                                    <NavLink exact href="/user/Setting" activeClassName="active">
                                         <CDBSidebarMenuItem className="text-dark"><ion-icon name="settings-outline"></ion-icon><h4 className='chh'>Settings</h4></CDBSidebarMenuItem>
                                     </NavLink>
-                                    {['top'].map((placement) => (
+                                    {/* {['top'].map((placement) => (
                                         <OverlayTrigger
                                             trigger="click"
                                             key={placement}
@@ -164,11 +164,12 @@ export default function Phoneviewfooter() {
                                                 </Popover>
                                             }
                                         >
-                                            <NavLink to="#/" onClick={placement} activeClassName="active">
+                                            <NavLink to="#/"  activeClassName="active">
                                                 <CDBSidebarMenuItem className="text-dark"><ion-icon name="ellipsis-horizontal-circle-outline"></ion-icon><h4 className='chh'>More</h4></CDBSidebarMenuItem>
                                             </NavLink>
                                         </OverlayTrigger>
-                                    ))}
+                                    ))} */}
+
                                 </CDBSidebarMenu>
                             </CDBSidebarContent>
 
@@ -182,3 +183,8 @@ export default function Phoneviewfooter() {
         </>
     )
 }
+
+
+
+
+

@@ -246,6 +246,7 @@ import clientBoard from '../../Model/clientdash';
 import { helper } from '../../lib/helper';
 import { Link } from 'react-router-dom';
 import '../../asset/css/dashboard.css'
+import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
 function Notification() {
     const [allnotifi, setallNotifi] = useState([]);
@@ -294,10 +295,10 @@ function Notification() {
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1} xs={2} className=''>
+                    <Col sm={1}  className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-                    <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row className=''>
@@ -312,7 +313,8 @@ function Notification() {
                                                                 <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                                                 <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
                                                             </svg>
-                                                            <span style={{ fontWeight: 600 }}>Unread</span></button></Link>
+                                                            <span style={{ fontWeight: 600 }}>Unread</span></button>
+                                                    </Link>
                                                 </Col>
                                                 <Col className=''>
 
@@ -379,7 +381,7 @@ function Notification() {
                                         </div>
                                     </div>
 
-                                    <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2'>
+                                    <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2  d-none d-sm-block'>
                                         <Link to='/About Us'  >                                             <span style={{ paddingRight: '10px', color: 'grey' }}>                                                 About </span>                                         </Link>                                         <Link to='/Career'>                                             <span style={{ paddingRight: '10px', color: 'grey' }}>Career</span>                                         </Link>
                                         <Link to='/Termsandcondition'>                                             <span style={{ color: 'grey' }}>Term of services</span>                                         </Link>
                                         <br />
@@ -390,7 +392,7 @@ function Notification() {
                                         <span style={{ paddingRight: '20px' }}>Blog</span>
 
                                         <Link to='/PrivacyPolicy'>
-                                            <span style={{ paddingRight: '10px',color:'grey' }}>Privacy policy</span>
+                                            <span style={{ paddingRight: '10px', color: 'grey' }}>Privacy policy</span>
                                         </Link>
 
                                         <span> ©️ 2023 Wiraa. All Rights Reserved</span>
@@ -407,6 +409,7 @@ function Notification() {
                     </Col>
                 </Row>
             </Container>
+            <Phoneviewfooter/>
 
         </>
     )
