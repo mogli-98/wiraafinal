@@ -6,11 +6,9 @@ import Topnav from '../layout/topnav';
 import Orderbook from '../../../Model/Order.model';
 import { useParams ,Link } from 'react-router-dom';
 import moment from 'moment';
-import {helper} from '../../../lib/helper'
+
 function Orderdetailsbrief() {
     const [orderdetails, setOrderDetails] = useState(false);
-    const [interested ,setInterested] =useState()
-    const [buttonName, setButtonName] = useState('Professionals');
     const params = useParams();
 
     useEffect(() => {
@@ -21,52 +19,13 @@ function Orderdetailsbrief() {
             setOrderDetails(respone.data)
         })
     }, [])
-    const onDELETE = (orderNumber) => {
-        helper.sweetalert.confirm('Are you sure?', "You won't closed the order", "warning", true).then((result) => {
-            if (result.isConfirmed) {
-        const formdata = new FormData();
-
-        formdata.append("removeHoliday", localStorage.getItem("token"));
-        formdata.append("bus_id", localStorage.getItem("selecteoption"));
-       
-        Orderbook.removeholiday(formdata).then((res) => {
-            console.log(res.data)
-
-     
-         
-           
-        }).catch((error) => {
-            console.log("error => ", error)
-        })
-    }
-})
-}
-// const interestedPeople = async () => {
-    
-//     setButtonName('Data Changed');
-//     const orderId  = params.id;
-   
-//     Orderbook.interestedProfessinal({orderId}).then((res) => {
-//         // setHolioday(res.data.data.holidays)
-//         console.log(res.data)
-//         if (res.data.lenght !== 0) {
-//             setInterested();
-//             setButtonName('Requirements');
-//           } else {
-//             setOrderDetails();
-//             setButtonName('Professionals');
-//           }
-//     }).catch((error) => {
-//         console.log("error => ", error)
-//     })
-// }
 
     return (
-
+        <>
             <>
                 <Container fluid className='dashboard-conatiner-top' >
                     <Row>
-                        <Col sm={1} className=''>
+                        <Col sm={1}  className='d-none d-sm-block'>
                             <Sidenav />
                         </Col>
                         <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
@@ -117,45 +76,87 @@ function Orderdetailsbrief() {
                                             </Card>
                                         </div>
                                     </Col>
-                                    <Col sm={4} className='project-deatils4 square border-end ' >
-                                        <Card style={{ background: "#fff " }} className="mt-3">
-                                            <p className='text-center mt-2'><b><u>Details</u></b></p>
+                                    <Col sm={4} xs={12} className='project-deatils4 square border-end ' >
+                                        <Card style={{ background: "#fff", borderRadius: '20px', border: '2px solid lightgrey' }} className="mt-3 mb-3">
+                                            <p className='text-center mt-4'><b style={{ fontSize: '20px', color: 'black' }}><u>Details</u></b></p>
                                             <Table borderless>
                                                 <tbody>
                                                     <tr>
-                                                        <td className='left-td'>Status</td>
-                                                        <td className='right-td text-success'><b>{orderdetails?.[0]?.Status}</b></td>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Status :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td text-success'><b>{orderdetails[0]?.Status}</b></td>
                                                     </tr>
                                                     <tr>
-                                                        <td className='left-td'>Order Date</td>
-                                                        <td className='right-td'><b>
-                                                            {moment(orderdetails?.[0]?.ApplyDate).format('DD-MM-YYYY')}
-                                                          </b></td>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Order Date :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'>
+                                                            <b>
+
+                                                                {/* {orderdetails[0]?.ApplyDate} */}
+                                                                {moment(orderdetails[0]?.ApplyDate).format('DD/MM/YYYY')}
+
+                                                            </b>
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className='left-td'>Due Date</td>
-                                                        <td className='right-td'><b>
-                                                        {moment(orderdetails?.[0]?.DueDate).format('DD-MM-YYYY')}
-                                                            </b></td>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Due Date :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'>
+
+                                                            <b>
+                                                                {/* {orderdetails[0]?.DueDate} */}
+
+                                                                {moment(orderdetails[0]?.DueDate).format('DD/MM/YYYY')}
+
+                                                            </b>
+
+                                                        </td>
                                                     </tr>
                                                     <tr>
-                                                        <td className='left-td'>Responser</td>
-                                                        <td className='right-td'><b>{orderdetails?.[0]?.response}</b></td>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Response :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'><b>{orderdetails[0]?.response}</b></td>
                                                     </tr>
                                                     <tr>
-                                                        <td className='left-td'>Order Number</td>
-                                                        <td className='right-td'><b>{orderdetails?.[0]?.orderNumber}</b></td>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Order Number :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'><b>{orderdetails[0]?.orderNumber}</b></td>
                                                     </tr>
                                                 </tbody>
                                             </Table>
                                             <center>
-                                                <button onClick={() => (onDELETE(orderdetails?.[0]?.orderNumber))} style={{padding: '1px', width: '33%', borderRadius: '8px', color: 'white', borderStyle: 'none', backgroundColor: '#ff7e79' ,fontWeight:'500'}} className='mb-4'>Close </button>
+                                                <button style={{ padding: '5px', width: '30%', borderRadius: '8px', color: 'white', borderStyle: 'none', backgroundColor: '#ff7e79', fontWeight: 700, marginTop: '25px' }} className='mb-4'> Close </button>
                                             </center>
                                         </Card>
-                                        <div className='mt-3'>
-                                            <span>About</span> <span>Career</span> <span>Term of services</span>
-                                            <span>Conatct</span> <span>FAQ</span> <span>Blog</span>
-                                            <span>Privacy policy</span> <span>@2022 Wiraa. All Rights Reserved</span>
+                                        {/* <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2'>
+                                            <span style={{ paddingRight: '10px' }}>About</span> <span style={{ paddingRight: '10px' }}>Career</span> <span>Term of services</span> <br />
+                                            <span style={{ paddingRight: '20px' }}>Conatct</span> <span style={{ paddingRight: '20px' }}>FAQ</span> <span style={{ paddingRight: '20px' }}>Blog</span>
+                                            <span>Privacy policy</span> <span> ©️ 2023 Wiraa. All Rights Reserved</span>
+                                        </div> */}
+
+                                        <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2 d-none d-sm-block'>
+                                            <Link to='/About Us'  >
+                                                <span style={{ paddingRight: '10px', color: 'grey' }}>
+                                                    About </span>
+                                            </Link>
+                                            <Link to='/Career'>
+                                                <span style={{ paddingRight: '10px', color: 'grey' }}>Career</span>
+                                            </Link>
+
+                                            <Link to='/Termsandcondition'>
+                                                <span style={{ color: 'grey' }}>Term of services</span>
+                                            </Link>
+
+                                            <br />
+
+                                            <Link to='/ContactComponent'>
+                                                <span style={{ paddingRight: '20px', color: 'grey' }}>Conatct</span>
+                                            </Link>
+
+                                            <span style={{ paddingRight: '20px' }}>FAQ</span>
+
+                                            <span style={{ paddingRight: '20px' }}>Blog</span>
+
+                                            <Link to='/PrivacyPolicy'>
+                                                <span style={{ paddingRight: '10px', color: 'grey' }}>Privacy policy</span>
+                                            </Link>
+
+                                            <span> ©️ 2023 Wiraa. All Rights Reserved</span>
                                         </div>
                                     </Col>
                                 </Row>
@@ -164,7 +165,7 @@ function Orderdetailsbrief() {
                     </Row>
                 </Container>
             </>
-
+</>
     )
 }
 

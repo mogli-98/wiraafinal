@@ -45,7 +45,7 @@
   color: #fff;
   background-color: #008080;
   border-color: #008080;
-  border-style: solid;
+  /* border-style: solid; */
 }
 
 .navvlink:active {
@@ -73,7 +73,7 @@
 }
 
 .dashboard-conatiner-top-row {
-  margin-left: 190px;
+  margin-left: 30vh;
 }
 
 .portfolio-image {
@@ -119,7 +119,8 @@
 }
 
 .formborder {
-  border-color: #797979 !important;
+  /* border-color: #797979 !important; */
+  border: 2px solid lightgray;
 }
 
 .message-orange {
@@ -588,11 +589,16 @@ color: #7e8829 !important;
 
 .switch-button {
   margin-top: 20px;
-  width: 50%;
-  background-color: #07090c;
+  width: 40%;
+  background-color: #131417e7;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-bottom: 100px;
+  border: none;
+  padding: 5px;
+  font-weight: 600;
+  font-size: 16px;
+  
 }
 
 .hire-button {
@@ -625,7 +631,7 @@ color: #7e8829 !important;
 
 .no-order {
   width: 90%;
-  height: 45px;
+  height: 60px;
   border-radius: 20px;
   margin-bottom: 30px;
   background-image: linear-gradient(to right, #ff5566, #c67724, #7e8829, #3a895a, #008080);
@@ -634,27 +640,35 @@ color: #7e8829 !important;
 .no-order p {
   padding-top: 5px;
   color: #fff;
-  font-weight: 900;
+  font-weight: 600;
   margin-left: -1px;
   font-size: 18px;
   font-family: Helvetica-Bold;
 }
 
 .no-order-button {
-  border-radius: 8px;
+  border-radius:10px;
   background-color: #fff;
   border-style: none;
-  margin-top: 5px;
-  margin-left: 20px;
-  font-size: small;
+  /* margin-top: 5px; */
+   margin-left: 20px;
+  /* font-size: small; */
+  font-size: 16px;
   width: 25%;
-  height: 25px;
+  height: 35px;
+  border: none;
 }
 
 .order-details-requirements {
   border-radius: 5px;
   background-color: #fff;
   width: max-content;
+}
+
+.svgg{
+  margin-right:5px;
+  color:grey;
+  /* padding-right: 5px; */
 }
 
 .order-details-shortlisted {
@@ -811,7 +825,9 @@ color: #7e8829 !important;
 .styled-table th {
   background-color: #f2f2f2; /* Add a background color to table headers */
 }
-
+.jGeaPm {
+  border-style: none !important;
+}
 @media screen and (max-width: 480px) {
   .bPQHAq .head-div .icon-suffix {
     display: inherit !important;

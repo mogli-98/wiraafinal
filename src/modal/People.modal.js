@@ -8,7 +8,7 @@ const PeopleModal = {
     // },
     async Userporfiolio(data) {
         return (await axiosInstance.get(
-            `/people/peopleById/${data.userId}` ))
+            `/people/peopleById/${data.userId}`))
             
     },
     async Profile(data) {

@@ -3,18 +3,19 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 import Sidenav from '../layout/Sidenav';
 import Topnav from '../layout/topnav';
 import { Link } from 'react-router-dom';
+import Phoneviewfooter from '../../../Layout/Phoneviewfooter';
 function Noorder() {
 
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1} xs={2} className=''>
+                    <Col sm={1}  className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
 
 
-                    <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row className='mt-5'>
@@ -40,6 +41,7 @@ function Noorder() {
                                 <Col sm={1}></Col>
                             </Row>
                         </Container>
+                        <Phoneviewfooter/>
                     </Col>
                 </Row>
             </Container>

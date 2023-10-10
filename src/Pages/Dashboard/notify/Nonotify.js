@@ -1,9 +1,7 @@
 import React from 'react';
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col} from "react-bootstrap";
 import '../../../asset/css/dashboard.css'
 import Sidenav from '../layout/Sidenav';
-import test2 from "../../../asset/image/test2.png";
-import Modal from 'react-bootstrap/Modal';
 import Topnav from '../layout/topnav';
 import bookbulb from '../../../asset/image/bookbulb.png'
 import nonotifi from '../../../asset/image/nonotifi.png'
@@ -48,7 +46,7 @@ function Messages() {
                                                 <img src={nonotifi} alt="" 
                                                 style={{position:"relative",
                                                 top:'15vh',
-                                                left:'16vw'}} />
+                                                left:'16vw',height:"100px"}} />
                                                 <h4 className='text-center' style={{paddingTop:'18vh',color:'#008080'}}>No New Notifications</h4>
                                                 
                                                 </Col>
@@ -60,7 +58,7 @@ function Messages() {
                                 <Col md={4} className=" square border-start" style={{ backgroundColor: "#efefef", height: '430px', borderBottomRightRadius: "30px", borderBottomLeftRadius: "30px" }}>
                                     <div className='' style={{ backgroundColor: "#efefef", width: "-webkit-fill-available", height: "20px" }}>
                                         <center>
-                                            <img src={bookbulb} alt="" className='mt-5' />
+                                            <img src={bookbulb} alt="" className='mt-5' style={{height:'70px'}} />
                                             <h4 style={{ color: "#008080", fontFamily: "Helvetica-Bold" }} className="mt-5">Advance</h4>
                                             <h4 style={{ color: "#008080", fontFamily: "Helvetica-Bold" }}>Freelancing</h4>
                                             <h4 style={{ color: "#008080", fontFamily: "Helvetica-Bold" }}>Course</h4>

@@ -6,7 +6,7 @@ import test2 from "../../asset/image/test2.png";
 import test from "../../asset/image/test.JPG";
 import Topnav from './layout/topnav';
 import Auth from '../../Model/Auth.model';
-// import More from '../../asset/image/more.png'
+import More from '../../asset/image/more.png'
 import { grey } from '@mui/material/colors';
 
 function Explorepage() {

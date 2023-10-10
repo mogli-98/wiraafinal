@@ -19,9 +19,7 @@ const Login = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   const [showPassword, setShowPassword] = React.useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
@@ -39,7 +37,6 @@ const Login = () => {
     event.preventDefault();
     const form = new FormData(event.target);
     AuthModal.login(form).then((response) => {
-
       if (response.data.status === true) {
         const accessToken = response?.data?.token;
         localStorage.setItem('accessToken', accessToken);
@@ -60,7 +57,7 @@ const Login = () => {
   return (
     <>
       <div>
-        <Container style={{ height: '92.6vh', width: '80vw' }} >
+        <Container style={{ height: '92.6vh' }} >
           <Row>
             <Col sm={3}>
             </Col>

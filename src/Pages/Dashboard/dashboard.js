@@ -10,6 +10,7 @@ import Topnav from './layout/topnav';
 import { useEffect } from 'react';
 import Switchform from '../../Model/switch.model';
 import Select from "react-select";
+import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
 function Dashboard(props) {
@@ -38,26 +39,55 @@ function Dashboard(props) {
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1} className=''>
+                    <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
-                            <Row>
-                                <Col>
-                                    <div style={{ display: "flex", backgroundColor: '#efefef', borderRadius: "30px", border: "1px solid black" }} className='mt-4 mb-4'>
 
-                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px", width: '100%' }} className='d-none d-sm-block'>
+
+
+
+
+                            <Row>
+
+                                <Col className='d-block d-sm-none'>
+
+                                    <div>
+                                        <Link to="/Hiretalent">
+
+
+                                            <button className='mt-4 mb-4 p-3' style={{ width: '100%', border: 'none', borderRadius: '8px', backgroundColor: '#008080' }} >
+                                                <span style={{ fontWeight: '600', color: 'white' }}>
+                                                    Post a request - Hire talents
+                                                </span>
+                                            </button>
+                                        </Link>
+
+                                    </div>
+
+                                </Col>
+
+
+                                <Col className='d-none d-sm-block'>
+                                    <div style={{ display: "flex", backgroundColor: '#efefef', borderRadius: "30px" }} className='mt-4 mb-4'>
+
+                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px", width: '100%' }}>
                                             <InputGroup style={{ borderStyle: 'none' }} className='  search-outer-container'>
 
                                                 <Select
                                                     options={options}
                                                     isClearable
-                                                    onChange={handleChange}
+                                                    className='d-none d-sm-block'
+                                                    
+                                                    
+                                                    
                                                     styles={{
                                                         border: 'none',
                                                         display: 'flex',
+
+
                                                         clearIndicator: () => ({
                                                             color: 'red',
 
@@ -74,6 +104,8 @@ function Dashboard(props) {
                                             </InputGroup>
 
                                         </div>
+
+
                                         <div className="button-check" style={{ float: 'right' }}>
                                             <div style={{ float: 'right' }} className="button1 b2 new-class-toggle " id="button-10" >
                                                 <input type="checkbox" className="checkbox"
@@ -88,16 +120,90 @@ function Dashboard(props) {
 
                                     </div>
                                 </Col>
+                                <div className='d-block d-sm-none'>
+
+                                    <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }} className='mt-1 mb-1'>
+
+                                        <div style={{ float: 'left' }}>
+                                            <p style={{fontSize:'20px',fontWeight:'bold',marginTop:'6px'}}> <u>Explore </u> </p>
+                                        </div>
+
+                                        {/* <div className=''>
+
+                                            
+
+                                            <button
+                                                className='m-1 p-2'
+                                                style={{ float: 'right', fontSize: '12px', border: '1px solid grey', background: 'black', color: 'white', fontWeight: 500, borderRadius: '8px' }}>
+                                                People
+                                            </button>
+
+
+                                            <button
+                                                className='m-1 p-2'
+                                                style={{ float: 'right', fontSize: '12px', border: '1px solid grey', background: 'none', fontWeight: 500, borderRadius: '8px' }}>
+                                                Portfolio
+                                            </button>
+
+                                        </div> */}
+
+                                        <div className="button-check" style={{ float: 'right',height:'40px' }}>
+                                            <div style={{ float: 'right' }} className="button1 b2 new-class-toggle " id="button-10" >
+                                                <input type="checkbox" className="checkbox"
+                                                    checked={showComponent}
+                                                    onChange={() => setShowComponent(!showComponent)} />
+                                                <div className="knobs">
+                                                    <span>Portfolio</span>
+                                                </div>
+                                                <div className="layer"></div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                    </div>
+
+
+
+                                    <div className='mt-2 mb-2 ' style={{ backgroundColor: "#efefef", borderRadius: "10px", width: '100%', height: '35px' }}>
+                                        <InputGroup style={{ borderStyle: 'none' }} className='  search-outer-container'>
+
+                                            <Select
+                                                options={options}
+                                                isClearable
+                                                className='d-block d-sm-none'
+                                                styles={{
+                                                    border: 'none',
+                                                    display: 'flex',
+
+
+                                                    clearIndicator: () => ({
+                                                        color: 'red',
+
+                                                    }),
+                                                    control: () => ({
+                                                        border: 'none', display: 'flex', width: '260px'
+
+                                                    }),
+                                                    dropdownIndicator: () => ({
+                                                        display: 'none'
+                                                    })
+                                                }}
+                                            />
+                                        </InputGroup>
+
+                                    </div>
+
+                                </div>
                             </Row>
                             {showComponent ? <Profile /> : <Portfolio />}
                         </Container>
-                        <Phoneviewfooter/>
+                        <Phoneviewfooter />
                     </Col>
                 </Row>
-               
+
             </Container>
-
-
 
         </>
     );

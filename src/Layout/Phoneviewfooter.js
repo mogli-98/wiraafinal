@@ -12,6 +12,7 @@ import Wiraalogo from '../asset/image/Wiraalogo.png';
 
 
 
+
 export default function Phoneviewfooter() {
 
 
@@ -24,7 +25,7 @@ export default function Phoneviewfooter() {
     return (
         <>
 
-            <Card style={{ backgroundColor: 'ButtonHighlight', height: '7vh', border: 'none', margin: '7px', borderRadius: '10px', boxShadow: '-2px 4px 4px #9E9E9E', display: 'flex', alignItems: 'center', justifyContent: 'center', }} className='d-block d-sm-none'>
+            <Card className='d-block d-sm-none' style={{ height: '7vh', border: 'none', marginTop: '10px', boxShadow: '2px 4px 4px #9E9E9E', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
                 <Container>
 
@@ -59,8 +60,6 @@ export default function Phoneviewfooter() {
                         </Col>
 
 
-
-
                     </Row>
 
                 </Container>
@@ -74,21 +73,56 @@ export default function Phoneviewfooter() {
                 <Offcanvas.Header closeButton>
 
                     <NavLink exact to="/" activeClassName="active">
-                        <img src={Wiraalogo} alt="LOGO" width={140} style={{ marginTop: "5px" }} />
+                        <img src={Wiraalogo} alt="LOGO" width={120} style={{ marginTop: "5px" }} />
                     </NavLink>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
 
+
+
+
                     <div style={{ display: 'flex', overflow: 'scroll initial' }}>
+
+
+
+
                         <CDBSidebar textColor="#fff" backgroundColor="#333">
 
 
                             <CDBSidebarContent className="sidebar-content">
                                 <CDBSidebarMenu>
+
+                                    <CDBSidebarMenuItem className="text-dark ">
+                                        {/* <ion-icon name="home-outline"></ion-icon> */}
+
+                                        <img style={{ height: '60px', width: '60px', marginLeft: '60px', borderRadius: '50%' }} src={Profile} alt="Profile" />
+
+
+                                        <h4 className='mt-2 mb-4'>Something pvt.ltd.</h4>
+
+
+
+                                    </CDBSidebarMenuItem>
+
+                                    <CDBSidebarMenuItem className="text-dark ">
+
+
+                                        <Card style={{ padding: '6px', marginTop: '70px',border:'none',width:'90%',boxShadow:'4px 4px 4px 4px lightgrey '}}>
+                                            <center>
+                                                <h6 >Switch Account</h6>
+                                                <h6 style={{ fontWeight: 600, color: '#008080' }}>Professional Dashboard</h6>
+                                            </center>
+
+                                        </Card>
+
+                                    </CDBSidebarMenuItem>
+
+
+
                                     <NavLink exact to="/user/dashboard"
                                         activeClassName="active"
                                     >
-                                        <CDBSidebarMenuItem className="text-dark "> <ion-icon name="home-outline"></ion-icon><h4 className='chh'>Home</h4></CDBSidebarMenuItem>
+                                        <CDBSidebarMenuItem className="text-dark mt-5 "> <ion-icon name="home-outline"></ion-icon><h4 className='chh'>Home</h4></CDBSidebarMenuItem>
                                     </NavLink>
                                     <NavLink exact to="/Order" activeClassName="active" >
                                         <CDBSidebarMenuItem className="text-dark "> <ion-icon name="paper-plane-outline"></ion-icon><h4 className='chh'>Orders</h4></CDBSidebarMenuItem>

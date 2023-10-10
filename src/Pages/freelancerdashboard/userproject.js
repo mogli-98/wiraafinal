@@ -11,17 +11,27 @@ function Userproject() {
     const [Userproj, setUserproj] = useState([]);
     const [Proexport, setProexport] = useState([]);
     const [activeTab, setActiveTab] = useState("Tab1");
+    const [favproject,  setfavproject] = useState([]);
     const handleClick = (tab) => {
         setActiveTab(tab);
     };
     const [fillColor, setFillColor] = useState("lightgrey"); // Initial fill color, can be any valid color
 
 
-    const handleButtonClick = () => {
-      // Change the color on each button click
+    const handleButtonClick = (         ) => {
+        const userId  = localStorage.getItem("UserID");
+        ProjectModal.getfavproject({userId}).then((response) =>{
+        setfavproject(response.data);
+        // setActiveTab(tab);
+        console.log(response.data)
+        
       const newColor = fillColor === "lightgrey" ? "red" : "lightgrey";
       setFillColor(newColor);
-    };
+    }).catch((error) => {
+        console.log("error => ", error)
+    })
+}
+
     const columns = [
         {
             name: 'Client Name',
@@ -66,14 +76,18 @@ function Userproject() {
         console.log(response.data);
         setUserproj(response.data);
      
-    });
+    }).catch((error) => {
+        console.log("error => ", error)
+    })
     }, [])
     useEffect(() => {
         ProjectModal.Allproject().then((response)=>{
         console.log(response.data);
         setProexport(response.data);
      
-    });
+    }).catch((error) => {
+        console.log("error => ", error)
+    })
     }, [])
     useEffect(() => {
         const userId  = localStorage.getItem("UserID");
@@ -81,7 +95,19 @@ function Userproject() {
         setProexport(response.data);
         console.log(response.data);
 
-    });
+    }).catch((error) => {
+        console.log("error => ", error)
+    })
+    }, [])
+    useEffect(() => {
+        const userId  = localStorage.getItem("UserID");
+        ProjectModal.getfavproject({userId}).then((response) =>{
+        setfavproject(response.data);
+        console.log(response.data);
+
+    }).catch((error) => {
+        console.log("error => ", error)
+    })
     }, [])
     const customStyles = {
 
@@ -147,11 +173,11 @@ function Userproject() {
                                             className={`tab  ${activeTab === "Tab3" ? "active" : ""}`}
                                             onClick={() => handleClick("Tab3")}
                                         >
-                                            <button className={`userproject  ${activeTab === "Tab3" ? "project-button " : ""}`} >Accepted</button>
-                                        </div>
-                                        <svg xmlns="http://www.w3.org/2000/svg" onClick={handleButtonClick} width="25" height="25" fill={fillColor} class="bi bi-heart-fill" viewBox="0 0 16 16"style={{position:'relative',float:'right'}}>
+
+<svg xmlns="http://www.w3.org/2000/svg" onClick={handleButtonClick} width="25" height="25" fill={fillColor} class= "tab bi bi-heart-fill"  viewBox="0 0 16 16"style={{position:'relative',float:'right'}}>
                                             <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
-                                        </svg> 
+                                        </svg>                                         </div>
+
                                         </div>
                                         {activeTab === "Tab1" && <>
                                             <div style={{border:"1px solid grey" ,width:'100%',padding:'5px'}}>
@@ -160,6 +186,7 @@ function Userproject() {
                                                 data={Userproj}
                                                 pagination
                                                 customStyles = {customStyles }
+                                                noDataComponent="Add Your Business" //or your component
                                             />
                                             </div>
                                             </>
@@ -169,6 +196,17 @@ function Userproject() {
                                             <DataTable
                                                 columns={columns}
                                                 data={Proexport}
+                                                pagination
+                                                customStyles = {customStyles }
+                                            />
+                                            </div>
+                                            </>
+                                        }
+                                         {activeTab === "Tab3" && <>
+                                        <div style={{border:"1px solid grey" ,width:'100%',padding:'5px'}}>
+                                            <DataTable
+                                                columns={columns}
+                                                data={favproject}
                                                 pagination
                                                 customStyles = {customStyles }
                                             />

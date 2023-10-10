@@ -20,7 +20,7 @@ function Dashprojectdetails() {
                                     <div className=' '>
                                         <button className="project-top-details m-3" >
                                             <h6 className='text-center text-light '>Join as a professional</h6>
-                                            
+
                                         </button>
                                         <Card className='m-3' style={{ background: "#efefef " }}>
                                             <div className=' m-3 project-details'>
@@ -77,18 +77,49 @@ function Dashprojectdetails() {
                                             </tbody>
                                         </Table>
                                     </Card>
-                                    <div className='mt-3 projectdetail-last'>
+                                    {/* <div className='mt-3 projectdetail-last'>
                                         <span>About</span> <span>Career</span> <span>Term of services</span>
                                         <span>Conatct</span> <span>FAQ</span> <span>Blog</span>
                                         <span>Privacy policy</span> <span>© 2023 Wiraa. All Rights Reserved</span>
+                                    </div> */}
+
+
+                                    <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2'>
+                                        <Link to='/About Us'  >
+                                            <span style={{ paddingRight: '10px', color: 'grey' }}>
+                                                About </span>
+                                        </Link>
+                                        <Link to='/Career'>
+                                            <span style={{ paddingRight: '10px', color: 'grey' }}>Career</span>
+                                        </Link>
+
+                                        <Link to='/Termsandcondition'>
+                                            <span style={{ color: 'grey' }}>Term of services</span>
+                                        </Link>
+
+                                        <br />
+
+                                        <Link to='/ContactComponent'>
+                                            <span style={{ paddingRight: '20px', color: 'grey' }}>Conatct</span>
+                                        </Link>
+
+                                        <span style={{ paddingRight: '20px' }}>FAQ</span>
+
+                                        <span style={{ paddingRight: '20px' }}>Blog</span>
+
+                                        <Link to='/PrivacyPolicy'>
+                                            <span style={{ paddingRight: '10px' }}>Privacy policy</span>
+                                        </Link>
+
+                                        <span> ©️ 2023 Wiraa. All Rights Reserved</span>
                                     </div>
                                 </Col>
-                               
+
                             </Row>
                         </Container>
                     </Col>
                 </Row>
-            </Container>    
+            </Container>
         </>
     )
 }

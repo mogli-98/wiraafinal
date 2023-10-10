@@ -26,7 +26,11 @@ const ProjectModal = {
         return (await axiosInstance.post(
             `/project/addProjectToFavorite/${data.uid}/${data2.pid}`,
         ));
-    }
+    } ,async getfavproject(data) {
+        return (await axiosInstance.get(
+            `/project/getFavorite/${data.userId}` , data
+        ));
+    },
     
 
 

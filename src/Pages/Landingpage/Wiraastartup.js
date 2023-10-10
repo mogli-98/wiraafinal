@@ -1,11 +1,11 @@
 import React from 'react';
 import '../../asset/css/Wiraastartup.css'; 
 import { Container, Row, Col, Button ,Modal} from 'react-bootstrap'; 
-import Startupimg1 from '../../asset/css/startupimg/wiraastartup1.jpg';
-import Startupimg2 from '../../asset/css/startupimg/wiraastartup5.jpg';
-import Startupimg3 from '../../asset/css/startupimg/wiraastartup4.jpg';
-import Startupimg4 from '../../asset/css/startupimg/wiraastartup3.jpg';
-import Startupimg5 from '../../asset/css/startupimg/wiraastartup2.jpg';
+import Startupimg1 from '../../asset/css/startupimg/wiraastartup1.png';
+import Startupimg2 from '../../asset/css/startupimg/wiraastartup5.png';
+import Startupimg3 from '../../asset/css/startupimg/wiraastartup4.png';
+import Startupimg4 from '../../asset/css/startupimg/wiraastartup3.png';
+import Startupimg5 from '../../asset/css/startupimg/wiraastartup2.png';
 import Navbar from '../../Layout/Header';
 
 import Accountfootor from '../../Layout/Accountfooter';

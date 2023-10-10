@@ -88,13 +88,15 @@ function ProfileCard(props){
                             ) :   <h6 className='text-center'>{data.PostCount}</h6>}
                     
                       <p className='text-center'>Portfolio</p></div>
+
                     {isHovered1 && (
                         <center>
+                               <Link to={`/Profiledetails/${data.UserID}`}>
                             <button style={{
                             backgroundColor:"black",color:"#fff",
                             borderStyle:"none",padding:'4px',width:'100%',
                             borderRadius:"8px",marginTop:"12px"
-                            }}> Profile</button>
+                            }}> Profile</button></Link>
                         </center>
                     )}
                 </Col>

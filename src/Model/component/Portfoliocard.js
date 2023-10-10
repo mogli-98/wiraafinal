@@ -120,7 +120,7 @@ function ProtfolioCard(props) {
                     <Row>
                         <Col xs={12}>
                             <div style={{ width: "-webkit-fill-available", height: '220px', border: "1px solid black" }}>
-                                <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
+                                <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data?.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
 
                             </div>
                             

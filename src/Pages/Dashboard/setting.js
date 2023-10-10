@@ -51,30 +51,29 @@ function Setting() {
                     <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
-                            <Row>
-                                <Col sm={2}></Col>
+                            <Row className='mt-5'>
+                                <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-5' onClick={handleShow} style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff",borderRadius:'10px' }}>
-                                        <div className='m-2 setting-text'>
-                                            <p style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Email Address:</b></p>
-                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Upload Email address of your account  </p>
-                                           
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Email Address:</b></p>
+                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>Upload Email address of your account  </p>
                                         </div>
                                     </Card>
                                 </Col>
-
+                                <Col sm={1}></Col>
                             </Row>
                             <Row>
-                                <Col sm={2}></Col>
+                                <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', width: "100%", borderColor: "#fff",borderRadius:'10px' }}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
                                         <div className='m-1 setting-text'>
-                                            <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Phone Number:</b></p>
-                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Upload Phone number in case you have trouble signing in</p>
+                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Phone Number:</b></p>
+                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>Upload Phone number in case you have trouble signing in</p>
                                         </div>
                                     </Card>
                                 </Col>
-
+                                <Col sm={1}></Col>
                             </Row>
                             <Row>
                                 <Col sm={1}></Col>
@@ -90,28 +89,29 @@ function Setting() {
 
                             </Row>
                             <Row>
-                                <Col sm={2}></Col>
+              
+                                <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-3' style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff",borderRadius:'10px' }}>
-                                        <div className='m-2 setting-text'>
-                                            <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Block Accounts:</b></p>
-                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>When you block someone, that person won’t be able to follow or message you</p>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Block Accounts:</b></p>
+                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>When you block someone, that person won’t be able to follow or message you</p>
                                         </div>
                                     </Card>
                                 </Col>
-
+                                <Col sm={1}></Col>
                             </Row>
                             <Row>
-                                <Col sm={2}></Col>
+                            <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-3 mb-4' style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff" ,borderRadius:'10px'}}>
-                                        <div className='m-2 setting-text'>
-                                            <p  style={{fontSize:'20px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 p-1'><b>Deactivate Account:</b></p>
-                                            <p style={{fontSize:'18px',color:'grey',cursor:'pointer'}} className='p-1'>Temporarily deactivate your Wiraa account</p>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Deactivate Account:</b></p>
+                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>Temporarily deactivate your Wiraa account</p>
                                         </div>
                                     </Card>
                                 </Col>
-
+                                <Col sm={1}></Col>
                             </Row>
                         </Container>
                     </Col>
