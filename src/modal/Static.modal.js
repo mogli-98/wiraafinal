@@ -39,6 +39,11 @@ const Staticmodal = {
            `/static/getAllQualificationList` ,data)
            )
     },
+    async getallCity(data){
+        return(await axiosInstance.get(
+           `/static/getAllCity` ,data)
+           )
+    },
 
 }
 export default Staticmodal;

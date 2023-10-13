@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 import Wiraalogo from "../../../asset/image/Wiraalogo.png";
 
-function Topnavbar() {
+function Topnavbar({ activeLink  }) {
     return (
         <>
-            <Row className="d-none d-sm-block">
+            <Row  style={{height:'73px'}}className="d-none d-sm-block">
                 <Col sm={12} >
                     <nav className="navbar mt-3 square border-bottom">
                         <div className="left-side">
-                            <h3><b>HOME</b></h3>
+                            <h3><b>{activeLink }</b></h3>
                         </div>
-                        <div className="navbar-right1">
+                        <div className="navbar-right1 mt-2">
 
                             <Link to='/Switchaccount'><button className="navbar-button switch"><b>Switch </b></button></Link>
                             <Link to="/Hiretalent"><button className="navbar-button hire"><b>Hire </b></button></Link>

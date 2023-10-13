@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState ,useEffect} from "react";
 import { Card, Modal, Container, Row, Col } from "react-bootstrap";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Auth from "../Auth.model";
 import { TextField } from "@mui/material";
+import test1 from '../../asset/image/test1.png'
 function ProtfolioCard(props) {
     const { data } = props;
     const [isHovered1, setIsHovered1] = useState(false);
@@ -17,12 +18,12 @@ function ProtfolioCard(props) {
         postId: '',
     });
     const fetchdata = async (PostID) => {
+        openCheckoutModal(PostID)
         //console.log(outid)
         const postId = PostID
         Auth.Allcomment({postId}).then((res) => {
             setallcomment(res.data)
-            openCheckoutModal(PostID)
-          
+           
         })
             .catch((error) => {
                 console.log("error => ", error)
@@ -30,7 +31,7 @@ function ProtfolioCard(props) {
     }
     const openCheckoutModal = (PostID) => {
         setOutid(PostID); 
-        Likeadd(outid)
+        
         handleShow(true);
     }
     const handleInputChange = (event) => {
@@ -71,7 +72,7 @@ function ProtfolioCard(props) {
                 console.log("error => ", error)
             })
     }
-
+   
     return <>
         <Card
             style={{
@@ -84,7 +85,8 @@ function ProtfolioCard(props) {
             onMouseLeave={() => setIsHovered1(false)}
         >
             <div className="containerhover" style={{ border: isHovered1 ? "2px solid #008080" : "0px solid transparent", borderRadius: "5px" }} onClick={() => (fetchdata(data.PostID))}>
-                <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
+            {/* <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} /> */}
+            <img src={test1} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />   
                 <div className="overlay">
                     <div className="containerhovertext">
                         {data?.AboutMe}
@@ -95,7 +97,10 @@ function ProtfolioCard(props) {
                 <tbody>
                     <tr>
                         <td style={{ width: '50%' }}>
-                            <p className='small '> <img src={`http://demo.wiraa.com${data.ProfilePic}`} alt="A" className="m-1" style={{ width: "20px", height: '20px', borderRadius: "50px" }} /><b>{data.FirstName}{data.LastName}</b></p>
+                            <p className='small '> 
+                            <img src={test1} alt="A" className="m-1" style={{ width: "20px", height: '20px', borderRadius: "50px" }} />
+                            {/* <img src={`http://demo.wiraa.com${data.ProfilePic}`} alt="A" className="m-1" style={{ width: "20px", height: '20px', borderRadius: "50px" }} /> */}
+                            <b>{data.FirstName}{data.LastName}</b></p>
                         </td>
                         <td className="frloo">
                             {data.UserLiked !== 0 ? (
@@ -105,8 +110,6 @@ function ProtfolioCard(props) {
                             ) : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
                                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
                             </svg>}
-
-
                             <span className='small'>{data.LikeCount}</span>
                             <ion-icon name="chatbox-ellipses-outline"  ></ion-icon> <span className='small'>{data.CommentCount}</span>
                         </td>
@@ -118,14 +121,15 @@ function ProtfolioCard(props) {
             <Modal.Body>
                 <Container>
                     <Row>
-                        <Col xs={12}>
-                            <div style={{ width: "-webkit-fill-available", height: '220px', border: "1px solid black" }}>
-                                <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data?.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
-
-                            </div>
+                        <Col xs={12} sm={6}>
+                            <div style={{  height: '90vh', border: "1px solid black",backgroundColor:'black',textAlign:'center', position:"relative",maxWidth:'inherit'}}>
+                                {/* <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data?.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} /> */}
+                          
+                              <img src={test1} alt="Avatar" className=" " style={{height:'100%',width:'100%'}} />
                             
+                            </div>  
                         </Col>
-                        <Col xs={12}>
+                        <Col xs={12}  sm={6}>
                             <p className='small mt-1'>{data?.Description} {data.UserLiked !== 0 ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className='bi bi-heart-fill' viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
@@ -134,14 +138,13 @@ function ProtfolioCard(props) {
                                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
                             </svg>} <span>{data?.LikesCount}</span></p>
                           
-                               <div style={{ height: "135px" ,overflowY:'scroll'}}>
+                               <div style={{ height: "75vh" ,overflowY:'scroll'}}>
                                     {allcommentss && allcommentss?.map((commentlist) =>
                                             <div style={{ height: "30px" }}>
                                                 <p>  {commentlist?.FirstName} - {commentlist?.Comment}</p>   
                                             </div>
                                         )} 
                                </div>
-                           
                             <div style={{ borderRadius: "20px", position: 'relative', marginBottom: '0px' }} className="mt-2" >
                                 <form onSubmit={handleSubmit} >
                                     <input type="number" style={{ display: 'none' }} name="postId" value={outid}

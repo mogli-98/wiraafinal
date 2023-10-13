@@ -124,19 +124,19 @@ function Orderdetailsbrief() {
             console.log(status)
         })
     }, [])
-    const borderRightColor = status === 'closed' ? 'red' : 'black';
+    
     return (
         <>
             <>
                 <Container fluid className='dashboard-conatiner-top' >
                     <Row>
                         <Col sm={1} className='d-none d-sm-block'>
-                            <Sidenav setActiveLink={setActiveLink} />
+                            <Sidenav  />
                         </Col>
 
 
-                        <Col sm={8} xs={12} className='dashboard-conatiner-top-row  '>
-                            <Topnav activeLinkName={activeLink} />
+                        <Col sm={8} xs={12} className='dashboard-conatiner-top-row'>
+                            <Topnav activeLink="Order" />
 
                             <Col className='d-block d-sm-none'>
 

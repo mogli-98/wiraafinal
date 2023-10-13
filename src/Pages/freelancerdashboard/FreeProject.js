@@ -4,7 +4,6 @@ import "../../asset/css/freelanceredashboard.css";
 import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
 
-// import { Link } from "react-router-dom";
 function FreeProDetails() {
 
 
@@ -19,7 +18,7 @@ function FreeProDetails() {
 
           <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
             <Container className='square border border-bottom-0'>
-              <Topnavbar />
+              <Topnavbar activeLink="Project" />
               <Row >
                 <Col sm={8} className="project square border-end border-start">
                   <div className=' '>

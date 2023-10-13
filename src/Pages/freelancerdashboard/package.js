@@ -20,7 +20,7 @@ function Package() {
 
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnavbar />
+                            <Topnavbar activeLink="Package" />
                             <Row >
                                 {/* <div className='pricing-top-text mb-4'>
                   <p className='text-center'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>

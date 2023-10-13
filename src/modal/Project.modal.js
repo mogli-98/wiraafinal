@@ -31,6 +31,11 @@ const ProjectModal = {
             `/project/getFavorite/${data.userId}` , data
         ));
     },
+    async Addinterest(data) {
+        return (await axiosInstance.get(
+            `​/project​/addInterestToProject` , data
+        ));
+    },
     
 
 

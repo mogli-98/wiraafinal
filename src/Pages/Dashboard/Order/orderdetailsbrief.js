@@ -30,7 +30,7 @@ function Orderdetailsbrief() {
                         </Col>
                         <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                             <Container className='square border border-bottom-0'>
-                                <Topnav />
+                                <Topnav  activeLink="Orders"/>
                                 <Row>
                                     <Col sm={8} xs={12} className="project square border-end border-start">
                                         <div >
@@ -111,7 +111,11 @@ function Orderdetailsbrief() {
                                                     </tr>
                                                     <tr>
                                                         <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Response :</td>
-                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'><b>{orderdetails[0]?.response}</b></td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'>
+                                                    
+                                                        {orderdetails[0]?.response === null ? (
+                         <h6 className='text-center'>0</h6>
+                            ) :   <h6 className='text-center'>{orderdetails[0]?.response}</h6>}</td>
                                                     </tr>
                                                     <tr>
                                                         <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Order Number :</td>

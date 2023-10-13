@@ -82,7 +82,7 @@ function Hiretalent() {
 
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav />
+                            <Topnav activeLink="Post a Project" />
                             <Row>
                                 <Col sm={8} className="square border-end ">
                                     <h3 className='text-center mt-4 mb-4 '>Find talent your way</h3>

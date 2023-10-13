@@ -13,7 +13,7 @@ import Select from "react-select";
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
-function Dashboard(props) {
+function Dashboard(name) {
     const handleChange = (selectedOption) => {
         console.log('Selected option:', selectedOption);
         // You can perform any action with the selectedOption here
@@ -44,7 +44,7 @@ function Dashboard(props) {
                     </Col>
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav />
+                            <Topnav activeLink="Home"/>
 
 
 

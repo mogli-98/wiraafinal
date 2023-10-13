@@ -18,7 +18,7 @@ function Moreprof() {
 
                     <Col sm={8} xs={10} className='dashboard-conatiner-top-row square border-start square border-end'>
                         <Container  >
-                            <Topnav />
+                            <Topnav  Messaages/>
                             <Row >
                                 <Col sm={8} >
                                     <Container className='moreprof'>

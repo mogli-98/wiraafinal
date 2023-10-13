@@ -36,7 +36,7 @@ function Userproject() {
         {
             name: 'Client Name',
             selector: (row) => row.FirstName,
-            maxWidth:'70px'
+            width:'120px'
         },
         
 

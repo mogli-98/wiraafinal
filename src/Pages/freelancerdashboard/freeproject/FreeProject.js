@@ -126,11 +126,31 @@ function FreeProjectdetails() {
                             </Container>
                         </Col>
                     </Row>
-                    <Modal show={show} onHide={handleClose}>
+                    <Modal show={show} onHide={handleClose}
+      size="md"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Screening Questions</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+            <Card>
+                <p><b>Q.How many year of experience do you have this feild?</b></p>
+                <input type='text'/>
+            </Card>
+            <Card>
+                <p><b>Q.Are you comfortable with my project budge?</b></p>
+                <span>I am comfortable</span><input type='checkbox'/><span>I want to negotiate</span><input type='checkbox'/><span>First i want to understand the project</span><input type='checkbox'/>
+            </Card>
+            <Card>
+                <p><b>Q.What is your work availability?</b></p>
+                <span>Full-time</span><input type='checkbox'/><span>Part-time</span><input type='checkbox'/><span>Weekends</span><input type='checkbox'/><span>Not fixed</span><input type='checkbox'/>
+            </Card>
+            <Card>
+                <p><b>Q.We must fill this position urgently. Can you start immediately?</b></p>
+                <span>I can start immediately</span><input type='checkbox'/><span> I can start from next week </span><input type='checkbox'/><span>I can start from next month</span><input type='checkbox'/>
+            </Card>
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close

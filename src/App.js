@@ -82,7 +82,7 @@ function App() {
               <Route path='/Termsandcondition' element={<TermsandCondition/>}/>
               <Route path='/UserAgreement' element={<UserAgreement/>}/>
             {/* User-Dashborad link */}
-              <Route path='/user/dashboard' element={<Dashboard/>}/>
+              <Route path='/user/dashboard'  element={<Dashboard />}/>
             {/* Order page link*/}
               <Route path='/Order' element={<Order/>}/>
               {/* <Route path='/Ordertable' element={<Ordertable/>}/> */}

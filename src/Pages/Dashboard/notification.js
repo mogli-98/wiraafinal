@@ -300,7 +300,7 @@ function Notification() {
                     </Col>
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav />
+                            <Topnav activeLink="Notifications" />
                             <Row className=''>
                                 <Col sm={8}>
                                     <div className="tabs-container">

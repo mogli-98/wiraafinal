@@ -16,6 +16,20 @@ const ProfileModal = {
             `/profile/updateProfile/${userId}`,data
             
         ))
+    },
+    async freelancerprofile(data) {
+        console.log(data)
+        return (await axiosInstance.get(
+            `/profile/professionalMyProfile/${data.userId}`,
+            
+        ))
+    },
+    async ClientProfile(data) {
+        console.log(data)
+        return (await axiosInstance.get(
+            `/profile/clientMyProfile/${data.userId}`,
+            
+        ))
     }
 
 }

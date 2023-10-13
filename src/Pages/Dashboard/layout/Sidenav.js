@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React ,{useState}from 'react';
 import Wiraalogo from "../../../asset/image/Wiraalogo.png";
 // import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 // import Popover from 'react-bootstrap/Popover';
@@ -9,8 +9,9 @@ import { IoMailOutline } from 'react-icons/io5';
 import { IoNotificationsOutline } from 'react-icons/io5';
 import { IoPersonOutline } from 'react-icons/io5';
 import { IoBookOutline } from 'react-icons/io5';
-
 import { IoSettingsOutline } from 'react-icons/io5';
+import { IoHome } from 'react-icons/io5';
+import { IoPaperPlane } from 'react-icons/io5';
 import "../../../asset/css/dashboard.css"
 import {
   CDBSidebar,
@@ -19,12 +20,15 @@ import {
   CDBSidebarMenu,
   CDBSidebarMenuItem,
 } from 'cdbreact';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink,  } from 'react-router-dom';
 
 const Sidebar = () => {
 
-
-
+  const [isClicked, setIsClicked] = useState(false);
+  
+  const toggleIcon = () => {
+    setIsClicked(!isClicked);
+  };
   return (
     <>
       <div style={{  display: 'flex', height: '100vh', overflow: 'scroll initial', position: 'fixed' }} className='d-none d-sm-block'>
@@ -39,11 +43,12 @@ const Sidebar = () => {
             <CDBSidebarMenu>
               <NavLink exact to="/user/dashboard"
                 activeClassName="active"
+                onClick={toggleIcon}
               >
-                <CDBSidebarMenuItem className="text-dark "> <IoHomeOutline  fontSize={25}/><h4 className='chh'>Home</h4></CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="text-dark "> {isClicked ? <IoHome fontSize={25} /> : <IoHomeOutline  fontSize={25}/> } <h4 className='chh'>Home</h4></CDBSidebarMenuItem>
               </NavLink>
-              <NavLink exact to="/Order" activeClassName="active" >
-                <CDBSidebarMenuItem className="text-dark "> <IoPaperPlaneOutline  fontSize={25}/><h4 className='chh'>Orders</h4></CDBSidebarMenuItem>
+              <NavLink exact to="/Order"  onClick={toggleIcon} >
+                <CDBSidebarMenuItem className="text-dark "> {isClicked ? <IoPaperPlane fontSize={25} /> : <IoPaperPlaneOutline  fontSize={25}/> }<h4 className='chh'>Orders</h4></CDBSidebarMenuItem>
               </NavLink>
               {/* <Link exact to="/user/Project"  >
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="briefcase-outline" ></ion-icon><h4 className='chh'>Projects</h4></CDBSidebarMenuItem>

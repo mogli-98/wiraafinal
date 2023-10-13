@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 // import { useContext } from 'react';
 import Wiraalogo from '../../../asset/image/Wiraalogo.png';
 
-const Topnav = ({ activeLinkName }) => {
+const Topnav = ({ activeLink  }) => {
 
     return (
         <>
@@ -12,13 +12,15 @@ const Topnav = ({ activeLinkName }) => {
 
                 <Col sm={12} >
                     <nav className="navbar mt-2 ">
-                        <div className="left-side mt-1">
-                            <h4><b>{activeLinkName}</b></h4>
+                       
+                       <div className="left-side mt-1">
+                            <h4><b>{activeLink}</b></h4>
                         </div>
                         <div className="navbar-right1 mt-2 mb-2 ">
                             <Link to='/Switchacc'><button className="navbar-button switch"><b>Switch <sup style={{ color: 'red', fontWeight: 600 }}> pro</sup> </b></button></Link>
                             <Link to="/Hiretalent"><button className="navbar-button hire"><b>Hire </b></button></Link>
                         </div>
+                       
                     </nav>
                 </Col>
 

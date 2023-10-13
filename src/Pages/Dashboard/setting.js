@@ -5,6 +5,7 @@ import Topnav from './layout/topnav';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
+import { Link } from 'react-router-dom';
 // import InputGroup from 'react-bootstrap/InputGroup';
 function Setting() {
     const [show, setShow] = useState(false);
@@ -25,6 +26,10 @@ function Setting() {
             [event.target.name]: event.target.value,
         });
     };
+    const logout = () => {
+        sessionStorage.clear();
+        localStorage.clear();
+      };
     const handleSubmitPhone = (event) => {
 
         event.preventDefault();
@@ -47,11 +52,9 @@ function Setting() {
                     <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-
-
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav />
+                            <Topnav activeLink="Setting" />
                             <Row className='mt-5'>
                                 <Col sm={1}></Col>
                                 <Col sm={10}>
@@ -75,19 +78,6 @@ function Setting() {
                                     </Card>
                                 </Col>
                                 <Col sm={1}></Col>
-                            </Row>
-                            <Row>
-                                <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff", borderRadius: '10px' }}>
-                                        <div className='m-1 setting-text'>
-                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>
-                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Email address of your account</p>
-                                        </div>
-                                    </Card>
-                                </Col>
-                                <Col sm={1}></Col>
-
                             </Row>
                             <Row>
               
@@ -120,7 +110,7 @@ function Setting() {
 
                             <Row>
                                 <Col sm={1}></Col>
-                                <Col sm={10}>
+                                <Col sm={10} x>
                                     <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Change Password:</b></p>
@@ -131,65 +121,8 @@ function Setting() {
                                 <Col sm={1}></Col>
 
                             </Row>
-
-                            {/* <Row>
-                                <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-3' style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff", borderRadius: '10px' }}>
-                                        <div className='m-2 setting-text'>
-                                            <p style={{ fontSize: '20px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 p-1'><b>Block Accounts:</b></p>
-                                            <p style={{ fontSize: '18px', color: 'grey', cursor: 'pointer' }} className='p-1'>When you block someone, that person won’t be able to follow or message you</p>
-                                        </div>
-                                    </Card>
-                                </Col>
-                                <Col sm={1}></Col>
-
-                            </Row> */}
-
-                            <Row>
-                                <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff", borderRadius: '10px' }}>
-                                        <div className='m-1 setting-text'>
-                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Block Accounts:</b></p>
-                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>When you block someone, that person won’t be able to follow or message you</p>
-                                        </div>
-                                    </Card>
-                                </Col>
-                                <Col sm={1}></Col>
-
-                            </Row>
-
-
-
-                            <Row>
-                                <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff", borderRadius: '10px' }}>
-                                        <div className='m-1 setting-text'>
-                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Deactivate Account:</b></p>
-                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Temporarily deactivate your Wiraa account</p>
-                                        </div>
-                                    </Card>
-                                </Col>
-                                <Col sm={1}></Col>
-
-                            </Row>
-
-
-                            {/* <Row>
-                                <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-3 mb-4' style={{ backgroundColor: '#D9DDDC', width: "80%", borderColor: "#fff", borderRadius: '10px' }}>
-                                        <div className='m-2 setting-text'>
-                                            <p style={{ fontSize: '20px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 p-1'><b>Deactivate Account:</b></p>
-                                            <p style={{ fontSize: '18px', color: 'grey', cursor: 'pointer' }} className='p-1'>Temporarily deactivate your Wiraa account</p>
-                                        </div>
-                                    </Card>
-                                </Col>
-                                <Col sm={1}></Col>
-
-                            </Row> */}
+                        
+                           <Link to='/'> <button  onClick={logout} style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '5px', fontWeight: 600 }}> logout</button></Link>
 
                         </Container>
                     </Col>
