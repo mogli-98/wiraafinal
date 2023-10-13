@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import '../../../asset/css/dashboard.css'
 import Portfoliocard from '../../../Model/component/Portfoliocard';
 import PortfolioModal from '../../../modal/Portfolio.modal';
+import { Container } from 'react-bootstrap';
 function Portfolio() {
     const [protfoliData,setprotfoliData] = useState([]);
     const fetchdata = () => {
@@ -16,7 +17,7 @@ function Portfolio() {
     }, [])
     return (
         <>
-            {/* <Container > */}
+            <Container style={{marginBottom:'80px'}} >
             <div style={
                 {
                     "display":"flex",
@@ -28,7 +29,7 @@ function Portfolio() {
                     {protfoliData && protfoliData.map((pdata)=> <Portfoliocard data={pdata} /> )}
                 {/* </Col> */}
             </div>
-          {/* </Container> */}
+          </Container>
         </>
     )
 }

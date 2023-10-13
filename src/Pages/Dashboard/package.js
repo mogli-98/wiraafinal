@@ -8,6 +8,7 @@ import Topnav from './layout/topnav';
 function Package() {
 
 
+
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -19,12 +20,13 @@ function Package() {
 
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav />
+                            <Topnav  />
                             <Row >
                                 {/* <div className='pricing-top-text mb-4'>
                   <p className='text-center'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
                   <p className='text-center'>Change Your Plans Anytime</p>
                 </div> */}
+                                {/* <Col sm={4} xs={12}>
                                 {/* <Col sm={4} xs={12}>
                 <div className='pricing-table1 pricing-table  '> 
                 <ul className='pt-2'>

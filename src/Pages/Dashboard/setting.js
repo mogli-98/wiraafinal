@@ -6,6 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Link } from 'react-router-dom';
+
 // import InputGroup from 'react-bootstrap/InputGroup';
 function Setting() {
     const [show, setShow] = useState(false);
@@ -49,56 +50,65 @@ function Setting() {
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
+                  
                     <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+
+
+                    <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row  d-none d-sm-block'>
+
+                   
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Setting" />
-                            <Row className='mt-5'>
+
+                            <Row >
                                 <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
+                                <Col style={{ marginLeft: '9px',marginTop:'5vh' }} sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
-                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Email Address:</b></p>
-                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>Upload Email address of your account  </p>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Email address of your account  </p>
                                         </div>
                                     </Card>
                                 </Col>
                                 <Col sm={1}></Col>
                             </Row>
+
                             <Row>
                                 <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
+                                <Col style={{ marginLeft: '10px' }} sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
-                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Phone Number:</b></p>
-                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>Upload Phone number in case you have trouble signing in</p>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Phone Number:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Phone number in case you have trouble signing in</p>
                                         </div>
                                     </Card>
                                 </Col>
                                 <Col sm={1}></Col>
                             </Row>
+
                             <Row>
               
                                 <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
+                                <Col style={{ marginLeft: '10px' }} sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
-                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Block Accounts:</b></p>
-                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>When you block someone, that person won’t be able to follow or message you</p>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Block Accounts:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>When you block someone, that person won’t be able to follow or message you</p>
                                         </div>
                                     </Card>
                                 </Col>
                                 <Col sm={1}></Col>
                             </Row>
+
                             <Row>
-                            <Col sm={1}></Col>
-                                <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', width: "95%", borderColor: "#fff",borderRadius:'10px' }}>
+                                <Col sm={1}></Col>
+                                <Col style={{ marginLeft: '10px' }} sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
-                                            <p  style={{fontSize:'15px',color:'black',fontWeight:600,cursor:'pointer'}} className='mt-3 '><b>Deactivate Account:</b></p>
-                                            <p style={{fontSize:'13px',color:'grey',cursor:'pointer'}} className=''>Temporarily deactivate your Wiraa account</p>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Deactivate Account:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Temporarily deactivate your Wiraa account</p>
                                         </div>
                                     </Card>
                                 </Col>
@@ -126,7 +136,131 @@ function Setting() {
 
                         </Container>
                     </Col>
+
+
+
+                    <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row d-block d-sm-none '>
+
+                        <Container  className='square border border-bottom-0'>
+                            <Topnav activeLink="Setting" />
+
+                            <Row >
+                                <Col sm={1}></Col>
+                                <Col style={{ marginTop:"8vh"}} sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Email address of your account  </p>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col sm={1}></Col>
+                            </Row>
+
+                            <Row>
+                                <Col sm={1}></Col>
+                                <Col  sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Phone Number:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Phone number in case you have trouble signing in</p>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col sm={1}></Col>
+                            </Row>
+
+                            <Row>
+                                <Col sm={1}></Col>
+                                <Col sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Email address of your account</p>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col sm={1}></Col>
+
+                            </Row>
+
+                            <Row>
+                                <Col sm={1}></Col>
+                                <Col  sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Block Accounts:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>When you block someone, that person won’t be able to follow or message you</p>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col sm={1}></Col>
+                            </Row>
+
+                            <Row>
+                                <Col sm={1}></Col>
+                                <Col sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Deactivate Account:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Temporarily deactivate your Wiraa account</p>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col sm={1}></Col>
+                            </Row>
+
+                            <Row>
+                                <Col sm={1}></Col>
+                                <Col  sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Change Password:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Choose a strong password that you are not using anywhere</p>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col sm={1}></Col>
+                            </Row>
+                            
+
+                            <Row>
+                                <Col sm={1}></Col>
+                                <Col sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC',  borderColor: "#fff", borderRadius: '10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Block Accounts:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>When you block someone, that person won’t be able to follow or message you</p>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col sm={1}></Col>
+
+                            </Row>
+
+
+
+                            <Row>
+                                <Col sm={1}></Col>
+                                <Col style={{ marginBottom:'8vh' }} sm={10}>
+                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                        <div className='m-1 setting-text'>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Deactivate Account:</b></p>
+                                            <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Temporarily deactivate your Wiraa account</p>
+                                        </div>
+                                    </Card>
+                                </Col>
+                                <Col sm={1}></Col>
+
+                            </Row>                          
+                        </Container>
+                    </Col>
+
+
                 </Row>
+
+
+
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Body>
                         <div>
@@ -180,6 +314,9 @@ function Setting() {
                     </Modal.Body>
 
                 </Modal>
+
+
+
             </Container>
             <Phoneviewfooter />
         </>

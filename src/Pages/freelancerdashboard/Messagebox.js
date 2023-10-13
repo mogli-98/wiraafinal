@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { Container, Row, Col } from "react-bootstrap";
 import '../../asset/css/dashboard.css'
-import Sidenav from './layout/Sidenav';
-import Topnav from './layout/topnav';
+import Sidenav from "../freelancerdashboard/layout/Sidenavbar";
+import Topnavbar from './layout/topnavbar'; 
+
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Select } from '@mui/material';
 import { IoMailOutline } from 'react-icons/io5';
-import { Link } from 'react-router-dom';
 
-function Messaages(props) {
+function Messagebox(props) {
     const [activeTab, setActiveTab] = useState("Tab1");
 
     const handleClick = (tab) => {
@@ -23,31 +23,30 @@ function Messaages(props) {
                     <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-                    <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row '>
+                    <Col style={{padding:'0px'}} sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Messages" />
+                            <Topnavbar activeLink="Messages" />
                             <Row >
                                 <Col sm={4} className="square border-end">
 
                                     <div className="tabs-container mt-3">
                                         <Container>
                                             <Row className='mt-3 mb-3'>
-                                                <Col className='no-message'>
-                                                    {/* <div style={{height:'25px',borderRadius:'10px',backgroundColor:'ButtonHighlight',border:'1px solid black'}} > */}
-                                                    <input style={{ height: '25px', borderRadius: '10px', border: '1px solid black', width: '100%' }} type="text" placeholder='Search...' />
-
+                                                <Col  className='no-message'>
+                                                    {/* <div style={{height:'25px',borderRadius:'10px',border:'1px solid black'}} > */}
+                                                        <input
+                                                         style={{height:'25px',borderRadius:'10px',border:'1px solid black',width:'100%'}}
+                                                        // style={{border:'none',width:'99%',height:'24px'}}
+                                                          type="text" placeholder='Search...' />
+                                                        
                                                     {/* </div> */}
                                                     <center>
                                                         <h3 className='mb-4 '>Welcome to your
                                                             <br />Inbox
                                                         </h3>
-                                                        <p style={{ fontSize: '18px', color: 'grey' }} className='mt-3 pt-3'>Post a request and start</p>
-                                                        <p style={{ fontSize: '18px', color: 'grey' }}>conversation with professionals.</p>
-
-                                                        <Link to="/Hiretalent">
-                                                            <button className='message-post mt-5'>Post a request</button>
-                                                        </Link>
-
+                                                        <p style={{fontSize:'18px',color:'grey'}} className='mt-3 pt-3'>Post a request and start</p>
+                                                        <p style={{fontSize:'18px',color:'grey'}}>conversation with professionals.</p>
+                                                        <button className='message-post mt-5'>Post a request</button>
                                                     </center>
                                                 </Col>
                                             </Row>
@@ -58,7 +57,7 @@ function Messaages(props) {
                                     <div className='mt-5  no-message-show'>
                                         <center>
                                             {/* <ion-icon name="mail-unread-outline"></ion-icon> */}
-                                            <  IoMailOutline style={{ fontSize: '50px', marginTop: '40px' }} />
+                                            <  IoMailOutline  style={{fontSize:'50px',marginTop:'40px'}}  />
                                             <h4> No New  Messages </h4>
                                         </center>
                                     </div>
@@ -74,4 +73,4 @@ function Messaages(props) {
     )
 }
 
-export default Messaages;
+export default Messagebox;

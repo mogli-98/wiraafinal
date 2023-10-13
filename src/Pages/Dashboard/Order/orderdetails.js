@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
+import Button from 'react-bootstrap/Button';
 import Sidenav from '../layout/Sidenav';
 import Topnav from '../layout/topnav';
 import test from "../../../asset/image/test.JPG";
@@ -89,12 +90,16 @@ function Orderdetails() {
                     <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+
+
+
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Orders" />
+                            <Topnav activeLink="Order" />
                             <Row className='mt-2'>
-                                <Col sm={8} className="square border-end">
-                                    <div className='m-2 ' style={{ fontSize: '12px' }}>
+                                <Col sm={8} style={{ padding: '0px' }} className="square border-end">
+
+                                    <div className='m-2 d-none d-sm-block ' style={{ fontSize: '12px' }}>
                                         <Link to={`/Orderdetailsbreief/${params.id}`}>
                                             <button style={{ marginLeft: '10px', border: '1px solid grey' }} className='order-details-requirements'  >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="svgg bi bi-person-plus-fill" viewBox="0 0 16 16">
@@ -206,7 +211,9 @@ function Orderdetails() {
                                             </div>
                                         </div>
                                     </div>
+
                                     <hr className='d-none d-sm-block' style={{ border: '2px solid grey' }} />
+
                                     <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2 d-none d-sm-block'>
                                         <Link to='/About Us'  >
                                             <span style={{ paddingRight: '10px', color: 'grey' }}>
@@ -242,31 +249,37 @@ function Orderdetails() {
                         </Container >
 
 
-                        <Modal show={show} onHide={handleClose}>
+                        <Modal show={show} onHide={handleClose}                            
+                            size="md"
+                            aria-labelledby="contained-modal-title-vcenter"
+                            centered>
+                            <Modal.Header closeButton>
+                                <Modal.Title>
+                                    <span style={{ color: '#008080', fontSize: '20px', fontWeight: 600 }} >Screening Answers</span>
 
-                            <Modal.Body>
-                                <div>
-                                    <center>
-                                        <p style={{ color: '#008080', fontSize: '20px' }}>Screening Answers</p>
-                                    </center>
+                                </Modal.Title>
+
+                            </Modal.Header>
 
 
+                            <Modal.Body>                                                                 
 
                                     <div>
-                                        <p><b>Q.How many years of experience do you have in</b></p>
-                                        <p>Ans = {answerOrders?.YearsOfExperience} Years</p>
-                                        <p><b>Q.Are you comfortable with my project budge?</b></p>
-                                        <p>Ans = {answerOrders?.Comfortable}</p>
-                                        <p><b>Q.We must fill this position urgently. Can you start immediately?</b></p>
-                                        <p>Ans ={answerOrders?.Immediately}</p>
-                                        <p><b>Q.What is your work availability?</b></p>
-                                        <p>Ans ={answerOrders?.WorkAvailability}</p>
-                                    </div>
-                                </div>
+                                        <h6>How many years of experience do you have in this field ? </h6>
+                                        <p style={{ color: 'grey' }}>Ans - {answerOrders?.YearsOfExperience} Years</p>
+                                        <h6>Are you comfortable with my project budge ?</h6>
+                                        <p style={{ color: 'grey' }}>Ans = {answerOrders?.Comfortable}</p>
+                                        <h6>We must fill this position urgently. Can you start immediately ?</h6>
+                                        <p style={{ color: 'grey' }}>Ans ={answerOrders?.Immediately}</p>
+                                        <h6>What is your work availability ?</h6>
+                                        <p style={{ color: 'grey' }}>Ans ={answerOrders?.WorkAvailability}</p>
+                                    </div>                                
 
                             </Modal.Body>
 
                         </Modal>
+
+
                         <Modal show={show1} onHide={handleClose1}>
 
                             <Modal.Body>

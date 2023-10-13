@@ -8,6 +8,7 @@ import Sidenav from '../Dashboard/layout/Sidenav';
 import Topnav from '../Dashboard/layout/topnav';
 import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
+import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 function Project() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
@@ -30,12 +31,19 @@ function Project() {
                     <Col sm={1} xs={2} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav />
+                            <Topnav activeLink="Learn"/>
                             <Row >
                                 <Col sm={8} className='scrollable squarew '  >
                                     <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
+
+                                    <div  className='d-block d-sm-none'>
+                                        <img src={model} alt="" style={{ width: "100%",marginTop:'80px' }} className='p-2' /> 
+                                    </div>
+
+                                   
+
                                     <h5 className='d-block d-sm-none pt-4 ' style={{ padding: "5px" }}>{courseList?.[0]?.CourseTitle}</h5>
 
                                     <p className='text-disable mt-2' style={{ padding: '15px', fontSize: "15px", color: "grey", paddingTop: "5px" }}>{courseList?.[0]?.CourseDescription}</p>
@@ -202,7 +210,7 @@ function Project() {
                                             </Accordion.Body>
                                         </Accordion.Item> */}
                                     </Accordion>
-                                    <p className='mt-2 p-2'>Who you will leran with?</p>
+                                    <p className='mt-2 p-2' style={{fontSize:'18px',color:'black'}}> <b> Who you will learn with?</b> </p>
 
                                     <div style={{ marginBottom: '40px' }} ><img src={Test} alt="" style={{ height: "13vh", borderRadius: '50%', width: "13vh" }} /> <span>{courseList?.[0]?.AuthorName}</span>
                                         <br />
@@ -213,8 +221,9 @@ function Project() {
 
 
                                 </Col>
-                                <Col sm={4} >
-                                    <Card className=' mt-2 mb-4 shadow-2 ' style={{ boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
+
+                                <Col sm={4}  >
+                                    <Card className=' mt-2 mb-4 shadow-2 d-none d-sm-block ' style={{ boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
                                         <img src={model} alt="" style={{ width: "100%" }} className='p-2' />
                                         <ul style={{ listStyle: "none",paddingLeft:'20px' }}>
                                             <p className='mt-2' style={{ fontSize: '16px', fontWeight: 600, color: 'black' }}> <b>This Course includes : </b>  </p>
@@ -280,12 +289,6 @@ function Project() {
                                         </div>
 
 
-
-
-
-
-
-
                                     </Card>
                                 </Col>
                             </Row>
@@ -293,6 +296,7 @@ function Project() {
                     </Col>
                 </Row>
             </Container>
+            <Phoneviewfooter/>
 
         </>
     )

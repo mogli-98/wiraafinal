@@ -17,7 +17,7 @@ function Profile() {
             }, [])
     return (
         <>
-          <Container >
+          <Container  style={{marginBottom:'80px',padding:'0px'}}>
             <div style={{
                     "display":"flex",
                     "flexWrap":"wrap",
@@ -33,4 +33,4 @@ function Profile() {
     )
 }
 
-export default Profile
+export default Profile;

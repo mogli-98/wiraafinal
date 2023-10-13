@@ -14,11 +14,11 @@ function Messages() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenav  />
                     </Col>
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Notifications"/>
+                            <Topnav activeLink="Notification" />
                             <Row className=''>
                                 <Col sm={8}>
                                     <div className="tabs-container">

@@ -98,12 +98,13 @@ function SwitchAccount() {
                     <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row>
-                                <Col sm={8} className=" square border-end mt-4">
-                                    <h5 className='text-center'>Find great works</h5>
+                                <Col sm={8} style={{padding:'0px'}} className=" square border-end mt-4">
+                                    <h5 className='text-center d-none d-sm-block'>Find great works</h5>
+                                    <h5 style={{marginTop:'70px'}} className='text-center d-block d-sm-none'>Find great works</h5>
                                     <form onSubmit={handleSubmit} className='m-4'>
                                         <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
                                             <Form.Label style={{ fontSize: '16px' }}>Profile image: <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
@@ -111,7 +112,7 @@ function SwitchAccount() {
                                             </svg></Form.Label>
                                             <div>
                                                 <Card style={{ backgroundColor: "#efefef", border: 'none', display: 'flex', justifyContent: 'center' }}>
-                                                    <p className='m-2' style={{ fontSize: '15px', marginLeft: '20px' }}>  Update your latest image  <span>
+                                                    <p className='m-2' style={{ fontSize: '15px', marginLeft: '20px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>  <span > Update your latest image </span>  <span>
 
                                                         <Button style={{ color: 'white', backgroundColor: '#008080', border: 'none', float: 'right', fontWeight: 500,paddingLeft:'20px',paddingRight:'20px' }} class="- btn">
                                                             Upload

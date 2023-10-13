@@ -17,15 +17,15 @@ const Sidebar = () => {
 
 
   return (
-    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial'}}>
+    <div style={{ display: 'flex', height: '100vh', overflow: 'scroll initial',position:'fixed'}}>
       <CDBSidebar textColor="#fff" backgroundColor="#333">
       <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
         <NavLink exact to="/" activeClassName="activeClicked">
-          <img src={Wiraalogo} alt="" width={140} style={{marginTop:"5px"}}/>
+          <img  src={Wiraalogo} alt="" width={120} style={{marginLeft:'50px'}}/>
           </NavLink>
       </CDBSidebarHeader>
 
-        <CDBSidebarContent className="sidebar-content">
+        <CDBSidebarContent style={{paddingLeft:'20px'}} className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/Professionalsdashboard" activeClassName="activeClicked">
               <CDBSidebarMenuItem  className="text-dark"> <ion-icon name="home-outline"></ion-icon><h4 className='chh'>Home</h4></CDBSidebarMenuItem>
@@ -36,13 +36,13 @@ const Sidebar = () => {
             <NavLink exact to="/UserProject" activeClassName="activeClicked">
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="briefcase-outline" ></ion-icon><h4 className='chh'>Projects</h4></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Message" activeClassName="activeClicked">
+            <NavLink exact to="/Messagebox" activeClassName="activeClicked">
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="mail-outline"></ion-icon><h4 className='chh'>Messages</h4></CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/Notification"  activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Notifications</h4></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Module"  activeClassName="activeClicked">
+            <NavLink exact to="/Learrn"  activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"><ion-icon name="notifications-outline"></ion-icon><h4 className='chh'>Learn</h4></CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/Package"  activeClassName="activeClicked">

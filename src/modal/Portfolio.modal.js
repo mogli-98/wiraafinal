@@ -1,7 +1,5 @@
 import axiosInstance from "../lib/axiosInstance";
-
 const PortfolioModal = {
-
     async addcomments(data) {
         return (await axiosInstance.post(
             `/portfolio/addComment`, data
@@ -19,7 +17,11 @@ const PortfolioModal = {
         return (await axiosInstance.patch(
             `/portfolio/addLikeUnlike`,data
         ))
+    },
+    async addPortfolio(data) {
+        return (await axiosInstance.post(
+            `/portfolio/addPortfolio`,data
+        ))
     }
-
 }
 export default PortfolioModal;

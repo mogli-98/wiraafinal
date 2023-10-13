@@ -124,7 +124,7 @@ function Orderdetailsbrief() {
             console.log(status)
         })
     }, [])
-    
+    const borderRightColor = status === 'closed' ? 'red' : 'black';
     return (
         <>
             <>
@@ -135,16 +135,16 @@ function Orderdetailsbrief() {
                         </Col>
 
 
-                        <Col sm={8} xs={12} className='dashboard-conatiner-top-row'>
-                            <Topnav activeLink="Order" />
+                        <Col sm={8} xs={12} className='dashboard-conatiner-top-row  '>
+                            <Topnav activeLink="Orders" />
 
-                            <Col className='d-block d-sm-none'>
+                            <Col  className='d-block d-sm-none'>
 
                                 <div>
                                     <Link to="/Hiretalent">
 
 
-                                        <button className='mt-4 mb-4 p-3' style={{ width: '100%', border: 'none', borderRadius: '8px', backgroundColor: '#008080' }} >
+                                        <button className='mb-4 p-3' style={{ width: '100%', border: 'none', borderRadius: '8px', backgroundColor: '#008080',marginTop:'80px' }} >
                                             <span style={{ fontWeight: '600', color: 'white' }}>
                                                 Post a request - Hire talents
                                             </span>
@@ -161,9 +161,9 @@ function Orderdetailsbrief() {
                                 <Row>
 
                                     <Col >
-                                        <Card className='dashboradfree-card-top mt-3'>
+                                        <Card  className='dashboradfree-card-top mt-3'>
                                             <div className='dashboradfree-card-top-div'>
-                                                <button className='freedashboard-create'><Link style={{ color: '#008080' }} to='/Hiretalent'>Post a request</Link></button>
+                                                <button style={{marginLeft:'30px'}} className='freedashboard-create'><Link style={{ color: '#008080' }} to='/Hiretalent'>Post a request</Link></button>
                                                 <img src={orderpost} alt="" className='freedashboard-top-img' />
                                                 <p ><b style={{ fontSize: '22px' }}>Connect with qualified professionals</b></p>
                                             </div>
@@ -194,12 +194,12 @@ function Orderdetailsbrief() {
 
 
 
-                                <Card className='d-block d-sm-none' style={{ backgroundColor: 'ButtonHighlight', Width: '100%', marginBottom: '20px', borderRadius: '25px', borderEndEndRadius: '0px', borderEndStartRadius: '0px', border: 'none', cursor: 'pointer' }}>
+                                <Card className='d-block d-sm-none' style={{ marginBottom:'50px',padding:'0px',backgroundColor: 'ButtonHighlight', Width: '100%',  borderRadius: '25px', borderEndEndRadius: '0px', borderEndStartRadius: '0px', border: 'none', cursor: 'pointer' }}>
                                     <Col xs={12}>
                                         {oederTable && oederTable.map((tableitem) =>
                                             <Link to={`/Orderdetailsbreief/${tableitem.PostreqID}`}>
 
-                                                <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '1px 2px 1px ' }}>
+                                                <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)'}}>
 
                                                     <h5>{tableitem.Title}</h5>
 
@@ -232,12 +232,12 @@ function Orderdetailsbrief() {
 
                                     </Col>
 
-                                    <Col xs={12}>
+                                    {/* <Col xs={12}>
                                         {oederTable && oederTable.map((tableitem) =>
 
                                             <Link to={`/Orderdetailsbreief/${tableitem.PostreqID}`}>
 
-                                                <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '1px 2px 1px ' }}>
+                                                <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
 
                                                     <h5>{tableitem.CategoryId} - {tableitem.SubCategoryId}</h5>
 
@@ -266,7 +266,7 @@ function Orderdetailsbrief() {
 
                                             </Link>
                                         )}
-                                    </Col>
+                                    </Col> */}
                                 </Card>
 
                             </Row>

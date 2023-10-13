@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card } from "react-bootstrap";
+import React, { useState ,useRef ,useEffect} from 'react';
+import { Container, Row, Col, Card,Form } from "react-bootstrap";
 import "../../asset/css/freelanceredashboard.css";
 import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
@@ -11,12 +11,55 @@ import topcard4 from '../../asset/image/freelancerdash/topcard4.png'
 // import { Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
+import PortfolioModal from '../../modal/Portfolio.modal';
+import Staticmodal from '../../modal/Static.modal';
+import { helper } from '../../lib/helper';
 // import Form from 'react-bootstrap/Form';
 function Freelancerdashboard(props) {
+    const handleimageClick = () => {
+        inputRef.current.click();
+    }
+    const inputRef = useRef(null);
+    const [allCity, setallcity] = useState()
+    const [selectedImage, setSelectedImage] = useState(null);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    useEffect(() => {
+        Staticmodal.AllSubcategorynoid().then((response) => {
+            console.log(response.data);
+            setallcity(response.data);
+        });
+    }, [])
+    const [formdata, setformdata] = useState({
+        subCategoryId: "",
+        description: "",
+        files: '',
+    });
+    const handleInputChange = (event) => {
+        setformdata({
+            ...formdata,
+            [event.target.name]: event.target.value,
+        });
+        if (event.target.type === "file") {
+            const imageFile = event.target.files[0];
+            if (imageFile) {
+                setSelectedImage(URL.createObjectURL(imageFile));
+            }
+        }
+    };
+    const handleSubmit = (event) => {
+        console.log(event);
+        event.preventDefault();
+        const form = new FormData(event.target);
+        form.append( "userProfileId", localStorage.getItem("userProfileId"));
+        PortfolioModal.addPortfolio(form ).then((response) => {
+                console.log(response.data, "data");
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
     return (
         <>
             <Container fluid className='dashboard-conatiner-top d-none d-sm-block ' >
@@ -28,7 +71,7 @@ function Freelancerdashboard(props) {
 
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnavbar />
+                            <Topnavbar activeLink="Home" />
                             <Row>
                                 <Col >
                                     <Card className='dashboradfree-card-top'>
@@ -206,7 +249,7 @@ function Freelancerdashboard(props) {
                 </Row>
                 <Modal show={show} onHide={handleClose}
                     {...props}
-                    size="lg"
+                    
                     aria-labelledby="contained-modal-title-vcenter"
                     centered
                 >
@@ -214,67 +257,51 @@ function Freelancerdashboard(props) {
                     <Modal.Body>
                         <div>
                             <Container>
+                                <form onSubmit={handleSubmit}>
                                 <Row>
-                                    <Col sm={6}>
-                                        <Card>
+                                    <Col sm={12}>
+                                       
+                                        <center>
+                                        <div onClick={handleimageClick} className=''  >
+                                            {selectedImage ? <img src={selectedImage} className='mt-4' alt="" style={{ height: "40vh", width: '42vh', }}  /> :
+                                                <img src={topcard4} alt="" className='mt-4' name style={{ height: "42vh", width: '42vh', }} />
 
-                                            <input id="profile-image-upload" type="file" onchange="previewFile()" />
-                                            <img alt="User Pic" src="https://d30y9cdsu7xlg0.cloudfront.net/png/138926-200.png" id="profile-image1" height="200" />
-                                        </Card>
+                                            }
+                                            
+                                            <input type="file" accept="image/*" onChange={handleInputChange}
+                                                name='files' style={{ display: 'none' }} ref={inputRef} />
 
-                                    </Col>
-                                    <Col sm={6}>
-                                        <Row>
-                                            <Col sm={12}>
-                                                <Card>
-                                                    <input id="profile-image-upload" type="file" onchange="previewFile()" />
-                                                    <img alt="User Pic" src="https://d30y9cdsu7xlg0.cloudfront.net/png/138926-200.png" id="profile-image1" height="85" />
-                                                </Card>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col sm={12}>
-                                                <Card>
-                                                    <input id="profile-image-upload" type="file" onchange="previewFile()" />
-                                                    <img alt="User Pic" src="https://d30y9cdsu7xlg0.cloudfront.net/png/138926-200.png" id="profile-image1" height="85" />
-                                                </Card>
-                                            </Col>
-                                        </Row>
-                                    </Col>
-                                </Row>
-                                <Row className='mt-3'>
-                                    <Col sm={4}>
-                                        <Card>
-
-                                            <input id="profile-image-upload" type="file" onchange="previewFile()" />
-                                            <img alt="User Pic" src="https://d30y9cdsu7xlg0.cloudfront.net/png/138926-200.png" id="profile-image1" height="200" />
-                                        </Card>
-
-                                    </Col>
-                                    <Col sm={4}>
-                                        <Card>
-
-                                            <input id="profile-image-upload" type="file" onchange="previewFile()" />
-                                            <img alt="User Pic" src="https://d30y9cdsu7xlg0.cloudfront.net/png/138926-200.png" id="profile-image1" height="200" />
-                                        </Card>
-
-                                    </Col><Col sm={4}>
-                                        <Card>
-
-                                            <input id="profile-image-upload" type="file" onchange="previewFile()" />
-                                            <img alt="User Pic" src="https://d30y9cdsu7xlg0.cloudfront.net/png/138926-200.png" id="profile-image1" height="200" />
-                                        </Card>
-
-                                    </Col>
-                                </Row>
-                                <Row>
-                                    <Col>
-                                        <div className="input-group mt-2">
-                                            <textarea className="form-control" aria-label="With textarea"></textarea>
-                                            <span className="input-group-text">With textarea</span>
                                         </div>
+                                    </center>
+                                    
+
                                     </Col>
+                                    </Row>
+                                    <Row className='' >
+                                      
+
+                                    <Col sm={6}>
+                                        
+                                        <Card className='mt-4'>
+                                            <Form.Control as="textarea" rows={3} placeholder="Enter Portfolio Description"
+                                                name='description' />
+                                        </Card> 
+                                    </Col>
+                                    <Col sm={6}>
+                                               
+                                                <select name='subCategoryId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}   className='mt-4'>
+                                        {allCity && allCity.map((quallist) =>
+                                        <option value={quallist.GradeID}>{quallist.GradeName}</option>
+                                        
+                                        )}
+                                    </select>
+                                    <button className=' mt-2' 
+                                    style={{backgroundColor:'#008080',color:'#fff',textAlign:"center",borderRadius:"8px",height:"40px",width:'100%',borderStyle:'none'}}
+                                    >  Upload </button>
+                                            </Col>
                                 </Row>
+                                </form>
+                               
                             </Container>
                         </div>
                     </Modal.Body>
@@ -290,7 +317,7 @@ function Freelancerdashboard(props) {
 
                     <Col xs={12}>
 
-                        <Card className='dashboradfree-card-top mt-4 '>
+                        <Card style={{ marginTop: '80px' }} className='dashboradfree-card-top  '>
                             <div className='dashboradfree-card-top-div'>
                                 <p style={{ marginLeft: '10px' }} onClick={handleShow}>Create Portfoilo</p>
 
@@ -335,16 +362,16 @@ function Freelancerdashboard(props) {
                         </Card>
                     </Col>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none',padding:'0px 20px' }}>
                         <p style={{ fontSize: '18px', color: 'black' }} className='mt-2 mb-1'> <u> Latest Project: </u>  </p>
 
                         <p className='mt-2 mb-1' style={{ color: 'grey', fontSize: '16px' }}>Explore all</p>
 
                     </div>
 
-                    <center>
+                    <div>
 
-                        <Card style={{ padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '1px 2px 1px ' }}>
+                        <Card style={{ padding: '10px', borderRadius: '20px', border: 'none' ,boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
 
                             <h5> Heading </h5>
 
@@ -371,9 +398,13 @@ function Freelancerdashboard(props) {
                             </div>
 
                         </Card>
-                    </center>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none' }}>
+                    </div>
+
+
+
+
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none',padding:'0px 20px' }}>
                         <p style={{ fontSize: '18px', color: 'black' }} className='mt-2 mb-1'> <u> Latest Questions: </u>  </p>
 
                         <p className='mt-2 mb-1' style={{ color: 'grey', fontSize: '16px' }}>Explore all</p>
@@ -381,9 +412,8 @@ function Freelancerdashboard(props) {
                     </div>
 
 
-                    <center>
-
-                        <Card style={{ padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '1px 2px 1px ' }}>
+                    <div>
+                        <Card style={{ padding: '10px', borderRadius: '20px', border: 'none',  boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
 
                             <h5> Heading </h5>
 
@@ -410,7 +440,9 @@ function Freelancerdashboard(props) {
                             </div>
 
                         </Card>
-                    </center>
+                    </div>
+
+
                 </Row>
 
 
@@ -418,11 +450,11 @@ function Freelancerdashboard(props) {
                 <Row>
 
                     <Col>
-                        <Card className='m-2 mt-4 mb-4 lastcard-free' >
+                        <Card style={{ marginBottom: '80px' }} className='mt-4  lastcard-free' >
                             <div className='last-card-freedash' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'centere' }}>
 
                                 <p style={{ fontSize: '18px', fontWeight: 500, padding: '5px', paddingRight: '30px' }} className='last-card-freedash-2 m-2'>Current Package - <span style={{ color: 'bisque' }} >Basic Plan </span> </p>
-                                <p style={{ fontSize: '14px', fontWeight: 500, padding: '8px', paddingLeft: '10px',backgroundColor:'white',color:'black',margin:'50px',border:'none',borderRadius:'8px' }} className='last-card-freedash-1 m-2'>Remaining Monthly credits <br /> <b style={{fontSize:'15px'}}> 2 / 5</b>   </p>
+                                <p style={{ fontSize: '14px', fontWeight: 500, padding: '8px', paddingLeft: '10px', backgroundColor: 'white', color: 'black', margin: '50px', border: 'none', borderRadius: '8px' }} className='last-card-freedash-1 m-2'> <center> Remaining Monthly credits  </center>  <b style={{ fontSize: '15px' }}> <center> 2 / 5 </center>   </b>   </p>
 
                                 {/* <center>
                                     <button style={{ padding: '5px', paddingLeft: '20px', paddingRight: '20px' }} className="freedashboard-create last-card-freedash-3">Upgrade</button>

@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 
 import Wiraalogo from "../../../asset/image/Wiraalogo.png";
 
-function Topnavbar({ activeLink  }) {
+function Topnavbar({ activeLink }) {
     return (
         <>
-            <Row  style={{height:'73px'}}className="d-none d-sm-block">
+            <Row className="d-none d-sm-block">
                 <Col sm={12} >
-                    <nav className="navbar mt-3 square border-bottom">
-                        <div className="left-side">
-                            <h3><b>{activeLink }</b></h3>
+                    <nav style={{marginBottom:'20px'}} className="navbar mt-2 square border-bottom">
+                        <div className="left-side mt-1">
+                        <h4 style={{marginLeft:'20px'}}><b>{activeLink}</b></h4>
                         </div>
-                        <div className="navbar-right1 mt-2">
+                        <div className="navbar-right1 mt-2 mb-2">
 
                             <Link to='/Switchaccount'><button className="navbar-button switch"><b>Switch </b></button></Link>
                             <Link to="/Hiretalent"><button className="navbar-button hire"><b>Hire </b></button></Link>
@@ -24,7 +24,7 @@ function Topnavbar({ activeLink  }) {
 
             </Row>
 
-            <Row className="square border-bottom  d-block d-sm-none">
+            <Row className="square border-bottom  d-block d-sm-none" style={{position:'fixed',top:'0px',zIndex:'1000',width:'100%',backgroundColor:'white',height:'70px'}}>
 
                 <Col  xs={12} >
                     <nav className="navbar mt-2 ">
@@ -49,4 +49,4 @@ function Topnavbar({ activeLink  }) {
         </>
     )
 }
-export default Topnavbar
+export default Topnavbar;

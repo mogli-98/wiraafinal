@@ -12,6 +12,7 @@ import Switchform from '../../Model/switch.model';
 import { helper } from '../../lib/helper';
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
+
 function Hiretalent() {
     const [selectedOption, setSelectedOption] = useState([1]);
     const [GetSubCategory, setGetSubCategory] = useState([]);
@@ -80,12 +81,13 @@ function Hiretalent() {
                     </Col>
 
 
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Post a Project" />
                             <Row>
                                 <Col sm={8} className="square border-end ">
-                                    <h3 className='text-center mt-4 mb-4 '>Find talent your way</h3>
+                                    <h3 className='text-center mt-4 mb-4 d-none d-sm-block '>Find talent your way</h3>
+                                    <h3 style={{marginTop:'80px'}} className='text-center  mb-4 d-block d-sm-none '>Find talent your way</h3>
                                     <form className='m-2' onSubmit={handleSubmit} >
 
                                         <Form.Label style={{ fontSize: '18px' }}>Project Title: <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
@@ -159,7 +161,7 @@ function Hiretalent() {
                                             <Row>
                                                 <Col sm={2} xs={6}>
 
-                                                    <select className='form-control-lg' name="cars" id="cars" style={{
+                                                    <select className='form-control-lg' name="currency" id="cars" style={{
                                                         borderRadius: '5px', border: '2px solid lightgrey',
                                                         width: "-webkit-fill-available"
                                                         , height: "40px", fontSize: '16px'
@@ -204,29 +206,29 @@ function Hiretalent() {
                                                         width: "-webkit-fill-available"
                                                         , height: "40px", fontSize: '16px'
                                                     }}>
-                                                        <option value="Hour">Per Hour</option>
-                                                        <option value="Day">Per Day</option>
-
+                                                        <option value="Per Hour">Per Hour</option>
+                                                        <option value="Per Day">Per Day</option>
+                                                        <option value="Complete Work">Complete Work</option>
                                                     </select>
                                                 </Col>
                                             </Row>
 
                                        </Form.Group>
                                       
-                                        <Accordion style={{ marginBottom: '20px' }} defaultActiveKey="0">
+                                        <Accordion style={{ marginBottom: '20px' }} defaultActiveKey="1">
                                             <Accordion.Item eventKey="0">
                                                 <Accordion.Header><p style={{ fontSize: '18px' }}><b>Advanced details</b></p> </Accordion.Header>
                                                 <Accordion.Body>
-                                                    {/* <p className='mt-4' style={{ fontSize: '18px' }}><b>Advanced details</b></p> */}
+                                                   
                                                     <Form.Group className="mb-2 mt-4" controlId="exampleForm.ControlTextarea1">
-                                                        <Form.Label style={{ fontSize: '18px' }}>Preferred location:<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
-                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                                        </svg></Form.Label>
+                                                        <Form.Label style={{ fontSize: '18px' }}>Preferred location:
+                                                        
+                                                        </Form.Label>
                                                         <Row>
                                                             <Col sm={4} xs={4}>
                                                                 <Form.Control style={{ fontSize: '16px' }} className='form-control-lg' placeholder="Global"
-                                                                    value={formData.Country}
-                                                                    name='Country'
+                                                                    // value={formData.country}
+                                                                    // name=''
                                                                 />
                                                             </Col>
                                                             <Col sm={4} xs={4}>
@@ -253,7 +255,7 @@ function Hiretalent() {
                                                             <Col sm={3} xs={3} >
 
                                                                 <Card>
-                                                                    {/* <input style={{ right: '0', position: "relative", float: 'right' }} /> */}
+                                                                  
                                                                     <p className='m-1'>    1 month </p>
                                                                 </Card>
                                                             </Col>
@@ -310,7 +312,11 @@ function Hiretalent() {
 
                                         </Accordion>
 
-                                        <center> <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '20px' }} className='hire-button' type='submit'><b>Submit</b></button></center>
+                                        <center>
+                                             <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '20px' }} className='hire-button d-none d-sm-block' type='submit'><b>Submit</b></button>
+
+                                             <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '80px' }} className='hire-button d-block d-sm-none' type='submit'><b>Submit</b></button>
+                                        </center>
 
 
 

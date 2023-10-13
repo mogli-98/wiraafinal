@@ -12,6 +12,7 @@ import test1 from '../../asset/image/test1.png';
 import ProfileModal from '../../modal/Profile.modal';
 import Switchform from '../../Model/switch.model';
 import Staticmodal from '../../modal/Static.modal';
+import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 function Viewprofile() {
     const inputRef = useRef(null);
     const [AllQualificationListt, setAllQualificationListt] = useState()
@@ -99,12 +100,12 @@ useEffect(() => {
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1} xs={2} className=''>
+                    <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
 
 
-                    <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Profile" />
                             <Row className=''>
@@ -290,6 +291,7 @@ useEffect(() => {
                     </Col>
                 </Row>
             </Container>
+            <Phoneviewfooter/>
 
         </>
     )

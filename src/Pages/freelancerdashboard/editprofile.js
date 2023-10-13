@@ -31,7 +31,7 @@ function Editprofile() {
     const [profileData, setProfileData] = useState([]);
     const fetchdata = () => {
         const userId  = localStorage.getItem("UserID");
-        ProfileModal.freelancerprofile({userId}).then((response) => {
+        ProfileModal.ClientProfile({userId}).then((response) => {
             console.log(response.data);
             setProfileData(response.data);
         });
@@ -77,8 +77,9 @@ function Editprofile() {
         console.log(event);
         event.preventDefault();
         const form = new FormData(event.target);
-        const userId=  parseInt(localStorage.getItem("UserID"));
-        ProfileModal.Updateprofile(form ,userId).then((response) => {
+        form.append("userId", parseInt(localStorage.getItem("UserID")));
+
+        ProfileModal.Updateprofile(form ).then((response) => {
                 console.log(response.data, "Profession Form Fill Successfuly");
             })
             .catch((error) => {
@@ -98,17 +99,18 @@ useEffect(() => {
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1} xs={2} className=''>
+                    <Col sm={1}className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
 
 
-                    <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Profile" />
                             <Row className=''>
-                                <Col sm={8} className="square border-end">
-                                    <Card className='order-detail-profile mt-3' style={{ backgroundColor: "#efefef", borderRadius: "35px" }}>
+                                <Col sm={8} className="square border-end mb-3">
+                                    <div  style={{backgroundColor:'#efefef',borderBottomRightRadius:"350px 350px",borderTopRightRadius:'35px ',borderTopLeftRadius:"35px",height:'57vh'}}>
+                                    <Card className='order-detail-profile mt-3' style={{ backgroundColor: "#efefef", borderRadius: "35px", borderStyle:"none",borderBottomRightRadius:'35px'}}>
                                         <div>
                                             <p className='order-detail-profile-icon'><ion-icon name="pencil-outline" onClick={handleShow1} style={{ height: '21px' }}></ion-icon></p>
 
@@ -142,7 +144,7 @@ useEffect(() => {
                                             </Row>
                                         </Container>
                                     </Card>
-                                    <Card>
+                                    <Card style={{borderStyle:'none',borderTopLeftRadius:"35px",borderTopRightRadius:"opx"}}>
                                         <div className='m-3'>
                                             <span><b>About</b></span>
                                             <p>
@@ -161,6 +163,7 @@ useEffect(() => {
                                             </p>
                                         </div>
                                     </Card>
+                                    </div>
                                 </Col>
 
                                 <Col md={4} className="">
@@ -285,11 +288,7 @@ useEffect(() => {
                                                 </Form.Group>
                                             </Col>
                                             <Col sm={6}>
-                                                <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-
-                                                    <Form.Control placeholder="Last Name"
-                                                    name='lName'  onChange={handleInputChange} />
-                                                </Form.Group>
+                                               
                                             </Col>
                                         </Row>
 

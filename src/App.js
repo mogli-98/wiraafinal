@@ -55,6 +55,7 @@ import Unreadnotification from './Pages/Dashboard/Unreadnotification';
 import FreeProjectdetails from './Pages/freelancerdashboard/freeproject/FreeProject';
 import TermsandCondition from './Pages/unguarded_page/Termsandcondition';
 import Learnwithoutlogin from './Pages/Learn/Learnwithoutlogin';
+import Messagebox from './Pages/freelancerdashboard/Messagebox';
 
 function App() {
   return (
@@ -106,6 +107,7 @@ function App() {
               <Route path='/Hiretalent' element={<Hiretalent/>}/>
               <Route path='/Project/ProjectDetails' element={<Projectdetails/>} />
               <Route path='/Message' element={<Messaages/>}/>
+              <Route path='/Messagebox' element={<Messagebox/>}/>
               <Route path='/Notification' element={<Notification />}/>
               <Route path='/Professionalsdashboard' element={<Dashboardfreelancer/>}/>
               <Route path='/Community' element={<Community/>} />
