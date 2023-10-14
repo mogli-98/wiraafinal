@@ -6,6 +6,10 @@ const SettingModal = {
         return (await axiosInstance.post(
             `setting/updateNumber/`, data
         ))
+    }, async Phonenumber(data) {
+        return (await axiosInstance.post(
+            `setting/updateNumber/`, data
+        ))
     }
 
 

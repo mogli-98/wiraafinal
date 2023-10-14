@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card,Modal  } from "react-bootstrap";
+import { Container, Row, Col, Card, Modal } from "react-bootstrap";
 import '../../../asset/css/dashboard.css'
 import Sidenav from './Sidenav';
 import test2 from "../../../asset/image/test2.png";
@@ -29,8 +29,8 @@ function Explorepage() {
     useEffect(() => {
         // var url = new URLSearchParams(window.location.search)
         // const id = url.get("id");
-        const userId  = params.id;
-        Auth.userProfile({userId}).then((response) => {
+        const userId = params.id;
+        Auth.userProfile({ userId }).then((response) => {
             console.log(response.data);
             setMyDetails(response.data);
         });
@@ -61,7 +61,7 @@ function Explorepage() {
                             <Row className='mt-1'>
                                 <Col className=" square border-end" sm={8}>
                                     <Card className='order-detail-profile' style={{ backgroundColor: "#efefef", border: 'none', borderRadius: '40px' }}>
-                                        <span style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px', color: 'grey' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px', marginTop: '20px' }} src={More} alt="IMG"  onClick={handleShow} /> </span>
+                                        <span style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px', color: 'grey' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px', marginTop: '20px' }} src={More} alt="IMG" onClick={handleShow} /> </span>
                                         <center>
                                             <img style={{ height: '100px', width: '100px' }} src={test2} alt="" className='mt-0' />
                                             <h6 style={{ fontSize: '20px' }} className='mt-2'><b>{MyDetails?.[0]?.FirstName}</b></h6>
@@ -71,18 +71,18 @@ function Explorepage() {
                                             <Row className='mb-3'>
                                                 <Col className='square border-end'>
                                                     {/* <h6 className='text-center'> */}
-                                                {MyDetails?.[0]?.FollowerCount === null ? (
-                                                            <h6 className='text-center'>0</h6>
-                                                                ) :   <h6 className='text-center'>{MyDetails?.[0]?.FollowerCount}</h6>}
-                    
-                                                    
+                                                    {MyDetails?.[0]?.FollowerCount === null ? (
+                                                        <h6 className='text-center'>0</h6>
+                                                    ) : <h6 className='text-center'>{MyDetails?.[0]?.FollowerCount}</h6>}
+
+
                                                     {/* {MyDetails?.[0]?.totalFollowers}</h6> */}
                                                     <p style={{ fontSize: '18px', fontWeight: 600, color: 'grey' }} className='text-center'>Followers</p>
                                                 </Col>
                                                 <Col className='square border-start'>
-                                                {MyDetails?.[0]?.PostCount === null ? (
-                                                            <h6 className='text-center'>0</h6>
-                                                                ) :   <h6 className='text-center'>{MyDetails?.[0]?.PostCount}</h6>}
+                                                    {MyDetails?.[0]?.PostCount === null ? (
+                                                        <h6 className='text-center'>0</h6>
+                                                    ) : <h6 className='text-center'>{MyDetails?.[0]?.PostCount}</h6>}
                                                     <p style={{ fontSize: '18px', fontWeight: 600, color: 'grey' }} className='text-center'>Orders</p>
                                                 </Col>
                                             </Row>
@@ -103,12 +103,12 @@ function Explorepage() {
                                                     <div
                                                         className={`tab text-center ${activeTab === "Tab2" ? "active" : ""}`}
                                                         onClick={() => handleClick("Tab2")}
-                                                        style={{cursor:'pointer'}}
+                                                        style={{ cursor: 'pointer' }}
                                                     >
                                                         <span className="text-center" style={{ cursor: " pointer" }}> <b>Portfilo</b></span>
                                                     </div>
                                                 </Col>
-                                                
+
                                             </Row>
                                         </Container>
                                         <div className="tab-content">
@@ -160,59 +160,62 @@ function Explorepage() {
                                                         </div>
                                                     ))}
                                                 </div></>}
-                                            
+
                                         </div>
                                     </div>
                                 </Col>
                                 <Col md={4} className="">
                                     <h6 style={{ fontSize: '20px', marginTop: '20px', marginLeft: '30px' }}><b>Explore</b></h6>
-                                    {Freelancer && Freelancer.map((freelist) => 
-                                   <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
+                                    {Freelancer && Freelancer.map((freelist) =>
+                                        <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
 
-                                   <div className='order-details-container mt-2'>
-                                       <img style={{ height: '60px', width: '60px' }} src={test} alt="" className='order-details-img m-3' />
-                                       <div className='order-details-container-text'>
-                                           <h6><b>{freelist?.FirstName} {freelist?.LastName}</b></h6><br />
-                                           <p>{freelist.OccupationName}</p>
-                                       </div>
+                                            <div className='order-details-container mt-2'>
+                                                <img style={{ height: '60px', width: '60px' }} src={test} alt="" className='order-details-img m-3' />
+                                                <div className='order-details-container-text'>
+                                                    <h6><b>{freelist?.FirstName} {freelist?.LastName}</b></h6><br />
+                                                    <p>{freelist.OccupationName}</p>
+                                                </div>
 
-                                   </div>
-                                   <Container>
-                                       <Row className='mb-3'>
-                                           <Col className='square border-end'>
-                                           {freelist?.PostCount === null ? (
+                                            </div>
+                                            <Container>
+                                                <Row className='mb-3'>
+                                                    <Col className='square border-end'>
+                                                        {freelist?.PostCount === null ? (
                                                             <h6 className='text-center'>0</h6>
-                                                                ) :   <h6 className='text-center'>{freelist?.PostCount}</h6>}
-                                        
-                                               <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
-                                           </Col>
-                                           <Col className='square border-start'>
-                                           {freelist?.FollowerCount === null ? (
-                                                            <h6 className='text-center'>0</h6>) : 
-                                               <h6 className='text-center'>{freelist.FollowerCount}</h6>}
-                                               <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Portfolio</p>
-                                           </Col>
-                                       </Row>
-                                   </Container>
+                                                        ) : <h6 className='text-center'>{freelist?.PostCount}</h6>}
+
+                                                        <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
+                                                    </Col>
+                                                    <Col className='square border-start'>
+                                                        {freelist?.FollowerCount === null ? (
+                                                            <h6 className='text-center'>0</h6>) :
+                                                            <h6 className='text-center'>{freelist.FollowerCount}</h6>}
+                                                        <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Portfolio</p>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
 
 
 
 
-                               </Card>
-                                   )}
+                                        </Card>
+                                    )}
                                 </Col>
 
                             </Row>
                             <Modal show={show} onHide={handleClose} size='sm'>
-        <Modal.Header closeButton>
-        
-        </Modal.Header>
-        <Modal.Body>Report
-            <br/>
-            Block
-        </Modal.Body>
-       
-      </Modal>
+                                <Modal.Header closeButton>
+
+                                </Modal.Header>
+                                <Modal.Body>
+                                <p>Report</p>
+                                    <hr style={{width:"50px"}}/>
+                                    <p>Block</p>  
+
+                                    
+                                </Modal.Body>
+
+                            </Modal>
                         </Container>
 
                     </Col>

@@ -111,7 +111,7 @@ function Orderdetails() {
                                         </svg> <span>Shortlisted</span> </button>
                                     </div>
                                    <center>
-                                   <p  style={{marginTop:'35vh',fontSize:'30px'}}>
+                                   <p style={{fontSize:'30px'}}>
                                         {getError}</p>
                                    </center>
                                   

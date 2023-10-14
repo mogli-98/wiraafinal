@@ -23,15 +23,45 @@ function FreeProjectdetails() {
         })
     }, [])
     const Markfav = async (id) => {
-
-        const uid = localStorage.getItem("UserID");
-        const pid = id
-        ProjectModal.getMarkfavproject({uid}, {pid}).then((response) => {
+        console.log(id)
+        const userId = parseInt(localStorage.getItem("UserID"));
+        const projectId = id;
+        ProjectModal.getMarkfavproject({userId , projectId}).then((response) => {
             console.log(response.data)
         }).catch((error) => {
             console.log("error => ", error)
         })
     }
+    const [formData, setFormData] = useState({
+        experience: '',
+        comfortable: '',
+        immediately: '',
+        availabality: '',
+    });
+    const handleInputChange = (event) => {
+
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value,
+        });
+    };
+    const handleSubmit = (event) => {
+
+        event.preventDefault();
+        const form = new FormData(event.target);
+        form.append("userId", localStorage.getItem("UserID"));
+        form.append("projectId", params.id );
+        console.log(form)
+        ProjectModal.addintrestpro(form)
+            .then((response) => {
+               
+                helper.sweetalert.toast("Your interested Add Successfully")
+            })
+            .catch((error) => {
+                console.log(error);
+            });
+    };
+
     return (
 
             <>
@@ -126,40 +156,186 @@ function FreeProjectdetails() {
                             </Container>
                         </Col>
                     </Row>
-                    <Modal show={show} onHide={handleClose}
-      size="md"
-      aria-labelledby="contained-modal-title-vcenter"
-      centered>
-        <Modal.Header closeButton>
-          <Modal.Title>Screening Questions</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-            <Card>
-                <p><b>Q.How many year of experience do you have this feild?</b></p>
-                <input type='text'/>
-            </Card>
-            <Card>
-                <p><b>Q.Are you comfortable with my project budge?</b></p>
-                <span>I am comfortable</span><input type='checkbox'/><span>I want to negotiate</span><input type='checkbox'/><span>First i want to understand the project</span><input type='checkbox'/>
-            </Card>
-            <Card>
-                <p><b>Q.What is your work availability?</b></p>
-                <span>Full-time</span><input type='checkbox'/><span>Part-time</span><input type='checkbox'/><span>Weekends</span><input type='checkbox'/><span>Not fixed</span><input type='checkbox'/>
-            </Card>
-            <Card>
-                <p><b>Q.We must fill this position urgently. Can you start immediately?</b></p>
-                <span>I can start immediately</span><input type='checkbox'/><span> I can start from next week </span><input type='checkbox'/><span>I can start from next month</span><input type='checkbox'/>
-            </Card>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
+                    <Modal className='d-none d-sm-block' show={show} onHide={handleClose}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title style={{ color: '#008080' }}>Screening Questions</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <form onSubmit={handleSubmit}>
+                        <Card style={{ margin: '10px' }}>
+                            <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.How many year of experience do you have this feild?</h6>
+
+                            <input style={{ width: '200px', margin: '10px' }} type='text'name='experience' />
+                        </Card>
+                        <Card style={{ margin: '10px' }}>
+                            <h6 style={{ marginTop: '6px', marginLeft: '10px' }} >Q.Are you comfortable with my project budge? </h6>
+
+                            <div style={{ display: 'flex', margin: '10px' }}>
+
+                                <input type='checkbox' name='comfortable'  value='I am comfortable'/><span style={{ marginLeft: '15px', fontWeight: 500 }}>I am comfortable</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' name='comfortable' value='I want to negotiate' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I want to negotiate</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' name='comfortable' value='First i want to understand the project' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>First i want to understand the project</span>
+
+                            </div>
+
+                        </Card>
+
+
+                        <Card style={{ margin: '10px' }}>
+
+                            <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.What is your work availability?</h6>
+
+                            <div style={{ display: 'flex', margin: '10px' }}>
+
+                                <input type='checkbox' name='availabality' value='Full-time' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>Full-time</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' name='availabality' value='Part-time' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>Part-time</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' name='availabality' value='Weekends' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>Weekends</span>
+                                <input style={{ marginLeft: '20px' }} type="checkbox" name='availabality' value='Not fixed' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}> Not fixed</span>
+
+                            </div>
+
+                        </Card>
+                        <Card style={{ margin: '10px' }}>
+
+
+                            <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.We must fill this position urgently. Can you start immediately?</h6>
+
+
+
+                            <div style={{ display: 'flex', margin: '10px' }}>
+
+                                <input type='checkbox' name='immediately' value='I can start immediately'  /><span style={{ marginLeft: '15px', fontWeight: 500 }}>I can start immediately</span>
+                                <input style={{ marginLeft: '20px' }} name='immediately' value='I can start from next week' type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next week</span>
+                                <input style={{ marginLeft: '20px' }} name='immediately' value='I can start from next month' type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next month</span>
+
+                            </div>
+
+                        </Card>
+                        <Button variant="primary" type='submit' >
+                            Submit 
+                        </Button>
+                        </form>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        {/* <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button> */}
+                        
+                    </Modal.Footer>
+                </Modal>
+                <Modal className='d-block d-sm-none' show={show} onHide={handleClose}
+                    size="lg"
+                    aria-labelledby="contained-modal-title-vcenter"
+                    centered>
+                    <Modal.Header closeButton>
+                        <Modal.Title style={{ color: '#008080' }}>Screening Questions</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body style={{padding:'0px'}}>
+                        <Card style={{ margin: '10px' }}>
+                            <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.How many year of experience do you have this feild?</h6>
+
+                            <input style={{ width: '300px', margin: '10px' }} type='text' />
+                        </Card>
+                        <Card style={{ margin: '10px' }}>
+                            <h6 style={{ marginTop: '6px', marginLeft: '10px' }} >Q.Are you comfortable with my project budge? </h6>
+
+                            <div style={{ display: 'flex', margin: '10px' }}>
+                                <input style={{ marginLeft: '15px' }} type='checkbox' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>I am comfortable </span>  
+                                
+
+                            </div>
+                            <div style={{ display: 'flex', margin: '5px' }}>                                
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I want to negotiate</span>
+                               
+
+                            </div>
+
+                            <div style={{ display: 'flex', margin: '5px' }}>                               
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>First i want to understand the project</span>
+
+                            </div>
+
+                        </Card>
+
+
+                        <Card style={{ margin: '10px' }}>
+
+                            <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.What is your work availability?</h6>
+
+                            <div style={{ display: 'flex', margin: '10px' }}>
+
+                                <input style={{ marginLeft: '15px' }} type='checkbox' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>Full-time</span>
+                                
+
+                            </div>
+
+                            <div style={{ display: 'flex', margin: '5px' }}>
+
+                                
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>Part-time</span>
+                                
+
+                            </div>
+
+                            <div style={{ display: 'flex', margin: '5px' }}>
+
+                              
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>Weekends</span>
+                               
+
+                            </div>
+
+                            <div style={{ display: 'flex', margin: '5px' }}>
+
+                                <input style={{ marginLeft: '20px' }} type="checkbox" /> <span style={{ marginLeft: '10px', fontWeight: 500 }}> Not fixed</span>
+
+                            </div>
+
+
+                        </Card>
+
+
+
+                        <Card style={{ margin: '10px' }}>
+
+
+                            <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.We must fill this position urgently. Can you start immediately?</h6>
+
+
+
+                            <div  style={{ display: 'flex', margin: '10px' }}>
+                                <input style={{ marginLeft: '15px' }} type='checkbox' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>I can start immediately</span>
+                                
+                            </div>
+
+                            <div style={{ display: 'flex', margin: '5px' }}>
+                               
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next week</span>
+                                
+                            </div>
+
+                            <div style={{ display: 'flex', margin: '5' }}>
+                                
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next month</span>
+                            </div>
+
+
+                        </Card>
+
+
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={handleClose}>
+                            Save 
+                        </Button>
+                    </Modal.Footer>
+                </Modal>
                 </Container>
             </>
 

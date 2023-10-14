@@ -13,13 +13,14 @@ import Select from "react-select";
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
-function Dashboard(name) {
+function Dashboard(name ,) {
     const handleChange = (selectedOption) => {
         console.log('Selected option:', selectedOption);
         // You can perform any action with the selectedOption here
+        setSelectedOptions(selectedOption)
     };
     const [options, setSubCategory] = useState([]);
-    // const [selectedOptions, setSelectedOptions] = useState();
+    const [selectedOptions, setSelectedOptions] = useState();
     const [showComponent, setShowComponent] = useState(false);
     useEffect(() => {
         Switchform.AllSubcategorynoid().then((response) => {
@@ -75,8 +76,12 @@ function Dashboard(name) {
 
                                                 <Select
                                                     options={options}
+                                                    arrowRenderer={null}
+
                                                     isClearable
+                                                    openOnClick={false}
                                                     className='d-none d-sm-block'
+                                                    onChange={handleChange}
                                                     styles={{
                                                         border: 'none',
                                                         display: 'flex',
@@ -151,6 +156,7 @@ function Dashboard(name) {
                                                 options={options}
                                                 isClearable
                                                 className='d-block d-sm-none'
+                                                onChange={handleChange}
                                                 styles={{
                                                     border: 'none',
                                                     display: 'flex',
@@ -176,7 +182,7 @@ function Dashboard(name) {
 
                                 </div>
                             </Row>
-                            {showComponent ? <Profile /> : <Portfolio />}
+                            {showComponent ? <Profile  data={selectedOptions}/> : <Portfolio data={selectedOptions} />}
                         </Container>
                         <Phoneviewfooter />
                     </Col>

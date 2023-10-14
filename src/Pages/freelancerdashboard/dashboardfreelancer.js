@@ -4,6 +4,8 @@ import "../../asset/css/freelanceredashboard.css";
 import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
 import bookbag from '../../asset/image/freelancerdash/bookbag.png'
+import moment from 'moment';
+import DataTable from 'react-data-table-component';
 
 import topcard2 from '../../asset/image/freelancerdash/topcard2.png'
 import topcard3 from '../../asset/image/freelancerdash/topcard3.png'
@@ -14,12 +16,15 @@ import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import PortfolioModal from '../../modal/Portfolio.modal';
 import Staticmodal from '../../modal/Static.modal';
 import { helper } from '../../lib/helper';
+import ProjectModal from '../../modal/Project.modal';
+import { Link } from 'react-router-dom';
 // import Form from 'react-bootstrap/Form';
 function Freelancerdashboard(props) {
     const handleimageClick = () => {
         inputRef.current.click();
     }
     const inputRef = useRef(null);
+    const [Proproject , setProexport] = useState();
     const [allCity, setallcity] = useState()
     const [selectedImage, setSelectedImage] = useState(null);
     const [show, setShow] = useState(false);
@@ -59,6 +64,94 @@ function Freelancerdashboard(props) {
             .catch((error) => {
                 console.log(error);
             });
+    };
+    useEffect(() => {
+        ProjectModal.dashboardproject().then((response) => {
+            console.log(response.data);
+            setProexport(response.data);
+
+        }).catch((error) => {
+            console.log("error => ", error)
+        })
+    }, [])
+    const columns = [
+        {
+            name: 'Client Name',
+            selector: (row) => row.FirstName,
+            width:'120px'
+        },
+
+
+        {
+            name: 'Description',
+            selector: (row) => row.Description,
+
+            cell: row => {
+                // console.log(row)
+                return (
+                    <div style={{
+                        "height": "20px",
+                        "overflow": 'hidden',
+                        "text-overflow": "ellipsis"
+                    }}>
+                        <Link to={`/FreeProject/${row.ProjectId}`}>{row.Description}</Link>
+                    </div>
+                    // <Route path=":id" element={<Orderdetailsbreief />} />
+
+                )
+            },
+        },
+        {
+            name: 'Budget',
+            selector: (row) => row.Budget,
+            width:'150px'
+        },
+
+        {
+            name: 'Date',
+            selector: (row) => row.ApplyDate,
+            cell: row => {
+                return <div style={{marginLeft:"80px"}}> {moment(row.ApplyDate).format('DD/MM/YYYY')} </div>
+            },
+          
+        }
+
+    ]
+    const customStyles = {
+
+        // table:{
+        //     style:{
+        //         border:'1px solid lightgrey'
+        //     },
+        // },
+        headCells: {
+            style: {
+                fontSize: '13px',
+                fontWeight: 700,
+                display: 'flex',
+                justifyContent: 'center',
+               
+            },
+        },
+        rows: {
+            style: {
+                border: '1px solid lightgrey',
+                fontSize: '16px',
+                fontWeight: 400,
+                display: 'flex',
+                // justifyContent: 'center',
+                backgroundColor: '#eee',
+                paddingLeft:'50px'
+            },
+        },
+        Cell: {
+            style: {
+                border: '1px solid lightgrey',
+                justifyContent: 'right',
+                display: 'flex',
+               
+            },
+        },
     };
     return (
         <>
@@ -126,104 +219,16 @@ function Freelancerdashboard(props) {
 
 
                             <Row>
-                                <Col className='freedash-project'>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none' }}>
-                                        <p style={{ fontSize: '16px', color: 'black' }} className='mt-2 mb-1'>Latest Project:</p>
-
-                                        <p className='mt-2 mb-1'>Explore all</p>
-
-                                    </div>
-
-
-                                    <div style={{ border: '2px solid lightgrey' }}>
-
-                                        <div style={{ border: '2px solid lightgrey' }} className="latest-project-free">
-                                            <span className='m-2 small'>INR 2000 - 5000 / Lump - Sum</span>
-                                        </div>
-                                        <p style={{ fontSize: '18px' }} className='m-2'>Chandan</p>
-                                        <span style={{ fontSize: '14px' }} className='small'> Graphic Designer for brand identity</span>
-
-                                    </div>
-                                    <div style={{ border: '2px solid lightgrey' }}>
-
-                                        <div className="latest-project-free">
-                                            <span className='m-2 small'>INR 2000 - 5000 / Lump - Sum</span>
-                                        </div>
-                                        <p style={{ fontSize: '18px' }} className='m-2'>Chandan</p>
-                                        <span style={{ fontSize: '14px' }} className=' small'> Graphic Designer for brand identity</span>
-
-                                    </div>
-                                    <div style={{ border: '2px solid lightgrey' }}>
-
-                                        <div className="latest-project-free">
-                                            <span className='m-2 small'>INR 2000 - 5000 / Lump - Sum</span>
-                                        </div>
-                                        <p style={{ fontSize: '18px' }} className='m-2'>Chandan</p>
-                                        <span style={{ fontSize: '14px' }} className=' small'> Graphic Designer for brand identity</span>
-
-                                    </div>
-                                    <div style={{ border: '2px solid lightgrey' }}>
-
-                                        <div className="latest-project-free">
-                                            <span className='m-2 small'>INR 2000 - 5000 / Lump - Sum</span>
-                                        </div>
-                                        <p style={{ fontSize: '18px' }} className='m-2'>Chandan</p>
-                                        <span style={{ fontSize: '14px' }} className=' small'> Graphic Designer for brand identity</span>
-
-                                    </div>
+                                <Col className=''>
+                                 <Link to='/UserProject'>   <p>Explore All</p></Link>
+                                <DataTable
+                                                    columns={columns}
+                                                    data={Proproject}
+                                                    noDataComponent="No Project Add" //or your component
+                                                    customStyles={customStyles}
+                                                />
                                 </Col>
-                                <Col className='freedash-project'>
-                                    {/* <p className='mt-2'>Latest Questions:</p> */}
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none' }}>
-                                        <p style={{ fontSize: '16px', color: 'black' }} className='mt-2 mb-1'>Latest Questions:</p>
-
-                                        <p className='mt-2 mb-1'>Explore all</p>
-
-                                    </div>
-                                    <div style={{ backgroundColor: 'ButtonHighlight' }} >
-
-                                        <div style={{ paddingRight: '30px', border: '2px solid lightgrey' }} className="latest-question-free ">
-                                            <span className='m-2'>60</span>
-                                        </div>
-                                        <p style={{ fontSize: '17px', marginLeft: '10px' }} className='mt-2 mb-0'>Gunagya Innovations - <span>Nutritionist</span></p>
-                                        <hr style={{ color: 'lightgrey', marginTop: '0px', marginBottom: '0px' }} />
-                                        <p style={{ fontSize: '13px', color: 'grey' }} className='m-1 small'> What are best signs of having a metabolism and what are <span style={{ color: 'black', fontSize: '10' }}>1 hour ago </span> </p>
-
-                                    </div>
-                                    <div style={{ backgroundColor: 'ButtonHighlight' }} >
-
-                                        <div style={{ paddingRight: '30px' }} className="latest-question-free ">
-                                            <span className='m-2'>3</span>
-                                        </div>
-                                        <p style={{ fontSize: '18px' }} className='m-2'>chandan</p>
-                                        {/* <hr style={{color:'lightgrey'}} /> */}
-                                        <hr style={{ color: 'lightgrey', marginTop: '0px', marginBottom: '0px' }} />
-                                        <p style={{ fontSize: '14px', color: 'grey' }} className='m-1'> Graphic Designer for brand identity</p>
-
-                                    </div>
-                                    <div style={{ paddingRight: '30px', backgroundColor: 'ButtonHighlight', border: '2px solid lightgrey' }}>
-
-                                        <div className="latest-question-free ">
-                                            <span className='m-2'>12</span>
-                                        </div>
-                                        <p style={{ fontSize: '18px' }} className='m-2'>chandan</p>
-                                        {/* <hr style={{color:'lightgrey'}} /> */}
-                                        <hr style={{ color: 'lightgrey', marginTop: '0px', marginBottom: '0px' }} />
-                                        <p style={{ fontSize: '14px', color: 'grey' }} className='m-1'> Graphic Designer for brand identity</p>
-
-                                    </div>
-                                    <div style={{ paddingRight: '30px', backgroundColor: 'ButtonHighlight', border: '2px solid lightgrey' }}>
-
-                                        <div className="latest-question-free ">
-                                            <span className='m-2'>39</span>
-                                        </div>
-                                        <p style={{ fontSize: '18px' }} className='m-2'>chandan</p>
-                                        {/* <hr style={{color:'lightgrey'}} /> */}
-                                        <hr style={{ color: 'lightgrey', marginTop: '0px', marginBottom: '0px' }} />
-                                        <p style={{ fontSize: '14px', color: 'grey' }} className='m-1'> Graphic Designer for brand identity</p>
-
-                                    </div>
-                                </Col>
+                                
 
                             </Row>
                             <Row>

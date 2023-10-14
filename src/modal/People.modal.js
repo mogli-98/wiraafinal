@@ -15,5 +15,9 @@ const PeopleModal = {
         return await axiosInstance.get(
             `/people/getAllPeople/${data.userId}?page=1&per_page=9`);
     },
+    async SearchProfile(data) {
+        return await axiosInstance.get(
+            `/people/subcategory/${data.subcategoryId}/${data.userProfileId}?page=${data.page}&per_page=9`);
+    },
 }
 export default PeopleModal;

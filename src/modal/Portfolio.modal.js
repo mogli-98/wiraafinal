@@ -4,9 +4,9 @@ const PortfolioModal = {
         return (await axiosInstance.post(
             `/portfolio/addComment`, data
         ))
-    },  async Portfolio(data) {
+    },  async Portfolio(data ) {
         return await axiosInstance.get(
-            `/portfolio/all/${data.userProfileId}?page=1&per_page=9`);
+            `/portfolio/all/${data.userProfileId}?page=${data.page}&per_page=9`);
     },
     async Allcomment(data) {
         return (await axiosInstance.get(
@@ -21,6 +21,12 @@ const PortfolioModal = {
     async addPortfolio(data) {
         return (await axiosInstance.post(
             `/portfolio/addPortfolio`,data
+        ))
+    },
+    async searchPortfolio(data) {
+        console.log(data)
+        return (await axiosInstance.get(
+            `/portfolio/subCategory/${data.subCategoryId}/${data.userProfileId}?page=${data.page}&per_page=10`, data
         ))
     }
 }

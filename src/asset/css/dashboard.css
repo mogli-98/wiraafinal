@@ -832,6 +832,9 @@ color: #7e8829 !important;
 .jGeaPm {
   border-style: none !important;
 }
+.activesvg{
+  color: red;
+}
 @media screen and (max-width: 480px) {
   .bPQHAq .head-div .icon-suffix {
     display: inherit !important;

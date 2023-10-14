@@ -48,7 +48,7 @@ function Explorepage() {
 
                     <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav  activeLink="Explore"/>
+                            <Topnav  activeLink="Explore1"/>
                             <Row className='mt-1'>
                                 <Col className=" square border-end" sm={8}>
                                     <Card className='order-detail-profile' style={{ backgroundColor: "#efefef", border: 'none', borderRadius: '40px', borderBottomLeftRadius: '0px' }}>

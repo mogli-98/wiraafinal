@@ -22,15 +22,27 @@ const ProjectModal = {
             `/project/getProjectDetailByProjectId/${data.projectId}` , data
         ));
     },
-    async getMarkfavproject(data , data2) {
+    async getMarkfavproject(data ) {
+        
         return (await axiosInstance.post(
-            `/project/addProjectToFavorite/${data.uid}/${data2.pid}`,
+            `/project/addProjectToFavorite/${data.userId}/${data.projectId}`,
         ));
     } ,async getfavproject(data) {
         return (await axiosInstance.get(
             `/project/getFavorite/${data.userId}` , data
         ));
     },
+    async dashboardproject(data) {
+        return (await axiosInstance.get(
+            `/project/newestAllProject?page=1&per_page=5` , data
+        ));
+    },
+    async getinterestedbyid(data) {
+        return (await axiosInstance.post(
+            `/project/getInterestedByUserId/${data.userId}` , data
+        ));
+    },
+
     
 
 

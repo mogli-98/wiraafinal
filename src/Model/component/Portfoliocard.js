@@ -119,10 +119,10 @@ function ProtfolioCard(props) {
         </Card>
         <Modal show={show} onHide={handleClose} size="lg" >
             <Modal.Body>
-                <Container>
+                <Container >
                     <Row>
                         <Col xs={12} sm={6}>
-                            <div style={{  height: '90vh', border: "1px solid black",backgroundColor:'black',textAlign:'center', position:"relative",maxWidth:'inherit'}}>
+                            <div style={{  height: '85vh', border: "1px solid black",backgroundColor:'black',textAlign:'center', position:"relative",width:'100%'}}>
                                 {/* <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data?.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} /> */}
                           
                               <img src={test1} alt="Avatar" className=" " style={{height:'100%',width:'100%'}} />
@@ -138,7 +138,7 @@ function ProtfolioCard(props) {
                                 <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
                             </svg>} <span>{data?.LikesCount}</span></p>
                           
-                               <div style={{ height: "75vh" ,overflowY:'scroll'}}>
+                               <div style={{ height: "70vh" ,overflowY:'scroll'}}>
                                     {allcommentss && allcommentss?.map((commentlist) =>
                                             <div style={{ height: "30px" }}>
                                                 <p>  {commentlist?.FirstName} - {commentlist?.Comment}</p>   

@@ -7,12 +7,14 @@ import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom';
 import ProjectModal from '../../modal/Project.modal';
 import moment from 'moment';
+import { IoHeartOutline } from 'react-icons/io5';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 function Userproject() {
     const [Userproj, setUserproj] = useState([]);
     const [Proexport, setProexport] = useState([]);
     const [activeTab, setActiveTab] = useState("Tab1");
     const [favproject, setfavproject] = useState([]);
+    const [Answer ,setAnswer] = useState([]);
     const handleClick = (tab) => {
         setActiveTab(tab);
     };
@@ -26,8 +28,8 @@ function Userproject() {
             // setActiveTab(tab);
             console.log(response.data)
 
-            const newColor = fillColor === "lightgrey" ? "red" : "lightgrey";
-            setFillColor(newColor);
+            // const newColor = fillColor === "lightgrey" ? "red" : "lightgrey";
+            // setFillColor(newColor);
         }).catch((error) => {
             console.log("error => ", error)
         })
@@ -111,6 +113,16 @@ function Userproject() {
             console.log("error => ", error)
         })
     }, [])
+    useEffect(() => {
+        const userId = localStorage.getItem("UserID");
+        ProjectModal.getinterestedbyid({ userId }).then((response) => {
+            setAnswer(response.data);
+            console.log(response.data);
+
+        }).catch((error) => {
+            console.log("error => ", error)
+        })
+    }, [])
     const customStyles = {
 
         // table:{
@@ -173,13 +185,20 @@ function Userproject() {
                                                 <button className={`userproject  ${activeTab === "Tab2" ? "project-button " : ""}`} >Expertize</button>
                                             </div>
                                             <div
-                                                className={`tab  ${activeTab === "Tab3" ? "active" : ""}`}
+                                                className={`tab  ${activeTab === "Tab4" ? "active" : ""}`}
+                                                onClick={() => handleClick("Tab4")}
+                                            >
+                                                <button className={`userproject  ${activeTab === "Tab4" ? "project-button " : ""}`} >Accepted</button>
+                                            </div>
+                                            <div
+                                                className={`tab  ${activeTab === "Tab3" ? "" : ""}`}
                                                 onClick={() => handleClick("Tab3")}
                                             >
-
-                                                <svg xmlns="http://www.w3.org/2000/svg" onClick={handleButtonClick} width="25" height="25" fill={fillColor} class="tab bi bi-heart-fill" viewBox="0 0 16 16" style={{ position: 'relative', float: 'right' }}>
+                                                    <IoHeartOutline   onClick={handleButtonClick} className={`${activeTab === "Tab3" ? "activesvg" : ""}`} style={{float:'right',fontSize:"25px",}}/>
+                                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill={fillColor} class="tab bi bi-heart-fill" viewBox="0 0 16 16" style={{ position: 'relative', float: 'right' }}>
                                                     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                                                </svg>                                         </div>
+                                                </svg>                                          */}
+                                                </div>
 
                                         </div>
                                         {activeTab === "Tab1" && <>
@@ -212,6 +231,18 @@ function Userproject() {
                                                     data={favproject}
                                                     pagination
                                                     customStyles={customStyles}
+                                                />
+                                            </div>
+                                        </>
+                                        }
+                                         {activeTab === "Tab4" && <>
+                                            <div style={{ border: "1px solid grey", width: '100%', padding: '5px' }}>
+                                                <DataTable
+                                                    columns={columns}
+                                                    data={Answer}
+                                                    pagination
+                                                    customStyles={customStyles}
+                                                    noDataComponent="You didn't Answer Any Project" //or your component
                                                 />
                                             </div>
                                         </>
