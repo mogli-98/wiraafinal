@@ -59,10 +59,13 @@ function WiraaStartup() {
     const handleShow = () => setShow(true);
     return (
         <>
-   <div style={{backgroundColor:'white'}}>     
+       
+   <div style={{backgroundColor:'white'}}> 
+   <Navbar />
    <div className="page">
-                <Navbar />
+                
                 <Container>
+                    
                     <Row>
                         <Col md={6}>
                             <div className="text-content">
@@ -124,7 +127,7 @@ function WiraaStartup() {
 
                                 </Col>
                             </Row>
-                            <Row className='hiresmarts'>
+                            <Row style={{marginBottom:'80px'}} className='hiresmarts'>
 
 
                                 <Col sm={6} style={{ padding: '0' }}
@@ -161,7 +164,7 @@ function WiraaStartup() {
 
                  <Modal show={show} onHide={handleClose} animation={false} >
                     <Modal.Header closeButton>
-                        <Modal.Title >Startup Details</Modal.Title>
+                        <Modal.Title style={{color:'#008080'}} >Startup Details</Modal.Title>
 
                     </Modal.Header>
                   
@@ -191,15 +194,15 @@ function WiraaStartup() {
                                  <TextField fullWidth id="outlined-basic" label="Enter Note..." type='text' placeholder='Enter Note ' size='small' variant="outlined" name='description' onChange={handleInputChange} required />
                             </Col>
                         </Row>
-                        <Button style={{ backgroundColor: '#008080', border: 'none' }} type='submit'>
-                            Submit
-                        </Button>
+                       
                         </form>
                     </Container>
                   
                 
                     <Modal.Footer>
-                        
+                         <Button style={{ backgroundColor: '#008080', border: 'none' }} type='submit'>
+                            Submit
+                        </Button>
                     </Modal.Footer>
                 
                 </Modal>

@@ -85,8 +85,8 @@ function ProtfolioCard(props) {
             onMouseLeave={() => setIsHovered1(false)}
         >
             <div className="containerhover" style={{ border: isHovered1 ? "2px solid #008080" : "0px solid transparent", borderRadius: "5px" }} onClick={() => (fetchdata(data.PostID))}>
-            {/* <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} /> */}
-            <img src={test1} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />   
+            <img src={`https://wiraaback.azurewebsites.net/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
+            {/* <img src={test1} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />    */}
                 <div className="overlay">
                     <div className="containerhovertext">
                         {data?.AboutMe}
@@ -123,9 +123,9 @@ function ProtfolioCard(props) {
                     <Row>
                         <Col xs={12} sm={6}>
                             <div style={{  height: '85vh', border: "1px solid black",backgroundColor:'black',textAlign:'center', position:"relative",width:'100%'}}>
-                                {/* <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data?.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} /> */}
-                          
-                              <img src={test1} alt="Avatar" className=" " style={{height:'100%',width:'100%'}} />
+                                <img src={`https://wiraaback.azurewebsites.net/${data?.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{  width: "100%", }} />
+{/*                           
+                              <img src={test1} alt="Avatar" className=" " style={{height:'100%',width:'100%'}} /> */}
                             
                             </div>  
                         </Col>

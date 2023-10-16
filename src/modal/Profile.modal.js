@@ -27,7 +27,7 @@ const ProfileModal = {
     async ClientProfile(data) {
         console.log(data)
         return (await axiosInstance.get(
-            `/profile/clientMyProfile/${data.userId}`,
+            `/profile/myProfile/${data.userId}`,
             
         ))
     }

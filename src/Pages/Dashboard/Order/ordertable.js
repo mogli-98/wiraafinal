@@ -160,7 +160,7 @@ function Orderdetailsbrief() {
 
                                 <Row>
 
-                                    <Col >
+                                    <Col style={{marginTop:'12vh'}} >
                                         <Card  className='dashboradfree-card-top mt-3'>
                                             <div className='dashboradfree-card-top-div'>
                                                 <button style={{marginLeft:'30px'}} className='freedashboard-create'><Link style={{ color: '#008080' }} to='/Hiretalent'>Post a request</Link></button>

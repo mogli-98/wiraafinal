@@ -9,7 +9,7 @@ const Topnav = ({ activeLink }) => {
 
     return (
         <>
-            <Row style={{height:'73px'}} className="square border-bottom  d-none d-sm-block">
+            <Row style={{ height: '73px',position:'fixed',top:'0px',backgroundColor:'white',zIndex:100,width:'67%' }} className="square border-bottom  d-none d-sm-block">
 
                 <Col sm={12} >
                     <nav className="navbar mt-2 ">
@@ -20,7 +20,7 @@ const Topnav = ({ activeLink }) => {
                             <Link to='/Switchacc'><button className="navbar-button switch"><b>Switch <sup style={{ color: 'red', fontWeight: 600 }}> pro</sup> </b></button></Link>
                             <Link to="/Hiretalent"><button  className="navbar-button hire"><b>Hire </b></button></Link>
                         </div>
-                       
+
                     </nav>
                 </Col>
 
@@ -30,19 +30,19 @@ const Topnav = ({ activeLink }) => {
 
             <Row className="square border-bottom  d-block d-sm-none" style={{position:'fixed',top:'0px',zIndex:'1000',width:'100%',backgroundColor:'white',height:'60px'}}>
 
-                <Col  xs={12} >
+                <Col xs={12} >
                     <nav className="navbar mt-2 ">
                         <div className="left-side mt-1">
 
-                            <img style={{marginLeft:'20px'}} width={100} src={Wiraalogo} alt="" />
+                            <img style={{ marginLeft: '20px' }} width={100} src={Wiraalogo} alt="" />
 
 
 
                         </div>
-                        <div className="navbar-right1 mt-1 mb-1 ">                          
-                            <Link to='/'>                                                           
-                            < IoNotificationsOutline  style={{fontSize:'22px',marginRight:'20px'}}  />
-                              </Link>
+                        <div className="navbar-right1 mt-1 mb-1 ">
+                            <Link to='/'>
+                                < IoNotificationsOutline style={{ fontSize: '22px', marginRight: '20px' }} />
+                            </Link>
                         </div>
                     </nav>
                 </Col>

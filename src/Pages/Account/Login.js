@@ -40,12 +40,13 @@ const Login = () => {
       if (response.data.status === true) {
         const accessToken = response?.data?.token;
         localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem("UserID", response.data.user[0].UserID);
-        localStorage.setItem("userProfileId", response.data.user[0].UsersProfileID);
-        localStorage.setItem("UserType", response.data.user[0].UserType);
+        localStorage.setItem("UserID", response.data.user.UserID);
+        localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
+        localStorage.setItem("UserType", response.data.user.UserType);
         window.location.replace("/user/dashboard")
         console.log( response?.data)
         helper.sweetalert.toast("Welcome Back")
+        
       }
     })
       .catch((error) => {
@@ -61,11 +62,11 @@ const Login = () => {
           <Row>
             <Col sm={3}>
             </Col>
-            <Col sm={6} xs={12} className='signup  '>
+            <Col sm={6} xs={12} style={{padding:'10px'}} className='signup  '>
               <center> <Link to="/"> <img src={wirralogo} alt="" className="mb-5" /></Link> </center>
               <Card className="shadow-5 login-card" style={{ border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }}>
                 <h2 style={{ marginTop: "20px", marginLeft: "50px" }}>Login</h2>
-                <span style={{ marginLeft: '50px', marginTop: '-5px', color: '#008080', fontWeight: '500' }}>Login now & find projects through our communitlp</span>
+                <span style={{ marginLeft: '50px', marginTop: '-5px', color: '#008080', fontWeight: '500' }}>Login now & find projects through our community</span>
                 <form onSubmit={handleSubmit}>
                   <div className='m-5'>
                     <TextField id="outlined-basic" onChange={handleChange} name='email' className='mt-3 mb-3' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" size='small' />
@@ -73,7 +74,7 @@ const Login = () => {
 
 
                     <FormControl  fullWidth variant="outlined">
-                      <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                      <InputLabel  htmlFor="outlined-adornment-password">Password</InputLabel>
                       <OutlinedInput
                         id="outlined-adornment-password"
                         type={showPassword ? 'text' : 'password'}
@@ -107,6 +108,10 @@ const Login = () => {
                 </form>
               </Card>
             </Col>
+
+
+
+
             <Col sm={3}>
             </Col>
           </Row>

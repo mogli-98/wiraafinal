@@ -6,11 +6,17 @@ const SettingModal = {
         return (await axiosInstance.post(
             `setting/updateNumber/`, data
         ))
-    }, async Phonenumber(data) {
+    }, async Blockuser(data) {
         return (await axiosInstance.post(
-            `setting/updateNumber/`, data
+            `/setting/createBlockUser/${data.userProfileId}/${data.userId}`, 
         ))
     }
+    , async CreateReport(data) {
+        return (await axiosInstance.post(
+            `/report/createReport`, data
+        ))
+    }
+
 
 
 }

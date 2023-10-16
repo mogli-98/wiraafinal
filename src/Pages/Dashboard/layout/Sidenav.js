@@ -29,6 +29,7 @@ const Sidebar = () => {
   const toggleIcon = () => {
     setIsClicked(!isClicked);
   };
+  
   return (
     <>
       <div style={{  display: 'flex', height: '100vh', overflow: 'scroll initial', position: 'fixed' }} className='d-none d-sm-block'>
@@ -54,22 +55,22 @@ const Sidebar = () => {
               <CDBSidebarMenuItem  className="text-dark"><ion-icon name="briefcase-outline" ></ion-icon><h4 className='chh'>Projects</h4></CDBSidebarMenuItem>
             </Link> */}
               <NavLink exact to="/Message" >
-                <CDBSidebarMenuItem className="text-dark"><IoMailOutline  fontSize={25}/><h4 className='chh'>Messages</h4></CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="text-dark"> <IoMailOutline  fontSize={25}/> <h4 className='chh'>Messages</h4></CDBSidebarMenuItem>
               </NavLink>
               <NavLink exact to="/User/Notification" activeClassName="active">
-                <CDBSidebarMenuItem className="text-dark"><IoNotificationsOutline  fontSize={25}/><h4 className='chh'>Notifications</h4></CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="text-dark"><IoNotificationsOutline  fontSize={25}/> <h4 className='chh'>Notifications</h4></CDBSidebarMenuItem>
               </NavLink>
               <NavLink exact to="/Profile" >
-                <CDBSidebarMenuItem className="text-dark"><IoPersonOutline  fontSize={25}/><h4 className='chh'>Profile</h4></CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="text-dark"> <IoPersonOutline  fontSize={25}/> <h4 className='chh'>Profile</h4></CDBSidebarMenuItem>
               </NavLink>
               <NavLink exact to="/Module" activeClassName="activeClicked">
-                <CDBSidebarMenuItem className="text-dark"><IoBookOutline  fontSize={25}/><h4 className='chh'>Learn</h4></CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="text-dark"> <IoBookOutline  fontSize={25}/> <h4 className='chh'>Learn</h4></CDBSidebarMenuItem>
               </NavLink>
               <NavLink exact to="/Package" >
-                <CDBSidebarMenuItem className="text-dark"><IoMailOutline  fontSize={25}/><h4 className='chh'>Package</h4></CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="text-dark"> <IoMailOutline  fontSize={25}/> <h4 className='chh'>Package</h4></CDBSidebarMenuItem>
               </NavLink>
               <NavLink exact to="/user/Setting" activeClassName="active">
-                <CDBSidebarMenuItem className="text-dark"><IoSettingsOutline  fontSize={25}/><h4 className='chh'>Settings</h4></CDBSidebarMenuItem>
+                <CDBSidebarMenuItem className="text-dark"> <IoSettingsOutline  fontSize={25}/> <h4 className='chh'>Settings</h4></CDBSidebarMenuItem>
               </NavLink>
             </CDBSidebarMenu>
           </CDBSidebarContent>

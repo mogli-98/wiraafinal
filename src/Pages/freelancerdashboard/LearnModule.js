@@ -4,13 +4,13 @@ import "../../asset/css/postrequirement.css"
 import { Link } from 'react-router-dom';
 import '../../asset/css/learn.css'
 import model from '../../asset/image/model.png'
-import Sidenav from '../Dashboard/layout/Sidenav';
-import Topnav from '../Dashboard/layout/topnav';
+import Sidenavbar from './layout/Sidenavbar';
+import Topnavbar from './layout/topnavbar';
 import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
-function Project() {
+function LearnModule() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
     useEffect(() => {
@@ -30,11 +30,11 @@ function Project() {
             <Container fluid className='dashboard-conatiner-top ' >
                 <Row>
                     <Col sm={1} xs={2} className='d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenavbar />
                     </Col>
                     <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Learn"/>
+                            <Topnavbar activeLink="Learn"/>
                             <Row >
                                 <Col sm={8} className='scrollable squarew '  >
                                     <h4 className='d-none d-sm-block' style={{marginTop:'12vh', padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
@@ -305,4 +305,4 @@ function Project() {
     )
 }
 
-export default Project;
+export default LearnModule;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
+
 import "../../asset/css/freelanceredashboard.css";
 import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
@@ -7,6 +8,9 @@ import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 // import { Form } from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion';
 import { Form } from 'react-router-dom';
+// import { Form } from 'react-router-dom';
+
+
 
 // import { Link } from "react-router-dom";
 function Package() {
@@ -17,20 +21,24 @@ function Package() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
+                    
                         <Sidenavbar />
                     </Col>
 
 
+                   
                     <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnavbar activeLink="Package" />
+
                             <Row >
-                                <p style={{ fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
+                                <p style={{marginTop:'12vh', fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
                                 <p style={{ fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Change Your Plans Anytime</p>
                                 {/* <div className='pricing-top-text mb-4'>
                   <p className='text-center'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
                   <p className='text-center'>Change Your Plans Anytime</p>
                 </div> */}
+                                {/* <Col sm={4} xs={12}>
                                 {/* <Col sm={4} xs={12}>
                                 {/* <Col sm={4} xs={12}>
                 <div className='pricing-table1 pricing-table  '> 
@@ -102,8 +110,122 @@ function Package() {
 
 
 
+
+
+                                 
                                     <table className="styled-table mb-4">
                                         <thead>
+
+
+                                            <tr>
+                                                <td style={{ borderLeft: 'none', borderTop: 'none' }}>
+                                                    <p style={{ color: '#008080', fontSize: '20px', fontWeight: 600 }}>Package Confirmation</p>
+
+                                                    <span style={{ fontWeight: 500 }}>Get quality Talents</span>
+                                                </td>
+
+                                                <td style={{ fontWeight: 600 }}>
+                                                    <p style={{ fontSize: '16px', fontWeight: 600 }}>Basic</p>
+                                                    <p style={{ color: '#008080', fontSize: '18px', fontWeight: 600 }}>Free</p>
+                                                    <p style={{ color: 'grey' }}>Fulfill your basic needs</p>
+                                                </td>
+
+
+
+                                                <td style={{ fontWeight: 600 }}>
+                                                    {/* <p>Best value get your team up!</p> */}
+                                                    <p style={{ fontSize: '16px', fontWeight: 600 }}>Plus</p>
+                                                    <p style={{ color: '#008080', fontSize: '18px', fontWeight: 600 }}>₹ 499 / month</p>
+                                                    <p style={{ color: 'grey' }}>Scale your business hiring</p>
+                                                </td>
+
+                                                <td style={{ fontWeight: 600 }}>
+                                                    <p style={{ fontSize: '16px', fontWeight: 600 }}>Premium</p>
+                                                    <p style={{ color: '#008080', fontSize: '18px', fontWeight: 600 }}>₹ 4999 / month</p>
+                                                    <p style={{ color: 'grey' }}>Maximise your workforce program</p>
+
+                                                </td>
+                                            </tr>
+
+
+                                            <tr>
+                                                <td style={{ color: 'grey', fontWeight: 700 }}>
+                                                    Message Credits
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    05
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    50
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Unlimited
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style={{ color: 'grey', fontWeight: 700 }}>
+                                                    Customer Support
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Normal
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Premium
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Premium
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style={{ color: 'grey', fontWeight: 700 }}>
+                                                    Manager Relationship
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Not Available
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Dedicated
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Dedicated
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style={{ color: 'grey', fontWeight: 700 }}>
+                                                    Payment Protection
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Secured
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Secured
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Secured
+                                                </td>
+                                            </tr>
+                                            <tr style={{ height: '40px' }}>
+                                                <td>
+
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                                <td>
+
+                                                </td>
+                                            </tr>
+
+
+
+
+
 
 
                                             <tr>
@@ -223,13 +345,7 @@ function Package() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {/* {Array.from({ length: 11 }, (_, rowIndex) => (
-            <tr key={rowIndex}>
-                {Array.from({ length: 4 }, (_, colIndex) => (
-                    <td key={colIndex}>Data {rowIndex * 4 + colIndex + 1}</td>
-                ))}
-            </tr>
-        ))} */}
+                                           
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
                                                     Order Listing
@@ -244,20 +360,7 @@ function Package() {
                                                     Featured
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Order Listing
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Normal
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Featured
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Featured
-                                                </td>
-                                            </tr>
+                                            
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -273,20 +376,7 @@ function Package() {
                                                     Unlimited
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Job Posting
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                            </tr>
+                                            
 
 
                                             <tr style={{ height: '40px' }}>
@@ -318,9 +408,19 @@ function Package() {
                                                 </td>
                                             </tr>
 
+                                            
+
+                                            
                                             <tr style={{ height: '40px' }}>
                                                 <td>
-                                            <tr style={{ height: '40px' }}>
+
+                                                </td>
+
+                                                
+                                                <td>
+                                                </td>
+
+                                                
                                                 <td>
 
                                                 </td>
@@ -331,17 +431,12 @@ function Package() {
                                                 </td>
                                                 <td>
                                                 </td>
-                                                <td>
 
-                                                </td>
-                                                <td>
-                                                </td>
                                                 <td>
 
                                                 </td>
                                             </tr>
-                                                </td>
-                                            </tr>
+                                              
 
                                             <tr>
                                                 <th style={{ fontWeight: 700 }}>Professional Dashboard</th>
@@ -349,12 +444,12 @@ function Package() {
                                                 <th></th>
                                                 <th></th>
                                             </tr>
-                                            <tr>
+                                            {/* <tr>
                                                 <th style={{ fontWeight: 700 }}>Professional Dashboard</th>
                                                 <th></th>
                                                 <th></th>
                                                 <th></th>
-                                            </tr>
+                                            </tr> */}
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -385,6 +480,21 @@ function Package() {
                                                 </td>
                                             </tr>
 
+                                            {/* <tr>
+                                                <td style={{ color: 'grey', fontWeight: 700 }}>
+                                                    Project Credits
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    05
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    50
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Unlimited
+                                                </td>
+                                            </tr> */}
+
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
                                                     Project Commission
@@ -413,6 +523,7 @@ function Package() {
                                                     05%
                                                 </td>
                                             </tr>
+                                            
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -442,35 +553,23 @@ function Package() {
                                                     Featured
                                                 </td>
                                             </tr>
+                                           
+                                            <tr>
+                                                <td style={{ color: 'grey', fontWeight: 700 }}>
+                                                    Project alert
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Normal
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    1 hour advance alert
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    1 hour advance alert
+                                                </td>
+                                            </tr>
 
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Project alert
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Normal
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    1 hour advance alert
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    1 hour advance alert
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Project alert
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Normal
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    1 hour advance alert
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    1 hour advance alert
-                                                </td>
-                                            </tr>
+                                         
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -501,6 +600,7 @@ function Package() {
                                                 </td>
                                             </tr>
 
+                                            
 
 
 
@@ -514,7 +614,7 @@ function Package() {
                                     <p style={{ fontSize: '18px', fontWeight: 500, marginTop: '80px' }} className='text-center'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
                                     <p style={{ fontSize: '18px', fontWeight: 500 }} className='text-center'>Change Your Plans Anytime</p>
 
-                                    <Card style={{ backgroundColor: 'ButtonHighlight', border: 'none',marginBottom:'30px',padding:'30px 0px' }}>
+                                    <Card style={{ backgroundColor: '#FAEBD7', border: 'none',marginBottom:'30px',padding:'30px 0px' }}>
                                         <Row>
                                             <Col xs={12}>
                                                 <center>
@@ -618,6 +718,11 @@ function Package() {
 
                                                     </div>
 
+                                                    <button style={{border:'none',borderRadius:'8px',padding:'8px 30px',backgroundColor:'white',marginTop:'20px',fontSize:"18px",fontWeight:600}}>
+                                                        Select
+
+                                                    </button>
+
 
                                                   
                                                 </center>
@@ -626,15 +731,13 @@ function Package() {
                                         </Row>
                                     </Card>
 
-
-
-                                    <Card style={{ backgroundColor: 'ButtonHighlight', border: 'none',marginBottom:'30px' }}>
+                                    <Card style={{ backgroundColor: '#E6E6FA', border: 'none',marginBottom:'30px',padding:'30px 0px' }}>
                                         <Row>
                                             <Col xs={12}>
                                                 <center>
-                                                    <p style={{ fontSize: '18px', fontWeight: 600, marginTop: '10px' }}> Plus </p>
-                                                    <p style={{ fontSize: '20px', color: '#008080' }}> <b>Free</b>  </p>
-                                                    <p style={{ color: 'grey', fontSize: '16px' }}>Fulfill your basic needs</p>
+                                                    <p style={{ fontSize: '20px',  marginTop: '10px' }}>  <b style={{backgroundColor:'white',padding:'6px 10px',borderRadius:'5px'}}>Plus </b>  </p>
+                                                    <p style={{ fontSize: '24px', color: '#008080' }}> <b>₹499 / Month</b>  </p>
+                                                    <p style={{ color: 'grey', fontSize: '16px' }}>Scale yuor business hiring</p>
                                                 </center>
 
 
@@ -644,22 +747,22 @@ function Package() {
                                                     
                                                     <div style={{ borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Message Credits  </p>
-                                                        <p style={{ fontSize: '17px' }}>05   </p>
+                                                        <p style={{ fontSize: '17px' }}>50   </p>
                                                     </div>
 
                                                     <div style={{ marginTop: '10px', borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Customer Support  </p>
-                                                        <p style={{ fontSize: '17px' }}>Yes   </p>
+                                                        <p style={{ fontSize: '17px' }}>Premium   </p>
                                                     </div>
 
                                                     <div style={{ marginTop: '10px', borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Relationship Manager  </p>
-                                                        <p style={{ fontSize: '17px' }}>No support  </p>
+                                                        <p style={{ fontSize: '17px' }}>Dedicated  </p>
                                                     </div>
 
                                                     <div style={{ marginTop: '10px', marginBottom: '10px', borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Payment Protection </p>
-                                                        <p style={{ fontSize: '17px' }}>Secured   </p>
+                                                        <p style={{ fontSize: '17px' }}>Secured </p>
                                                     </div>
 
                                                     <div>
@@ -672,7 +775,7 @@ function Package() {
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Order Listing  </p>
-                                                                        <p style={{ fontSize: '17px' }}>Normal   </p>
+                                                                        <p style={{ fontSize: '17px' }}>Featured   </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
@@ -700,22 +803,22 @@ function Package() {
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Project credits  </p>
-                                                                        <p style={{ fontSize: '17px' }}>05   </p>
+                                                                        <p style={{ fontSize: '17px' }}>50   </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>  Project Commision  </p>
-                                                                        <p style={{ fontSize: '17px' }}>15%   </p>
+                                                                        <p style={{ fontSize: '17px' }}>10%   </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project  Listing   </p>
-                                                                        <p style={{ fontSize: '17px' }}>Normal  </p>
+                                                                        <p style={{ fontSize: '17px' }}>Featured  </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project alert </p>
-                                                                        <p style={{ fontSize: '17px' }}>Normal  </p>
+                                                                        <p style={{ fontSize: '17px' }}>1 hour advance alert  </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
@@ -732,6 +835,11 @@ function Package() {
 
                                                     </div>
 
+                                                    <button style={{border:'none',borderRadius:'8px',padding:'8px 30px',backgroundColor:'white',marginTop:'20px',fontSize:"18px",fontWeight:600}}>
+                                                        Select
+
+                                                    </button>
+
 
                                                   
                                                 </center>
@@ -741,14 +849,13 @@ function Package() {
                                     </Card>
 
 
-
-                                    <Card style={{ backgroundColor: 'ButtonHighlight', border: 'none',marginBottom:'80px' }}>
+                                    <Card style={{ backgroundColor: '#f6d7d7', border: 'none',marginBottom:'80px',padding:'30px 0px' }}>
                                         <Row>
                                             <Col xs={12}>
                                                 <center>
-                                                    <p style={{ fontSize: '18px', fontWeight: 600, marginTop: '10px' }}> Premium </p>
-                                                    <p style={{ fontSize: '20px', color: '#008080' }}> <b>Free</b>  </p>
-                                                    <p style={{ color: 'grey', fontSize: '16px' }}>Fulfill your basic needs</p>
+                                                    <p style={{ fontSize: '20px',  marginTop: '10px' }}>  <b style={{backgroundColor:'white',padding:'6px 10px',borderRadius:'5px'}}>Premium </b>  </p>
+                                                    <p style={{ fontSize: '24px', color: '#008080' }}> <b> ₹4999 / Month </b>  </p>
+                                                    <p style={{ color: 'grey', fontSize: '16px' }}>Maximise your workforce program</p>
                                                 </center>
 
 
@@ -758,17 +865,17 @@ function Package() {
                                                     
                                                     <div style={{ borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Message Credits  </p>
-                                                        <p style={{ fontSize: '17px' }}>05   </p>
+                                                        <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                     </div>
 
                                                     <div style={{ marginTop: '10px', borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Customer Support  </p>
-                                                        <p style={{ fontSize: '17px' }}>Yes   </p>
+                                                        <p style={{ fontSize: '17px' }}> Premium </p>
                                                     </div>
 
                                                     <div style={{ marginTop: '10px', borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Relationship Manager  </p>
-                                                        <p style={{ fontSize: '17px' }}>No support  </p>
+                                                        <p style={{ fontSize: '17px' }}> Dedicated  </p>
                                                     </div>
 
                                                     <div style={{ marginTop: '10px', marginBottom: '10px', borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
@@ -786,7 +893,7 @@ function Package() {
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Order Listing  </p>
-                                                                        <p style={{ fontSize: '17px' }}>Normal   </p>
+                                                                        <p style={{ fontSize: '17px' }}>Featured   </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
@@ -814,22 +921,22 @@ function Package() {
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Project credits  </p>
-                                                                        <p style={{ fontSize: '17px' }}>05   </p>
+                                                                        <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>  Project Commision  </p>
-                                                                        <p style={{ fontSize: '17px' }}>15%   </p>
+                                                                        <p style={{ fontSize: '17px' }}>05%   </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project  Listing   </p>
-                                                                        <p style={{ fontSize: '17px' }}>Normal  </p>
+                                                                        <p style={{ fontSize: '17px' }}>Featured  </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project alert </p>
-                                                                        <p style={{ fontSize: '17px' }}>Normal  </p>
+                                                                        <p style={{ fontSize: '17px' }}>1 hour advance alert </p>
                                                                     </div>
 
                                                                     <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
@@ -845,6 +952,10 @@ function Package() {
 
 
                                                     </div>
+                                                    <button style={{border:'none',borderRadius:'8px',padding:'8px 30px',backgroundColor:'white',marginTop:'20px',fontSize:"18px",fontWeight:600}}>
+                                                        Select
+
+                                                    </button>
 
 
                                                   
@@ -852,7 +963,8 @@ function Package() {
                                             </Col>                                         
 
                                         </Row>
-                                    </Card>
+                                    </Card>                                   
+
 
                                 </div>
 

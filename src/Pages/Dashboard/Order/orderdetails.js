@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom';
 import OrderModal from '../../../modal/Order.modal';
 import Phoneviewfooter from '../../../Layout/Phoneviewfooter';
 import PeopleModal from '../../../modal/People.modal';
+import Desktoploginfooter from '../../unguarded_page/Desktoploginfooter';
 function Orderdetails() {
     const params = useParams();
     const [interestedPeople, setInterestedPeople] = useState();
@@ -97,9 +98,9 @@ function Orderdetails() {
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Order" />
                             <Row className='mt-2'>
-                                <Col sm={8} style={{ padding: '0px' }} className="square border-end">
+                                <Col sm={8} style={{ padding: '0px' ,marginTop:'12vh',}} className="square border-end">
 
-                                    <div className='m-2 d-none d-sm-block ' style={{ fontSize: '12px' }}>
+                                    <div className='m-2 d-none d-sm-block ' style={{ fontSize: '12px',marginTop:'12vh'}}>
                                         <Link to={`/Orderdetailsbreief/${params.id}`}>
                                             <button style={{ marginLeft: '10px', border: '1px solid grey' }} className='order-details-requirements'  >
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="svgg bi bi-person-plus-fill" viewBox="0 0 16 16">
@@ -160,7 +161,7 @@ function Orderdetails() {
 
 
                                 </Col >
-                                <Col sm={4}>
+                                <Col style={{marginTop:'12vh'}} sm={4}>
                                     <Card className='order-detail-profile m-0 p-0 d-none d-sm-block' style={{ backgroundColor: "#efefef", border: 'none' }}>
                                         <div style={{ margin: '10px' }}>
                                             {/* <img style={{ height: '20px', width: '20px', float: 'right' }} src={Export} alt="IMGg" /> */}
@@ -214,7 +215,7 @@ function Orderdetails() {
 
                                     <hr className='d-none d-sm-block' style={{ border: '2px solid grey' }} />
 
-                                    <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2 d-none d-sm-block'>
+                                    {/* <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2 d-none d-sm-block'>
                                         <Link to='/About Us'  >
                                             <span style={{ paddingRight: '10px', color: 'grey' }}>
                                                 About </span>
@@ -242,7 +243,8 @@ function Orderdetails() {
                                         </Link>
 
                                         <span> ©️ 2023 Wiraa. All Rights Reserved</span>
-                                    </div>
+                                    </div> */}
+                                    <Desktoploginfooter/>
                                 </Col>
 
                             </Row >

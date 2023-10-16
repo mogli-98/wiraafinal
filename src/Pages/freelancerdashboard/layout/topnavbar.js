@@ -7,7 +7,7 @@ import Wiraalogo from "../../../asset/image/Wiraalogo.png";
 function Topnavbar({ activeLink }) {
     return (
         <>
-            <Row className="d-none d-sm-block">
+            <Row style={{height: '73px',position:'fixed',top:'0px',backgroundColor:'white',zIndex:100,width:'66%' }} className="d-none d-sm-block">
                 <Col sm={12} >
                     <nav style={{marginBottom:'20px'}} className="navbar mt-2 square border-bottom">
                         <div className="left-side mt-1">

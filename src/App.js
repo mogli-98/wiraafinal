@@ -14,6 +14,7 @@ import Profiledetails from './Pages/Dashboard/layout/profiledetails';
 import Projectdetails from './Pages/Home/projectdetails';
 import Index from './Pages/Learn/index';
 import Setting from './Pages/Dashboard/setting';
+import Setting1 from './Pages/freelancerdashboard/Setting';
 import SwitchAccount from './Pages/Dashboard/switchaccount';
 import Hiretalent from './Pages/Dashboard/hiretalent';
 import Order from './Pages/Dashboard/Order/order';
@@ -23,7 +24,8 @@ import Messaages from './Pages/Dashboard/message';
 import Notification from './Pages/Dashboard/notification';
 import Dashboardfreelancer from "./Pages/freelancerdashboard/dashboardfreelancer"
 import Community from './Pages/freelancerdashboard/Community';
-import Package from './Pages/freelancerdashboard/package';
+import Package from './Pages/Dashboard/package';
+import Package1 from './Pages/freelancerdashboard/package';
 import Orderdetailsbrief from './Pages/Dashboard/Order/orderdetailsbrief';
 import Editprofile from './Pages/freelancerdashboard/editprofile';
 import Quesans from './Pages/freelancerdashboard/quesans';
@@ -56,6 +58,11 @@ import FreeProjectdetails from './Pages/freelancerdashboard/freeproject/FreeProj
 import TermsandCondition from './Pages/unguarded_page/Termsandcondition';
 import Learnwithoutlogin from './Pages/Learn/Learnwithoutlogin';
 import Messagebox from './Pages/freelancerdashboard/Messagebox';
+import LearnModule from './Pages/freelancerdashboard/LearnModule';
+import UnreadnotificationUser from './Pages/freelancerdashboard/Unreadnotificationuser';
+import Notificationuser from './Pages/freelancerdashboard/notificationuser';
+import Notifyuser from './Pages/freelancerdashboard/notifyuser/Nonotifyuser';
+import Nonotiftyyuser from './Pages/freelancerdashboard/notifyuser/Notificationuser';
 
 function App() {
   return (
@@ -86,7 +93,7 @@ function App() {
               <Route path='/user/dashboard'  element={<Dashboard />}/>
             {/* Order page link*/}
               <Route path='/Order' element={<Order/>}/>
-              {/* <Route path='/Ordertable' element={<Ordertable/>}/> */}
+              <Route path='/Ordertable' element={<Ordertable/>}/>
               <Route path='/Orderdetails/:id' element={<Orderdetails/>}/>
               <Route path='/Orderdetailsbreief/:id' element={<Orderdetailsbrief/>}/>
             {/*project page link*/}
@@ -98,11 +105,16 @@ function App() {
               <Route path='/Notification' element={<Nonotifiy/>} />
               <Route path='/User/Notification' element={<Notificationn/>}/>
               <Route path='/User/Notifications' element={<Unreadnotification/>}/>
+              <Route path='/Notifications' element={<Notifyuser/>} />
+              <Route path='/User/Notificationss' element={<Nonotiftyyuser/>}/>
+              <Route path='/Users/Notifications' element={<UnreadnotificationUser/>}/>
               <Route path='/Profile' element={<Viewprofile/>} />
               <Route path='/Module' element={<Modulle/>}/>
+              <Route path='/Learns' element={<LearnModule/>}/>
               <Route path='/Learrn' element={<Learnwithoutlogin/>}/>
               <Route path='/Module' element={<Module/>}/>
               <Route path='/user/Setting' element={<Setting/>}/>
+              <Route path='/Setting' element={<Setting1/>}/>
               <Route path='/Switchaccount' element={<SwitchAccount/>}/>
               <Route path='/Hiretalent' element={<Hiretalent/>}/>
               <Route path='/Project/ProjectDetails' element={<Projectdetails/>} />
@@ -112,6 +124,7 @@ function App() {
               <Route path='/Professionalsdashboard' element={<Dashboardfreelancer/>}/>
               <Route path='/Community' element={<Community/>} />
               <Route path='/Package' element={<Package/>} />
+              <Route path='/Packages' element={<Package1/>} />
               {/* <Route path ='/Editp'/> */}
               <Route path='/Editproflie' element={<Editprofile/>}/>
               <Route path='/Switchaccount-next' element={<Moreprof/>}/>

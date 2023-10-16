@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Accordion } from 'react-bootstrap';
+import { Container, Row, Col, Card, Accordion, Button } from 'react-bootstrap';
 import "../../asset/css/postrequirement.css"
 import { Link } from 'react-router-dom';
 import '../../asset/css/learn.css'
@@ -10,6 +10,7 @@ import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
 import Wiraalogo from '../../asset/image/Wiraalogo.png';
 import orderpost from "../../asset/image/orderpost.png";
+import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 function Learnwithoutlogin() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
@@ -33,7 +34,7 @@ function Learnwithoutlogin() {
                         {/* <Sidenav /> */}
                         <div style={{ marginLeft: '60px', display: 'flex', height: '100vh', overflow: 'scroll initial', position: 'fixed' }} className='d-none d-sm-block'>
 
-                            <img className='mt-4 p-2' style={{ marginLeft: '30px' }} src={Wiraalogo} alt="Logo" />
+                            <img className='mt-4 p-2' style={{ marginLeft: '30px' }} width={120} src={Wiraalogo} alt="Logo" />
 
 
                             <div style={{ marginLeft: '30px', marginTop: '40px' }}>
@@ -54,14 +55,14 @@ function Learnwithoutlogin() {
 
                             <div style={{ marginLeft: '30px', marginTop: '70px' }}>
                                 <center>
-                                  <img src={orderpost} alt="" />  
+                                    <img src={orderpost} alt="" />
                                 </center>
-                                
-                            </div>
-                            <div style={{marginTop:'30px'}}>
-                                <p className='p-1' style={{ margin: '10px',color:'#008080',fontSize:'25px' }}>Become an <b>expert <br /> in you industry...</b> </p>
 
-                                <p className='p-1' style={{color:'grey',fontSize:'20px',margin:'10px'}}>Accelerate your career <br /> <center>in Freelancing</center> </p>
+                            </div>
+                            <div style={{ marginTop: '30px' }}>
+                                <p className='p-1' style={{ margin: '10px', color: '#008080', fontSize: '25px' }}>Become an <b>expert <br /> in you industry...</b> </p>
+
+                                <p className='p-1' style={{ color: 'grey', fontSize: '20px', margin: '10px' }}>Accelerate your career <br /> <center>in Freelancing</center> </p>
                             </div>
 
 
@@ -70,15 +71,71 @@ function Learnwithoutlogin() {
 
                         </div>
                     </Col>
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            {/* <Topnav /> */}
-                            <h2 className='pt-4 '>Learn</h2>
-                            <hr style={{ color: 'grey' }} />
+                            <div style={{position:'fixed',backgroundColor:'white',zIndex:100,width:'65%',top:'0px'}} className='d-none d-sm-block'>
+                                <h2 className='pt-4 '>Learn</h2>
+                                <hr style={{ color: 'grey' }} />
+
+                            </div>
+
+                            <div style={{ position: 'fixed', top: '0px', backgroundColor: 'white', width: '100%', zIndex: 1000, height: '60px' }} className='d-block d-sm-none'>
+
+                                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} >
+
+
+                                    <h2 className='pt-4 '>Learn</h2>
+
+
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+
+                                        <Link className='pt-2 ' to='/Account/login'>
+                                            {/* <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-arrow-right-circle container-left-first " viewBox="0 0 16 16">
+                                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
+                                            </svg> */}
+                                            <Button style={{ backgroundColor: 'white', color: 'Black', border: '1px solid #008080', borderRadius: '8px', marginTop: '10px' }} >
+                                                <span
+                                                    // className='container-left-first-span '
+                                                    style={{ fontSize: '18px', fontWeight: 'bold' }}>Login</span>
+
+
+                                            </Button>
+
+
+
+                                        </Link><br />
+
+                                        <Link className='pt-2 ' to='/Account/singup'>
+                                            {/* <svg style={{ color: 'grey', marginLeft: '20px' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person-plus container-left-second" viewBox="0 0 16 16">
+                                                <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+                                                <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
+                                            </svg> */}
+                                            <Button style={{ backgroundColor: 'white', color: 'Black', border: '1px solid #008080', borderRadius: '8px', marginTop: '10px', marginRight: '20px', marginLeft: '5px' }}>
+                                                <span
+                                                    //   className='container-left-first-span '
+                                                    style={{ fontSize: '18px', fontWeight: 'bold' }}>  Singup </span>
+                                            </Button>
+
+                                        </Link>
+                                    </div>
+                                </div>
+
+                                    <hr style={{ color: 'grey' }} />
+
+
+                            </div>
+
+
+
+
 
                             <Row >
-                                <Col sm={8} className='scrollable squarew '  >
+                                <Col style={{marginTop:'80px'}} sm={8} className='scrollable squarew '  >
                                     <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
+
+                                    <div className='d-block d-sm-none'>
+                                        <img src={model} alt="" style={{ width: "100%", marginTop: '65px' }} className='p-2' />
+                                    </div>
                                     <h5 className='d-block d-sm-none pt-4 ' style={{ padding: "5px" }}>{courseList?.[0]?.CourseTitle}</h5>
 
                                     <p className='text-disable mt-2' style={{ padding: '15px', fontSize: "15px", color: "grey", paddingTop: "5px" }}>{courseList?.[0]?.CourseDescription}</p>
@@ -245,9 +302,17 @@ function Learnwithoutlogin() {
                                             </Accordion.Body>
                                         </Accordion.Item> */}
                                     </Accordion>
-                                    <p className='mt-2 p-2'>Who you will leran with?</p>
 
-                                    <div style={{ marginBottom: '40px' }} ><img src={Test} alt="" style={{ height: "13vh", borderRadius: '50%', width: "13vh" }} /> <span>{courseList?.[0]?.AuthorName}</span>
+                                    <p className='mt-2 p-2' style={{ fontSize: '18px', color: 'black', marginLeft: '10px' }}> <b> Who you will learn with?</b> </p>
+
+                                    <div className='d-none d-sm-block' style={{ marginBottom: '40px' }} ><img src={Test} alt="" style={{ height: "13vh", borderRadius: '50%', width: "13vh" }} /> <span>{courseList?.[0]?.AuthorName}</span>
+                                        <br />
+                                        <span style={{ marginLeft: '13vh', width: '80%' }}>{courseList?.[0]?.AuthorDescription}</span>
+
+                                    </div>
+
+
+                                    <div className='d-block d-sm-none' style={{ marginBottom: '100px' }} ><img src={Test} alt="" style={{ height: "13vh", borderRadius: '50%', width: "13vh" }} /> <span>{courseList?.[0]?.AuthorName}</span>
                                         <br />
                                         <span style={{ marginLeft: '13vh', width: '80%' }}>{courseList?.[0]?.AuthorDescription}</span>
 
@@ -256,8 +321,8 @@ function Learnwithoutlogin() {
 
 
                                 </Col>
-                                <Col sm={4} >
-                                    <Card className=' mt-2 mb-4 shadow-2 ' style={{ boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
+                                <Col className='d-none d-sm-block' sm={4} >
+                                    <Card className=' mb-4 shadow-2 ' style={{position: 'fixed', top: '20px', width: '20%',marginTop:'80px',  boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
                                         <img src={model} alt="" style={{ width: "100%" }} className='p-2' />
                                         <ul style={{ listStyle: "none", paddingLeft: '20px' }}>
                                             <p className='mt-2' style={{ fontSize: '16px', fontWeight: 600, color: 'black' }}> <b>This Course includes : </b>  </p>
@@ -310,25 +375,30 @@ function Learnwithoutlogin() {
                                         </div>
 
 
-                                        <div className='d-block d-sm-none mb-5' >
-                                            <div className='p-2' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'ButtonHighlight' }} >
-                                                <p style={{ display: 'flex', alignItems: 'center', paddingTop: '10px' }}>
-                                                    <span style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
-                                                    <span className=' pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080' }}>₹4999 </b>
-                                                    </span>
-                                                </p>
 
-                                                <button style={{ height: '35px', fontSize: '18px' }} className='model-button'> Buy Now</button>
-                                            </div>
-                                        </div>
 
                                     </Card>
                                 </Col>
+                                <div style={{ position: 'fixed', bottom: '0px', padding: '0px' }} className='d-block d-sm-none ' >
+                                    <div className='p-2' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'ButtonHighlight' }} >
+                                        <p style={{ display: 'flex', alignItems: 'center', paddingTop: '10px' }}>
+                                            <span style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
+                                            <span className=' pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080' }}>₹4999 </b>
+                                            </span>
+                                        </p>
+
+                                        <button style={{ height: '35px', fontSize: '18px' }} className='model-button'> Buy Now</button>
+                                    </div>
+                                </div>
+
+
+
                             </Row>
                         </Container>
                     </Col>
                 </Row>
             </Container>
+            {/* <Phoneviewfooter/> */}
 
         </>
     )

@@ -165,7 +165,8 @@ function Userproject() {
                     <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnavbar activeLink="Project" />
-                            <Row className='d-none d-sm-block'>
+
+                            <Row style={{marginTop:'12vh'}} className='d-none d-sm-block'>
 
                                 <Col sm={12} xs={12} className="PostRequriment3  ">
                                     <div className='middle-container '>
@@ -253,7 +254,6 @@ function Userproject() {
                             </Row>
 
                             <Row>
-
                                 <div className='d-block d-sm-none' style={{ display: 'flex', marginTop: '20px' }}>
 
                                     <button style={{ border: '1px solid black', marginRight: '4px', paddingLeft: '10px', paddingRight: '10px', borderRadius: '8px', backgroundColor: 'white',fontSize:'16px' }}> <b> Newest</b></button>
@@ -269,8 +269,8 @@ function Userproject() {
 
                                 <Card className='d-block d-sm-none' style={{ padding: '0px', backgroundColor: 'ButtonHighlight', Width: '100%', marginBottom: '20px', marginTop: '20px', borderRadius: '25px', borderEndEndRadius: '0px', borderEndStartRadius: '0px', border: 'none', cursor: 'pointer' }}>
                                     <Col xs={12}>
-                                        {/* {oederTable && oederTable.map((tableitem) => */}
-                                        {/* <Link to={`/Orderdetailsbreief/${tableitem.PostreqID}`}> */}
+                                        {Proexport && Proexport.map((tableitem) =>
+                                        <Link to={`/FreeProject/${tableitem.PostreqID}`}>
 
                                         <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '1px 2px 1px ' }}>
 
@@ -301,8 +301,8 @@ function Userproject() {
                                             </div>
 
                                         </Card>
-                                        {/* </Link> */}
-                                        {/* )} */}
+                                        </Link>
+                                            )}
 
 
                                     </Col>

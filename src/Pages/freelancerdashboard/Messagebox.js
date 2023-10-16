@@ -7,6 +7,7 @@ import Topnavbar from './layout/topnavbar';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Select } from '@mui/material';
 import { IoMailOutline } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 function Messagebox(props) {
     const [activeTab, setActiveTab] = useState("Tab1");
@@ -26,8 +27,9 @@ function Messagebox(props) {
                     <Col style={{padding:'0px'}} sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnavbar activeLink="Messages" />
+
                             <Row >
-                                <Col sm={4} className="square border-end">
+                                <Col style={{marginTop:'12vh'}} sm={4} className="square border-end">
 
                                     <div className="tabs-container mt-3">
                                         <Container>
@@ -46,14 +48,16 @@ function Messagebox(props) {
                                                         </h3>
                                                         <p style={{fontSize:'18px',color:'grey'}} className='mt-3 pt-3'>Post a request and start</p>
                                                         <p style={{fontSize:'18px',color:'grey'}}>conversation with professionals.</p>
-                                                        <button className='message-post mt-5'>Post a request</button>
+                                                        <Link to="/Hiretalent">
+                                                            <button className='message-post mt-5'>Post a request</button>
+                                                        </Link>
                                                     </center>
                                                 </Col>
                                             </Row>
                                         </Container>
                                     </div>
                                 </Col>
-                                <Col md={8} className="">
+                                <Col style={{marginTop:'12vh'}} md={8} className="">
                                     <div className='mt-5  no-message-show'>
                                         <center>
                                             {/* <ion-icon name="mail-unread-outline"></ion-icon> */}

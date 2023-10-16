@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
-import Sidenav from './layout/Sidenav';
-import Topnav from './layout/topnav';
+import Sidenavbar from './layout/Sidenavbar';
+import Topnavbar from './layout/topnavbar';
 import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Link } from 'react-router-dom';
+
 
 
 // import InputGroup from 'react-bootstrap/InputGroup';
@@ -53,7 +54,7 @@ function Setting() {
                 <Row>
 
                     <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav />
+                    <Sidenavbar />
                     </Col>
 
 
@@ -61,7 +62,7 @@ function Setting() {
 
 
                         <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Setting" />
+                        <Topnavbar activeLink="Project" />
 
                             <Row>
                                 <Col sm={1}></Col>
@@ -150,7 +151,7 @@ function Setting() {
                     <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row d-block d-sm-none '>
 
                         <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Setting" />
+                            <Topnavbar activeLink="Setting" />
 
                             <Row >
                                 <Col sm={1}></Col>

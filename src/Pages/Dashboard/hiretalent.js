@@ -12,9 +12,11 @@ import Switchform from '../../Model/switch.model';
 import { helper } from '../../lib/helper';
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
+import Staticmodal from '../../modal/Static.modal';
 
 function Hiretalent() {
     const [selectedOption, setSelectedOption] = useState([1]);
+    const [allCity, setallcity] = useState()
     const [GetSubCategory, setGetSubCategory] = useState([]);
     const [city, setCity] = useState([]);
     const [formData, setFormData] = useState({
@@ -50,8 +52,8 @@ function Hiretalent() {
         formdata.append("isFeatured", false);
         Auth.PostRequest(formdata)
             .then((response) => {
-                console.log(response.data, "yes data update");
-                helper.sweetalert.toast("Project Submit Sucessfully")
+                // console.log(response.data, "yes data update");
+                helper.sweetalert.toast("Your professional dashboard request is under review  We will notify you once it's approved.")
             })
             .catch((error) => {
                 console.log(error);
@@ -61,15 +63,21 @@ function Hiretalent() {
     useEffect(() => {
         Switchform.Allcategory().then((response) => {
             setGetSubCategory(response.data)
-            console.log(response.data)
+            // console.log(response.data)
         }
         )
     }, [])
     useEffect(() => {
         Switchform.AllCountryList().then((response) => {
             setCity(response.data)
-            console.log(response.data)
+            // console.log(response.data)
         })
+    }, [])
+    useEffect(() => {
+        Staticmodal.AllSubcategorynoid().then((response) => {
+            console.log(response.data);
+            setallcity(response.data);
+        });
     }, [])
 
     return (
@@ -86,7 +94,8 @@ function Hiretalent() {
                             <Topnav activeLink="Post a Project" />
                             <Row>
                                 <Col sm={8} className="square border-end ">
-                                    <h3 className='text-center mt-4 mb-4 d-none d-sm-block '>Find talent your way</h3>
+                                    <h3 style={{marginTop:'12vh'}} className='text-center  mb-4 d-none d-sm-block '>Find talent your way</h3>
+
                                     <h3 style={{marginTop:'80px'}} className='text-center  mb-4 d-block d-sm-none '>Find talent your way</h3>
                                     <form className='m-2' onSubmit={handleSubmit} >
 
@@ -215,36 +224,61 @@ function Hiretalent() {
 
                                        </Form.Group>
                                       
-                                        <Accordion style={{ marginBottom: '20px' }} defaultActiveKey="1">
+                                       <Accordion style={{ marginBottom: '20px' }} defaultActiveKey="1">
                                             <Accordion.Item eventKey="0">
                                                 <Accordion.Header><p style={{ fontSize: '18px' }}><b>Advanced details</b></p> </Accordion.Header>
                                                 <Accordion.Body>
-                                                   
+
                                                     <Form.Group className="mb-2 mt-4" controlId="exampleForm.ControlTextarea1">
                                                         <Form.Label style={{ fontSize: '18px' }}>Preferred location:
-                                                        
+
                                                         </Form.Label>
-                                                        <Row>
-                                                            <Col sm={4} xs={4}>
-                                                                <Form.Control style={{ fontSize: '16px' }} className='form-control-lg' placeholder="Global"
-                                                                    // value={formData.country}
-                                                                    // name=''
-                                                                />
+
+
+
+
+                                                        <Row >
+
+                                                            <Col sm={4} xs={6}>
+
+                                                                <label>
+                                                                    <input type="radio" name="serviceMode" class="card-input-element" />
+
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey ' }} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">Global</div>
+
+                                                                    </div>
+
+                                                                </label>
+
                                                             </Col>
-                                                            <Col sm={4} xs={4}>
-                                                                <Form.Control style={{ fontSize: '16px' }} className='form-control-lg' type="email" placeholder="Local" />
+
+
+
+                                                            <Col sm={4} xs={6}>
+
+
+                                                                <label>
+                                                                    <input type="radio" name="serviceMode" class="card-input-element" />
+
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">Local</div>
+
+                                                                    </div>
+
+                                                                </label>
+
                                                             </Col>
-                                                            <Col sm={4} xs={4}>
-                                                                <select className='form-control-lg' name="cars" id="cars" style={{
-                                                                    borderRadius: '5px', border: '2px solid lightgrey',
-                                                                    width: "-webkit-fill-available"
-                                                                    , height: "35px", fontSize: '16px'
-                                                                }}>
-                                                                    <option value="Business">City</option>
-                                                                    <option value="IT">IT</option>
-                                                                    <option value="Marketing">Marketing</option>
-                                                                    <option value="Lifestyle">Lifestyle</option>
-                                                                </select>
+
+
+
+                                                            <Col sm={4} xs={12}>
+                                                            <select name='subCategoryId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}  >
+                                        {allCity && allCity.map((quallist) =>
+                                        <option value={quallist.GradeID}>{quallist.GradeName}</option>
+                                        
+                                        )}
+                                        </select>
                                                             </Col>
                                                         </Row>
 
@@ -252,53 +286,110 @@ function Hiretalent() {
                                                     <Form.Group className="mb-2 mt-4" controlId="exampleForm.ControlTextarea1">
                                                         <Form.Label style={{ fontSize: '18px' }} className='mb-2'>Project Duration:</Form.Label>
                                                         <Row>
-                                                            <Col sm={3} xs={3} >
+                                                            <Col sm={3} xs={6} >
 
-                                                                <Card>
-                                                                  
-                                                                    <p className='m-1'>    1 month </p>
-                                                                </Card>
+                                                                <label>
+                                                                    <input type="radio" name="duration" class="card-input-element" />
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">1 Month</div>
+                                                                    </div>
+                                                                </label>
+
                                                             </Col>
-                                                            <Col sm={3} xs={3} >
-                                                                <Card >
-                                                                    <p className='m-1'>  1 - 3 months </p>
-                                                                </Card>
+                                                            <Col sm={3} xs={6} >
+                                                               
+
+                                                                <label>
+                                                                    <input type="radio" name="duration" class="card-input-element" />
+                                                                    <div style={{ padding: '6px 10px', borderRadius: '6px', fontWeight: 500 ,border:'1px solid grey'}} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">1-3 Month</div>
+                                                                    </div>
+                                                                </label>
+
+
+
                                                             </Col>
-                                                            <Col sm={3} xs={3}>
-                                                                <Card >
-                                                                    <p className='m-1'> 3 - 6 months </p>
-                                                                </Card>
+                                                            <Col sm={3} xs={6}>
+                                                                
+
+                                                                <label>
+                                                                    <input type="radio" name="duration" class="card-input-element" />
+                                                                    <div style={{ padding: '6px 10px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">3-6 Month</div>
+                                                                    </div>
+                                                                </label>
                                                             </Col>
-                                                            <Col sm={3} xs={3} >
-                                                                <Card >
-                                                                    <p className='m-1'> 6 Month   </p>
-                                                                </Card>
+                                                            <Col sm={3} xs={6} >
+                                                                
+                                                                <label>
+                                                                    <input type="radio" name="duration" class="card-input-element" />
+                                                                    <div style={{ padding: '6px 10px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">6 Month +</div>
+                                                                    </div>
+                                                                </label>
+
+
                                                             </Col>
 
                                                         </Row>
+
+
                                                     </Form.Group>
+
+
+
                                                     <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlTextarea1">
                                                         <Form.Label style={{ fontSize: '18px' }} className='mb-2'>Preferred service starting date:</Form.Label>
                                                         <Row>
-                                                            <Col xs={3} >
-                                                                <Card >
+                                                            <Col sm={3} xs={6} >
+                                                                {/* <Card >
                                                                     <p className='m-1'> Immediate </p>
-                                                                </Card>
+                                                                </Card> */}
+
+                                                                <label>
+                                                                    <input type="radio" name="preferService" class="card-input-element" />
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500 ,border:'1px solid grey'}} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">Immediate</div>
+                                                                    </div>
+                                                                </label>
                                                             </Col>
-                                                            <Col xs={3}>
-                                                                <Card >
+                                                            <Col sm={3} xs={6}>
+                                                                {/* <Card >
                                                                     <p className='m-1'>  1 week </p>
-                                                                </Card>
+                                                                </Card> */}
+
+
+                                                                <label>
+                                                                    <input type="radio" name="preferService" class="card-input-element" />
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">1 Week </div>
+                                                                    </div>
+                                                                </label>
                                                             </Col>
-                                                            <Col xs={3}>
-                                                                <Card >
+                                                            <Col sm={3} xs={6}>
+                                                                {/* <Card >
                                                                     <p className='m-1'> 2 week </p>
-                                                                </Card>
+                                                                </Card> */}
+
+
+                                                                <label>
+                                                                    <input type="radio" name="preferService" class="card-input-element" />
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">2 Week</div>
+                                                                    </div>
+                                                                </label>
                                                             </Col>
-                                                            <Col xs={3}>
-                                                                <Card >
+                                                            <Col sm={3} xs={6}>
+                                                                {/* <Card >
                                                                     <p className='m-1'> 1 Month  </p>
-                                                                </Card>
+                                                                </Card> */}
+
+                                                                <label>
+                                                                    <input type="radio" name="preferService" class="card-input-element" />
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500 ,border:'1px solid grey'}} class="panel panel-default card-input">
+                                                                        <div class="panel-heading">1 Month</div>
+                                                                    </div>
+                                                                </label>
                                                             </Col>
 
                                                         </Row>
@@ -324,7 +415,7 @@ function Hiretalent() {
                                       
                                     </form>
                                 </Col>
-                                <Col sm={4} className='hiretalentlast  d-none d-sm-block' >
+                                <Col style={{marginTop:'12vh'}} sm={4} className='hiretalentlast  d-none d-sm-block' >
                                     <Card className='hiretalentlast mt-2' style={{ width: "-webkit-fill-available", border: 'none' }}>
                                         <div style={{ backgroundColor: '#efefef', borderRadius: '10px' }}>
                                             <div className=' '>

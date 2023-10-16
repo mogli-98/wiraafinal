@@ -21,11 +21,11 @@ function Order() {
   }, []);
 
   return (
-    <div>
-      {userData?.length === 0 ? (
+    <div >
+      {userData?.length > 0 ? (
+          <Ordertable />
+      ) : (   
         <NOorder data={userData} />
-      ) : (
-        <Ordertable />
       )}
     </div>
   );

@@ -16,7 +16,7 @@ export function toast(title, text = "", icon = "success") {
     timerProgressBar: false,
     showConfirmButton: false,
     position: 'top-end',
-    timer: 1500,
+    timer: 5000,
     heightAuto: 'false',
     height: '100px'
   });

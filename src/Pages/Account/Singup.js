@@ -14,6 +14,7 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AuthModal from '../../modal/Auth.modal';
+
 function Singup() {
   const [showPassword, setShowPassword] = React.useState(false);
 
@@ -40,9 +41,16 @@ function Singup() {
     const formData = new FormData(event.target);
     AuthModal.singUp(formData)
       .then((response) => {
-        console.log(response.data);
-        helper.sweetalert.toast("Registered Successfully")
-        window.location.replace("/user/dashboard")
+        if (response.data.status === true) {
+          const accessToken = response?.data?.token;
+          localStorage.setItem('accessToken', accessToken);
+          localStorage.setItem("UserID", response.data?.signupResult[0]?.UserID);
+          localStorage.setItem("userProfileId", response.data.signupResult[0]?.UsersProfileID);
+          localStorage.setItem("UserType", response.data.signupResult[0]?.UserType);
+          console.log(response.data);
+          helper.sweetalert.toast("Registered Successfully")
+          window.location.replace("/user/dashboard")
+        }
       })
       .catch((error) => {
         console.log(error);
@@ -54,7 +62,7 @@ function Singup() {
         <Row>
           <Col sm={3}>
           </Col>
-          <Col sm={6} className='signup mb-3 mt-2'>
+          <Col sm={6} style={{padding:'10px'}} className='signup mb-3 mt-2'>
 
             <center><img src={wirralogo} alt="" className="mb-4" /></center>
             <Card className='shadow-3 ' >

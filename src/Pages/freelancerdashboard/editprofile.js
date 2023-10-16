@@ -11,6 +11,7 @@ import test1 from '../../asset/image/test1.png';
 import ProfileModal from '../../modal/Profile.modal';
 import Switchform from '../../Model/switch.model';
 import Staticmodal from '../../modal/Static.modal';
+import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 function Editprofile() {
     const inputRef = useRef(null);
     const [AllQualificationListt, setAllQualificationListt] = useState()
@@ -86,15 +87,15 @@ function Editprofile() {
                 console.log(error);
             });
     };
-useEffect(() => {
-    fetchdata();
-}, [])
-useEffect(() => {
-    Auth.getthreeprofile().then((response) => {
-        console.log(response.data);
-        setFreelancer(response.data);
-    });
-}, [])
+    useEffect(() => {
+        fetchdata();
+    }, [])
+    useEffect(() => {
+        Auth.getthreeprofile().then((response) => {
+            console.log(response.data);
+            setFreelancer(response.data);
+        });
+    }, [])
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -104,13 +105,13 @@ useEffect(() => {
                     </Col>
 
 
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Profile" />
+
                             <Row className=''>
-                                <Col sm={8} className="square border-end mb-3">
-                                    <div  style={{backgroundColor:'#efefef',borderBottomRightRadius:"350px 350px",borderTopRightRadius:'35px ',borderTopLeftRadius:"35px",height:'57vh'}}>
-                                    <Card className='order-detail-profile mt-3' style={{ backgroundColor: "#efefef", borderRadius: "35px", borderStyle:"none",borderBottomRightRadius:'35px'}}>
+                                {/* <Col sm={8} className="square border-end">
+                                    <Card className='order-detail-profile mt-3' style={{ backgroundColor: "#efefef", borderRadius: "35px" }}>
                                         <div>
                                             <p className='order-detail-profile-icon'><ion-icon name="pencil-outline" onClick={handleShow1} style={{ height: '21px' }}></ion-icon></p>
 
@@ -163,45 +164,139 @@ useEffect(() => {
                                             </p>
                                         </div>
                                     </Card>
+                                </Col> */}
+
+
+                                <Col sm={8} className="square border-end">
+                                    <div style={{ backgroundColor: '#efefef', height: '56vh', borderTopLeftRadius: '35px', borderTopRightRadius: '35px', borderBottomRightRadius: "280px 300px" }}>
+                                        <Card className='order-detail-profile   d-none d-sm-block' style={{marginTop:'12vh', backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
+
+                                            <center>
+                                                <img src={`https://wiraaback.azurewebsites.net/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "100px", width: '100px', marginTop: '20px' }} />
+                                                <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>
+                                                <p>{profileData?.[0]?.OccupationName}</p>
+                                            </center>
+                                            <Container>
+                                                <Row className='mb-3'>
+                                                    <Col className='square border-end'>  {profileData?.[0]?.FollowerCount === null ? (
+                                                        <h6 className='text-center'>0</h6>
+                                                    ) : <h6 className='text-center'>{profileData?.[0]?.FollowerCount}</h6>}
+
+
+                                                        <p className='text-center'>Followers</p>
+                                                    </Col>
+                                                    <Col className='square border-start'>
+                                                        {profileData?.[0]?.PostCount === null ? (
+                                                            <h6 className='text-center'>0</h6>
+                                                        ) : <h6 className='text-center'>{profileData?.[0]?.PostCount}</h6>}
+
+                                                        <p className='text-center'>Portfolio</p>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <center><button style={{ border: 'none', padding: '4px 14px' }} onClick={handleShow1} className='editporfile'> <span style={{ fontSize: '16px' }}> Edit Profile</span>  </button></center>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
+                                        </Card>
+
+
+                                        <Card className='order-detail-profile    d-block d-sm-none' style={{ backgroundColor: "#efefef", borderRadius: "35px", border: 'none', borderBottomLeftRadius: '0px', marginTop: '80px' }}>
+
+                                            <center>
+                                                <img src={`https://wiraaback.azurewebsites.net/api/v1/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
+                                                <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>
+                                                <p>{profileData?.[0]?.OccupationName}</p>
+                                            </center>
+                                            <Container>
+                                                <Row className='mb-3'>
+                                                    <Col className='square border-end'>  {profileData?.[0]?.FollowerCount === null ? (
+                                                        <h6 className='text-center'>0</h6>
+                                                    ) : <h6 className='text-center'>{profileData?.[0]?.FollowerCount}</h6>}
+
+
+                                                        <p className='text-center'>Followers</p>
+                                                    </Col>
+                                                    <Col className='square border-start'>
+                                                        {profileData?.[0]?.PostCount === null ? (
+                                                            <h6 className='text-center'>0</h6>
+                                                        ) : <h6 className='text-center'>{profileData?.[0]?.PostCount}</h6>}
+
+                                                        <p className='text-center'>Portfolio</p>
+                                                    </Col>
+                                                </Row>
+                                                <Row>
+                                                    <Col>
+                                                        <center>
+                                                            <button style={{ border: 'none', padding: '4px 12px' }} onClick={handleShow1} className='editporfile'> <span style={{ fontSize: '16px' }}> Edit Profile</span>
+                                                            </button>
+                                                        </center>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
+                                        </Card>
+
+                                        <Card style={{ border: 'none', borderRadius: "35px" }}>
+                                            <div className='m-4'>
+                                                <span><b>About:</b></span>
+                                                <p>
+                                                    {profileData?.[0]?.AboutMe}
+                                                </p>
+                                                <span><b>Experience:</b></span>
+                                                <p>
+                                                    {profileData?.[0]?.ExperienceName}
+                                                </p>
+                                                <span><b>Qualification:</b></span>
+                                                <p>{profileData?.[0]?.QualificationName}
+                                                </p>
+                                                <span><b>City:</b></span>
+                                                <p>
+                                                    {profileData?.[0]?.City}
+                                                </p>
+                                            </div>
+                                        </Card>
                                     </div>
                                 </Col>
 
-                                <Col md={4} className="">
+
+
+                                <Col style={{marginTop:'12vh'}} md={4} className="d-none d-sm-block">
                                     <h6 style={{ fontSize: '20px', marginTop: '20px', marginLeft: '30px' }}><b>Explore</b></h6>
-                                    {Freelancer && Freelancer.map((freelist) => 
-                                   <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
+                                    {Freelancer && Freelancer.map((freelist) =>
+                                        <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
 
-                                   <div className='order-details-container mt-2'>
-                                       <img style={{ height: '60px', width: '60px' }} src={test} alt="" className='order-details-img m-3' />
-                                       <div className='order-details-container-text'>
-                                           <h6><b>{freelist?.FirstName} {freelist?.LastName}</b></h6><br />
-                                           <p>{freelist.OccupationName}</p>
-                                       </div>
+                                            <div className='order-details-container mt-2'>
+                                                <img style={{ height: '60px', width: '60px' }} src={test} alt="" className='order-details-img m-3' />
+                                                <div className='order-details-container-text'>
+                                                    <h6><b>{freelist?.FirstName} {freelist?.LastName}</b></h6><br />
+                                                    <p>{freelist.OccupationName}</p>
+                                                </div>
 
-                                   </div>
-                                   <Container>
-                                       <Row className='mb-3'>
-                                           <Col className='square border-end'>
-                                           {freelist?.PostCount === null ? (
+                                            </div>
+                                            <Container>
+                                                <Row className='mb-3'>
+                                                    <Col className='square border-end'>
+                                                        {freelist?.PostCount === null ? (
                                                             <h6 className='text-center'>0</h6>
-                                                                ) :   <h6 className='text-center'>{freelist?.PostCount}</h6>}
-                                        
-                                               <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
-                                           </Col>
-                                           <Col className='square border-start'>
-                                           {freelist?.FollowerCount === null ? (
-                                                            <h6 className='text-center'>0</h6>) : 
-                                               <h6 className='text-center'>{freelist.FollowerCount}</h6>}
-                                               <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Portfolio</p>
-                                           </Col>
-                                       </Row>
-                                   </Container>
+                                                        ) : <h6 className='text-center'>{freelist?.PostCount}</h6>}
+
+                                                        <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
+                                                    </Col>
+                                                    <Col className='square border-start'>
+                                                        {freelist?.FollowerCount === null ? (
+                                                            <h6 className='text-center'>0</h6>) :
+                                                            <h6 className='text-center'>{freelist.FollowerCount}</h6>}
+                                                        <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Portfolio</p>
+                                                    </Col>
+                                                </Row>
+                                            </Container>
 
 
 
 
-                               </Card>
-                                   )}
+                                        </Card>
+                                    )}
                                 </Col>
                                 <Col sm={1}>
                                 </Col>
@@ -212,11 +307,11 @@ useEffect(() => {
                             <Modal.Body className='mt-5'>
                                 <div>
                                     <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>About </Form.Label>
+                                        <Form.Label>About: </Form.Label>
                                         <Form.Control as="textarea" rows={3} placeholder="Please enter a headline" />
                                     </Form.Group>
                                     <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlTextarea1">
-                                        <Form.Label>Experience</Form.Label>
+                                        <Form.Label>Experience:</Form.Label>
                                         <Form.Control as="textarea" rows={3} placeholder="Please enter work Experience" />
                                     </Form.Group>
                                     <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlTextarea1">
@@ -256,82 +351,86 @@ useEffect(() => {
                             </Modal.Body>
 
                         </Modal>
-                        <Modal show={show1} onHide={handleClose1} style={{ }}>
+                        <Modal show={show1} onHide={handleClose1} style={{}}>
 
                             <Modal.Body>
                                 <form onSubmit={handleSubmit}>
-                                    
-                                <div>
-                                    <center>
-                                        <div onClick={handleimageClick}   >
-                                            {selectedImage ? <img src={selectedImage}  alt="" style={{ height: "70px", width: '70px', borderRadius: '50%', marginBottom: '20px', }}  /> :
-                                                <img src={test1} alt="" name style={{ height: "70px", width: '70px', borderRadius: '50%', }} />
 
-                                            }
-                                            <span style={{ fontSize: '20px', marginTop: "12px", marginLeft: '50px' }}>Change Image</span>
-                                            <input type="file" accept="image/*" onChange={handleInputChange}
-                                                name='files' style={{ display: 'none' }} ref={inputRef} />
-
-                                        </div>
-                                    </center>
-
-                                    <Form.Group className="mb-1 " controlId="exampleForm.ControlTextarea1">
-                                        <Row>
-
-                                            <Form.Label>Name </Form.Label>
-                                            <Col sm={6}>
-                                                <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-
-                                                    <Form.Control placeholder="Frist Name"
-                                                    name='fName' onChange={handleInputChange}
-                                                    />
-                                                </Form.Group>
-                                            </Col>
-                                            <Col sm={6}>
-                                               
-                                            </Col>
-                                        </Row>
-
-                                    </Form.Group>
-
-                                </div>
-                                <div>
-                                    <Form.Group className="mb-1" controlId="exampleForm.ControlInput1">
-                                        <Form.Label>About </Form.Label>
-                                        <Form.Control as="textarea" rows={3} placeholder="Please enter a headline"
-                                        name='about'  onChange={handleInputChange} />
-                                    </Form.Group>
-                                    <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
-                                        <Form.Label>Experience</Form.Label>
-                                        <Form.Control as="textarea" rows={3} placeholder="Please enter work Experience" />
-                                    </Form.Group>
-                                    <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
-
-                                        <Row>
-                                            <Col sm={6}>
-                                                <Form.Label>Qualification:</Form.Label>
-                                                <select name='qualificationId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
-                                        {AllQualificationListt && AllQualificationListt.map((quallist) =>
-                                        <option value={quallist.QualificationID}>{quallist.QualificationName}</option>
-                                        
-                                        )}
-                                    </select>
-                                            </Col>
-                                            <Col sm={6}>
-                                                <Form.Label>City:</Form.Label>
-                                                <select name='cityId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
-                                        {allCity && allCity.map((quallist) =>
-                                        <option value={quallist.CityID}>{quallist.CityName}</option>
-                                        
-                                        )}
-                                    </select>
-                                            </Col>
-                                        </Row>
+                                    <div>
                                         <center>
-                                            <button className='mt-4' style={{ padding: '2px', borderRadius: '8px', width: '25%', color: 'white', borderStyle: 'none', backgroundColor: '#008080' }}> Done</button>
+                                            <div onClick={handleimageClick}   >
+                                                {selectedImage ? <img src={selectedImage} alt="" style={{ height: "70px", width: '70px', borderRadius: '50%', marginBottom: '20px', }} /> :
+                                                    <img src={test1} alt="" name style={{ height: "70px", width: '70px', borderRadius: '50%', }} />
+
+                                                }
+                                                <span style={{ fontSize: '20px', marginTop: "12px", marginLeft: '50px' }}>Change Image</span>
+                                                <input type="file" accept="image/*" onChange={handleInputChange}
+                                                    name='files' style={{ display: 'none' }} ref={inputRef} />
+
+                                            </div>
                                         </center>
-                                    </Form.Group>
-                                </div>
+
+                                        <Form.Group className="mb-1 " controlId="exampleForm.ControlTextarea1">
+                                            <Row>
+
+                                                <Form.Label>Name: </Form.Label>
+                                                <Col sm={6}>
+                                                    <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
+
+                                                        <Form.Control placeholder="Frist Name"
+                                                            name='fName' onChange={handleInputChange}
+                                                        />
+                                                    </Form.Group>
+                                                </Col>
+                                                <Col sm={6}>
+                                                    <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
+
+                                                        <Form.Control placeholder="Last Name"
+                                                            name='lName' onChange={handleInputChange} />
+                                                    </Form.Group>
+                                                </Col>
+                                            </Row>
+
+                                        </Form.Group>
+
+                                    </div>
+                                    <div>
+                                        <Form.Group className="mb-1" controlId="exampleForm.ControlInput1">
+                                            <Form.Label>About: </Form.Label>
+                                            <Form.Control as="textarea" rows={3} placeholder="Please enter a headline"
+                                                name='about' onChange={handleInputChange} />
+                                        </Form.Group>
+                                        <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
+                                            <Form.Label>Experience:</Form.Label>
+                                            <Form.Control as="textarea" rows={3} placeholder="Please enter work Experience" />
+                                        </Form.Group>
+                                        <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
+
+                                            <Row>
+                                                <Col sm={6}>
+                                                    <Form.Label>Qualification:</Form.Label>
+                                                    <select name='qualificationId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
+                                                        {AllQualificationListt && AllQualificationListt.map((quallist) =>
+                                                            <option value={quallist.QualificationID}>{quallist.QualificationName}</option>
+
+                                                        )}
+                                                    </select>
+                                                </Col>
+                                                <Col sm={6}>
+                                                    <Form.Label>City:</Form.Label>
+                                                    <select name='cityId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
+                                                        {allCity && allCity.map((quallist) =>
+                                                            <option value={quallist.CityID}>{quallist.CityName}</option>
+
+                                                        )}
+                                                    </select>
+                                                </Col>
+                                            </Row>
+                                            <center>
+                                                <button className='mt-4' style={{ padding: '2px', borderRadius: '8px', width: '25%', color: 'white', borderStyle: 'none', backgroundColor: '#008080' }}> Done</button>
+                                            </center>
+                                        </Form.Group>
+                                    </div>
                                 </form>
                             </Modal.Body>
 
@@ -339,6 +438,7 @@ useEffect(() => {
                     </Col>
                 </Row>
             </Container>
+            <Phoneviewfooter />
 
         </>
     )

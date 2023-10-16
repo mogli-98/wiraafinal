@@ -60,6 +60,7 @@ function Freelancerdashboard(props) {
         form.append( "userProfileId", localStorage.getItem("userProfileId"));
         PortfolioModal.addPortfolio(form ).then((response) => {
                 console.log(response.data, "data");
+                helper.sweetalert.toast("Your portfolio request is under review Please wait for the admin's approval.")
             })
             .catch((error) => {
                 console.log(error);
@@ -164,13 +165,15 @@ function Freelancerdashboard(props) {
 
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
+
                             <Topnavbar activeLink="Home" />
-                            <Row>
+
+                            <Row style={{marginTop:'12vh'}}>
                                 <Col >
                                     <Card className='dashboradfree-card-top'>
                                         <div className='dashboradfree-card-top-div'>
                                             <button style={{ marginLeft: '40px' }} className='freedashboard-create' onClick={handleShow}>Create Portfoilo</button>
-                                            <img style={{ zIndex: 1000 }} src={bookbag} alt="" className='freedashboard-top-img' />
+                                            <img style={{ zIndex: 90 }} src={bookbag} alt="" className='freedashboard-top-img' />
                                             <p style={{ fontSize: '20px' }}><b>Showcase your best works and achievements</b></p>
                                         </div>
                                     </Card>
@@ -338,14 +341,15 @@ function Freelancerdashboard(props) {
 
                     <Col sm={6} xs={6} className='pb-3'>
                         <Card style={{ backgroundColor: "#efefef", borderStyle: 'none' }}>
-                            <center>
+                            {/* <center>
                                 <img src={topcard2} alt="" className='mt-4' height={40} />
-                            </center>
+                            </center> */}
                             <center>
-                                <p className='mt-3' style={{ color: "#008080", fontSize: '18px' }}><b>Projects</b></p>
-                                <p style={{ margin: '0px', color: '#008080', fontSize: '18px' }} > <b>96 </b> </p>
+                                <p className='mt-3' style={{ margin: '0px', color: '#008080', fontSize: '22px' }} > <b>96 </b> </p>
+                                <p style={{ color: "#008080", fontSize: '18px' }}><b>Projects</b></p>
 
-                                <button style={{ color: "#fff", backgroundColor: '#008080', borderRadius: '8px', border: 'none', marginBottom: '20px', marginTop: '20px', paddingLeft: '10px', paddingRight: '10px' }} >9 this months</button>
+
+                                {/* <button style={{ color: "#fff", backgroundColor: '#008080', borderRadius: '8px', border: 'none', marginBottom: '20px', marginTop: '20px', paddingLeft: '10px', paddingRight: '10px' }} >9 this months</button> */}
                             </center>
 
                         </Card>
@@ -353,21 +357,37 @@ function Freelancerdashboard(props) {
 
 
                     <Col sm={6} xs={6} className='pb-3'>
-                        <Card style={{ backgroundColor: "#efefef", borderStyle: 'none' }}>
-                            <center>
+                        {/* <Card style={{ backgroundColor: "#efefef", borderStyle: 'none' }}>
+                            {/* <center>
                                 <img src={topcard3} alt="" className='mt-4' height={40} />
-                            </center>
+                            </center> 
                             <center>
-                                <p className='mt-3' style={{ color: "#008080", fontSize: '18px' }}><b>Portfolios</b></p>
+                                <p className='mt-3' style={{ margin: '0px', color: '#008080', fontSize: '22px' }} > <b>32</b> </p>
+                                <p  style={{ color: "#008080", fontSize: '18px' }}><b>Portfolios</b></p>
 
-                                <p style={{ margin: '0px', color: '#008080', marginBottom: '20px', fontSize: '18px' }} > <b>32</b> </p>
-                                <button style={{ color: "#fff", backgroundColor: '#008080', borderRadius: '8px', border: 'none', marginBottom: '20px', paddingLeft: '10px', paddingRight: '10px' }} >32 this months</button>
+                                
+                                {/* <button style={{ color: "#fff", backgroundColor: '#008080', borderRadius: '8px', border: 'none', marginBottom: '20px', paddingLeft: '10px', paddingRight: '10px' }} >32 this months</button>
+                            </center>
+
+                        </Card> */}
+
+                        <Card style={{ backgroundColor: "#efefef", borderStyle: 'none' }}>
+                            {/* <center>
+                                <img src={topcard2} alt="" className='mt-4' height={40} />
+                            </center> */}
+                            <center>
+                                <p className='mt-3' style={{ margin: '0px', color: '#008080', fontSize: '22px' }} > <b>32 </b> </p>
+                                <p style={{ color: "#008080", fontSize: '18px' }}><b>Portfoilos</b></p>
+
+
+                                {/* <button style={{ color: "#fff", backgroundColor: '#008080', borderRadius: '8px', border: 'none', marginBottom: '20px', marginTop: '20px', paddingLeft: '10px', paddingRight: '10px' }} >9 this months</button> */}
                             </center>
 
                         </Card>
+
                     </Col>
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none',padding:'0px 20px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none', padding: '0px 20px', marginBottom: '10px' }}>
                         <p style={{ fontSize: '18px', color: 'black' }} className='mt-2 mb-1'> <u> Latest Project: </u>  </p>
 
                         <p className='mt-2 mb-1' style={{ color: 'grey', fontSize: '16px' }}>Explore all</p>
@@ -376,7 +396,7 @@ function Freelancerdashboard(props) {
 
                     <div>
 
-                        <Card style={{ padding: '10px', borderRadius: '20px', border: 'none' ,boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
+                        <Card style={{ padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
 
                             <h5> Heading </h5>
 
@@ -409,15 +429,15 @@ function Freelancerdashboard(props) {
 
 
 
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none',padding:'0px 20px' }}>
+                    {/* <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', border: 'none',padding:'0px 20px' }}>
                         <p style={{ fontSize: '18px', color: 'black' }} className='mt-2 mb-1'> <u> Latest Questions: </u>  </p>
 
                         <p className='mt-2 mb-1' style={{ color: 'grey', fontSize: '16px' }}>Explore all</p>
 
-                    </div>
+                    </div> */}
 
 
-                    <div>
+                    {/* <div>
                         <Card style={{ padding: '10px', borderRadius: '20px', border: 'none',  boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
 
                             <h5> Heading </h5>
@@ -445,7 +465,7 @@ function Freelancerdashboard(props) {
                             </div>
 
                         </Card>
-                    </div>
+                    </div> */}
 
 
                 </Row>
@@ -458,7 +478,11 @@ function Freelancerdashboard(props) {
                         <Card style={{ marginBottom: '80px' }} className='mt-4  lastcard-free' >
                             <div className='last-card-freedash' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'centere' }}>
 
-                                <p style={{ fontSize: '18px', fontWeight: 500, padding: '5px', paddingRight: '30px' }} className='last-card-freedash-2 m-2'>Current Package - <span style={{ color: 'bisque' }} >Basic Plan </span> </p>
+                                
+
+
+                                <p style={{ fontSize: '18px', fontWeight: 500, padding: '5px', paddingLeft:'40px',paddingTop:'10px' }} className='last-card-freedash-2 m-2'> <span style={{fontSize:'14px'}}>Current Package </span>  <span style={{ color: 'bisque' }} >Basic Plan </span> </p>
+ 
                                 <p style={{ fontSize: '14px', fontWeight: 500, padding: '8px', paddingLeft: '10px', backgroundColor: 'white', color: 'black', margin: '50px', border: 'none', borderRadius: '8px' }} className='last-card-freedash-1 m-2'> <center> Remaining Monthly credits  </center>  <b style={{ fontSize: '15px' }}> <center> 2 / 5 </center>   </b>   </p>
 
                                 {/* <center>

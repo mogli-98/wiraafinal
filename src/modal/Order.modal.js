@@ -14,7 +14,11 @@ const OrderModal = {
         return(await axiosInstance.get(
             `/order/answerOrder/${data.orderId}/${data2.proUserId}`
         ))
-    },
+    },async CLosedorder(data){
+        return(await axiosInstance.patch(
+            `/order/orderClose` , data
+        ))
+    }
    
 
 }

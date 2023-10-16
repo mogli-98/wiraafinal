@@ -17,7 +17,7 @@ function Noorder() {
                     <Col sm={8} xs={10} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
-                            <Row className='mt-5'>
+                            <Row style={{marginTop:'12vh'}} className='mt-5'>
                                 <Col sm={1}></Col>
                                 <Col sm={10} >
                                     <center>

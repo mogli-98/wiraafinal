@@ -37,7 +37,7 @@ function ProfileCard(props) {
     // onClick={ ()=>window.location.href=`/Profiledetails/${data.UserID}`  }
     >
         <center>
-            <img src={`http://demo.wiraa.com/${data.profilePic}`} alt="" className=" portfolio-image" />
+            <img src={`https://wiraaback.azurewebsites.net/${data.profilePic}`} alt="" className=" portfolio-image" />
 
         </center>
         <div className=''>
@@ -64,7 +64,7 @@ function ProfileCard(props) {
                                 <button style={{
                                     backgroundColor: "#008080", color: "#fff",
                                     borderStyle: "none", padding: '4px', width: '100%',
-                                    borderRadius: "8px", marginTop: "12px"
+                                    borderRadius: "8px", margin: "15px 0px"
                                 }}
                                     onClick={() => { fetchdata(data.UsersProfileID) }}
                                 >Unfollow</button></center>
@@ -72,7 +72,7 @@ function ProfileCard(props) {
                             <button style={{
                                 backgroundColor: "#008080", color: "#fff",
                                 borderStyle: "none", padding: '4px', width: '100%',
-                                borderRadius: "8px", marginTop: "12px"
+                                borderRadius: "8px", margin: "15px 0px "
                             }} onClick={() => { fetchdata(data.UsersProfileID) }}
                             >Follow</button></center>
 
@@ -95,7 +95,7 @@ function ProfileCard(props) {
                                 <button style={{
                                     backgroundColor: "black", color: "#fff",
                                     borderStyle: "none", padding: '4px', width: '100%',
-                                    borderRadius: "8px", marginTop: "12px"
+                                    borderRadius: "8px", margin: "15px 0px"
                                 }}> Profile</button></Link>
                         </center>
                     )}

@@ -13,8 +13,6 @@ function Noorder() {
                     <Col sm={1}  className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-
-
                     <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Order" />

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import '../../asset/css/dashboard.css'
-import Sidenav from './layout/Sidenav';
+
 import test2 from "../../asset/image/test2.png";
 import Modal from 'react-bootstrap/Modal';
-import Topnav from './layout/topnav';
+import Sidenavbar from './layout/Sidenavbar';
+import Topnavbar from './layout/topnavbar';
 import bookbullb from '../../asset/image/bookbulb.png'
 import clientBoard from '../../Model/clientdash';
 import { helper } from '../../lib/helper';
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
-function Unreadnotification() {
+function UnreadnotificationUser() {
     const [allnotifi, setallNotifi] = useState([]);
     const [activeTab, setActiveTab] = useState("Tab1");
     const [show, setShow] = useState(false);
@@ -66,11 +67,11 @@ function Unreadnotification() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className=' d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenavbar />
                     </Col>
                     <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Notification" />
+                            <Topnavbar activeLink="Notification" />
 
 
                             <Row className=''>
@@ -79,7 +80,7 @@ function Unreadnotification() {
                                         <Container>
                                             <Row className='mt-4 mb-4 '>
                                                 <Col className=''>
-                                                    <Link to='/User/Notification'>
+                                                    <Link to='/Users/Notifications'>
                                                         <button className='notifi-unread-button d-none d-sm-block' style={{marginTop:'10vh', marginLeft: '22px', fontSize: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px' }}>
                                                             <svg style={{ color: 'grey', paddingRight: '4px' }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
                                                                 <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H4.414A2 2 0 0 0 3 11.586l-2 2V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12.793a.5.5 0 0 0 .854.353l2.853-2.853A1 1 0 0 1 4.414 12H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
@@ -206,4 +207,4 @@ function Unreadnotification() {
     )
 }
 
-export default Unreadnotification;
+export default UnreadnotificationUser;

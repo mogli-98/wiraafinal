@@ -44,7 +44,7 @@ function Dashboard(name ,) {
                         <Sidenav />
                     </Col>
                     <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
-                        <Container  className='square border border-bottom-0'>
+                        <Container style={{padding:'0px'}}  className='square border border-bottom-0'>
                             <Topnav activeLink="Home" />
 
 
@@ -69,7 +69,7 @@ function Dashboard(name ,) {
 
 
                                 <Col className='d-none d-sm-block'>
-                                    <div style={{ display: "flex", backgroundColor: '#efefef', borderRadius: "30px" }} className='mt-4 mb-4'>
+                                    <div style={{ display: "flex", backgroundColor: '#efefef', borderRadius: "30px",marginTop:'12vh' }} className='mb-4'>
 
                                         <div style={{ backgroundColor: "#efefef", borderRadius: "30px", width: '100%' }}>
                                             <InputGroup style={{ borderStyle: 'none' }} className='  search-outer-container'>

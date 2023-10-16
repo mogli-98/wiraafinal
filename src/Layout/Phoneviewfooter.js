@@ -135,7 +135,7 @@ export default function Phoneviewfooter() {
 
 
 
-                                    <NavLink exact to="/user/dashboard"
+                                    <NavLink exact href="/user/dashboard"
                                         activeClassName="active"
                                     >
                                         <CDBSidebarMenuItem className="text-dark mt-5 "> <ion-icon name="home-outline"></ion-icon><h4 className='chh'>Home</h4></CDBSidebarMenuItem>

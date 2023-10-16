@@ -22,6 +22,7 @@ function Dropdown1({ onSelect }) {
                 onChange={handleDropdownChange}
                 name='countryId'
                 placeholder='Category'
+                required
             >
                 {
                     CountryList && CountryList.map((listCountry) =>
