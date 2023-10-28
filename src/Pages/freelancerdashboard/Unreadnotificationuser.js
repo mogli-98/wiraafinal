@@ -23,8 +23,7 @@ function UnreadnotificationUser() {
     const fetchData = async () => {
         const userProfileId = localStorage.getItem("UserID");
         clientBoard.Unreadnotice({ userProfileId }).then((response) => {
-            // localStorage.setItem('delid' ,response.data[0]['notificationID']);
-            console.log(response.data)
+        
             setallNotifi(response.data);
         }).catch((error) => {
             console.log("error => ", error)
@@ -35,8 +34,8 @@ function UnreadnotificationUser() {
         const userProfileId = localStorage.getItem("UserID");
 
         clientBoard.Readnotice({ userProfileId, notificationId }).then((response) => {
-            // localStorage.setItem('delid' ,response.data[0]['notificationID']);
-            console.log(response.data)
+         
+          
             helper.sweetalert.toast("Notification Read Successfully.")
             fetchData();
         }).catch((error) => {
@@ -48,9 +47,9 @@ function UnreadnotificationUser() {
         helper.sweetalert.confirm('Are you sure?', "You won't be able to revert this!", "warning", true).then((result) => {
             if (result.isConfirmed) {
                 const userProfileId = localStorage.getItem("UserID");
-                console.log(userProfileId)
+              
                 clientBoard.deleteNotice({ userProfileId }).then((res) => {
-                    console.log(res.data)
+                 
                     helper.sweetalert.toast("Deleted", 'All Notification has been delete Successfuly', 'success')
                     fetchData();
                 })

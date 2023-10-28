@@ -9,7 +9,7 @@ const Topnav = ({ activeLink }) => {
 
     return (
         <>
-            <Row style={{ height: '73px',position:'fixed',top:'0px',backgroundColor:'white',zIndex:100,width:'67%' }} className="square border-bottom  d-none d-sm-block">
+            <Row style={{ height: '73px',top:'0px',zIndex:100 }} className="square border-bottom  d-none d-sm-block">
 
                 <Col sm={12} >
                     <nav className="navbar mt-2 ">
@@ -18,7 +18,7 @@ const Topnav = ({ activeLink }) => {
                         </div>
                         <div className="navbar-right1 mt-2 mb-2 ">
                             <Link to='/Switchacc'><button className="navbar-button switch"><b>Switch <sup style={{ color: 'red', fontWeight: 600 }}> pro</sup> </b></button></Link>
-                            <Link to="/Hiretalent"><button  className="navbar-button hire"><b>Hire </b></button></Link>
+                            <Link to="/Hiretalent"><button style={{marginRight:'20px'}}  className="navbar-button hire"><b>Hire </b></button></Link>
                         </div>
 
                     </nav>

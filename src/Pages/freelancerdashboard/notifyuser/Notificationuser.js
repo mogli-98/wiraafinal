@@ -6,20 +6,15 @@ import Notificationuser from "../notificationuser";
 
 function Nonotiftyyuser() {
   const [userData, setUserData] = useState([]);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const userProfileId = localStorage.getItem("UserID");
-    console.log(userProfileId)
     clientBoard.allNotifi({ userProfileId }).then((respnse) => {
-
       if (respnse?.data.length > 0) {
         setUserData(respnse?.data);
-      } else {
-        
+      } else { 
       }
-      setLoading(false);
-
     })
       .catch((error) => console.log(error));
   }, []);

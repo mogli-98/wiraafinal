@@ -160,17 +160,17 @@ function Userproject() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className=' d-none d-sm-block'>
-                        <Sidenavbar />
+                        <Sidenavbar activekey="projects" />
                     </Col>
                     <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnavbar activeLink="Project" />
 
-                            <Row style={{marginTop:'12vh'}} className='d-none d-sm-block'>
+                            <Row  className='d-none d-sm-block'>
 
                                 <Col sm={12} xs={12} className="PostRequriment3  ">
                                     <div className='middle-container '>
-                                        <Form.Control type="text" className='square rounded-pill CiSearch mt-4 mb-4 ' placeholder="Search Project" style={{ backgroundColor: "#efefef", height: '40px' }} />
+                                        <Form.Control type="text" className='square rounded-pill CiSearch mt-3 mb-4 ' placeholder="Search Project" style={{ backgroundColor: "#efefef", height: '40px' }} />
                                         <div style={{ border: "1px solid grey", width: '100%', height: '43px', padding: '5px' }}>
                                             <div
                                                 className={`tab  ${activeTab === "Tab1" ? "active" : ""}`}

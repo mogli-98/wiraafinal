@@ -7,16 +7,16 @@ import Wiraalogo from "../../../asset/image/Wiraalogo.png";
 function Topnavbar({ activeLink }) {
     return (
         <>
-            <Row style={{height: '73px',position:'fixed',top:'0px',backgroundColor:'white',zIndex:100,width:'66%' }} className="d-none d-sm-block">
+            <Row style={{height: '73px',top:'0px',zIndex:100 }} className="d-none d-sm-block  border-bottom">
                 <Col sm={12} >
-                    <nav style={{marginBottom:'20px'}} className="navbar mt-2 square border-bottom">
+                    <nav className="navbar mt-2 ">
                         <div className="left-side mt-1">
-                        <h4 style={{marginLeft:'20px'}}><b>{activeLink}</b></h4>
+                            <h4 style={{marginTop:'10px',marginLeft:'20px'}}><b>{activeLink}</b></h4>
                         </div>
                         <div className="navbar-right1 mt-2 mb-2">
 
                             <Link to='/Switchaccount'><button className="navbar-button switch"><b>Switch </b></button></Link>
-                            <Link to="/Hiretalent"><button className="navbar-button hire"><b>Hire </b></button></Link>
+                            <Link to="/Hiretalent"><button style={{marginRight:'20px'}}  className="navbar-button hire"><b>Hire </b></button></Link>
 
                         </div>
                     </nav>

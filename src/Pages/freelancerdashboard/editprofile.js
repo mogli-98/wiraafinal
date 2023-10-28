@@ -101,7 +101,7 @@ function Editprofile() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1}className='d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenav  activekey="profile"/>
                     </Col>
 
 
@@ -169,16 +169,16 @@ function Editprofile() {
 
                                 <Col sm={8} className="square border-end">
                                     <div style={{ backgroundColor: '#efefef', height: '56vh', borderTopLeftRadius: '35px', borderTopRightRadius: '35px', borderBottomRightRadius: "280px 300px" }}>
-                                        <Card className='order-detail-profile   d-none d-sm-block' style={{marginTop:'12vh', backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
+                                        <Card className='order-detail-profile   d-none d-sm-block' style={{ backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
 
                                             <center>
-                                                <img src={`https://wiraaback.azurewebsites.net/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "100px", width: '100px', marginTop: '20px' }} />
+                                                <img src={`https://wiraaback.azurewebsites.net/api/v1/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
                                                 <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>
                                                 <p>{profileData?.[0]?.OccupationName}</p>
                                             </center>
                                             <Container>
                                                 <Row className='mb-3'>
-                                                    <Col className='square border-end'>  {profileData?.[0]?.FollowerCount === null ? (
+                                                    <Col className='square border-end' style={{borderRight:'1px solid black'}}>  {profileData?.[0]?.FollowerCount === null ? (
                                                         <h6 className='text-center'>0</h6>
                                                     ) : <h6 className='text-center'>{profileData?.[0]?.FollowerCount}</h6>}
 
@@ -261,7 +261,7 @@ function Editprofile() {
 
 
 
-                                <Col style={{marginTop:'12vh'}} md={4} className="d-none d-sm-block">
+                                <Col  md={4} className="d-none d-sm-block">
                                     <h6 style={{ fontSize: '20px', marginTop: '20px', marginLeft: '30px' }}><b>Explore</b></h6>
                                     {Freelancer && Freelancer.map((freelist) =>
                                         <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>

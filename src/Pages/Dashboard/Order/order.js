@@ -22,10 +22,10 @@ function Order() {
 
   return (
     <div >
-      {userData?.length > 0 ? (
-          <Ordertable />
-      ) : (   
+      {userData?.length === 0 ? (
         <NOorder data={userData} />
+      ) : (
+        <Ordertable />
       )}
     </div>
   );

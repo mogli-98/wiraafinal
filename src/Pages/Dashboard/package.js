@@ -1,18 +1,13 @@
 import React from 'react';
-import { Container, Row, Col, Card } from "react-bootstrap";
-
+import { Container, Row, Col, Accordion, Card } from "react-bootstrap";
 import "../../asset/css/freelanceredashboard.css";
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
-import Accordion from 'react-bootstrap/Accordion';
-// import { Form } from 'react-router-dom';
 
-
-
-
-
+// import { Link } from "react-router-dom";
 function Package() {
+
 
 
     return (
@@ -20,22 +15,20 @@ function Package() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
-                    
-                        <Sidenav />
+
+                        <Sidenav activekey="package" />
                     </Col>
 
-
-                   
-                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row  '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Package" />
 
                             <Row >
-                                <p style={{marginTop:'12vh', fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
+                                <p style={{marginTop:'10px',  fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
                                 <p style={{ fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Change Your Plans Anytime</p>
-                               
+
                                 <div className="container mt-4 d-none d-sm-block">
-                                 
+
                                     <table className="styled-table mb-4">
                                         <thead>
 
@@ -55,7 +48,7 @@ function Package() {
 
 
                                                 <td style={{ fontWeight: 600 }}>
-                                                   
+
                                                     <p style={{ fontSize: '16px', fontWeight: 600 }}>Plus</p>
                                                     <p style={{ color: '#008080', fontSize: '18px', fontWeight: 600 }}>₹ 499 / month</p>
                                                     <p style={{ color: 'grey' }}>Scale your business hiring</p>
@@ -143,9 +136,9 @@ function Package() {
 
                                                 </td>
                                             </tr>
-                 
 
-                                          
+
+
                                             <tr>
                                                 <th>Client Dashboard</th>
                                                 <th></th>
@@ -154,7 +147,7 @@ function Package() {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                           
+
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
                                                     Order Listing
@@ -169,7 +162,7 @@ function Package() {
                                                     Featured
                                                 </td>
                                             </tr>
-                                            
+
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -185,7 +178,7 @@ function Package() {
                                                     Unlimited
                                                 </td>
                                             </tr>
-                                            
+
 
 
                                             <tr style={{ height: '40px' }}>
@@ -201,32 +194,32 @@ function Package() {
                                                 <td style={{ fontWeight: 600 }}>
                                                     Unlimited
                                                 </td>
-                                            </tr>                                      
+                                            </tr>
 
-                                            
 
-                                            
+
+
                                             <tr style={{ height: '40px' }}>
 
                                                 <td>
 
-                                                </td>                                    
-                                                                                                
+                                                </td>
+
                                                 <td>
 
                                                 </td>
 
-                                                
+
                                                 <td>
 
                                                 </td>
-                                                
+
 
                                                 <td>
 
                                                 </td>
                                             </tr>
-                                              
+
 
                                             <tr>
                                                 <th style={{ fontWeight: 700 }}>Professional Dashboard</th>
@@ -234,7 +227,7 @@ function Package() {
                                                 <th></th>
                                                 <th></th>
                                             </tr>
-                                            
+
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -250,9 +243,9 @@ function Package() {
                                                     Unlimited
                                                 </td>
                                             </tr>
-                                           
 
-                                            
+
+
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -268,7 +261,7 @@ function Package() {
                                                     05%
                                                 </td>
                                             </tr>
-                                                                                       
+
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -285,7 +278,7 @@ function Package() {
                                                 </td>
                                             </tr>
 
-                                                                                      
+
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
                                                     Project alert
@@ -301,7 +294,7 @@ function Package() {
                                                 </td>
                                             </tr>
 
-                                         
+
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
@@ -316,7 +309,7 @@ function Package() {
                                                 <td style={{ fontWeight: 600 }}>
                                                     Unlimited
                                                 </td>
-                                            </tr>                                                                             
+                                            </tr>
 
 
 
@@ -330,11 +323,11 @@ function Package() {
                                     <p style={{ fontSize: '18px', fontWeight: 500, marginTop: '80px' }} className='text-center'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
                                     <p style={{ fontSize: '18px', fontWeight: 500 }} className='text-center'>Change Your Plans Anytime</p>
 
-                                    <Card style={{ backgroundColor: '#FAEBD7', border: 'none',marginBottom:'30px',padding:'30px 0px' }}>
+                                    <Card style={{ backgroundColor: '#FAEBD7', border: 'none', marginBottom: '30px', padding: '30px 0px' }}>
                                         <Row>
                                             <Col xs={12}>
                                                 <center>
-                                                    <p style={{ fontSize: '20px',  marginTop: '10px' }}>  <b style={{backgroundColor:'white',padding:'6px 10px',borderRadius:'5px'}}>Basic </b>  </p>
+                                                    <p style={{ fontSize: '20px', marginTop: '10px' }}>  <b style={{ backgroundColor: 'white', padding: '6px 10px', borderRadius: '5px' }}>Basic </b>  </p>
                                                     <p style={{ fontSize: '24px', color: '#008080' }}> <b>Free</b>  </p>
                                                     <p style={{ color: 'grey', fontSize: '16px' }}>Fulfill your basic needs</p>
                                                 </center>
@@ -343,7 +336,7 @@ function Package() {
                                             </Col>
                                             <Col xs={12}>
                                                 <center>
-                                                    
+
                                                     <div style={{ borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Message Credits  </p>
                                                         <p style={{ fontSize: '17px' }}>05   </p>
@@ -368,21 +361,21 @@ function Package() {
 
                                                         <Accordion style={{ margin: '10px 10px' }} defaultActiveKey="1">
                                                             <Accordion.Item eventKey="0">
-                                                                <Accordion.Header><p style={{ fontSize: '18px',height:'10px' }}><b>Client Dashboard</b></p> </Accordion.Header>
+                                                                <Accordion.Header><p style={{ fontSize: '18px', height: '10px' }}><b>Client Dashboard</b></p> </Accordion.Header>
 
                                                                 <Accordion.Body>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Order Listing  </p>
                                                                         <p style={{ fontSize: '17px' }}>Normal   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Job Posting  </p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Verified Professional  </p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
@@ -396,31 +389,31 @@ function Package() {
 
                                                         <Accordion style={{ margin: '10px 10px' }} defaultActiveKey="1">
                                                             <Accordion.Item eventKey="0">
-                                                                <Accordion.Header><p style={{ fontSize: '18px',height:'10px' }}><b>Professional Dashboard</b></p> </Accordion.Header>
+                                                                <Accordion.Header><p style={{ fontSize: '18px', height: '10px' }}><b>Professional Dashboard</b></p> </Accordion.Header>
 
                                                                 <Accordion.Body>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Project credits  </p>
                                                                         <p style={{ fontSize: '17px' }}>05   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>  Project Commision  </p>
                                                                         <p style={{ fontSize: '17px' }}>15%   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project  Listing   </p>
                                                                         <p style={{ fontSize: '17px' }}>Normal  </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project alert </p>
                                                                         <p style={{ fontSize: '17px' }}>Normal  </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project Bookmark</p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
@@ -434,24 +427,24 @@ function Package() {
 
                                                     </div>
 
-                                                    <button style={{border:'none',borderRadius:'8px',padding:'8px 30px',backgroundColor:'white',marginTop:'20px',fontSize:"18px",fontWeight:600}}>
+                                                    <button style={{ border: 'none', borderRadius: '8px', padding: '8px 30px', backgroundColor: 'white', marginTop: '20px', fontSize: "18px", fontWeight: 600 }}>
                                                         Select
 
                                                     </button>
 
 
-                                                  
+
                                                 </center>
-                                            </Col>                                         
+                                            </Col>
 
                                         </Row>
                                     </Card>
 
-                                    <Card style={{ backgroundColor: '#E6E6FA', border: 'none',marginBottom:'30px',padding:'30px 0px' }}>
+                                    <Card style={{ backgroundColor: '#E6E6FA', border: 'none', marginBottom: '30px', padding: '30px 0px' }}>
                                         <Row>
                                             <Col xs={12}>
                                                 <center>
-                                                    <p style={{ fontSize: '20px',  marginTop: '10px' }}>  <b style={{backgroundColor:'white',padding:'6px 10px',borderRadius:'5px'}}>Plus </b>  </p>
+                                                    <p style={{ fontSize: '20px', marginTop: '10px' }}>  <b style={{ backgroundColor: 'white', padding: '6px 10px', borderRadius: '5px' }}>Plus </b>  </p>
                                                     <p style={{ fontSize: '24px', color: '#008080' }}> <b>₹499 / Month</b>  </p>
                                                     <p style={{ color: 'grey', fontSize: '16px' }}>Scale yuor business hiring</p>
                                                 </center>
@@ -460,7 +453,7 @@ function Package() {
                                             </Col>
                                             <Col xs={12}>
                                                 <center>
-                                                    
+
                                                     <div style={{ borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Message Credits  </p>
                                                         <p style={{ fontSize: '17px' }}>50   </p>
@@ -485,21 +478,21 @@ function Package() {
 
                                                         <Accordion style={{ margin: '10px 10px' }} defaultActiveKey="1">
                                                             <Accordion.Item eventKey="0">
-                                                                <Accordion.Header><p style={{ fontSize: '18px',height:'10px' }}><b>Client Dashboard</b></p> </Accordion.Header>
+                                                                <Accordion.Header><p style={{ fontSize: '18px', height: '10px' }}><b>Client Dashboard</b></p> </Accordion.Header>
 
                                                                 <Accordion.Body>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Order Listing  </p>
                                                                         <p style={{ fontSize: '17px' }}>Featured   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Job Posting  </p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Verified Professional  </p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
@@ -513,31 +506,31 @@ function Package() {
 
                                                         <Accordion style={{ margin: '10px 10px' }} defaultActiveKey="1">
                                                             <Accordion.Item eventKey="0">
-                                                                <Accordion.Header><p style={{ fontSize: '18px',height:'10px' }}><b>Professional Dashboard</b></p> </Accordion.Header>
+                                                                <Accordion.Header><p style={{ fontSize: '18px', height: '10px' }}><b>Professional Dashboard</b></p> </Accordion.Header>
 
                                                                 <Accordion.Body>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Project credits  </p>
                                                                         <p style={{ fontSize: '17px' }}>50   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>  Project Commision  </p>
                                                                         <p style={{ fontSize: '17px' }}>10%   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project  Listing   </p>
                                                                         <p style={{ fontSize: '17px' }}>Featured  </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project alert </p>
                                                                         <p style={{ fontSize: '17px' }}>1 hour advance alert  </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project Bookmark</p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
@@ -551,25 +544,25 @@ function Package() {
 
                                                     </div>
 
-                                                    <button style={{border:'none',borderRadius:'8px',padding:'8px 30px',backgroundColor:'white',marginTop:'20px',fontSize:"18px",fontWeight:600}}>
+                                                    <button style={{ border: 'none', borderRadius: '8px', padding: '8px 30px', backgroundColor: 'white', marginTop: '20px', fontSize: "18px", fontWeight: 600 }}>
                                                         Select
 
                                                     </button>
 
 
-                                                  
+
                                                 </center>
-                                            </Col>                                         
+                                            </Col>
 
                                         </Row>
                                     </Card>
 
 
-                                    <Card style={{ backgroundColor: '#f6d7d7', border: 'none',marginBottom:'80px',padding:'30px 0px' }}>
+                                    <Card style={{ backgroundColor: '#f6d7d7', border: 'none', marginBottom: '80px', padding: '30px 0px' }}>
                                         <Row>
                                             <Col xs={12}>
                                                 <center>
-                                                    <p style={{ fontSize: '20px',  marginTop: '10px' }}>  <b style={{backgroundColor:'white',padding:'6px 10px',borderRadius:'5px'}}>Premium </b>  </p>
+                                                    <p style={{ fontSize: '20px', marginTop: '10px' }}>  <b style={{ backgroundColor: 'white', padding: '6px 10px', borderRadius: '5px' }}>Premium </b>  </p>
                                                     <p style={{ fontSize: '24px', color: '#008080' }}> <b> ₹4999 / Month </b>  </p>
                                                     <p style={{ color: 'grey', fontSize: '16px' }}>Maximise your workforce program</p>
                                                 </center>
@@ -578,7 +571,7 @@ function Package() {
                                             </Col>
                                             <Col xs={12}>
                                                 <center>
-                                                    
+
                                                     <div style={{ borderRadius: '8px', display: 'flex', width: '90%', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                         <p style={{ fontSize: '17px' }}>Message Credits  </p>
                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
@@ -603,21 +596,21 @@ function Package() {
 
                                                         <Accordion style={{ margin: '10px 10px' }} defaultActiveKey="1">
                                                             <Accordion.Item eventKey="0">
-                                                                <Accordion.Header><p style={{ fontSize: '18px',height:'10px' }}><b>Client Dashboard</b></p> </Accordion.Header>
+                                                                <Accordion.Header><p style={{ fontSize: '18px', height: '10px' }}><b>Client Dashboard</b></p> </Accordion.Header>
 
                                                                 <Accordion.Body>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Order Listing  </p>
                                                                         <p style={{ fontSize: '17px' }}>Featured   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Job Posting  </p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Verified Professional  </p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
@@ -631,31 +624,31 @@ function Package() {
 
                                                         <Accordion style={{ margin: '10px 10px' }} defaultActiveKey="1">
                                                             <Accordion.Item eventKey="0">
-                                                                <Accordion.Header><p style={{ fontSize: '18px',height:'10px' }}><b>Professional Dashboard</b></p> </Accordion.Header>
+                                                                <Accordion.Header><p style={{ fontSize: '18px', height: '10px' }}><b>Professional Dashboard</b></p> </Accordion.Header>
 
                                                                 <Accordion.Body>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}> Project credits  </p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>  Project Commision  </p>
                                                                         <p style={{ fontSize: '17px' }}>05%   </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project  Listing   </p>
                                                                         <p style={{ fontSize: '17px' }}>Featured  </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project alert </p>
                                                                         <p style={{ fontSize: '17px' }}>1 hour advance alert </p>
                                                                     </div>
 
-                                                                    <div style={{ borderRadius: '8px', display: 'flex',  backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
+                                                                    <div style={{ borderRadius: '8px', display: 'flex', backgroundColor: 'white', justifyContent: 'space-between', paddingLeft: '20px', paddingRight: '20px', height: '30px', paddingTop: '3px' }}>
                                                                         <p style={{ fontSize: '17px' }}>Project Bookmark</p>
                                                                         <p style={{ fontSize: '17px' }}>Unlimited   </p>
                                                                     </div>
@@ -668,18 +661,18 @@ function Package() {
 
 
                                                     </div>
-                                                    <button style={{border:'none',borderRadius:'8px',padding:'8px 30px',backgroundColor:'white',marginTop:'20px',fontSize:"18px",fontWeight:600}}>
+                                                    <button style={{ border: 'none', borderRadius: '8px', padding: '8px 30px', backgroundColor: 'white', marginTop: '20px', fontSize: "18px", fontWeight: 600 }}>
                                                         Select
 
                                                     </button>
 
 
-                                                  
+
                                                 </center>
-                                            </Col>                                         
+                                            </Col>
 
                                         </Row>
-                                    </Card>                                   
+                                    </Card>
 
 
                                 </div>

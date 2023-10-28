@@ -109,4 +109,4 @@ function Orderdetailsbrief() {
     )
 }
 
-export default Orderdetailsbrief
+export default Orderdetailsbrief;

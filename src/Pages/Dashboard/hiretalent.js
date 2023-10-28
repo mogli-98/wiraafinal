@@ -12,36 +12,37 @@ import Switchform from '../../Model/switch.model';
 import { helper } from '../../lib/helper';
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
-import Staticmodal from '../../modal/Static.modal';
+// import Input from 'cdbreact/dist/components/Input';
 
 function Hiretalent() {
     const [selectedOption, setSelectedOption] = useState([1]);
-    const [allCity, setallcity] = useState()
-    const [GetSubCategory, setGetSubCategory] = useState([]);
+    // const [GetSubCategory, setGetSubCategory] = useState([]);
+
+
     const [city, setCity] = useState([]);
-    const [formData, setFormData] = useState({
-        title: '',
-        projectDescription: '',
-        category: '',
-        subCategory: '',
-        country: '',
-        mobile: '',
-        currency: '',
-        budgetStart: '',
-        budgetEnd :'',
-        workType: '',
-        isFeatured: '',
-        preferService: '',
-        duration: "",
-        city: '',
-        serviceMode: '',
-    });
-    const handleInputChange = (event) => {
-        setFormData({
-            ...formData,
-            [event.target.name]: event.target.value,
-        });
-    };
+    // const [formData, setFormData] = useState({
+    //     title: '',
+    //     projectDescription: '',
+    //     category: '',
+    //     subCategory: '',
+    //     country: '',
+    //     mobile: '',
+    //     currency: '',
+    //     budgetStart: '',
+    //     budgetEnd: '',
+    //     workType: '',
+    //     isFeatured: '',
+    //     preferService: '',
+    //     duration: "",
+    //     city: '',
+    //     serviceMode: '',
+    // });
+    // const handleInputChange = (event) => {
+    //     setFormData({
+    //         ...formData,
+    //         [event.target.name]: event.target.value,
+    //     });
+    // };
     const handleSubmit = (event) => {
 
         console.log(event);
@@ -52,117 +53,183 @@ function Hiretalent() {
         formdata.append("isFeatured", false);
         Auth.PostRequest(formdata)
             .then((response) => {
-                // console.log(response.data, "yes data update");
-                helper.sweetalert.toast("Your professional dashboard request is under review  We will notify you once it's approved.")
+                console.log(response.data, "yes data update");
+                helper.sweetalert.toast("Project Submit Sucessfully")
             })
             .catch((error) => {
                 console.log(error);
                 // Display error message to the user
             });
     };
-    useEffect(() => {
-        Switchform.Allcategory().then((response) => {
-            setGetSubCategory(response.data)
-            // console.log(response.data)
-        }
-        )
-    }, [])
+
+
+
     useEffect(() => {
         Switchform.AllCountryList().then((response) => {
             setCity(response.data)
-            // console.log(response.data)
+            console.log(response.data)
         })
     }, [])
-    useEffect(() => {
-        Staticmodal.AllSubcategorynoid().then((response) => {
-            console.log(response.data);
-            setallcity(response.data);
-        });
-    }, [])
+
+
+
+
+    const [formData, setFormData] = useState({
+        title: "",
+        projectDescription: "",
+        category: '',
+        subCategory: '',
+        country: '',
+        mobile: '',
+        currency: '',
+        budgetStart: '',
+        budgetEnd: '',
+        workType: '',
+        isFeatured: '',
+        preferService: '',
+        duration: "",
+        city: '',
+        serviceMode: '',
+    });
+
+    const [titleError, setTitleError] = useState(false);
+    const [descriptionError, setDescriptionError] = useState(false);
+
+    const titleMaxWords = 8; // Change this to your maximum word limit
+    const descriptionMinWords = 20;       // Change this to your minimum word limit
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+        validateInput(name, value);
+    };
+
+
+
+    const validateInput = (name, value) => {
+        if (name === "title" && value.split(" ").length > titleMaxWords) {
+            setTitleError(true);
+        } else {
+            setTitleError(false);
+        }
+
+        if (name === "projectDescription" && value.split(" ").length < descriptionMinWords) {
+            setDescriptionError(true);
+        } else {
+            setDescriptionError(false);
+        }
+    };
 
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1}  className='d-none d-sm-block'>
+                    <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
 
 
-                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Post a Project" />
                             <Row>
                                 <Col sm={8} className="square border-end ">
-                                    <h3 style={{marginTop:'12vh'}} className='text-center  mb-4 d-none d-sm-block '>Find talent your way</h3>
+                                    <h4 className='text-center  mb-4 mt-4 d-none d-sm-block '>Find talent your way</h4>
 
-                                    <h3 style={{marginTop:'80px'}} className='text-center  mb-4 d-block d-sm-none '>Find talent your way</h3>
+                                    <h3 style={{ marginTop: '80px' }} className='text-center  mb-4 d-block d-sm-none '>Find talent your way</h3>
+
+
                                     <form className='m-2' onSubmit={handleSubmit} >
 
-                                        <Form.Label style={{ fontSize: '18px' }}>Project Title: <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+                                        <Form.Label style={{ fontSize: '18px' }}>Project Title:  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                        </svg>  </Form.Label>
-                                        <Form.Control 
-                                            style={{ border: '2px solid lightgrey', fontSize: '16px' }} 
+                                        </svg>
+                                            <span style={{ fontSize: '13px', color: 'grey' }}>(Max {titleMaxWords} words)
+                                            </span>
+                                        </Form.Label>
+
+                                        <Form.Control
+                                            style={{ border: '2px solid lightgrey', fontSize: '16px' }}
                                             type="text" placeholder="I am looking for...."
                                             required
                                             name='title'
+                                            value={formData.title}
+                                            onChange={handleInputChange}
+
                                         />
-                                        <Form.Label className="mb-3 mt-4" style={{ fontSize: '18px' }}>Project description <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+
+                                        {titleError && <p style={{ color: 'red' }} className="error p-2">Title exceeds word limit.</p>}
+
+
+
+
+                                        <Form.Label className="mb-2 mt-4" style={{ fontSize: '18px' }}>Project description <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                        </svg> <span style={{ color: 'grey', fontSize: '10px' }}>
-                                                (Min 25 words)
+                                        </svg> <span style={{ color: 'grey', fontSize: '13px' }}>
+                                                (Min  {descriptionMinWords}  words)
                                             </span>
+
                                         </Form.Label>
-                                        <Form.Control  
+
+
+                                        <Form.Control
                                             style={{ border: '2px solid lightgrey', fontSize: '16px' }} as="textarea" rows={3} placeholder="Our requriments are...."
                                             required
+                                            type='text'
                                             name='projectDescription'
+                                            value={formData.description}
+                                            onChange={handleInputChange}
+
                                         />
 
-                                      
-                                            <Form.Label className='mb-3 mt-4' style={{ fontSize: '18px' }}>Choose a category:<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
-                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                            </svg></Form.Label>
-                                            <Row>
-                                                <Col sm={6} xs={6} >
 
-                                                    <Dropdown1 onSelect={setSelectedOption} />
-                                                </Col>
-                                                <Col sm={6} xs={6} >
+                                        {descriptionError && <p style={{ color: 'red' }} className="error p-2">Description is too short.</p>}
 
-                                                    <Dropdown2 selectedOption={selectedOption} />
 
-                                                </Col>
-                                            </Row>
-                                      
-                                            <Form.Label className='mb-3 mt-4'  style={{ fontSize: '18px' }}>Best way for us to reach you?<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
-                                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                            </svg></Form.Label>
-                                            <Row>
-                                                <Col sm={6} xs={6}>
-                                                    <select id="cars"
-                                                        style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }}
 
-                                                        name='country'
-                                                        placeholder='Category'
-                                                    >
-                                                        {
-                                                            city && city.map((categorylist) =>
-                                                                <option value={categorylist.CountryID}>{categorylist.CountryName}</option>)
-                                                        }
-                                                    </select>
-                                                </Col>
-                                                <Col sm={6} xs={6}>
-                                                    <Form.Control className='form-control-lg' style={{ border: '2px solid lightgrey', fontSize: '16px' }} type="text" placeholder="Phone Number"
+                                        <Form.Label className='mb-3 mt-4' style={{ fontSize: '18px' }}>Choose a category: <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg></Form.Label>
+                                        <Row>
+                                            <Col sm={6} xs={6} >
 
-                                                        name='mobile'
-                                                    ></Form.Control>
+                                                <Dropdown1 onSelect={setSelectedOption} />
+                                            </Col>
+                                            <Col sm={6} xs={6} >
 
-                                                </Col>
-                                            </Row>
+                                                <Dropdown2 selectedOption={selectedOption} />
 
-                                        
+                                            </Col>
+                                        </Row>
+
+                                        <Form.Label className='mb-3 mt-4' style={{ fontSize: '18px' }}>Best way for us to reach you ? <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                        </svg></Form.Label>
+                                        <Row>
+                                            <Col sm={6} xs={6}>
+                                                <select id="cars"
+                                                    style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }}
+
+                                                    name='country'
+                                                    placeholder='Category'
+                                                >
+                                                    <option value="" disabled selected>Select your Country</option>
+                                                    {
+                                                        city && city.map((categorylist) =>
+                                                            <option value={categorylist.CountryID}>{categorylist.CountryName}</option>)
+                                                    }
+                                                </select>
+                                            </Col>
+                                            <Col sm={6} xs={6}>
+                                                <Form.Control className='form-control-lg' style={{ border: '2px solid lightgrey', fontSize: '16px' }} type="text" placeholder="Phone Number"
+
+                                                    name='mobile'
+                                                ></Form.Control>
+
+                                            </Col>
+                                        </Row>
+
+
                                         <Form.Group className="mb-3 mt-4" controlId="exampleForm.ControlTextarea1">
                                             <Form.Label style={{ fontSize: '18px' }}>Preferred project budget <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                 <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
@@ -179,7 +246,7 @@ function Hiretalent() {
                                                         <option value="Dollar">Dollar</option>
                                                     </select>
 
-                                                    
+
 
 
                                                 </Col>
@@ -191,8 +258,8 @@ function Hiretalent() {
                                                             width: "-webkit-fill-available"
                                                             , height: "40px", fontSize: '16px'
                                                         }}
-                                                       
-                                                       
+
+
                                                         name='budgetStart'
 
                                                     />
@@ -204,7 +271,7 @@ function Hiretalent() {
                                                         width: "-webkit-fill-available"
                                                         , height: "40px", fontSize: '16px'
                                                     }}
-                                                       
+
                                                         name='budgetEnd'
 
                                                     /></Col>
@@ -222,9 +289,11 @@ function Hiretalent() {
                                                 </Col>
                                             </Row>
 
-                                       </Form.Group>
-                                      
-                                       <Accordion style={{ marginBottom: '20px' }} defaultActiveKey="1">
+                                        </Form.Group>
+
+
+
+                                        <Accordion style={{ marginBottom: '20px' }} defaultActiveKey="1">
                                             <Accordion.Item eventKey="0">
                                                 <Accordion.Header><p style={{ fontSize: '18px' }}><b>Advanced details</b></p> </Accordion.Header>
                                                 <Accordion.Body>
@@ -244,7 +313,7 @@ function Hiretalent() {
                                                                 <label>
                                                                     <input type="radio" name="serviceMode" class="card-input-element" />
 
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey ' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey ' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">Global</div>
 
                                                                     </div>
@@ -261,7 +330,7 @@ function Hiretalent() {
                                                                 <label>
                                                                     <input type="radio" name="serviceMode" class="card-input-element" />
 
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">Local</div>
 
                                                                     </div>
@@ -273,12 +342,16 @@ function Hiretalent() {
 
 
                                                             <Col sm={4} xs={12}>
-                                                            <select name='subCategoryId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}  >
-                                        {allCity && allCity.map((quallist) =>
-                                        <option value={quallist.GradeID}>{quallist.GradeName}</option>
-                                        
-                                        )}
-                                        </select>
+                                                                <select className='form-control-lg ' name="cars" id="cars" style={{
+                                                                    borderRadius: '5px', border: '2px solid lightgrey',
+                                                                    width: "-webkit-fill-available"
+                                                                    , height: "35px", fontSize: '16px'
+                                                                }}>
+                                                                    <option value="Business">City</option>
+                                                                    <option value="IT">IT</option>
+                                                                    <option value="Marketing">Marketing</option>
+                                                                    <option value="Lifestyle">Lifestyle</option>
+                                                                </select>
                                                             </Col>
                                                         </Row>
 
@@ -290,18 +363,18 @@ function Hiretalent() {
 
                                                                 <label>
                                                                     <input type="radio" name="duration" class="card-input-element" />
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">1 Month</div>
                                                                     </div>
                                                                 </label>
 
                                                             </Col>
                                                             <Col sm={3} xs={6} >
-                                                               
+
 
                                                                 <label>
                                                                     <input type="radio" name="duration" class="card-input-element" />
-                                                                    <div style={{ padding: '6px 10px', borderRadius: '6px', fontWeight: 500 ,border:'1px solid grey'}} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">1-3 Month</div>
                                                                     </div>
                                                                 </label>
@@ -310,20 +383,20 @@ function Hiretalent() {
 
                                                             </Col>
                                                             <Col sm={3} xs={6}>
-                                                                
+
 
                                                                 <label>
                                                                     <input type="radio" name="duration" class="card-input-element" />
-                                                                    <div style={{ padding: '6px 10px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 10px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">3-6 Month</div>
                                                                     </div>
                                                                 </label>
                                                             </Col>
                                                             <Col sm={3} xs={6} >
-                                                                
+
                                                                 <label>
                                                                     <input type="radio" name="duration" class="card-input-element" />
-                                                                    <div style={{ padding: '6px 10px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 10px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">6 Month +</div>
                                                                     </div>
                                                                 </label>
@@ -342,51 +415,43 @@ function Hiretalent() {
                                                         <Form.Label style={{ fontSize: '18px' }} className='mb-2'>Preferred service starting date:</Form.Label>
                                                         <Row>
                                                             <Col sm={3} xs={6} >
-                                                                {/* <Card >
-                                                                    <p className='m-1'> Immediate </p>
-                                                                </Card> */}
+
 
                                                                 <label>
                                                                     <input type="radio" name="preferService" class="card-input-element" />
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500 ,border:'1px solid grey'}} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">Immediate</div>
                                                                     </div>
                                                                 </label>
                                                             </Col>
                                                             <Col sm={3} xs={6}>
-                                                                {/* <Card >
-                                                                    <p className='m-1'>  1 week </p>
-                                                                </Card> */}
+
 
 
                                                                 <label>
                                                                     <input type="radio" name="preferService" class="card-input-element" />
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">1 Week </div>
                                                                     </div>
                                                                 </label>
                                                             </Col>
                                                             <Col sm={3} xs={6}>
-                                                                {/* <Card >
-                                                                    <p className='m-1'> 2 week </p>
-                                                                </Card> */}
+
 
 
                                                                 <label>
                                                                     <input type="radio" name="preferService" class="card-input-element" />
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500,border:'1px solid grey' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">2 Week</div>
                                                                     </div>
                                                                 </label>
                                                             </Col>
                                                             <Col sm={3} xs={6}>
-                                                                {/* <Card >
-                                                                    <p className='m-1'> 1 Month  </p>
-                                                                </Card> */}
+
 
                                                                 <label>
                                                                     <input type="radio" name="preferService" class="card-input-element" />
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500 ,border:'1px solid grey'}} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">1 Month</div>
                                                                     </div>
                                                                 </label>
@@ -404,24 +469,24 @@ function Hiretalent() {
                                         </Accordion>
 
                                         <center>
-                                             <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '20px' }} className='hire-button d-none d-sm-block' type='submit'><b>Submit</b></button>
+                                            <button style={{ height: '40px', borderRadius: '10px', marginBottom: '20px', padding: '0px 50px' }} className='hire-button d-none d-sm-block' type='submit'><b>Submit</b></button>
 
-                                             <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '80px' }} className='hire-button d-block d-sm-none' type='submit'><b>Submit</b></button>
+                                            <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '80px' }} className='hire-button d-block d-sm-none' type='submit'><b>Submit</b></button>
                                         </center>
 
-
-
-
-                                      
                                     </form>
+
+
                                 </Col>
-                                <Col style={{marginTop:'12vh'}} sm={4} className='hiretalentlast  d-none d-sm-block' >
+
+
+
+                                <Col sm={4} className='hiretalentlast  d-none d-sm-block' >
                                     <Card className='hiretalentlast mt-2' style={{ width: "-webkit-fill-available", border: 'none' }}>
                                         <div style={{ backgroundColor: '#efefef', borderRadius: '10px' }}>
                                             <div className=' '>
                                                 <h5 className='hire-text p-4 ' >Featured Package</h5>
-                                                {/* <p className='m-3'>Highlighted order with 'FEATURED' tag in a top position</p> */}
-                                                {/* <p className='m-3'>Direct phone number and email details of unlimited professionals</p> */}
+
                                                 <p className='m-3' style={{ color: 'black', paddingLeft: '10px' }}> Direct chat with upto 50 professional  </p>
                                                 <p className='m-3' style={{ color: 'black', paddingLeft: '10px' }}>10x changes of finding professionals with featured projects</p>
                                                 <p className='m-3' style={{ color: 'black', paddingLeft: '10px' }}>Expert Staff is assigned to understand the requirements</p>
@@ -430,11 +495,7 @@ function Hiretalent() {
                                             </div>
                                         </div>
                                     </Card>
-                                    {/* <div style={{ color: 'grey', fontWeight: 400, padding: '20px', fontSize: "16px" }}>
-                                        <span>About</span> <span>Career</span> <span>Term of services</span> <br />
-                                        <span>Conatct</span> <span>FAQ</span> <span>Blog</span>
-                                        <span>Privacy policy</span> <span> © 2023 Wiraa. All Rights Reserved</span>
-                                    </div> */}
+
 
 
                                     <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2'>
@@ -461,7 +522,7 @@ function Hiretalent() {
                                         <span style={{ paddingRight: '20px' }}>Blog</span>
 
                                         <Link to='/PrivacyPolicy'>
-                                            <span style={{ paddingRight: '10px',color:'grey' }}>Privacy policy</span>
+                                            <span style={{ paddingRight: '10px', color: 'grey' }}>Privacy policy</span>
                                         </Link>
 
                                         <span> ©️ 2023 Wiraa. All Rights Reserved</span>
@@ -477,7 +538,7 @@ function Hiretalent() {
                     </Col>
                 </Row>
             </Container>
-            <Phoneviewfooter/>
+            <Phoneviewfooter />
 
 
         </>

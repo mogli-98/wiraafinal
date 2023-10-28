@@ -5,7 +5,7 @@ import "../../asset/css/AccfooContactus.css";
 import Accountfootor from '../../Layout/Accountfooter';
 import Navbar from '../../Layout/Header';
 import { Col, Container, Row } from 'react-bootstrap';
-import { Button, TextField } from '@mui/material';
+import { Button, Link, TextField } from '@mui/material';
 
 function ContactComponent() {
 
@@ -23,7 +23,7 @@ function ContactComponent() {
               <a href="/" className="d-inline-block float-left">
               </a>
             </div>
-           
+
           </div>
         </div>
       </div>
@@ -32,82 +32,98 @@ function ContactComponent() {
         <div className="bb-contact-container">
           <div className="bb-full-width bb-contact-box">
             <div className="bb-full-width text-center">
-              <h2 style={{padding:'20px'}} className="head-welcome bb-full-width">Contact Us</h2>
+              <h2 style={{ padding: '20px', color: '#008080' }} className="head-welcome bb-full-width">Contact Us</h2>
             </div>
+
+
+
             <Container className='mt-5'>
-              <Row style={{ marginTop: '20px' }}>
-                <Col sm={3}>
-                  <label style={{ fontSize: '18px', fontWeight: 600, marginLeft: '20px' }}>Startup:</label>
-                </Col>
-                <Col sm={9}>
-                  <TextField style={{ width: '100%', marginRight: '20px' }} required id="outlined-basic" placeholder='Name' size='small' variant="outlined" />
-                </Col>
-              </Row>
-              <Row style={{ marginTop: '20px' }}>
-                <Col sm={3}>
-                  <label  style={{ fontSize: '18px', fontWeight: 600, marginLeft: '20px' }}>Country:</label>
-                </Col>
-                <Col sm={9}>
-                  <TextField required style={{ width: '100%' }} id="outlined-basic" placeholder='Country' size='small' variant="outlined" />
-                </Col>
-              </Row>
-              <Row style={{ marginTop: '20px' }}>
-                <Col sm={3}>
-                  <label style={{ fontSize: '18px', fontWeight: 600, marginLeft: '20px' }}>Email Id:</label>
-                </Col>
-                <Col sm={9}>
-                  <TextField required style={{ width: '100%' }} id="outlined-basic" type='email' placeholder='Email ID' size='small' variant="outlined" />
-                </Col>
-              </Row>
-              <Row style={{ marginTop: '20px' }}>
-                <Col sm={3}>
-                  <label style={{ fontSize: '18px', fontWeight: 600, marginLeft: '20px' }}>Phone no:</label>
-                </Col>
-                <Col sm={9}>
-                  <TextField required style={{ width: '100%' }} id="outlined-basic" type='number' placeholder='Mobile no.' size='small' variant="outlined" />
-                </Col>
-              </Row>
-              <Row style={{ marginTop: '20px', marginBottom: '20px' }}>
-                <Col sm={3}>
-                  <label style={{ fontSize: '18px', fontWeight: 600, marginLeft: '20px' }}>Note:</label>
-                </Col>
-                <Col sm={9}>
-                  <TextField style={{ width: '100%' }} id="outlined-basic" type='text' placeholder='Enter Note ' size='small' variant="outlined" />
-                </Col>
-              </Row>
-              <div fullWidth className="form-group mt-5 ">
-                <Button fullWidth style={{ backgroundColor: '#008080', color: 'white' }}   >Submit</Button>
+
+
+              <div className='m-4'>
+                <form style={{ padding: '10px 30px' }} >
+
+                  <TextField id="outlined-basic" required name='firstName' label=" First Name" fullWidth placeholder=" Your First Name" variant="outlined" />
+                  <TextField id="outlined-basic" required name='lastName' className='mt-3' label=" Last Name" fullWidth placeholder=" Your Last Name" variant="outlined" />
+                  <TextField id="outlined-basic" required name='email' className='mt-3 mb-3' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
+                  <TextField
+                    fullWidth
+                    label="Password"
+                    name="password"
+
+                    // type={showPassword ? "text" : "password"}
+                    variant="outlined"
+                  // value={formData.password}
+                  // onChange={handleInputChange}
+
+                  // InputProps={{
+                  //   endAdornment: (
+                  //     <InputAdornment position="end">
+                  //       <IconButton onClick={handleClickShowPassword}>
+                  //         {showPassword ? <VisibilityOff /> : <Visibility />}
+                  //       </IconButton>
+                  //     </InputAdornment>
+                  //   ),
+                  // }}
+                  />
+
+
+                  {/* <button type='submit' className='mt-5 btn' style={{ width: "-webkit-fill-available", backgroundColor: "#008080", color: 'white' }}><b>CREATE ACCOUNT</b></button> */}
+                  {/* <p className='text-disable text-center small mt-2'><input required type='checkbox' style={{ marginRight: '10px', cursor: 'pointer' }} />Yes, I understand and agree to Wiraa Terms and Privacy Policy</p> */}
+                  {/* <h6 className='text-center'> <b>Already a member?  <u><Link to='/Account/login'><span className='text-primary' style={{ cursor: "pointer" }}>Login</span></Link></u></b></h6> */}
+                  <div fullWidth className="form-group mt-5 ">
+                    <Button fullWidth style={{ backgroundColor: '#008080', color: 'white' }}   >Submit</Button>
+                  </div>
+                  <div>
+                    <div className="bb-contact-box-saprator text-center ">
+                      <span>Or Connect With</span>
+                    </div>
+                    {/* <div cl/assName="bb-full-width"> */}
+                    <div className="bb-contat-social-box">
+
+                      <a href="https://www.instagram.com/wiraaworld" target='blank'> <i style={{ padding: '10px' }} className="fab fa-instagram" > </i> </a>
+
+                      <a href=" https://www.linkedin.com/company/wiraa" target='blank'> <i style={{ padding: '10px' }} className="fab fa-linkedin "></i> </a>
+
+                      <a href="https://www.facebook.com/wiraaworld" target="blank"> <i style={{ padding: '10px' }} className="fab fa-facebook"></i> </a>
+
+                     
+
+
+                     
+
+                      {/* </div> */}
+                    </div>
+                    <div className="bb-full-width text-center">
+
+                      <a href="mailto:hello@wiraa.com" className="text-info bb-mail-link"> <span style={{color:'#00808'}} > hello@wiraa.com   </span> </a>
+                    </div>
+
+
+
+                  </div>
+
+                </form>
               </div>
+
             </Container>
 
 
 
-           
 
 
 
 
 
-            <div className="bb-contact-box-saprator text-center">
-              <span>Or Connect With</span>
-            </div>
+
+
 
             <div className="bb-full-width bb-contat-social-sec">
-              <div className="bb-full-width">
-                <div className="bb-contat-social-box">
-                 
-                    <i className="fab fa-instagram"></i>
-              
-                    <i className="fab fa-linkedin"></i>
-              
-                
-                    <i className="fab fa-facebook"></i>
-             
-                </div>
-              </div>
-              <div className="bb-full-width text-center">
-                <a href="mailto:hello@wiraa.com" className="text-info bb-mail-link">hello@wiraa.com</a>
-              </div>
+
+
+
+
+
             </div>
           </div>
         </div>

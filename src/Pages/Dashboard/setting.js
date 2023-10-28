@@ -53,7 +53,7 @@ function Setting() {
                 <Row>
 
                     <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenav activekey="settings" />
                     </Col>
 
 
@@ -65,7 +65,7 @@ function Setting() {
 
                             <Row>
                                 <Col sm={1}></Col>
-                                <Col style={{ marginLeft: '10px', marginTop: '12vh' }} sm={10}>
+                                <Col style={{ marginLeft: '10px',marginTop:'20px' }} sm={10}>
                                     <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>

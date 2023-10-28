@@ -7,7 +7,6 @@ import Loading from './Loading';
 function Portfolio(selectedOptions) {
   const [protfoliData, setprotfoliData] = useState([]);
   const [page, setPage] = useState(1);
-  const [getError, seterror] = useState("")
   const [loading, setLoading] = useState(true);
   console.log("data = >", selectedOptions?.data?.value)
   const fetchdata = () => {
@@ -25,15 +24,10 @@ function Portfolio(selectedOptions) {
 
         }).catch((error) => {
           console.log("error => ", error)
-          if (error.response?.status === 404) {
-            seterror("No Data Found")
-        } else {
-            seterror(error.message);
-        }
         })
       } else {
         console.log("2api")
-         PortfolioModal.Portfolio({ userProfileId, page }).then((response) => {
+        PortfolioModal.Portfolio({ userProfileId, page }).then((response) => {
           setprotfoliData(response.data)
           setprotfoliData((prev) => [...prev, ...response.data]);
         }).catch((error) => {
@@ -92,9 +86,7 @@ function Portfolio(selectedOptions) {
             "flexDirection": "row"
           }
         } onClick={fetchdata}>
-         
-        {/* <center
-        > <p className='text-center'>{getError}</p></center> */}
+
           {protfoliData && protfoliData.map((pdata) => <Portfoliocard data={pdata} />)}
           {loading && <Loading />}
         </div>

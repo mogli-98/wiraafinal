@@ -11,14 +11,14 @@ import { Col, Row } from 'react-bootstrap';
 function Accountfootor() {
     return (
         <>
-            <footer style={{position:'fixed',bottom:'0px',backgroundColor:'white'}} className="Account_footer d-flex  ">
+            <footer style={{position:'fixed',bottom:'0px',backgroundColor:'white',width:'100%'}} className="Account_footer d-flex  ">
                 <div className="container d-none d-sm-block">
                     <div className="row">
 
-                        <div className="Account_footercontent col-md-12 col-sm-12 " > {/* Center the content */}
+                        <div className="Account_footercontent" > {/* Center the content */}
 
-                            <Link to='/'><img src={Wiraalogo} alt="LOGO" /></Link>
-                            <p className='pt-3' >@2023</p>
+                            <Link style={{display:'flex',flexDirection:'row'}} to='/'><img src={Wiraalogo} alt="LOGO" /> <span style={{color:'grey',fontWeight:400,fontSize:'14px',paddingLeft:'5px'}}>@2023</span> </Link>
+                            
                             <Link to='/About Us'><p className='pt-3' >About Us</p></Link>
                             <Link to='/Termsandcondition'><p className='pt-3'>Terms & Conditions</p></Link>
                             <Link to='/PrivacyPolicy'><p className='pt-3'  >Privacy Policy</p></Link>
@@ -29,11 +29,11 @@ function Accountfootor() {
                             <Link to='/ContactComponent'><p className='pt-3'>Contact</p></Link>
 
                         </div>
-                        <div className=" Account_footercontent col-md-12 col-sm-12 " > {/* Center the content */}
+                        {/* <div className=" Account_footercontent col-md-12 col-sm-12 " > 
 
 
 
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 

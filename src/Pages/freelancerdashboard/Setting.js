@@ -41,7 +41,7 @@ function Setting() {
 
         Setting.editbusiness(form)
             .then((response) => {
-                console.log(response.data, "yes data update");
+               
 
             })
             .catch((error) => {

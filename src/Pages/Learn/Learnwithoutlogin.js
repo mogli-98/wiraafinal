@@ -10,7 +10,7 @@ import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
 import Wiraalogo from '../../asset/image/Wiraalogo.png';
 import orderpost from "../../asset/image/orderpost.png";
-import Phoneviewfooter from '../../Layout/Phoneviewfooter';
+// import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 function Learnwithoutlogin() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
@@ -34,26 +34,31 @@ function Learnwithoutlogin() {
                         {/* <Sidenav /> */}
                         <div style={{ marginLeft: '60px', display: 'flex', height: '100vh', overflow: 'scroll initial', position: 'fixed' }} className='d-none d-sm-block'>
 
-                            <img className='mt-4 p-2' style={{ marginLeft: '30px' }} width={120} src={Wiraalogo} alt="Logo" />
+                            <Link to="/">
+                                <img className='mt-4 p-2' style={{ marginLeft: '20px' }} width={120} src={Wiraalogo} alt="Logo" />
+                            </Link>
 
-
-                            <div style={{ marginLeft: '30px', marginTop: '40px' }}>
+                            <div style={{ marginLeft: '18px', marginTop: '40px' }}>
                                 <Link to='/Account/login'>
                                     <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-arrow-right-circle container-left-first " viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-                                    </svg><span className='container-left-first-span' style={{ fontSize: '30px', marginLeft: '30px' }}>Login</span>
+                                    </svg><span
+                                        // className='container-left-first-span'
+                                        style={{ fontSize: '30px', marginLeft: '30px' }}>Login</span>
                                 </Link><br />
 
                                 <Link to='/Account/singup'>
                                     <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-plus container-left-second" viewBox="0 0 16 16">
                                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                                         <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-                                    </svg><span className='container-left-first-span' style={{ fontSize: '30px' }}>  Singup </span>
+                                    </svg><span
+                                        // className='container-left-first-span'
+                                        style={{ fontSize: '30px', marginLeft: '20px' }}>  Signup </span>
                                 </Link>
                             </div>
 
 
-                            <div style={{ marginLeft: '30px', marginTop: '70px' }}>
+                            <div style={{ marginLeft: '18px', marginTop: '70px' }}>
                                 <center>
                                     <img src={orderpost} alt="" />
                                 </center>
@@ -64,16 +69,14 @@ function Learnwithoutlogin() {
 
                                 <p className='p-1' style={{ color: 'grey', fontSize: '20px', margin: '10px' }}>Accelerate your career <br /> <center>in Freelancing</center> </p>
                             </div>
-
-
-
-
-
                         </div>
+
+
+
                     </Col>
                     <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <div style={{position:'fixed',backgroundColor:'white',zIndex:100,width:'65%',top:'0px'}} className='d-none d-sm-block'>
+                            <div style={{ backgroundColor: 'white', zIndex: 100, width: '65%', top: '0px' }} className='d-none d-sm-block'>
                                 <h2 className='pt-4 '>Learn</h2>
                                 <hr style={{ color: 'grey' }} />
 
@@ -120,7 +123,7 @@ function Learnwithoutlogin() {
                                     </div>
                                 </div>
 
-                                    <hr style={{ color: 'grey' }} />
+                                <hr style={{ color: 'grey' }} />
 
 
                             </div>
@@ -130,27 +133,29 @@ function Learnwithoutlogin() {
 
 
                             <Row >
-                                <Col style={{marginTop:'80px'}} sm={8} className='scrollable squarew '  >
-                                    <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
+                                <Col sm={8} className='scrollable squarew '  >
+                                    <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "25px" }}>{courseList?.[0]?.CourseTitle}</h4>
 
                                     <div className='d-block d-sm-none'>
                                         <img src={model} alt="" style={{ width: "100%", marginTop: '65px' }} className='p-2' />
                                     </div>
                                     <h5 className='d-block d-sm-none pt-4 ' style={{ padding: "5px" }}>{courseList?.[0]?.CourseTitle}</h5>
 
-                                    <p className='text-disable mt-2' style={{ padding: '15px', fontSize: "15px", color: "grey", paddingTop: "5px" }}>{courseList?.[0]?.CourseDescription}</p>
+                                    <p className='text-disable ' style={{ padding: ' 0px 15px', fontSize: "18px", color: "grey" }}>{courseList?.[0]?.CourseDescription}</p>
                                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                                         <p>
                                             <span style={{ color: "grey", fontSize: "16px" }}>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-globe2" viewBox="0 0 16 16" style={{ marginLeft: "18px", marginRight: "5px", color: "grey" }}>
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" className="bi bi-globe2" viewBox="0 0 16 16" style={{ marginLeft: "18px", marginRight: "5px", color: "grey" }}>
                                                     <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855-.143.268-.276.56-.395.872.705.157 1.472.257 2.282.287V1.077zM4.249 3.539c.142-.384.304-.744.481-1.078a6.7 6.7 0 0 1 .597-.933A7.01 7.01 0 0 0 3.051 3.05c.362.184.763.349 1.198.49zM3.509 7.5c.036-1.07.188-2.087.436-3.008a9.124 9.124 0 0 1-1.565-.667A6.964 6.964 0 0 0 1.018 7.5h2.49zm1.4-2.741a12.344 12.344 0 0 0-.4 2.741H7.5V5.091c-.91-.03-1.783-.145-2.591-.332zM8.5 5.09V7.5h2.99a12.342 12.342 0 0 0-.399-2.741c-.808.187-1.681.301-2.591.332zM4.51 8.5c.035.987.176 1.914.399 2.741A13.612 13.612 0 0 1 7.5 10.91V8.5H4.51zm3.99 0v2.409c.91.03 1.783.145 2.591.332.223-.827.364-1.754.4-2.741H8.5zm-3.282 3.696c.12.312.252.604.395.872.552 1.035 1.218 1.65 1.887 1.855V11.91c-.81.03-1.577.13-2.282.287zm.11 2.276a6.696 6.696 0 0 1-.598-.933 8.853 8.853 0 0 1-.481-1.079 8.38 8.38 0 0 0-1.198.49 7.01 7.01 0 0 0 2.276 1.522zm-1.383-2.964A13.36 13.36 0 0 1 3.508 8.5h-2.49a6.963 6.963 0 0 0 1.362 3.675c.47-.258.995-.482 1.565-.667zm6.728 2.964a7.009 7.009 0 0 0 2.275-1.521 8.376 8.376 0 0 0-1.197-.49 8.853 8.853 0 0 1-.481 1.078 6.688 6.688 0 0 1-.597.933zM8.5 11.909v3.014c.67-.204 1.335-.82 1.887-1.855.143-.268.276-.56.395-.872A12.63 12.63 0 0 0 8.5 11.91zm3.555-.401c.57.185 1.095.409 1.565.667A6.963 6.963 0 0 0 14.982 8.5h-2.49a13.36 13.36 0 0 1-.437 3.008zM14.982 7.5a6.963 6.963 0 0 0-1.362-3.675c-.47.258-.995.482-1.565.667.248.92.4 1.938.437 3.008h2.49zM11.27 2.461c.177.334.339.694.482 1.078a8.368 8.368 0 0 0 1.196-.49 7.01 7.01 0 0 0-2.275-1.52c.218.283.418.597.597.932zm-.488 1.343a7.765 7.765 0 0 0-.395-.872C9.835 1.897 9.17 1.282 8.5 1.077V4.09c.81-.03 1.577-.13 2.282-.287z" />
                                                 </svg> English</span>
                                         </p>
 
                                         <p>
-                                            <span style={{ float: "right", marginRight: '20px' }}> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-heart" viewBox="0 0 16 16">
+                                            <span style={{ float: "right", marginRight: '20px' }}>
+                                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-heart" viewBox="0 0 16 16">
                                                 <path d="M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276Z" />
-                                            </svg> 11,222 student</span>
+                                            </svg>  */}
+                                                <span style={{ fontWeight: 600, fontSize: "16px" }}> 11,222 </span> <span style={{ fontSize: '15px', color: 'grey' }}> student</span>   </span>
                                         </p>
 
                                     </div>
@@ -169,12 +174,13 @@ function Learnwithoutlogin() {
                                     </Card>
 
                                     <Row className='d-none d-sm-block'>
-                                        <p className='mt-4' style={{ fontSize: "18px", paddingLeft: "35px" }}><b>Course Include :</b></p>
+
                                         <Col sm={12} >
+                                            <p className='mt-5' style={{ fontSize: "18px", paddingLeft: "35px" }}><b>Course Include :</b></p>
                                             <Row>
                                                 <Col sm={6}>
-                                                    <ul style={{ paddingLeft: '40px' }}>
-                                                        <li style={{ listStyle: 'none', color: 'black', fontWeight: 600, marginTop: '12px' }}>
+                                                    <ul style={{ paddingLeft: '30px' }}>
+                                                        <li style={{ listStyle: 'none', color: 'black', fontWeight: 600, marginTop: '6px' }}>
                                                             <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
                                                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
                                                                 <path d="M6.271 5.055a.5.5 0 0 1 .52.038l3.5 2.5a.5.5 0 0 1 0 .814l-3.5 2.5A.5.5 0 0 1 6 10.5v-5a.5.5 0 0 1 .271-.445z" />
@@ -278,51 +284,59 @@ function Learnwithoutlogin() {
                                         </Col>
                                     </Row>
 
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <p className='mt-1 d-none d-sm-block' style={{ fontSize: "18px", paddingLeft: "28px", fontWeight: "600" }}>Course Content :</p>
-                                        <p className='mt-3 d-block d-sm-none' style={{ fontSize: "14px", paddingLeft: "20px", marginRight: '20px', fontWeight: "600" }}>Course Content :</p>
-                                        <p style={{ color: 'grey', paddingRight: '20px' }} >  8 Modules | 70 Lectures | 20 Hours </p>
+
+                                    <Card style={{backgroundColor:'ButtonHighlight',border:'none',boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)'}}>
+
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <p className='mt-4 d-none d-sm-block' style={{ fontSize: "18px", paddingLeft: "28px", fontWeight: "600" }}>Course Content :</p>
+                                            <p className='mt-3 d-block d-sm-none' style={{ fontSize: "14px", paddingLeft: "20px", marginRight: '20px', fontWeight: "600" }}>Course Content :</p>
+                                            <p style={{ color: 'grey', paddingRight: '20px',marginTop:'20px' }} >  8 Modules | 70 Lectures | 20 Hours </p>
+                                        </div>
+
+
+
+                                        <Accordion  flush>
+                                            {courseListdetails && courseListdetails.map((details) =>
+                                                <Accordion.Item style={{ backgroundColor: 'ButtonHighlight' }} eventKey={details.UnqId}>
+                                                    <Accordion.Header>{details.ModuleTitle}</Accordion.Header>
+                                                    <Accordion.Body style={{ display: 'flex' }}>
+                                                        <div>
+                                                            <Link to={details.ModuleURL}><img src={Test} alt="" style={{ height: "20vh", padding: '10px' }} />
+                                                            </Link>
+                                                        </div>
+
+                                                        <div style={{ marginLeft: '10px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontWeight: 500 }}>
+                                                            {details.ModuleDescription}
+                                                        </div>
+
+
+                                                    </Accordion.Body>
+                                                </Accordion.Item>
+                                            )}
+
+                                        </Accordion>
+                                    </Card>
+                                    <p className='mt-4 p-2' style={{ fontSize: '18px', color: 'black', marginLeft: '10px' }}> <b> Who you will learn with?</b> </p>
+
+                                    <div className='d-none d-sm-block ' style={{ marginBottom: '40px' }} ><img src={Test} alt="" style={{ marginLeft: '20px', height: "12vh", borderRadius: '50%', width: "13vh" }} /> <span style={{ fontWeight: 500, fontSize: '18px', marginLeft: '30px' }} >{courseList?.[0]?.AuthorName}</span>
+                                        <br />
+                                        <p style={{ paddingTop: '3vh' }}>{courseList?.[0]?.AuthorDescription}</p>
+
                                     </div>
 
 
-
-                                    <Accordion flush>
-                                        {courseListdetails && courseListdetails.map((details) =>
-                                            <Accordion.Item eventKey={details.UnqId}>
-                                                <Accordion.Header>{details.ModuleTitle}</Accordion.Header>
-                                                <Accordion.Body>
-                                                    <Link to={details.ModuleURL}><img src={Test} alt="" style={{ height: "13vh", }} /></Link>{details.ModuleDescription}
-                                                </Accordion.Body>
-                                            </Accordion.Item>
-                                        )}
-                                        {/* <Accordion.Item eventKey={courseListdetails.UnqId}>
-                                            <Accordion.Header>BEGINNERS MODULE</Accordion.Header>
-                                            <Accordion.Body>
-                                                This module is designed to provide a comprehensive guide for individuals who are interested in starting their freelance careers. The module will cover essential topics such as benefits, pros and cons, and challenges of freelancing.
-                                            </Accordion.Body>
-                                        </Accordion.Item> */}
-                                    </Accordion>
-
-                                    <p className='mt-2 p-2' style={{ fontSize: '18px', color: 'black', marginLeft: '10px' }}> <b> Who you will learn with?</b> </p>
-
-                                    <div className='d-none d-sm-block' style={{ marginBottom: '40px' }} ><img src={Test} alt="" style={{ height: "13vh", borderRadius: '50%', width: "13vh" }} /> <span>{courseList?.[0]?.AuthorName}</span>
+                                    <div className='d-block d-sm-none' style={{ marginBottom: '100px' }} ><img src={Test} alt="" style={{ height: "13vh", borderRadius: '50%', width: "13vh" }} /> <span style={{ fontWeight: 500, fontSize: '18px' }}  >{courseList?.[0]?.AuthorName}</span>
                                         <br />
-                                        <span style={{ marginLeft: '13vh', width: '80%' }}>{courseList?.[0]?.AuthorDescription}</span>
-
-                                    </div>
-
-
-                                    <div className='d-block d-sm-none' style={{ marginBottom: '100px' }} ><img src={Test} alt="" style={{ height: "13vh", borderRadius: '50%', width: "13vh" }} /> <span>{courseList?.[0]?.AuthorName}</span>
-                                        <br />
-                                        <span style={{ marginLeft: '13vh', width: '80%' }}>{courseList?.[0]?.AuthorDescription}</span>
+                                        <span style={{ marginLeft: '13vh', width: '80%', fontSize: '16px' }}>{courseList?.[0]?.AuthorDescription}</span>
 
                                     </div>
 
 
 
                                 </Col>
+
                                 <Col className='d-none d-sm-block' sm={4} >
-                                    <Card className=' mb-4 shadow-2 ' style={{position: 'fixed', top: '20px', width: '20%',marginTop:'80px',  boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
+                                    <Card className=' mb-4 shadow-2 ' style={{ position: 'fixed', top: '20px', width: '20%', marginTop: '80px', boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
                                         <img src={model} alt="" style={{ width: "100%" }} className='p-2' />
                                         <ul style={{ listStyle: "none", paddingLeft: '20px' }}>
                                             <p className='mt-2' style={{ fontSize: '16px', fontWeight: 600, color: 'black' }}> <b>This Course includes : </b>  </p>
@@ -370,7 +384,11 @@ function Learnwithoutlogin() {
                                                     </span>
                                                 </p>
 
-                                                <button style={{ height: '35px', width: '160px', marginBottom: "40px", marginRight: '80px' }} className='model-button'> Buy Now</button>
+                                                <Link to="/Account/singup">
+                                                    <button style={{ height: '35px', width: '160px', marginBottom: "40px", marginRight: '80px' }} className='model-button'> Buy Now</button>
+                                                </Link>
+
+
                                             </center>
                                         </div>
 
@@ -383,11 +401,14 @@ function Learnwithoutlogin() {
                                     <div className='p-2' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'ButtonHighlight' }} >
                                         <p style={{ display: 'flex', alignItems: 'center', paddingTop: '10px' }}>
                                             <span style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
-                                            <span className=' pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080' }}>₹4999 </b>
+                                            <span className='pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080' }}>₹4999 </b>
                                             </span>
                                         </p>
+                                        <Link to="/Account/singup">
+                                            <button style={{ height: '35px', fontSize: '18px' }} className='model-button'> Buy Now</button>
+                                        </Link>
 
-                                        <button style={{ height: '35px', fontSize: '18px' }} className='model-button'> Buy Now</button>
+
                                     </div>
                                 </div>
 

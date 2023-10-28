@@ -30,14 +30,14 @@ function Project() {
             <Container fluid className='dashboard-conatiner-top ' >
                 <Row>
                     <Col sm={1} xs={2} className='d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenav activekey="module" />
                     </Col>
                     <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Learn"/>
                             <Row >
                                 <Col sm={8} className='scrollable squarew '  >
-                                    <h4 className='d-none d-sm-block' style={{marginTop:'12vh', padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
+                                    <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
 
                                     <div  className='d-block d-sm-none'>
                                         <img src={model} alt="" style={{ width: "100%",marginTop:'80px' }} className='p-2' /> 

@@ -98,15 +98,15 @@ function SwitchAccount() {
                     <Col sm={1} className='d-none d-sm-block'>
                         <Sidenav />
                     </Col>
-                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav />
                             <Row>
-                                <Col sm={8} style={{padding:'0px'}} className=" square border-end mt-4">
+                                <Col sm={8} style={{ padding: '0px' }} className=" square border-end mt-4">
 
-                                    <h5 style={{marginTop:'12vh'}} className='text-center d-none d-sm-block'>Find great works</h5>
+                                    <h5 className='text-center d-none d-sm-block'>Find great works</h5>
 
-                                    <h5 style={{marginTop:'70px'}} className='text-center d-block d-sm-none'>Find great works</h5>
+                                    <h5 style={{ marginTop: '70px' }} className='text-center d-block d-sm-none'>Find great works</h5>
 
                                     <form onSubmit={handleSubmit} className='m-4'>
                                         <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
@@ -115,9 +115,9 @@ function SwitchAccount() {
                                             </svg></Form.Label>
                                             <div>
                                                 <Card style={{ backgroundColor: "#efefef", border: 'none', display: 'flex', justifyContent: 'center' }}>
-                                                    <p className='m-2' style={{ fontSize: '15px', marginLeft: '20px',display:'flex',alignItems:'center',justifyContent:'space-between' }}>  <span > Update your latest image </span>  <span>
+                                                    <p className='m-2' style={{ fontSize: '15px', marginLeft: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>  <span > Update your latest image </span>  <span>
 
-                                                        <Button style={{ color: 'white', backgroundColor: '#008080', border: 'none', float: 'right', fontWeight: 500,paddingLeft:'20px',paddingRight:'20px' }} class="- btn">
+                                                        <Button style={{ color: 'white', backgroundColor: '#008080', border: 'none', float: 'right', fontWeight: 500, paddingLeft: '20px', paddingRight: '20px' }} class="- btn">
                                                             Upload
                                                             <input className='inputselectfile' type="file" name="file" />
                                                         </Button>
@@ -136,8 +136,7 @@ function SwitchAccount() {
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg>
                                                     </Form.Label>
-                                                    <Form.Control placeholder="Your Name"
-
+                                                    <Form.Control placeholder="Your Name" required
                                                         className='formborder' style={{ paddingLeft: '20px', fontSize: '15px' }} />
                                                 </Form.Group>
 
@@ -147,10 +146,12 @@ function SwitchAccount() {
                                                     <Form.Label> <span style={{ fontSize: '16px' }}>Phone No.: </span>   <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg></Form.Label>
+
                                                     <Form.Control
+                                                   
                                                         onChange={handleInputChange}
                                                         required
-                                                        placeholder="Your Phone No." name='mobile' className='formborder' style={{ paddingLeft: '20px', fontSize: '15px' }} />
+                                                        placeholder="Your Phone No." name='mobile' type='number' className='formborder' style={{ paddingLeft: '20px', fontSize: '15px' }} />
                                                 </Form.Group>
 
 
@@ -188,7 +189,7 @@ function SwitchAccount() {
                                                     <Form.Label className=''> <span style={{ fontSize: '16px' }}> Country: </span>  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg></Form.Label>
-                                                    <AllCountryList  onSelect={setSelectedOption} />
+                                                    <AllCountryList onSelect={setSelectedOption} />
                                                 </Col>
 
 
@@ -198,11 +199,14 @@ function SwitchAccount() {
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg></Form.Label> */}
 
-                                                    <Form.Label className=''> <span style={{ fontSize: '16px' }}>City: </span>  <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
-                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
-                                                    </svg></Form.Label>
+                                                    <Form.Label className=''>
+                                                        <span style={{ fontSize: '16px' }}>City: </span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                        </svg></Form.Label>
 
-                                                    <AllCitylistID  selectedOption={selectedOption} />
+                                                    <AllCitylistID selectedOption={selectedOption} />
+
                                                 </Col>
                                             </Row>
 
@@ -215,7 +219,7 @@ function SwitchAccount() {
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg></Form.Label>
                                                     <select id="cars"
-                                                        style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px",padding:'4px' }}
+                                                        style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px", padding: '4px' }}
                                                         // onChange={handleDropdownChange}
                                                         name='occupationId'
                                                         onChange={handleInputChange}
@@ -240,7 +244,7 @@ function SwitchAccount() {
 
                                                     <select id="cars"
                                                         onChange={handleInputChange}
-                                                        style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px",padding:'4px' }}
+                                                        style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px", padding: '4px' }}
                                                         // onChange={handleDropdownChange}
                                                         name='qualificationId'
                                                         placeholder='Category'
@@ -278,21 +282,21 @@ function SwitchAccount() {
                                             )}
                                         </Row>
                                         <center>
-                                            <Link to='/Professionalsdashboard'>
-                                            <button style={{ fontWeight: 600, padding: '8px', marginTop: '20px', border: 'none', backgroundColor: '#008080', width: '160px', borderRadius: '8px', color: 'white',marginBottom:'10vh' }} className=''>Submit</button>
-                                            
-                                            </Link>
+                                            {/* <Link to='/Professionalsdashboard'> */}
+                                            <button style={{ fontWeight: 600, padding: '8px', marginTop: '20px', border: 'none', backgroundColor: '#008080', width: '160px', borderRadius: '8px', color: 'white', marginBottom: '10vh' }} className=''>Submit</button>
+
+                                            {/* </Link> */}
                                         </center>
                                     </form>
                                 </Col>
-                                <Col style={{marginTop:'12vh'}} sm={4} className='p-1 d-none d-sm-block' >
+                                <Col sm={4} className='p-1 d-none d-sm-block' >
                                     <div className='last-left-span' style={{ backgroundColor: '#f5f5f5', width: "-webkit-fill-available" }} >
                                         <div className=''>
                                             <center><img style={{ height: '80px', width: '80px' }} src={bookbulb} alt="" className='switchaccount-img' />
                                                 <h5 style={{ fontSize: '25px' }} className='switch-text'><b>Advance <br /> Freelancing <br /> Course</b></h5>
                                                 <p style={{ fontSize: '19px', color: 'grey' }}>Polish your skills and expand<br />your knowledge base</p>
 
-                                                <button className='switch-button'>Learn</button>
+                                                <button style={{ padding: '6px 40px' }} className='switch-button'>Learn</button>
                                             </center>
 
                                         </div>

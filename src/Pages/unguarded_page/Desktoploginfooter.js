@@ -12,24 +12,24 @@ export default function Desktoploginfooter() {
           <span style={{ paddingRight: '10px', color: 'grey' }}>
             About </span>
         </Link>
-        <Link to='/Career'>
+        <Link to='/Career' target='blank'>
           <span style={{ paddingRight: '10px', color: 'grey' }}>Career</span>
         </Link>
-
-        <Link to='/Termsandcondition'>
-          <span style={{ color: 'grey' }}>Term of services</span>
+        <Link to='/ContactComponent'>
+          <span style={{ paddingRight: '10px', color: 'grey' }}>Conatct</span>
         </Link>
+        
 
         <br />
 
-        <Link to='/ContactComponent'>
-          <span style={{ paddingRight: '20px', color: 'grey' }}>Conatct</span>
+     
+{/* 
+        <span style={{ paddingRight: '10px' }}>FAQ</span>
+
+        <span style={{ paddingRight: '10px' }}>Blog</span> */}
+        <Link to='/Termsandcondition'>
+          <span style={{ color: 'grey' }}>Term of services</span>
         </Link>
-
-        <span style={{ paddingRight: '20px' }}>FAQ</span>
-
-        <span style={{ paddingRight: '20px' }}>Blog</span>
-
         <Link to='/PrivacyPolicy'>
           <span style={{ paddingRight: '10px', color: 'grey' }}>Privacy policy</span>
         </Link>

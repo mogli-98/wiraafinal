@@ -42,13 +42,17 @@ function Orderdetailsbrief() {
                 fontSize: '14px',
                 fontWeight: 400,
                 display: 'flex',
-                justifyContent: 'center',
+                // justifyContent: 'center',
+               
                 backgroundColor: '#eee'
             },
         },
         Cell: {
             style: {
                 border: '1px solid lightgrey',
+                paddingLeft:'30px',
+                // justifyContent: 'center',
+                // display: 'flex',
             },
         },
     };
@@ -70,15 +74,15 @@ function Orderdetailsbrief() {
                         <Link to={`/Orderdetailsbreief/${row.PostreqID}`}>{row.Title}</Link></div>
                 )
             },
-            maxWidth: "470px",
+            width: "370px",
         },
         {
             name: 'Budget',
             selector: (row) => row.Budget,
-            maxWidth: "180px",
-            cell:row =>{
+           
+            cell: row => {
                 return <>
-                <span >₹ {row.Budget}</span>
+                    <span >₹ {row.Budget}</span>
                 </>
             }
         },
@@ -88,7 +92,7 @@ function Orderdetailsbrief() {
             cell: row => {
                 return <div> {moment(row.ApplyDate).format('DD/MM/YYYY')} </div>
             },
-            maxWidth: "140px",
+          
         },
         {
             name: 'Due Date',
@@ -96,7 +100,7 @@ function Orderdetailsbrief() {
             cell: row => {
                 return <div> {moment(row.DueDate).format('DD/MM/YYYY')} </div>
             },
-            maxWidth: "140px",
+            width: "140px",
         },
         {
             name: '',
@@ -107,7 +111,7 @@ function Orderdetailsbrief() {
                     return <><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="red" class="bi bi-dot" viewBox="0 0 16 16">
                         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
                     </svg></>;
-                } else if (row.Status === 'Open') {
+                } else if (row.Status === 'Active') {
                     return <><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" class="bi bi-dot" viewBox="0 0 16 16">
                         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
                     </svg></>;
@@ -126,25 +130,21 @@ function Orderdetailsbrief() {
     }, [])
     const borderRightColor = status === 'closed' ? 'red' : 'black';
     return (
-        <>
+
             <>
                 <Container fluid className='dashboard-conatiner-top' >
                     <Row>
                         <Col sm={1} className='d-none d-sm-block'>
-                            <Sidenav  />
+                            <Sidenav activekey="order" />
                         </Col>
-
-
-                        <Col sm={8} xs={12} className='dashboard-conatiner-top-row  '>
-                            <Topnav activeLink="Orders" />
-
-                            <Col  className='d-block d-sm-none'>
+                        <Col sm={8} xs={12} className='dashboard-conatiner-top-row' style={{ padding: '0px' }} >
+                            <Col className='d-block d-sm-none'>
 
                                 <div>
                                     <Link to="/Hiretalent">
 
 
-                                        <button className='mb-4 p-3' style={{ width: '100%', border: 'none', borderRadius: '8px', backgroundColor: '#008080',marginTop:'80px' }} >
+                                        <button className='mb-4 p-3' style={{ width: '100%', border: 'none', borderRadius: '8px', backgroundColor: '#008080', marginTop: '80px' }} >
                                             <span style={{ fontWeight: '600', color: 'white' }}>
                                                 Post a request - Hire talents
                                             </span>
@@ -154,18 +154,20 @@ function Orderdetailsbrief() {
                                 </div>
 
                             </Col>
-
-
                             <Container className='square border border-bottom-0 d-none d-sm-block'>
+                            <Topnav activeLink="Orders" />
 
                                 <Row>
 
-                                    <Col style={{marginTop:'12vh'}} >
-                                        <Card  className='dashboradfree-card-top mt-3'>
+                                    <Col  >
+                                        <Card className='dashboradfree-card-top mt-3'>
                                             <div className='dashboradfree-card-top-div'>
-                                                <button style={{marginLeft:'30px'}} className='freedashboard-create'><Link style={{ color: '#008080' }} to='/Hiretalent'>Post a request</Link></button>
+                                                <Link style={{ color: '#008080' }} to='/Hiretalent'>
+                                                    <button style={{ marginLeft: '30px', padding: '4px 35px' }} className='freedashboard-create'>Post a request</button>
+                                                </Link>
+
                                                 <img src={orderpost} alt="" className='freedashboard-top-img' />
-                                                <p ><b style={{ fontSize: '22px' }}>Connect with qualified professionals</b></p>
+                                                <p ><b style={{ fontSize: '20px' }}>Connect with qualified professionals</b></p>
                                             </div>
                                         </Card>
                                     </Col>
@@ -194,12 +196,12 @@ function Orderdetailsbrief() {
 
 
 
-                                <Card className='d-block d-sm-none' style={{ marginBottom:'50px',padding:'0px',backgroundColor: 'ButtonHighlight', Width: '100%',  borderRadius: '25px', borderEndEndRadius: '0px', borderEndStartRadius: '0px', border: 'none', cursor: 'pointer' }}>
+                                <Card className='d-block d-sm-none' style={{ marginBottom: '50px', padding: '0px', backgroundColor: 'ButtonHighlight', Width: '100%', borderRadius: '25px', borderEndEndRadius: '0px', borderEndStartRadius: '0px', border: 'none', cursor: 'pointer' }}>
                                     <Col xs={12}>
                                         {oederTable && oederTable.map((tableitem) =>
                                             <Link to={`/Orderdetailsbreief/${tableitem.PostreqID}`}>
 
-                                                <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)'}}>
+                                                <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
 
                                                     <h5>{tableitem.Title}</h5>
 
@@ -279,7 +281,7 @@ function Orderdetailsbrief() {
                 </Container >
                 <Phoneviewfooter />
             </>
-        </>
+
     )
 }
 

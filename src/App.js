@@ -14,18 +14,16 @@ import Profiledetails from './Pages/Dashboard/layout/profiledetails';
 import Projectdetails from './Pages/Home/projectdetails';
 import Index from './Pages/Learn/index';
 import Setting from './Pages/Dashboard/setting';
-import Setting1 from './Pages/freelancerdashboard/Setting';
 import SwitchAccount from './Pages/Dashboard/switchaccount';
 import Hiretalent from './Pages/Dashboard/hiretalent';
 import Order from './Pages/Dashboard/Order/order';
-import Ordertable from './Pages/Dashboard/Order/ordertable'
+// import Ordertable from './Pages/Dashboard/Order/ordertable'
 import Orderdetails from './Pages/Dashboard/Order/orderdetails';
 import Messaages from './Pages/Dashboard/message';
 import Notification from './Pages/Dashboard/notification';
 import Dashboardfreelancer from "./Pages/freelancerdashboard/dashboardfreelancer"
 import Community from './Pages/freelancerdashboard/Community';
-import Package from './Pages/Dashboard/package';
-import Package1 from './Pages/freelancerdashboard/package';
+import Package from './Pages/freelancerdashboard/package';
 import Orderdetailsbrief from './Pages/Dashboard/Order/orderdetailsbrief';
 import Editprofile from './Pages/freelancerdashboard/editprofile';
 import Quesans from './Pages/freelancerdashboard/quesans';
@@ -39,8 +37,13 @@ import Module from './Pages/Dashboard/package';
 import Aboutus from './Pages/unguarded_page/about';
 import Userproject from './Pages/freelancerdashboard/userproject';
 import Chat from './Pages/Dashboard/chat';
+
 import Nonotifiy from './Pages/Dashboard/notify/Nonotify';
+import Nonotifiyy from './Pages/freelancerdashboard/nootify/Nonotify';
+
 import Notificationn from './Pages/Dashboard/notify/Notification';
+import Notificationnn from './Pages/freelancerdashboard/nootify/Notification';
+
 import Viewprofile from './Pages/Dashboard/viewprofile';
 import MyAffiliations from './Pages/Affiliations/myaffi';
 import Affiliate from './Pages/Affiliations/Affiliate';
@@ -51,18 +54,18 @@ import WiraaStartup from './Pages/Landingpage/Wiraastartup';
 import './App.css';
 import PrivacyPolicy from './Pages/unguarded_page/Privacypolicy';
 import ContactComponent from './Pages/unguarded_page/AccfooContactus';
+import Packages from './Pages/Dashboard/package';
 import ProfessionalServiceAgreement from './Pages/unguarded_page/ProfessionalAgreement';
 import UserAgreement from './Pages/unguarded_page/UserAgreement';
 import Unreadnotification from './Pages/Dashboard/Unreadnotification';
+import Unreadnotificationn from './Pages/freelancerdashboard/Unreadnotification';
 import FreeProjectdetails from './Pages/freelancerdashboard/freeproject/FreeProject';
 import TermsandCondition from './Pages/unguarded_page/Termsandcondition';
 import Learnwithoutlogin from './Pages/Learn/Learnwithoutlogin';
 import Messagebox from './Pages/freelancerdashboard/Messagebox';
-import LearnModule from './Pages/freelancerdashboard/LearnModule';
-import UnreadnotificationUser from './Pages/freelancerdashboard/Unreadnotificationuser';
-import Notificationuser from './Pages/freelancerdashboard/notificationuser';
-import Notifyuser from './Pages/freelancerdashboard/notifyuser/Nonotifyuser';
-import Nonotiftyyuser from './Pages/freelancerdashboard/notifyuser/Notificationuser';
+import Modulee from './Pages/freelancerdashboard/Modulee';
+import Settingss from './Pages/freelancerdashboard/Settingss';
+// import Nonotiftyy from './Pages/freelancerdashboard/nootify/Notification';
 
 function App() {
   return (
@@ -93,7 +96,7 @@ function App() {
               <Route path='/user/dashboard'  element={<Dashboard />}/>
             {/* Order page link*/}
               <Route path='/Order' element={<Order/>}/>
-              <Route path='/Ordertable' element={<Ordertable/>}/>
+              {/* <Route path='/Ordertable' element={<Ordertable/>}/> */}
               <Route path='/Orderdetails/:id' element={<Orderdetails/>}/>
               <Route path='/Orderdetailsbreief/:id' element={<Orderdetailsbrief/>}/>
             {/*project page link*/}
@@ -102,29 +105,40 @@ function App() {
               <Route path='/user/Projectdetails' element={<Dashprojectdetails/>}/>
               <Route path='/Home/StartUp' element={<StartUp/>} />
             {/* Leran page link */} 
+
+              <Route path='Packages' element={<Packages/>}/>
               <Route path='/Notification' element={<Nonotifiy/>} />
+
+              <Route path='/Notifications' element={<Nonotifiyy/>} />
+             
+
               <Route path='/User/Notification' element={<Notificationn/>}/>
+              <Route path='/Uses/Natification' element={<Notificationnn/>}/>
+
               <Route path='/User/Notifications' element={<Unreadnotification/>}/>
-              <Route path='/Notifications' element={<Notifyuser/>} />
-              <Route path='/User/Notificationss' element={<Nonotiftyyuser/>}/>
-              <Route path='/Users/Notifications' element={<UnreadnotificationUser/>}/>
+              <Route path='/Users/Notificationss' element={<Unreadnotificationn/>}/>
+
+              <Route path='/Notification' element={<Notification />}/>
+              <Route path='/Notificationss' element={<Notification />}/>
+
+
               <Route path='/Profile' element={<Viewprofile/>} />
               <Route path='/Module' element={<Modulle/>}/>
-              <Route path='/Learns' element={<LearnModule/>}/>
+              <Route path='/Modulee' element={<Modulee/>}/>
               <Route path='/Learrn' element={<Learnwithoutlogin/>}/>
               <Route path='/Module' element={<Module/>}/>
               <Route path='/user/Setting' element={<Setting/>}/>
-              <Route path='/Setting' element={<Setting1/>}/>
+              <Route path='/Settingss' element={<Settingss/>}/>
+
               <Route path='/Switchaccount' element={<SwitchAccount/>}/>
               <Route path='/Hiretalent' element={<Hiretalent/>}/>
               <Route path='/Project/ProjectDetails' element={<Projectdetails/>} />
               <Route path='/Message' element={<Messaages/>}/>
               <Route path='/Messagebox' element={<Messagebox/>}/>
-              <Route path='/Notification' element={<Notification />}/>
+              
               <Route path='/Professionalsdashboard' element={<Dashboardfreelancer/>}/>
               <Route path='/Community' element={<Community/>} />
               <Route path='/Package' element={<Package/>} />
-              <Route path='/Packages' element={<Package1/>} />
               {/* <Route path ='/Editp'/> */}
               <Route path='/Editproflie' element={<Editprofile/>}/>
               <Route path='/Switchaccount-next' element={<Moreprof/>}/>

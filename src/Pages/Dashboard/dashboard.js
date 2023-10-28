@@ -13,12 +13,21 @@ import Select from "react-select";
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
-function Dashboard(name ,) {
+function Dashboard(name ) {
+    const [inputValue, setInputValue] = useState("");
+  const [selectedOption, setSelectedOption] = useState(null);
     const handleChange = (selectedOption) => {
         console.log('Selected option:', selectedOption);
-        // You can perform any action with the selectedOption here
         setSelectedOptions(selectedOption)
     };
+    const handleInputChange = (inputValue) => {
+        setInputValue(inputValue);
+      };
+        const filterOptions = (inputValue) => {
+    return options.filter((option) =>
+      option.label.toLowerCase().includes(inputValue.toLowerCase())
+    );
+  };
     const [options, setSubCategory] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState();
     const [showComponent, setShowComponent] = useState(false);
@@ -41,10 +50,12 @@ function Dashboard(name ,) {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav />
+
+                        <Sidenav activekey="home"   />
                     </Col>
+                    
                     <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
-                        <Container style={{padding:'0px'}}  className='square border border-bottom-0'>
+                        <Container  className='square border border-bottom-0'>
                             <Topnav activeLink="Home" />
 
 
@@ -69,20 +80,23 @@ function Dashboard(name ,) {
 
 
                                 <Col className='d-none d-sm-block'>
-                                    <div style={{ display: "flex", backgroundColor: '#efefef', borderRadius: "30px",marginTop:'12vh' }} className='mb-4'>
+                                    <div style={{ width:'99%',display: "flex", backgroundColor: '#efefef', borderRadius: "30px"}} className='mb-4 mt-4'>
 
-                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px", width: '100%' }}>
-                                            <InputGroup style={{ borderStyle: 'none' }} className='  search-outer-container'>
+                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px",width:'99%' }}>
+                                            <InputGroup style={{ borderStyle: 'none',cursor:'pointer' }} className='  search-outer-container'>
 
                                                 <Select
                                                     options={options}
                                                     arrowRenderer={null}
-
+                                                    placeholder="Serach     Portfolio"                                                 
+                                                    
+                                                    onMenuOpen={false}
                                                     isClearable
                                                     openOnClick={false}
                                                     className='d-none d-sm-block'
                                                     onChange={handleChange}
-                                                    styles={{
+                                                    ValueContainer                                                    
+                                                    styles={{                                                        
                                                         border: 'none',
                                                         display: 'flex',
 
@@ -92,7 +106,7 @@ function Dashboard(name ,) {
 
                                                         }),
                                                         control: () => ({
-                                                            border: 'none', paddingTop: '5px', paddingLeft: '20px', display: 'flex', width: '600px'
+                                                            border: 'none', paddingTop: '5px', paddingLeft: '20px', display: 'flex',width:'100vh' 
 
                                                         }),
                                                         dropdownIndicator: () => ({
@@ -126,6 +140,7 @@ function Dashboard(name ,) {
                                     <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between' }} className='mt-1 mb-1'>
 
                                         <div style={{ float: 'left' }}>
+
                                             <p style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '6px',marginLeft:'10px' }}> <u>Explore </u> </p>
                                         </div>
 
@@ -141,10 +156,6 @@ function Dashboard(name ,) {
                                                 <div className="layer"></div>
                                             </div>
                                         </div>
-
-
-
-
                                     </div>
 
 

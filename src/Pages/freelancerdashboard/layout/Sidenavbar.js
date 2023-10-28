@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 // import { Card} from "react-bootstrap"
 import Wiraalogo from "../../../asset/image/Wiraalogo.png";
-import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
-import Popover from 'react-bootstrap/Popover';
+// import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+// import Popover from 'react-bootstrap/Popover';
+
 import {
   CDBSidebar,
   CDBSidebarContent,
@@ -11,10 +12,10 @@ import {
   CDBSidebarMenuItem,
 } from 'cdbreact';
 
-import { NavLink } from 'react-router-dom';
-import { IoBookOutline, IoHome, IoHomeOutline, IoMailOutline, IoNotificationsOutline, IoPersonOutline, IoSettingsOutline } from 'react-icons/io5';
+import { Link, NavLink } from 'react-router-dom';
+import { IoBook, IoBookOutline, IoBriefcase, IoBriefcaseOutline, IoHome, IoHomeOutline, IoMail, IoMailOutline, IoNotifications, IoNotificationsOutline, IoPerson, IoPersonOutline, IoSettingsOutline, IoSettingsSharp } from 'react-icons/io5';
 
-const Sidebar = () => {
+const Sidebar = ({activekey}) => {
   const [isClicked, setIsClicked] = useState(false);
   
   const toggleIcon = () => {
@@ -27,9 +28,14 @@ const Sidebar = () => {
 
       <CDBSidebar textColor="#fff" backgroundColor="#333">
       <CDBSidebarHeader prefix={<i className="fa fa-bars" />}>
-        <NavLink exact to="/" activeClassName="activeClicked">
-          {/* <img  src={Wiraalogo} alt="" width={120} style={{marginLeft:'50px'}}/> */}
+        <NavLink exact to="" activeClassName="activeClicked">
+          <Link to="/Professionalsdashboard">
           <img  src={Wiraalogo} alt="" width={120} style={{marginLeft:'50px'}}/>
+          </Link>
+
+          
+
+          {/* <img  src={Wiraalogo} alt="" width={120} style={{marginLeft:'50px'}}/> */}
           </NavLink>
       </CDBSidebarHeader>
 
@@ -37,29 +43,29 @@ const Sidebar = () => {
         <CDBSidebarContent style={{paddingLeft:'20px'}} className="sidebar-content">
           <CDBSidebarMenu>
             <NavLink exact to="/Professionalsdashboard" activeClassName="activeClicked">
-              <CDBSidebarMenuItem  className="text-dark"> {isClicked ? <IoHome fontSize={25} /> : <IoHomeOutline  fontSize={25}/> } <h4 className='chh'>Home</h4></CDBSidebarMenuItem>
+              <CDBSidebarMenuItem  className="text-dark"> {activekey === "home" ? <IoHome fontSize={25} fill='#008080' /> : <IoHomeOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "home" ? "active" : ""}`} >Home</p></CDBSidebarMenuItem>
             </NavLink>
             
             <NavLink exact to="/UserProject" activeClassName="activeClicked">
-              <CDBSidebarMenuItem  className="text-dark"><ion-icon name="briefcase-outline" ></ion-icon><h4 className='chh'>Projects</h4></CDBSidebarMenuItem>
+              <CDBSidebarMenuItem  className="text-dark"> {activekey === "projects" ? <IoBriefcase fontSize={25} fill='#008080' /> : <IoBriefcaseOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "projects" ? "active" : ""}`}>Projects</p></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Messagebox" >
-              <CDBSidebarMenuItem  className="text-dark"> <IoMailOutline  fontSize={25}/><h4 className='chh'>Messages</h4></CDBSidebarMenuItem>
+            <NavLink exact to="/Messagebox" activeClassName="activeClicked">
+              <CDBSidebarMenuItem  className="text-dark"> {activekey === "message" ? <IoMail fontSize={25} fill='#008080' /> : <IoMailOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "message" ? "active" : ""}`}  >Messages</p></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/User/Notificationss" >
-              <CDBSidebarMenuItem className="text-dark"> <IoNotificationsOutline  fontSize={25}/> <h4 className='chh'>Notifications</h4></CDBSidebarMenuItem>
+            <NavLink exact to="/Notifications"  activeClassName="activeClicked">
+              <CDBSidebarMenuItem className="text-dark"> {activekey === "notification" ? <IoNotifications fontSize={25} fill='#008080' /> : <IoNotificationsOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "notification" ? "active" : ""}`}  >Notifications</p></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Learns"  activeClassName="activeClicked">
-              <CDBSidebarMenuItem className="text-dark"> <IoBookOutline  fontSize={25}/> <h4 className='chh'>Learn</h4></CDBSidebarMenuItem>
+            <NavLink exact to="/learrn"  activeClassName="activeClicked">
+              <CDBSidebarMenuItem className="text-dark"> {activekey === "learn" ? <IoBook fontSize={25} fill='#008080' /> : <IoBookOutline  fontSize={25}/> } <p style={{fontSize:'25px'}}  className={`chh ${activekey === "learn" ? "active" : ""}`}  >Learn</p></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Packages"  activeClassName="activeClicked">
-              <CDBSidebarMenuItem className="text-dark">  <IoMailOutline  fontSize={25}/>  <h4 className='chh'>Package</h4></CDBSidebarMenuItem>
+            <NavLink exact to="/Package"  activeClassName="activeClicked">
+              <CDBSidebarMenuItem className="text-dark"> {activekey === "package" ? <IoBriefcase fontSize={25} fill='#008080' /> : <IoBriefcaseOutline  fontSize={25}/> }  <p style={{fontSize:'25px'}}  className={`chh ${activekey === "package" ? "active" : ""}`}  >Package</p></CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/Editproflie" className='navvlink' activeClassName="activeClicked">
-              <CDBSidebarMenuItem  className="text-dark">  <IoPersonOutline  fontSize={25}/> <h4 className='chh'>Profile</h4></CDBSidebarMenuItem>
+              <CDBSidebarMenuItem  className="text-dark">  {activekey === "profile" ? <IoPerson fontSize={25} fill='#008080' /> : <IoPersonOutline  fontSize={25}/> }<p style={{fontSize:'25px'}} className={`chh ${activekey === "profile" ? "active" : ""}`}  >Profile</p></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/Setting"  activeClassName="activeClicked">
-              <CDBSidebarMenuItem className="text-dark"><IoSettingsOutline  fontSize={25}/>  <h4 className='chh'>Settings</h4></CDBSidebarMenuItem>
+            <NavLink exact to="/Settingss"  activeClassName="activeClicked">
+              <CDBSidebarMenuItem className="text-dark">{activekey === "settings" ? <IoSettingsSharp fontSize={25} fill='#008080' /> : <IoSettingsOutline  fontSize={25}/> }  <p style={{fontSize:'25px'}}  className={`chh ${activekey === "settings" ? "active" : ""}`}  >Settings</p></CDBSidebarMenuItem>
             </NavLink>
             {/* {['top'].map((placement) => (
         <OverlayTrigger

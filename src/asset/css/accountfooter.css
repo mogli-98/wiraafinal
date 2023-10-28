@@ -38,14 +38,14 @@
 
   .Account_footercontent{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     /* background-color: blue; */
     /* height:7vh; */
     /* position: fixed; */
     left: 0;
     bottom: 0;
-    width: 100%;
+    /* width: 100%; */
     /* background-color: #333; */
     /* color: #fff; */
     /* margin: 20px 0px; */
@@ -54,7 +54,7 @@
 
   .Account_footer img {
     float: left;
-    margin-left: 30px;
+    /* margin-left: 30px; */
     height:20px;
   }
   
@@ -66,7 +66,7 @@
     .Account_footer {      
         background-color: rgba(0, 0, 0,0.2);
         color: #fff;        
-        height: 15vh;
+        /* height: 15vh; */
         /* position: fixed; */
         left: 0;
         bottom: 0;

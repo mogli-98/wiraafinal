@@ -13,19 +13,10 @@ import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
 
 function Notificationuser() {
     const [allnotifi, setallNotifi] = useState([]);
-    const [activeTab, setActiveTab] = useState("Tab1");
-    const [show, setShow] = useState(false);
-    const handleClose = () => setShow(true);
-    const handleClick = (tab) => {
-        setActiveTab(tab);
-    };
-
-
     const fetchData = async () => {
         const userProfileId = localStorage.getItem("UserID");
         clientBoard.allNotifi({ userProfileId }).then((response) => {
-            // localStorage.setItem('delid' ,response.data[0]['notificationID']);
-            console.log(response.data)
+       
             setallNotifi(response.data);
             if (response.data.isRead === true)
                 return <>
@@ -40,9 +31,7 @@ function Notificationuser() {
         helper.sweetalert.confirm('Are you sure?', "You won't be able to revert this!", "warning", true).then((result) => {
             if (result.isConfirmed) {
                 const userProfileId = localStorage.getItem("UserID");
-                console.log(userProfileId)
                 clientBoard.deleteNotice({ userProfileId }).then((res) => {
-                    console.log(res.data)
                     helper.sweetalert.toast("Deleted", 'All Notification has been delete Successfuly', 'success')
                     fetchData();
                 })
@@ -110,7 +99,7 @@ function Notificationuser() {
                                             </Row>
                                         </Container>
                                         <div className="tab-content">
-                                            {activeTab === "Tab1" && <>
+                                            
                                                 <div className='m-2 '>
                                                     {allnotifi && allnotifi.map((pdata) =>
                                                         <>
@@ -127,29 +116,13 @@ function Notificationuser() {
 
                                                     )}
 
-                                                </div></>}
+                                                </div>
 
 
                                         </div>
                                     </div>
                                 </Col>
-                                {/* <Col md={4} className=" square border-start" style={{ backgroundColor: "#efefef", height: '430px', borderBottomRightRadius: "30px", borderBottomLeftRadius: "30px" }}>
-                                    <div className='' style={{ backgroundColor: "#efefef", width: "-webkit-fill-available", height: "20px" }}>
-                                        <center>
-                                            <img style={{ width: '80px', height: '80px' }} src={bookbullb} alt="" className='mt-5' />
-                                            <h4 style={{ color: "#008080", fontFamily: "Helvetica-Bold" }} className="mt-5">Advance</h4>
-                                            <h4 style={{ color: "#008080", fontFamily: "Helvetica-Bold" }}>Freelancing</h4>
-                                            <h4 style={{ color: "#008080", fontFamily: "Helvetica-Bold" }}>Course</h4>
-                                            <span>Polish your skills and expand</span>
-                                            <span>your knowledge base</span>
-                                            <br />
-                                            <button className="navbar-button login mb-4 mt-4"><b> Learn </b></button>
-                                        </center>
-                                    </div>
-                                </Col> */}
-
-
-
+                               
                             <Col style={{marginTop:'12vh'}} sm={4} className='p-2' >
                                     <div className='last-left-span' style={{ backgroundColor: '#f5f5f5', width: "-webkit-fill-available" }} >
                                         <div className=''>
@@ -163,23 +136,6 @@ function Notificationuser() {
 
                                         </div>
                                     </div>
-
-                                    {/* <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2  d-none d-sm-block'>
-                                        <Link to='/About Us'  >                                             <span style={{ paddingRight: '10px', color: 'grey' }}>                                                 About </span>                                         </Link>                                         <Link to='/Career'>                                             <span style={{ paddingRight: '10px', color: 'grey' }}>Career</span>                                         </Link>
-                                        <Link to='/Termsandcondition'>                                             <span style={{ color: 'grey' }}>Term of services</span>                                         </Link>
-                                        <br />
-                                        <Link to='/ContactComponent' target='blank'>                                             <span style={{ paddingRight: '20px', color: 'grey' }}>Conatct</span>                                         </Link>
-
-                                        <span style={{ paddingRight: '20px' }}>FAQ</span>
-
-                                        <span style={{ paddingRight: '20px' }}>Blog</span>
-
-                                        <Link to='/PrivacyPolicy'>
-                                            <span style={{ paddingRight: '10px', color: 'grey' }}>Privacy policy</span>
-                                        </Link>
-
-                                        <span> ©️ 2023 Wiraa. All Rights Reserved</span>
-                                    </div> */}
 
                                     <Desktoploginfooter/>
 

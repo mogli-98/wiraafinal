@@ -9,13 +9,12 @@ import { useParams, Link } from 'react-router-dom';
 import moment from 'moment';
 import Phoneviewfooter from '../../../Layout/Phoneviewfooter';
 import Desktoploginfooter from '../../unguarded_page/Desktoploginfooter';
-import OrderModal from '../../../modal/Order.modal';
 
 function Orderdetailsbrief() {
     const [orderdetails, setOrderDetails] = useState(false);
     const params = useParams();
 
-    const fetchdata = () =>{
+    useEffect(() => {
         console.log(params, "new data");
         const order_id = params.id;
         Orderbook.orderdetails({ order_id }).then((respone) => {
@@ -23,27 +22,15 @@ function Orderdetailsbrief() {
             console.log(respone.data)
             setOrderDetails(respone.data)
         })
-    }
-    const Closeorder = () =>{
-        const form = new FormData();
-        form.append("userId", parseInt(localStorage.getItem("UserID")));
-        form.append("orderId" , params.id);
-        OrderModal.CLosedorder(form).then((respone) => {
-            console.log(respone.data)
-            fetchdata();
-            // setOrderDetails(respone.data)
-        })
-    }
-    useEffect(() => {
-        fetchdata();
     }, [])
+
     return (
         <>
             <>
                 <Container fluid className='dashboard-conatiner-top' >
                     <Row>
                         <Col sm={1} className='d-none d-sm-block'>
-                            <Sidenav />
+                            <Sidenav activekey="order" />
                         </Col>
                         <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row '>
                             <Container className='square border border-bottom-0'>
@@ -53,7 +40,7 @@ function Orderdetailsbrief() {
                                         <div >
                                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }} className='m-4  '>
                                                 <Link to={`/Orderdetails/${params.id}`}>
-                                                    <button style={{ border: '1px solid black', padding: '0px 6px ', marginTop: '12vh' }} className='order-details-requirements d-none d-sm-block' >
+                                                    <button style={{ border: '1px solid black', padding: '0px 6px ',  }} className='order-details-requirements d-none d-sm-block' >
                                                         <svg style={{ color: 'grey', paddingRight: '4px' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-person-plus-fill" viewBox="0 0 16 16">
                                                             <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                                         </svg>
@@ -167,9 +154,7 @@ function Orderdetailsbrief() {
 
                                                             {orderdetails[0]?.response === null ? (
                                                                 <h6 className='text-center'>0</h6>
-                                                            ) : <h6 className='text-center'>{orderdetails[0]?.response}</h6>}
-                                                            
-                                                            </td>
+                                                            ) : <h6 className='text-center'>{orderdetails[0]?.response}</h6>}</td>
                                                     </tr>
                                                     <tr>
                                                         <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Order Number :</td>
@@ -177,14 +162,9 @@ function Orderdetailsbrief() {
                                                     </tr>
                                                 </tbody>
                                             </Table>
-                                            
-                                            {orderdetails[0]?.Status === 'Closed' ? (
-                                                <button style={{display:'none'}}></button>
-                                                            ) :  
-                                                <center>
-                                                    <button style={{ padding: '5px', width: '30%', borderRadius: '8px', color: 'white', borderStyle: 'none', backgroundColor: '#ff7e79', fontWeight: 700, marginTop: '25px' }} className='mb-4'> Close </button>
-                                                </center>                                                        
-                                            }
+                                            <center>
+                                                <button style={{ padding: '5px', width: '30%', borderRadius: '8px', color: 'white', borderStyle: 'none', backgroundColor: '#ff7e79', fontWeight: 700, marginTop: '25px' }} className='mb-4'> Close </button>
+                                            </center>
                                         </Card>
 
                                         
@@ -193,7 +173,7 @@ function Orderdetailsbrief() {
                                     </Col>
 
 
-                                    <Col style={{ padding: '5px', marginBottom: '50px',marginTop:'12vh'}} sm={4} xs={12} className='project-deatils4 square border-end d-none d-sm-block ' >
+                                    <Col style={{ padding: '5px', marginBottom: '50px'}} sm={4} xs={12} className='project-deatils4 square border-end d-none d-sm-block ' >
                                         <Card style={{ background: "#fff", borderRadius: '20px', border: '2px solid lightgrey' }} className="mt-3 mb-3">
                                             <p className='text-center mt-4'><b style={{ fontSize: '20px', color: 'black' }}><u>Details</u></b></p>
                                             <Table borderless>
@@ -240,13 +220,9 @@ function Orderdetailsbrief() {
                                                     </tr>
                                                 </tbody>
                                             </Table>
-                                            {orderdetails[0]?.Status === 'Closed' ? (
-                                                            <button style={{display:'none'}}></button>
-                                                            ) :  
-                                                            <center>
-                                                            <button style={{ padding: '5px', width: '30%', borderRadius: '8px', color: 'white', borderStyle: 'none', backgroundColor: '#ff7e79', fontWeight: 700, marginTop: '25px' }} className='mb-4' onClick={Closeorder}> Close </button>
-                                                            </center>
-                                                            }
+                                            <center>
+                                                <button style={{ padding: '5px', width: '30%', borderRadius: '8px', color: 'white', borderStyle: 'none', backgroundColor: '#ff7e79', fontWeight: 700, marginTop: '25px' }} className='mb-4'> Close </button>
+                                            </center>
                                         </Card>
 
                                         

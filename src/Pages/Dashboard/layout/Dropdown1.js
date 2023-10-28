@@ -23,9 +23,13 @@ function Dropdown1({ onSelect }) {
                 name='category'
                 placeholder='Category'
             >
+                  <option value="" disabled selected>Select your Category</option>
                 {
                     GetSubCategory && GetSubCategory.map((categorylist) =>
-                        <option value={categorylist.CurriculumID}>{categorylist.CurriculumName}</option>)
+                   <>
+                  
+                        <option value={categorylist.CurriculumID}>{categorylist.CurriculumName}</option>
+                   </>)
                 }
             </select>
 

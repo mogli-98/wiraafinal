@@ -11,9 +11,9 @@ function ProfileCard(props) {
 
     // console.log(props);
     const fetchdata = (UsersProfileID) => {
-        console.log(UsersProfileID)
+        // console.log(UsersProfileID)
         const followProfileId = UsersProfileID;
-        console.log(followProfileId)
+        // console.log(followProfileId)
         const userProfileId = localStorage.getItem("userProfileId");
         ProfileModal.Followunfollow({ userProfileId }, { followProfileId }).then((response) => {
 
@@ -37,7 +37,7 @@ function ProfileCard(props) {
     // onClick={ ()=>window.location.href=`/Profiledetails/${data.UserID}`  }
     >
         <center>
-            <img src={`https://wiraaback.azurewebsites.net/${data.profilePic}`} alt="" className=" portfolio-image" />
+            <img src={`http://demo.wiraa.com/${data.profilePic}`} alt="" className=" portfolio-image" />
 
         </center>
         <div className=''>
@@ -48,8 +48,9 @@ function ProfileCard(props) {
             <Row className='mb-3'>
                 <Col className='square border-end end-border'>
                     <div style={{ display: isHovered1 ? ' none' : 'block' }}
-                        onMouseEnter={() => setIsHovered1(true)}
-                        onMouseLeave={() => setIsHovered1(false)}>
+                    // onMouseEnter={() => setIsHovered1(true)}
+                    // onMouseLeave={() => setIsHovered1(false)}
+                    >
                         {data.FollowerCount === null ? (
                             <h6 className='text-center'>0</h6>
                         ) : <h6 className='text-center'>{data.FollowerCount}</h6>}
@@ -57,32 +58,39 @@ function ProfileCard(props) {
                         <p className='text-center'
                         >Followers </p>
                     </div>
+
                     {isHovered1 && (
                         data.IsFollow === 1 ? (
                             <center>
                                 {/* <Link to="Home/PostRequirement"> */}
                                 <button style={{
                                     backgroundColor: "#008080", color: "#fff",
-                                    borderStyle: "none", padding: '4px', width: '100%',
+                                    borderStyle: "none", padding: '4px  30px',
                                     borderRadius: "8px", margin: "15px 0px"
                                 }}
                                     onClick={() => { fetchdata(data.UsersProfileID) }}
-                                >Unfollow</button></center>
+                                >Unfollow</button>
+                            </center>
                         ) : <center>
+
                             <button style={{
                                 backgroundColor: "#008080", color: "#fff",
-                                borderStyle: "none", padding: '4px', width: '100%',
-                                borderRadius: "8px", margin: "15px 0px "
+                                borderStyle: "none", padding: '4px 30px',
+                                borderRadius: "8px", margin: "15px 0px"
                             }} onClick={() => { fetchdata(data.UsersProfileID) }}
-                            >Follow</button></center>
+                            >Follow</button>
+                        </center>
 
 
                     )}
+
                 </Col>
+
                 <Col className=''>
                     <div style={{ display: isHovered1 ? ' none' : 'block' }}
-                        onMouseEnter={() => setIsHovered1(true)}
-                        onMouseLeave={() => setIsHovered1(false)}>
+                    // onMouseEnter={() => setIsHovered1(true)}
+                    // onMouseLeave={() => setIsHovered1(false)}
+                    >
                         {data.PostCount === null ? (
                             <h6 className='text-center'>0</h6>
                         ) : <h6 className='text-center'>{data.PostCount}</h6>}
@@ -94,7 +102,7 @@ function ProfileCard(props) {
                             <Link to={`/Profiledetails/${data.UserID}`}>
                                 <button style={{
                                     backgroundColor: "black", color: "#fff",
-                                    borderStyle: "none", padding: '4px', width: '100%',
+                                    borderStyle: "none", padding: '4px 30px',
                                     borderRadius: "8px", margin: "15px 0px"
                                 }}> Profile</button></Link>
                         </center>

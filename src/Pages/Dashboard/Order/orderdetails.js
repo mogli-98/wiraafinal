@@ -1,18 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
 import Sidenav from '../layout/Sidenav';
 import Topnav from '../layout/topnav';
 import test from "../../../asset/image/test.JPG";
 import "../../../asset/css/dashboard.css"
 import Modal from 'react-bootstrap/Modal';
-import test2 from "../../../asset/image/test2.png";
+// import test2 from "../../../asset/image/test2.png";
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import OrderModal from '../../../modal/Order.modal';
 import Phoneviewfooter from '../../../Layout/Phoneviewfooter';
 import PeopleModal from '../../../modal/People.modal';
 import Desktoploginfooter from '../../unguarded_page/Desktoploginfooter';
+
+
 function Orderdetails() {
     const params = useParams();
     const [interestedPeople, setInterestedPeople] = useState();
@@ -89,7 +91,7 @@ function Orderdetails() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenav activekey="order" />
                     </Col>
 
 
@@ -98,7 +100,7 @@ function Orderdetails() {
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Order" />
                             <Row className='mt-2'>
-                                <Col sm={8} style={{ padding: '0px' ,marginTop:'12vh',}} className="square border-end">
+                                <Col sm={8} style={{ padding: '0px', }} className="square border-end">
 
                                     <div className='m-2 d-none d-sm-block ' style={{ fontSize: '12px',marginTop:'12vh'}}>
                                         <Link to={`/Orderdetailsbreief/${params.id}`}>
@@ -107,9 +109,9 @@ function Orderdetails() {
                                                     <path d="M1 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
                                                 </svg>
                                                 <span >Requirements</span>  </button></Link>
-                                        <button style={{ marginRight: '10px', border: '1px solid grey' }} className='order-details-shortlisted'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className=" svgg bi bi-star" viewBox="0 0 16 16">
+                                        {/* <button style={{ marginRight: '10px', border: '1px solid grey' }} className='order-details-shortlisted'><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className=" svgg bi bi-star" viewBox="0 0 16 16">
                                             <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                        </svg> <span>Shortlisted</span> </button>
+                                        </svg> <span>Shortlisted</span> </button> */}
                                     </div>
                                    <center>
                                    <p style={{fontSize:'30px'}}>
@@ -118,16 +120,17 @@ function Orderdetails() {
                                   
                                         
                                             {interestedPeople && interestedPeople?.map((listintrest) =>
-                                                <Card className='m-3 p-2' style={{ borderRadius: "5px", backgroundColor: "#efefef", border: 'none', cursor: 'pointer', boxShadow: '8px 8px 8px -5px' }}>
+                                                <Card className='m-3 p-2' style={{ borderRadius: "5px", backgroundColor: "#efefef", border: 'none', cursor: 'pointer',boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)'}}>
                                                     <div className='order-details-container'>
-                                                        <img src={test} alt="" className='order-details-img m-3' />
+                                                        <img src={test} alt="" className='order-details-img m-3'  s/>
                                                         <div className='order-details-container-text' onClick={() => { Getpeople(listintrest.InterestedUserId) }}>
-                                                            <h6><b>{listintrest?.FirstName} {listintrest?.LastName}</b></h6><br />
-                                                            <p style={{ color: 'grey' }}>{listintrest?.OccupationName}r</p>
+                                                            <p ><b>{listintrest?.FirstName} {listintrest?.LastName}</b></p>
+                                                            <br />
+                                                            <p style={{ color: 'grey' }}>{listintrest?.OccupationName}</p>
                                                         </div>
-                                                        <svg style={{ marginLeft: '280px' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star" viewBox="0 0 16 16">
+                                                        {/* <svg style={{ flo }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-star" viewBox="0 0 16 16">
                                                             <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z" />
-                                                        </svg>
+                                                        </svg> */}
                                                     </div>
 
                                                     <div className='order-details-contact'>
@@ -154,14 +157,13 @@ function Orderdetails() {
                                                     </div>
                                                 </Card>
 
-                                            )}
-                                   
+                                            )}                              
     
                                     
 
 
-                                </Col >
-                                <Col style={{marginTop:'12vh'}} sm={4}>
+                                </Col>
+                                <Col  sm={4}>
                                     <Card className='order-detail-profile m-0 p-0 d-none d-sm-block' style={{ backgroundColor: "#efefef", border: 'none' }}>
                                         <div style={{ margin: '10px' }}>
                                             {/* <img style={{ height: '20px', width: '20px', float: 'right' }} src={Export} alt="IMGg" /> */}

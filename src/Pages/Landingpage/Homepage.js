@@ -27,8 +27,8 @@ import connect from "../../asset/image/connect.png";
 import negotiate from "../../asset/image/negotiate.png";
 import verified from "../../asset/image/verified.png";
 import { Link } from "react-router-dom";
-import PhoneViewSidebar from '../Dashboard/layout/PhoneViewSidebar';
-import Phoneviewfooter from '../../Layout/Phoneviewfooter';
+// import PhoneViewSidebar from '../Dashboard/layout/PhoneViewSidebar';
+// import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 // import Footer from '../../Layout/Phoneviewfooter';
 
 // import Hiretalent from '../Dashboard/hiretalent';
@@ -42,6 +42,14 @@ function Homepage() {
 
   useEffect(() => {
     window.scrollTo(0, 0)
+  }, [])
+
+
+  useEffect(()=> {
+    if(localStorage.getItem("accessToken")) {
+      window.location.replace('/user/dashboard')
+      // window.location.assign("./home");
+    }
   }, [])
 
   return (
@@ -70,9 +78,9 @@ function Homepage() {
 
             <Col sm={4} xs={12} >
               <p className='top-text-h1'>Discover the world's top professionals</p>
-              <p className='text-disable top-text-p' style={{ fontSize: '25px', color: 'grey' }}>Hire world’s top freelancers and get work done in a safe and flexible environment.</p>
+              <p className='text-disable top-text-p' style={{  color: 'grey' }}>Hire world’s top freelancers and get work done in a safe and flexible environment.</p>
               <Link to='/Home/PostRequirement'><button className='post-request'> <b>Post a Project</b></button></Link>
-              <Link to='/Account/login'><button className='find-project '><b>Find Project</b></button></Link>
+              <Link to='/Account/singup'><button className='find-project '><b>Find Project</b></button></Link>
             </Col>
             {/* <Col sm={1} className="mt-5" >
 
@@ -80,11 +88,11 @@ function Homepage() {
 
 
 
-            <Col sm={2} className="mb-5 d-none d-sm-block " style={{ paddingLeft: '8vh' }}>
+            <Col sm={2} className="mb-5 d-none d-sm-block " style={{ paddingLeft: '4vh' }}>
               <img src={Picture5} alt="" className='p-1' style={{ width: '28vh' }} />
               <img src={Picture6} alt="" className='p-1' style={{ width: '28vh' }} />
             </Col>
-            <Col sm={2} className=" d-none d-sm-block" style={{ marginTop: '18vh' }} >
+            <Col sm={2} className=" d-none d-sm-block" style={{ marginTop: '18vh',marginLeft: '-3vh'  }} >
               <img src={Picture7} alt="" className='p-1' style={{ width: '28vh' }} />
               <img src={Picture8} alt="" className='p-1' style={{ width: '28vh' }} />
             </Col>
@@ -212,8 +220,12 @@ function Homepage() {
                     <h3 className='text-center' style={{ fontSize: '40px' }}>Unlock the secrets to successful freelancing</h3>
                     <p className='text-center mt-5' style={{ fontSize: '20px', fontWeight: 'medium' }}>Become a successful freelancer and learn tips and tricks from the experts to thrive in any industry.</p>
 
+                    <Link to="Learrn">
                     <button className='mt-5 home-learn' style={{ color: 'white' }} ><b>Start Learnings</b>
                     </button>
+                    </Link>
+
+                    
 
                   </Col>
                   <Col sm={7} >
@@ -244,7 +256,13 @@ function Homepage() {
                 <p className='startproject_p'>Join us today and discover the freedom, flexibility, and fulfilment that come with freelancing.
                 </p>
                 <br /><br /><br /><br />
+
+                <Link to="/Account/singup">
                 <button className='Liveyourpassion'>Live your passion</button>
+                </Link>
+
+                
+
               </center>
             </Col>
             <Col sm={1}></Col>

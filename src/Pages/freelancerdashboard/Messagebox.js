@@ -22,14 +22,14 @@ function Messagebox(props) {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenav activekey="message" />
                     </Col>
                     <Col style={{padding:'0px'}} sm={8} xs={12} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnavbar activeLink="Messages" />
 
                             <Row >
-                                <Col style={{marginTop:'12vh'}} sm={4} className="square border-end">
+                                <Col sm={4} className="square border-end">
 
                                     <div className="tabs-container mt-3">
                                         <Container>
@@ -57,7 +57,7 @@ function Messagebox(props) {
                                         </Container>
                                     </div>
                                 </Col>
-                                <Col style={{marginTop:'12vh'}} md={8} className="">
+                                <Col  md={8} className="">
                                     <div className='mt-5  no-message-show'>
                                         <center>
                                             {/* <ion-icon name="mail-unread-outline"></ion-icon> */}

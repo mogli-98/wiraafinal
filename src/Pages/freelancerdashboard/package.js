@@ -5,14 +5,13 @@ import "../../asset/css/freelanceredashboard.css";
 import Sidenavbar from './layout/Sidenavbar';
 import Topnavbar from './layout/topnavbar';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
-// import { Form } from 'react-router-dom';
 import Accordion from 'react-bootstrap/Accordion';
-import { Form } from 'react-router-dom';
 // import { Form } from 'react-router-dom';
 
 
 
-// import { Link } from "react-router-dom";
+
+
 function Package() {
 
 
@@ -22,7 +21,7 @@ function Package() {
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
                     
-                        <Sidenavbar />
+                        <Sidenavbar activekey="package" />
                     </Col>
 
 
@@ -32,91 +31,14 @@ function Package() {
                             <Topnavbar activeLink="Package" />
 
                             <Row >
-                                <p style={{marginTop:'12vh', fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
+                                <p style={{fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
                                 <p style={{ fontSize: '18px', fontWeight: 500 }} className='text-center d-none d-sm-block'>Change Your Plans Anytime</p>
-                                {/* <div className='pricing-top-text mb-4'>
-                  <p className='text-center'>Upgrade To A Curated Package To Maximise Your Business Success And Earnings!</p>
-                  <p className='text-center'>Change Your Plans Anytime</p>
-                </div> */}
-                                {/* <Col sm={4} xs={12}>
-                                {/* <Col sm={4} xs={12}>
-                                {/* <Col sm={4} xs={12}>
-                <div className='pricing-table1 pricing-table  '> 
-                <ul className='pt-2'>
-                      <li><b>Basic</b></li>
-                      <li>
-                        <div className='priceidiv priceidiv1'>
-                          <p>Free</p>
-                          <p className='small priceidiv2'>₹99</p>
-                        </div>
-                      </li>
-                      
-                      <li>5 Connects</li>
-                      <li>Unlimited Project Bookmarks</li>
-                      <li>Normal Customer Support</li>
-                      <li className='pricing-tableli'>1 Hour Advance Project Alerts</li>
-                      <li className='pricing-tableli'>Faster Project Alerts</li>
-                      <li className='pricing-tableli'>Promote Your Own Website</li>
-                      <li className='pricing-tableli'>Get Suggested To Clinets</li>
-                      <button><b>Select</b></button>
-                      </ul>  
-                </div>
-              </Col>
-              <Col sm={4} xs={12}>
-                <div className='pricing-table2 pricing-table  '> 
-                  <ul className='pt-2'>
-                      <li ><b>Plus</b></li>
-                      <li>
-                      <div className='priceidiv'>
-                        <p>₹499 / month</p>
-                        </div>
-                      </li>
-                     
-                      <li>50 Connects</li>
-                      <li>Unlimited Project Bookmarks</li>
-                      <li>Premium Customer Support</li>
-                      <li>1 Hour Advance Project Alerts</li>
-                      <li>Faster Project Alerts</li>
-                      <li>Promote Your Own Website</li>
-                      <li>Get Suggested To Clinets</li>
-                      <button><b>Select</b></button>
-                      </ul>  
-                </div>
-              </Col>
-              <Col sm={4} xs={12}>
-                <div className='pricing-table3 pricing-table  '> 
-                   
-                    <ul className='pt-2'>
-                      <li><b>Premium</b></li>
-                      <li>
-                      <div className='priceidiv'>
-                          <p>₹4,999 / year</p>
-                          
-                        </div>
-                      </li>
-                     
-                      <li>Unlimited Connects</li>
-                      <li>Unlimited Project Bookmarks</li>
-                      <li>Normal Customer Support</li>
-                      <li>1 Hour Advance Project Alerts</li>
-                      <li>Faster Project Alerts</li>
-                      <li>Promote Your Own Website</li>
-                      <li>Get Suggested To Clinets</li>
-                      <button><b>Select</b></button>
-                      </ul>  
-                </div>
-              </Col> */}
+                               
                                 <div className="container mt-4 d-none d-sm-block">
-
-
-
-
-
                                  
                                     <table className="styled-table mb-4">
                                         <thead>
 
-
                                             <tr>
                                                 <td style={{ borderLeft: 'none', borderTop: 'none' }}>
                                                     <p style={{ color: '#008080', fontSize: '20px', fontWeight: 600 }}>Package Confirmation</p>
@@ -133,7 +55,7 @@ function Package() {
 
 
                                                 <td style={{ fontWeight: 600 }}>
-                                                    {/* <p>Best value get your team up!</p> */}
+                                                   
                                                     <p style={{ fontSize: '16px', fontWeight: 600 }}>Plus</p>
                                                     <p style={{ color: '#008080', fontSize: '18px', fontWeight: 600 }}>₹ 499 / month</p>
                                                     <p style={{ color: 'grey' }}>Scale your business hiring</p>
@@ -221,122 +143,9 @@ function Package() {
 
                                                 </td>
                                             </tr>
+                 
 
-
-
-
-
-
-
-                                            <tr>
-                                                <td style={{ borderLeft: 'none', borderTop: 'none' }}>
-                                                    <p style={{ color: '#008080', fontSize: '20px', fontWeight: 600 }}>Package Confirmation</p>
-
-                                                    <span style={{ fontWeight: 500 }}>Get quality Talents</span>
-                                                </td>
-
-                                                <td style={{ fontWeight: 600 }}>
-                                                    <p style={{ fontSize: '16px', fontWeight: 600 }}>Basic</p>
-                                                    <p style={{ color: '#008080', fontSize: '18px', fontWeight: 600 }}>Free</p>
-                                                    <p style={{ color: 'grey' }}>Fulfill your basic needs</p>
-                                                </td>
-
-
-
-                                                <td style={{ fontWeight: 600 }}>
-                                                    {/* <p>Best value get your team up!</p> */}
-                                                    <p style={{ fontSize: '16px', fontWeight: 600 }}>Plus</p>
-                                                    <p style={{ color: '#008080', fontSize: '18px', fontWeight: 600 }}>₹ 499 / month</p>
-                                                    <p style={{ color: 'grey' }}>Scale your business hiring</p>
-                                                </td>
-
-                                                <td style={{ fontWeight: 600 }}>
-                                                    <p style={{ fontSize: '16px', fontWeight: 600 }}>Premium</p>
-                                                    <p style={{ color: '#008080', fontSize: '18px', fontWeight: 600 }}>₹ 4999 / month</p>
-                                                    <p style={{ color: 'grey' }}>Maximise your workforce program</p>
-
-                                                </td>
-                                            </tr>
-
-
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Message Credits
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    05
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    50
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Customer Support
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Normal
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Premium
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Premium
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Manager Relationship
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Not Available
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Dedicated
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Dedicated
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Payment Protection
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Secured
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Secured
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Secured
-                                                </td>
-                                            </tr>
-                                            <tr style={{ height: '40px' }}>
-                                                <td>
-
-                                                </td>
-                                                <td>
-
-                                                </td>
-                                                <td>
-
-                                                </td>
-                                                <td>
-
-                                                </td>
-                                            </tr>
-
-
-
-
-
+                                          
                                             <tr>
                                                 <th>Client Dashboard</th>
                                                 <th></th>
@@ -392,45 +201,26 @@ function Package() {
                                                 <td style={{ fontWeight: 600 }}>
                                                     Unlimited
                                                 </td>
-                                            </tr>
-                                            <tr style={{ height: '40px' }}>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Verified Professionals
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                            </tr>
+                                            </tr>                                      
 
                                             
 
                                             
                                             <tr style={{ height: '40px' }}>
+
+                                                <td>
+
+                                                </td>                                    
+                                                                                                
                                                 <td>
 
                                                 </td>
 
                                                 
                                                 <td>
-                                                </td>
 
+                                                </td>
                                                 
-                                                <td>
-
-                                                </td>
-                                                <td>
-                                                </td>
-                                                <td>
-
-                                                </td>
-                                                <td>
-                                                </td>
 
                                                 <td>
 
@@ -444,101 +234,42 @@ function Package() {
                                                 <th></th>
                                                 <th></th>
                                             </tr>
-                                            {/* <tr>
-                                                <th style={{ fontWeight: 700 }}>Professional Dashboard</th>
-                                                <th></th>
-                                                <th></th>
-                                                <th></th>
-                                            </tr> */}
-
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Project Credits
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    05
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    50
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Project Credits
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    05
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    50
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                            </tr>
-
-                                            {/* <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Project Credits
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    05
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    50
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                            </tr> */}
-
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Project Commission
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    15%
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    10%
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    05%
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Project Commission
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    15%
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    10%
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    05%
-                                                </td>
-                                            </tr>
                                             
 
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Profile Listing
+                                                    Project Credits
                                                 </td>
                                                 <td style={{ fontWeight: 600 }}>
-                                                    Normal
+                                                    05
                                                 </td>
                                                 <td style={{ fontWeight: 600 }}>
-                                                    Featured
+                                                    50
                                                 </td>
                                                 <td style={{ fontWeight: 600 }}>
-                                                    Featured
+                                                    Unlimited
                                                 </td>
                                             </tr>
+                                           
+
+                                            
+
+                                            <tr>
+                                                <td style={{ color: 'grey', fontWeight: 700 }}>
+                                                    Project Commission
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    15%
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    10%
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    05%
+                                                </td>
+                                            </tr>
+                                                                                       
+
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
                                                     Profile Listing
@@ -553,7 +284,8 @@ function Package() {
                                                     Featured
                                                 </td>
                                             </tr>
-                                           
+
+                                                                                      
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
                                                     Project alert
@@ -584,23 +316,7 @@ function Package() {
                                                 <td style={{ fontWeight: 600 }}>
                                                     Unlimited
                                                 </td>
-                                            </tr>
-                                            <tr>
-                                                <td style={{ color: 'grey', fontWeight: 700 }}>
-                                                    Project bookmark
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                                <td style={{ fontWeight: 600 }}>
-                                                    Unlimited
-                                                </td>
-                                            </tr>
-
-                                            
+                                            </tr>                                                                             
 
 
 

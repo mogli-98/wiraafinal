@@ -79,7 +79,7 @@ function FreeProjectdetails() {
                             <Row>
                                 <Col sm={8} style={{ padding: '0px' }} className="project square border-end border-start">
                                     <div >
-                                        <div style={{ marginTop: '12vh', padding: '0px 20px' }} className='d-none d-sm-block '>
+                                        <div style={{ padding: '0px 20px' }} className='d-none d-sm-block '>
                                             <button style={{ border: '1px solid black' }} className='order-details-requirements' onClick={handleShow} >
 
                                                 <span style={{ fontSize: '12px', fontWeight: 600 }}>
@@ -128,7 +128,7 @@ function FreeProjectdetails() {
                                         </Card>
                                     </div>
                                 </Col>
-                                <Col style={{ marginTop: '12vh' }} sm={4} className='project-deatils4 square border-end ' >
+                                <Col  sm={4} className='project-deatils4 square border-end ' >
                                     <Card className='p-2' style={{ background: "#fff", border: '1px lightgrey solid', borderRadius: '15px' }} >
                                         <p className='text-center mt-2'><b><u>Details</u></b></p>
                                         <Table borderless>
@@ -162,6 +162,11 @@ function FreeProjectdetails() {
                                         </Table>
 
                                     </Card>
+                                    {/* <div className='mt-3 d-none d-sm-block'>
+                                        <span>About</span> <span>Career</span> <span>Term of services</span>
+                                        <span>Conatct</span> <span>FAQ</span> <span>Blog</span>
+                                        <span>Privacy policy</span> <span>@2022 Wiraa. All Rights Reserved</span>
+                                    </div> */}
 
                                     <Desktoploginfooter />
                                 </Col>
@@ -169,6 +174,8 @@ function FreeProjectdetails() {
                         </Container>
                     </Col>
                 </Row>
+
+
                 <Modal className='d-none d-sm-block' show={show} onHide={handleClose}
                     size="lg"
                     aria-labelledby="contained-modal-title-vcenter"
@@ -177,48 +184,68 @@ function FreeProjectdetails() {
                         <Modal.Title style={{ color: '#008080' }}>Screening Questions</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <form onSubmit={handleSubmit}>
                         <Card style={{ margin: '10px' }}>
                             <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.How many year of experience do you have this feild?</h6>
 
-                            <input style={{ width: '200px', margin: '10px' }} type='text' name='experience' />
+                            <input style={{ width: '200px', margin: '10px' }} type='text' />
                         </Card>
                         <Card style={{ margin: '10px' }}>
                             <h6 style={{ marginTop: '6px', marginLeft: '10px' }} >Q.Are you comfortable with my project budge? </h6>
 
                             <div style={{ display: 'flex', margin: '10px' }}>
 
-                                <input type='radio'  name='comfortable' value='I am comfortable' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>I am comfortable</span>
-                                <input  name='comfortable' value='I want to negotiate' style={{ marginLeft: '20px' }} type='radio' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I want to negotiate</span>
-                                <input name='comfortable' value='First i want to understand the project' style={{ marginLeft: '20px' }} type='radio' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>First i want to understand the project</span>
+                                <input type='checkbox' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>I am comfortable</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I want to negotiate</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>First i want to understand the project</span>
 
                             </div>
 
                         </Card>
+
+
                         <Card style={{ margin: '10px' }}>
+
                             <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.What is your work availability?</h6>
+
                             <div style={{ display: 'flex', margin: '10px' }}>
-                                <input type='radio' name='availabality' value='Full-time'/><span style={{ marginLeft: '15px', fontWeight: "500" }}>Full-time</span>
-                                <input style={{ marginLeft: '20px' }} type='radio' name='availabality' value='Part-time' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>Part-time</span>
-                                <input style={{ marginLeft: '20px' }} type='radio' name='availabality' value='Weekends' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>Weekends</span>
-                                <input style={{ marginLeft: '20px' }} type="radio" name='availabality' value='Not fixed' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}> Not fixed</span>
+
+                                <input type='checkbox' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>Full-time</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>Part-time</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>Weekends</span>
+                                <input style={{ marginLeft: '20px' }} type="checkbox" /> <span style={{ marginLeft: '10px', fontWeight: 500 }}> Not fixed</span>
+
                             </div>
+
                         </Card>
                         <Card style={{ margin: '10px' }}>
+
+
                             <h6 style={{ marginTop: '6px', marginLeft: '10px' }}>Q.We must fill this position urgently. Can you start immediately?</h6>
+
+
+
                             <div style={{ display: 'flex', margin: '10px' }}>
-                                <input type='radio' name='immediately'  value='I can start immediately' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>I can start immediately</span>
-                                <input style={{ marginLeft: '20px' }} type='radio' name='immediately'  value='I can start from next week'/> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next week</span>
-                                <input style={{ marginLeft: '20px' }} type='radio' name='immediately' value='I can start from next month' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next month</span>
+
+                                <input type='checkbox' /><span style={{ marginLeft: '15px', fontWeight: 500 }}>I can start immediately</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next week</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next month</span>
+
                             </div>
+
+
+
+
+
                         </Card>
-                          
-                        <Button style={{backgroundColor:'#008080',color:'white',float:"right"}} type='submit' >
+                    </Modal.Body>
+                    <Modal.Footer style={{padding:'5px 25px'}}>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button style={{backgroundColor:'#008080',color:'white'}} onClick={handleClose}>
                             Save 
                         </Button>
-                        </form>
-                    </Modal.Body>
-                    
+                    </Modal.Footer>
                 </Modal>
 
 
@@ -310,15 +337,24 @@ function FreeProjectdetails() {
 
                             <div style={{ display: 'flex', margin: '5px' }}>
                                
-                                <input style={{ marginLeft: '20px' }} type='radio' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next week</span>
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next week</span>
+                                
                             </div>
+
                             <div style={{ display: 'flex', margin: '5' }}>
-                                <input style={{ marginLeft: '20px' }} type='radio' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next month</span>
+                                
+                                <input style={{ marginLeft: '20px' }} type='checkbox' /> <span style={{ marginLeft: '10px', fontWeight: 500 }}>I can start from next month</span>
                             </div>
+
+
                         </Card>
+
+
                     </Modal.Body>
                     <Modal.Footer>
-
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
                         <Button style={{backgroundColor:'#008080'}} onClick={handleClose}>
                             Save 
                         </Button>

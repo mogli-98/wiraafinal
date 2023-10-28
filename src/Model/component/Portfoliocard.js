@@ -4,6 +4,8 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Auth from "../Auth.model";
 import { TextField } from "@mui/material";
 import test1 from '../../asset/image/test1.png'
+
+import { IoHeart ,IoHeartOutline ,IoChatboxOutline } from 'react-icons/io5';
 function ProtfolioCard(props) {
     const { data } = props;
     const [isHovered1, setIsHovered1] = useState(false);
@@ -85,33 +87,50 @@ function ProtfolioCard(props) {
             onMouseLeave={() => setIsHovered1(false)}
         >
             <div className="containerhover" style={{ border: isHovered1 ? "2px solid #008080" : "0px solid transparent", borderRadius: "5px" }} onClick={() => (fetchdata(data.PostID))}>
-            <img src={`https://wiraaback.azurewebsites.net/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />
-            {/* <img src={test1} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} />    */}
-                <div className="overlay">
+            {/* <img src={`https://wiraaback.azurewebsites.net/api/v1/UserImages/Post/CropImage/${data.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%", }} /> */}
+            <img src={test1} alt="Avatar" className="containerhoverimage " style={{ height: '200px', width: "100%",cursor:'pointer' }} />   
+                {/* <div className="overlay">
                     <div className="containerhovertext">
                         {data?.AboutMe}
                     </div>
-                </div>
+                </div> */}
             </div>
             <table className='mt-2'>
                 <tbody>
                     <tr>
                         <td style={{ width: '50%' }}>
                             <p className='small '> 
-                            <img src={test1} alt="A" className="m-1" style={{ width: "20px", height: '20px', borderRadius: "50px" }} />
-                            {/* <img src={`http://demo.wiraa.com${data.ProfilePic}`} alt="A" className="m-1" style={{ width: "20px", height: '20px', borderRadius: "50px" }} /> */}
+
+                            {/* <img src={test1} alt="A" className="m-1" style={{ width: "20px", height: '20px', borderRadius: "50px" }} /> */}
+                            <img src={`https://wiraaback.azurewebsites.net/${data.ImageURL}`} alt="a" className=" "  />
                             <b>{data.FirstName}{data.LastName}</b></p>
                         </td>
                         <td className="frloo">
+                     
                             {data.UserLiked !== 0 ? (
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
-                                    <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                                </svg>
-                            ) : <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
-                                <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                            </svg>}
+                                <IoHeart onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} fill="red" style={{ cursor: "pointer" }} fontSize='20px'/>
+                                // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
+                                //     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                                // </svg>
+                            ) : 
+                            <IoHeartOutline onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }}  style={{ cursor: "pointer" }} fontSize='20px'/>
+                            // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
+                            //     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
+                            // </svg>
+                            }
                             <span className='small'>{data.LikeCount}</span>
-                            <ion-icon name="chatbox-ellipses-outline"  ></ion-icon> <span className='small'>{data.CommentCount}</span>
+                            {data.CommentCount !== 0 ? (
+                                <> <IoChatboxOutline style={{ cursor: 'pointer' }} fontSize='20px' /><span className='small'>{data.CommentCount} </span>
+
+                                </>
+                                ):(
+                                  <><IoChatboxOutline style={{ cursor: 'pointer' }} fontSize='20px' /><span className=''>0</span>
+                                  </>  
+                                )
+                            }
+
+                            {/* <IoChatboxOutline style={{cursor:'pointer'}}  fontSize='20px'/><span className='small'>{data.CommentCount} </span>
+                            <ion-icon name="chatbox-ellipses-outline"   ></ion-icon>  */}
                         </td>
                     </tr>
                 </tbody>
@@ -122,10 +141,8 @@ function ProtfolioCard(props) {
                 <Container >
                     <Row>
                         <Col xs={12} sm={6}>
-                            <div style={{  height: '85vh', border: "1px solid black",backgroundColor:'black',textAlign:'center', position:"relative",width:'100%'}}>
-                                <img src={`https://wiraaback.azurewebsites.net/${data?.ImageURL}`} alt="Avatar" className="containerhoverimage " style={{  width: "100%", }} />
-{/*                           
-                              <img src={test1} alt="Avatar" className=" " style={{height:'100%',width:'100%'}} /> */}
+                            <div style={{  height: '85vh', border: "1px solid black",backgroundColor:'black',textAlign:'center', position:"relative",width:'100%'}}>                   
+                              <img src={test1} alt="Avatar" className=" " style={{height:'100%',width:'100%'}} />
                             
                             </div>  
                         </Col>

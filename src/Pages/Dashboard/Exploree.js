@@ -17,23 +17,12 @@ function Explorepage() {
         setActiveTab(tab);
     };
 
-    // const router = useSea();
-
-    // useEffect(() => {
-    //     // var url = new URLSearchParams(window.location.search)
-    //     // const id = url.get("id");
-    //     const id = localStorage.getItem("id");
-    //     Auth.Myprofile({ id }).then((response) => {
-    //         console.log(response.data);
-    //         setMyDetails(response.data);
-    //     });
-    // }, [])
+ 
     useEffect(() => {
-        // var url = new URLSearchParams(window.location.search)
-        // const id = url.get("id");
+
         const userId = localStorage.getItem("UserID");
         Auth.Userporfiolio({ userId }).then((response) => {
-            console.log(response.data[0]);
+
             setUserPort(response.data[0]);
         });
     }, [])
@@ -52,7 +41,7 @@ function Explorepage() {
                             <Row className='mt-1'>
                                 <Col className=" square border-end" sm={8}>
                                     <Card className='order-detail-profile' style={{ backgroundColor: "#efefef", border: 'none', borderRadius: '40px', borderBottomLeftRadius: '0px' }}>
-                                        {/* <span style={{ display: 'flex', justifyContent: 'flex-end', marginRight: '20px', color: 'grey' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px', marginTop: '20px' }} src={More} alt="IMG" /> </span> */}
+                                     
                                         <center>
                                             <img style={{ height: '100px', width: '100px' }} src={test2} alt="" className='mt-0' />
                                             <h6 style={{ fontSize: '20px' }} className='mt-4'><b>{userport?.FirstName}</b></h6><br />

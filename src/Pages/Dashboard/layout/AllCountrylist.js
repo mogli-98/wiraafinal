@@ -4,7 +4,7 @@ import Switchform from '../../../Model/switch.model';
 
 function Dropdown1({ onSelect }) {
     const [GetSubCategory, setGetSubCategory] = useState();
-    const [CountryList, setCountryList] = useState([]);
+    const [CountryList, setCountryList] = useState(['select']);
     const handleDropdownChange = (e) => {
         const selectedValue = e.target.value;
         onSelect(selectedValue);

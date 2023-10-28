@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { Container, Row, Col, Card, Modal } from 'react-bootstrap'
 import '../../asset/css/account.css';
 import { Link } from "react-router-dom";
-import { Button, TextField } from '@mui/material';
+import { Button, Grid, TextField } from '@mui/material';
 import wirralogo from '../../asset/image/Wiraalogo.png';
 import Accountfooter from '../../Layout/Accountfooter';
 import { helper } from '../../lib/helper';
-import FormControl from '@mui/material/FormControl';
-import InputLabel from '@mui/material/InputLabel';
-import OutlinedInput from '@mui/material/OutlinedInput';
+// import FormControl from '@mui/material/FormControl';
+// import InputLabel from '@mui/material/InputLabel';
+// import OutlinedInput from '@mui/material/OutlinedInput';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
@@ -44,9 +44,9 @@ const Login = () => {
         localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
         localStorage.setItem("UserType", response.data.user.UserType);
         window.location.replace("/user/dashboard")
-        console.log( response?.data)
+        console.log(response?.data)
         helper.sweetalert.toast("Welcome Back")
-        
+
       }
     })
       .catch((error) => {
@@ -58,98 +58,90 @@ const Login = () => {
   return (
     <>
       <div>
-        <Container style={{ height: '92.6vh' }} >
-          <Row>
-            <Col sm={3}>
-            </Col>
-            <Col sm={6} xs={12} style={{padding:'10px'}} className='signup  '>
-              <center> <Link to="/"> <img src={wirralogo} alt="" className="mb-5" /></Link> </center>
-              <Card className="shadow-5 login-card" style={{ border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }}>
+      <Grid container spacing={3}>
+        {/* <Container style={{ height: '92.6vh' }} > */}
+          
+           <Grid sm={4}></Grid>
+            <Grid sm={4} xs={12} style={{ padding: '10px' }} className='signup  '>
+              <center> <Link to="/"> <img src={wirralogo} alt="" className="m-5 " /></Link> </center>
+              <Card className="shadow-5 login-card " style={{ borderRadius:'8px',border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }} >
                 <h2 style={{ marginTop: "20px", marginLeft: "50px" }}>Login</h2>
-                <span style={{ marginLeft: '50px', marginTop: '-5px', color: '#008080', fontWeight: '500' }}>Login now & find projects through our community</span>
-                <form onSubmit={handleSubmit}>
-                  <div className='m-5'>
-                    <TextField id="outlined-basic" onChange={handleChange} name='email' className='mt-3 mb-3' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" size='small' />
-                    {/* <TextField id="outlined-basic" onChange={handleChange} name='password' className='mt-3' label=" Password" fullWidth placeholder=" Your Password(6+characters)" variant="outlined" size='small' /> */}
+                 <p style={{ marginLeft: '50px',  color: '#008080', fontWeight: '500' }}>Login now & find projects through our community </p>  
+
+                <form style={{padding:'10px 10px'}} onSubmit={handleSubmit}>
+                  <div className='mt-3' style={{ marginLeft: '40px', marginRight: '40px' }}>
+                    <TextField id="outlined-basic" onChange={handleChange} name='email' className='mb-3' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined"  />
+                    
 
 
-                    <FormControl  fullWidth variant="outlined">
-                      <InputLabel  htmlFor="outlined-adornment-password">Password</InputLabel>
-                      <OutlinedInput
-                        id="outlined-adornment-password"
-                        type={showPassword ? 'text' : 'password'}
-                        endAdornment={
-                          <InputAdornment position="end">
-                            <IconButton
-                              aria-label="toggle password visibility"
-                              onClick={handleClickShowPassword}
-                              onMouseDown={handleMouseDownPassword}
-                              edge="end"
-                            >
+                   
+                    <TextField
+                      fullWidth
+                      label="Password"
+                      name="password"
+                      // size='small'
+                      style={{backgroundColor:'white'}}
+                      type={showPassword ? "text" : "password"}
+                      variant="outlined"
+                      value={formData.password}
+                      onChange={handleChange}
+                      InputProps={{
+                        endAdornment: (
+                          <InputAdornment position="end" style={{backgroundColor:"##E8F0FE"}}>
+                            <IconButton onClick={handleClickShowPassword} style={{backgroundColor:"##E8F0FE"}}>
                               {showPassword ? <VisibilityOff /> : <Visibility />}
                             </IconButton>
                           </InputAdornment>
-                        }
-                        label="Password"
-                        size="small"
-                        fullWidth
-                        onChange={handleChange} name='password'
-                      />
-                    </FormControl>
+                        ),
+                      }}
+                    />
+
                     <div className="mt-2 mb-4">
-                      <span className='text-disable text-center small '><input type='checkbox' style={{ marginRight: '10px', marginTop: '5px', position: "relative", float: 'left' }} />Save password</span>
+                      <span className='text-disable text-center small '><input  type='checkbox' style={{ cursor: 'pointer', marginRight: '10px', marginTop: '5px', position: "relative", float: 'left' }} /> <span style={{ cursor: 'auto' }}>  Save password  </span>  </span>
+
                       <span onClick={handleShow} style={{ cursor: 'pointer', marginRight: '10px', position: "relative", float: 'right' }}><u>Forget your Password</u></span>
+
                     </div>
 
                     <button type='submit' className='mt-3 mb-4 btn' style={{ width: "-webkit-fill-available", backgroundColor: "#008080", color: 'white' }}><b>LOGIN</b></button>
 
-                    <h6 className='text-center'> <b>Register Now <u><Link to='/Account/singup'><span className='text-primary' style={{ cursor: "default" }}>Signup</span></Link></u></b></h6>
+                    <h6 className='text-center mb-4'> <b>Register Now <u><Link to='/Account/singup'><span className='text-primary' style={{ cursor: "pointer" }}>Signup</span></Link></u></b></h6>
                   </div>
                 </form>
               </Card>
-            </Col>
+            </Grid>
 
+           <Grid xs={4}></Grid>
 
-
-
-            <Col sm={3}>
-            </Col>
-          </Row>
-        </Container>
-
-
-
-
+        
+          <Accountfooter  />
+        {/* </Container> */}
+        </Grid>
       </div>
 
-      <Accountfooter />
 
 
 
-      <Modal show={show} onHide={handleClose}>
+
+      <Modal centered show={show} onHide={handleClose}>
 
 
 
-        <Card className="shadow-5 login-card" style={{ border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }}>
-          {/* <center className="mt-5"><img src={wirralogo} alt="" className="mb-2" /></center> */}
+        <Card className="shadow-5 login-card" style={{ borderRadius:'10px',border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }}>
           <h2 className="mt-5 mb-2" style={{ marginLeft: "50px" }}>Reset password</h2>
           <span style={{ marginLeft: '50px', color: '#008080', fontWeight: '500' }}>Let me first find your account </span>
           <form onSubmit={handleSubmit}>
-            <div className='m-5'>
-              <TextField id="outlined-basic" onChange={handleChange} name='email' className='mt-3' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
-              {/* <TextField id="outlined-basic" onChange={handleChange} name='password' className='mt-3' label=" Password" fullWidth placeholder=" Your Password(6+characters)" variant="outlined" size='small' /> */}
+            <div style={{padding:'5px 30px'}} className='m-4'>
+              <TextField id="outlined-basic" onChange={handleChange} name='email'   label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
 
-
-
-              {/* <button type='submit' className='mt-5 btn' style={{ width: "-webkit-fill-available", backgroundColor: "#008080", color: 'white' }}><b>Reset Password</b></button> */}
               <div fullWidth style={{ backgroundColor: 'pink' }} className="mt-4 mb-4">
-                {/* <span className='text-disable text-center small '><input type='checkbox' style={{ marginRight: '10px', marginTop: '5px', position: "relative", float: 'left' }} />Save password</span> */}
-                {/* <span onClick={handleShow} style={{ cursor: 'pointer', marginRight: '10px', position: "relative", float: 'right' }}><u>Forget your Password</u></span> */}
+
                 <Button style={{ backgroundColor: '#008080', color: 'white' }} fullWidth >Reset Password</Button>
               </div>
-              <h6 className='text-center mt-5'> <Link to='/Account/login'><b style={{ cursor: 'pointer' }}>Back to Login <u>
-                {/* <span className='text-primary' style={{ cursor: "default" }}>Login</span> */}
-              </u></b></Link>  </h6>
+
+              <h6 className='text-center mt-5'> <b onClick={handleClose} style={{ cursor: 'pointer' }}><u> Back to Login 
+
+              </u></b>  </h6>
             </div>
           </form>
         </Card>
@@ -163,4 +155,4 @@ const Login = () => {
 
 }
 
-export default Login
+export default Login;

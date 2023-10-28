@@ -10,19 +10,20 @@ import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
+import Iframe from 'react-iframe'
 function LearnModule() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
     useEffect(() => {
         LearnModal.Modulelist().then((response) => {
             setCourseList(response.data)
-            console.log(response.data)
+           
         })
     }, [])
     useEffect(() => {
         LearnModal.Modulelistdetails().then((response) => {
             setCourseListdetails(response.data)
-            console.log(response.data)
+            
         })
     }, [])
     return (
@@ -40,7 +41,7 @@ function LearnModule() {
                                     <h4 className='d-none d-sm-block' style={{marginTop:'12vh', padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
 
                                     <div  className='d-block d-sm-none'>
-                                        <img src={model} alt="" style={{ width: "100%",marginTop:'80px' }} className='p-2' /> 
+                                    <iframe style={{ width: "100%", marginTop: '80px' }}  src={courseList?.[0]?.ModuleURL} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                                     </div>
 
                                    
@@ -225,7 +226,16 @@ function LearnModule() {
 
                                 <Col style={{marginTop:'12vh'}} sm={4}  >
                                     <Card className='  mb-4 shadow-2 d-none d-sm-block ' style={{position: 'fixed', top: '20px', width: '20%',marginTop:'80px',  boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
-                                        <img src={model} alt="" style={{ width: "100%" }} className='p-2' />
+                                    <Iframe src={courseList?.[0]?.PreviewLink}
+                                    
+        width="100%"
+        height="320px"
+        id=""
+        className=""
+       s
+
+       />
+     
                                         <ul style={{ listStyle: "none",paddingLeft:'20px' }}>
                                             <p className='mt-2' style={{ fontSize: '16px', fontWeight: 600, color: 'black' }}> <b>This Course includes : </b>  </p>
                                             <li> <p className='small' style={{ fontSize: '14px' }}>

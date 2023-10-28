@@ -13,6 +13,7 @@ import ProfileModal from '../../modal/Profile.modal';
 import Switchform from '../../Model/switch.model';
 import Staticmodal from '../../modal/Static.modal';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
+import { helper } from '../../lib/helper';
 function Viewprofile() {
     const inputRef = useRef(null);
     const [AllQualificationListt, setAllQualificationListt] = useState()
@@ -75,7 +76,6 @@ function Viewprofile() {
             }
         }
     };
-
     const handleSubmit = (event) => {
         console.log(event);
         event.preventDefault();
@@ -83,6 +83,8 @@ function Viewprofile() {
         const userId = parseInt(localStorage.getItem("UserID"));
         ProfileModal.Updateprofile(form, userId).then((response) => {
             console.log(response.data, "Profession Form Fill Successfuly");
+            helper.sweetalert.toast("Your Profile Update Successfully")
+            handleClose1(true);
         })
             .catch((error) => {
                 console.log(error);
@@ -102,7 +104,7 @@ function Viewprofile() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav />
+                        <Sidenav activekey="profile" />
                     </Col>
 
 
@@ -113,16 +115,16 @@ function Viewprofile() {
                             <Row className=''>
                                 <Col sm={8} className="square border-end">
                                     <div style={{ backgroundColor: '#efefef', height: '56vh', borderTopLeftRadius: '35px', borderTopRightRadius: '35px', borderBottomRightRadius: "280px 300px" }}>
-                                        <Card className='order-detail-profile   d-none d-sm-block' style={{ marginTop: '12vh', backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
+                                        <Card className='order-detail-profile   d-none d-sm-block' style={{ marginTop:'5px', backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
 
                                             <center>
-                                                <img src={`https://wiraaback.azurewebsites.net/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "100px", width: '100px', marginTop: '20px' }} />
+                                                <img src={`https://wiraaback.azurewebsites.net/api/v1/${profileData?.[0]?.ProfilePic}`} alt="" className='mb-3' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
                                                 <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>
                                                 <p>{profileData?.[0]?.OccupationName}</p>
                                             </center>
                                             <Container>
-                                                <Row className='mb-3'>
-                                                    <Col className='square border-end'>  {profileData?.[0]?.FollowerCount === null ? (
+                                                <Row className='mb-3 mt-3'>
+                                                    <Col className='' style={{borderRight:'1px solid lightgrey'}}>  {profileData?.[0]?.FollowerCount === null ? (
                                                         <h6 className='text-center'>0</h6>
                                                     ) : <h6 className='text-center'>{profileData?.[0]?.FollowerCount}</h6>}
 
@@ -138,7 +140,7 @@ function Viewprofile() {
                                                     </Col>
                                                 </Row>
                                                 <Row>
-                                                    <Col>
+                                                    <Col className='mt-3 mb-3'>
                                                         <center><button style={{ border: 'none', padding: '6px 20px' }} onClick={handleShow1} className='editporfile'> <span style={{ fontSize: '16px' }}> Edit Profile</span>  </button></center>
                                                     </Col>
                                                 </Row>
@@ -149,7 +151,7 @@ function Viewprofile() {
                                         <Card className='order-detail-profile  d-block d-sm-none' style={{ backgroundColor: "#efefef", borderRadius: "35px", border: 'none', borderBottomLeftRadius: '0px', marginTop: '70px' }}>
 
                                             <center>
-                                                <img src={`https://wiraaback.azurewebsites.net/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
+                                                <img src={`https://wiraaback.azurewebsites.net/api/v1/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
                                                 <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>
                                                 <p>{profileData?.[0]?.OccupationName}</p>
                                             </center>
@@ -180,7 +182,7 @@ function Viewprofile() {
                                                 </Row>
                                             </Container>
                                         </Card>
-                                        
+
                                         <Card style={{ border: 'none', borderRadius: "35px" }}>
                                             <div className='m-4'>
                                                 <span><b>About:</b></span>
@@ -203,7 +205,7 @@ function Viewprofile() {
                                     </div>
                                 </Col>
 
-                                <Col style={{ marginTop: '10vh' }} md={4} className=" d-none d-sm-block">
+                                <Col  md={4} className=" d-none d-sm-block">
                                     <h6 style={{ fontSize: '20px', marginTop: '20px', marginLeft: '20px' }}><b>Explore</b></h6>
                                     {Freelancer && Freelancer.map((freelist) =>
                                         <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
@@ -218,14 +220,17 @@ function Viewprofile() {
                                             </div>
                                             <Container>
                                                 <Row className='mb-3'>
-                                                    <Col className='square border-end'>
+                                                    <Col className=''style={{borderRight:'1px solid lightgrey'}}>
                                                         {freelist?.PostCount === null ? (
                                                             <h6 className='text-center'>0</h6>
                                                         ) : <h6 className='text-center'>{freelist?.PostCount}</h6>}
 
                                                         <p style={{ fontSize: '15px', color: 'grey', fontWeight: 600 }} className='text-center'>Followers</p>
                                                     </Col>
-                                                    <Col className='square border-start'>
+
+                                                    <Col
+                                                    //  className='square border-start'
+                                                    >
                                                         {freelist?.FollowerCount === null ? (
                                                             <h6 className='text-center'>0</h6>) :
                                                             <h6 className='text-center'>{freelist.FollowerCount}</h6>}
@@ -233,9 +238,6 @@ function Viewprofile() {
                                                     </Col>
                                                 </Row>
                                             </Container>
-
-
-
 
                                         </Card>
                                     )}
@@ -272,7 +274,6 @@ function Viewprofile() {
                                                     <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
 
                                                         <Form.Control placeholder="Frist Name"
-                                                        defaultValue={profileData?.[0]?.FirstName}
                                                             name='fName' onChange={handleInputChange}
                                                         />
                                                     </Form.Group>
@@ -281,8 +282,7 @@ function Viewprofile() {
                                                     <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
 
                                                         <Form.Control placeholder="Last Name"
-                                                            name='lName' onChange={handleInputChange}
-                                                            defaultValue={profileData?.[0]?.LastName} />
+                                                            name='lName' onChange={handleInputChange} />
                                                     </Form.Group>
                                                 </Col>
                                             </Row>
@@ -298,8 +298,8 @@ function Viewprofile() {
                                         </Form.Group>
                                         <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
                                             <Form.Label>Experience:</Form.Label>
-                                            <Form.Control as="textarea" rows={3} name='experience' placeholder="Please enter work Experience" />
-                                           </Form.Group>
+                                            <Form.Control as="textarea" rows={3} placeholder="Please enter work Experience" />
+                                        </Form.Group>
                                         <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
 
                                             <Row>

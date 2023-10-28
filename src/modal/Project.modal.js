@@ -42,11 +42,6 @@ const ProjectModal = {
             `/project/getInterestedByUserId/${data.userId}` , data
         ));
     },
-    async addintrestpro(data) {
-        return (await axiosInstance.post(
-            `/project/addInterestToProject` , data
-        ));
-    },
 
     
 
