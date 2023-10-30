@@ -60,6 +60,8 @@ function Freelancerdashboard(props) {
         form.append("userProfileId", localStorage.getItem("userProfileId"));
         PortfolioModal.addPortfolio(form).then((response) => {
             console.log(response.data, "data");
+            handleClose(true)
+            helper.sweetalert.toast('Your portfolio request is under review.', 'Please wait for the admin approval.')
         })
             .catch((error) => {
                 console.log(error);

@@ -6,6 +6,8 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Link } from 'react-router-dom';
+import { helper } from '../../lib/helper';
+import SettingModal from '../../modal/Setting.modal';
 
 
 
@@ -41,20 +43,39 @@ function Setting() {
 
         Setting.editbusiness(form)
             .then((response) => {
-               
+
 
             })
             .catch((error) => {
                 console.log(error);
             });
     };
+    const deactiveAccount = () => {
+        helper.sweetalert.confirm('Are you sure?', "You won't be able to revert this!", "warning", true).then((result) => {
+            if (result.isConfirmed) {
+                const form = new FormData();
+                form.append("userId", parseInt(localStorage.getItem("UserID")));
+
+                SettingModal.accdeactive(form).then((response) => {
+
+
+                    helper.sweetalert.toast("Submited", 'Your professional dashboard request is under review.', 'Please wait for the admin approval.')
+
+                    window.location.replace("/Professionalsdashboard")
+
+                }).catch((error) => {
+                    console.log(error);
+                });
+            };
+        })
+    }
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
 
                     <Col sm={1} className='d-none d-sm-block'>
-                    <Sidenavbar />
+                        <Sidenavbar />
                     </Col>
 
 
@@ -62,7 +83,7 @@ function Setting() {
 
 
                         <Container className='square border border-bottom-0'>
-                        <Topnavbar activeLink="Project" />
+                            <Topnavbar activeLink="Project" />
 
                             <Row>
                                 <Col sm={1}></Col>
@@ -112,7 +133,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col style={{ marginLeft: '10px' }} sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={deactiveAccount} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Deactivate Account:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Temporarily deactivate your Wiraa account</p>
@@ -180,7 +201,7 @@ function Setting() {
                                 <Col sm={1}></Col>
                             </Row>
 
-                           
+
 
                             <Row>
                                 <Col sm={1}></Col>
@@ -198,7 +219,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={deactiveAccount} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Deactivate Account:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Temporarily deactivate your Wiraa account</p>
@@ -228,11 +249,11 @@ function Setting() {
                                 </Link>
                             </center>
 
-                           
 
 
 
-                         
+
+
                         </Container>
 
                     </Col>

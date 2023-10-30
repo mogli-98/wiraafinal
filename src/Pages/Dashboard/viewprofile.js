@@ -90,6 +90,7 @@ function Viewprofile() {
                 console.log(error);
             });
     };
+
     useEffect(() => {
         fetchdata();
     }, [])
@@ -115,7 +116,7 @@ function Viewprofile() {
                             <Row className=''>
                                 <Col sm={8} className="square border-end">
                                     <div style={{ backgroundColor: '#efefef', height: '56vh', borderTopLeftRadius: '35px', borderTopRightRadius: '35px', borderBottomRightRadius: "280px 300px" }}>
-                                        <Card className='order-detail-profile   d-none d-sm-block' style={{ marginTop:'5px', backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
+                                        <Card className='order-detail-profile   d-none d-sm-block' style={{ marginTop: '5px', backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
 
                                             <center>
                                                 <img src={`https://wiraaback.azurewebsites.net/api/v1/${profileData?.[0]?.ProfilePic}`} alt="" className='mb-3' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
@@ -124,7 +125,7 @@ function Viewprofile() {
                                             </center>
                                             <Container>
                                                 <Row className='mb-3 mt-3'>
-                                                    <Col className='' style={{borderRight:'1px solid lightgrey'}}>  {profileData?.[0]?.FollowerCount === null ? (
+                                                    <Col className='' style={{ borderRight: '1px solid lightgrey' }}>  {profileData?.[0]?.FollowerCount === null ? (
                                                         <h6 className='text-center'>0</h6>
                                                     ) : <h6 className='text-center'>{profileData?.[0]?.FollowerCount}</h6>}
 
@@ -205,7 +206,7 @@ function Viewprofile() {
                                     </div>
                                 </Col>
 
-                                <Col  md={4} className=" d-none d-sm-block">
+                                <Col md={4} className=" d-none d-sm-block">
                                     <h6 style={{ fontSize: '20px', marginTop: '20px', marginLeft: '20px' }}><b>Explore</b></h6>
                                     {Freelancer && Freelancer.map((freelist) =>
                                         <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
@@ -220,7 +221,7 @@ function Viewprofile() {
                                             </div>
                                             <Container>
                                                 <Row className='mb-3'>
-                                                    <Col className=''style={{borderRight:'1px solid lightgrey'}}>
+                                                    <Col className='' style={{ borderRight: '1px solid lightgrey' }}>
                                                         {freelist?.PostCount === null ? (
                                                             <h6 className='text-center'>0</h6>
                                                         ) : <h6 className='text-center'>{freelist?.PostCount}</h6>}
@@ -274,6 +275,7 @@ function Viewprofile() {
                                                     <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
 
                                                         <Form.Control placeholder="Frist Name"
+                                                            defaultValue={profileData?.[0]?.FirstName}
                                                             name='fName' onChange={handleInputChange}
                                                         />
                                                     </Form.Group>
@@ -282,6 +284,8 @@ function Viewprofile() {
                                                     <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
 
                                                         <Form.Control placeholder="Last Name"
+                                                            defaultValue={profileData?.[0]?.LastName}
+
                                                             name='lName' onChange={handleInputChange} />
                                                     </Form.Group>
                                                 </Col>
@@ -294,13 +298,17 @@ function Viewprofile() {
                                         <Form.Group className="mb-1" controlId="exampleForm.ControlInput1">
                                             <Form.Label>About: </Form.Label>
                                             <Form.Control as="textarea" rows={3} placeholder="Please enter a headline"
-                                                name='about' onChange={handleInputChange} />
+                                                name='about' onChange={handleInputChange}
+                                                defaultValue={profileData?.[0]?.AboutMe}
+                                            />
                                         </Form.Group>
                                         <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
                                             <Form.Label>Experience:</Form.Label>
                                             <Form.Control as="textarea" rows={3} placeholder="Please enter work Experience" />
                                         </Form.Group>
-                                        <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
+                                        <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1"
+                                            defaultValue={profileData?.[0]?.ExperienceName}
+                                        >
 
                                             <Row>
                                                 <Col sm={6}>

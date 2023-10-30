@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Card } from "react-bootstrap";
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
@@ -6,10 +6,13 @@ import Modal from 'react-bootstrap/Modal';
 import Form from 'react-bootstrap/Form';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Link } from 'react-router-dom';
+import { helper } from '../../lib/helper';
+import SettingModal from '../../modal/Setting.modal';
 
 
 // import InputGroup from 'react-bootstrap/InputGroup';
 function Setting() {
+    const [blockuserlist, setBlockuserlist] = useState();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -47,6 +50,50 @@ function Setting() {
                 console.log(error);
             });
     };
+    const deactiveAccount = () => {
+        helper.sweetalert.confirm('Are you sure?', "You won't be able to revert this!", "warning", true).then((result) => {
+            if (result.isConfirmed) {
+
+                const userId = parseInt(localStorage.getItem("UserID"));
+
+                SettingModal.accdeactive({ userId }).then((response) => {
+
+
+                    helper.sweetalert.toast("Submited", 'Your is Account deactive.')
+                    sessionStorage.clear();
+                    localStorage.clear();
+                    window.location.replace("/")
+
+                }).catch((error) => {
+                    console.log(error);
+                });
+            };
+        })
+    }
+
+    const blockuser = () => {
+        const userProfileId = localStorage.getItem("userProfileId");
+        SettingModal.Blocklist({ userProfileId }).then((respnse) => {
+            handleShow2(true)
+            console.log(respnse.data)
+            setBlockuserlist(respnse.data)
+        }).catch((error) => {
+            console.log(error);
+            // Display error message to the user
+        });
+    }
+    const unblockuser = (UserID) => {
+        const userProfileId = localStorage.getItem("userProfileId");
+        const userId = UserID;
+        SettingModal.Unblockuser({ userProfileId, userId }).then((respnse) => {
+
+            console.log('user unblock', respnse.data)
+            helper.sweetalert.toast('Unblock Account')
+        });
+    }
+    useEffect(() => {
+        blockuser()
+    }, [])
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -65,8 +112,8 @@ function Setting() {
 
                             <Row>
                                 <Col sm={1}></Col>
-                                <Col style={{ marginLeft: '10px',marginTop:'20px' }} sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                <Col style={{ marginLeft: '10px', marginTop: '20px' }} sm={10}>
+                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Email address of your account  </p>
@@ -84,7 +131,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col style={{ marginLeft: '10px' }} sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Phone Number:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Phone number in case you have trouble signing in</p>
@@ -98,7 +145,7 @@ function Setting() {
 
                                 <Col sm={1}></Col>
                                 <Col style={{ marginLeft: '10px' }} sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={blockuser} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Block Accounts:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>When you block someone, that person won’t be able to follow or message you</p>
@@ -111,7 +158,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col style={{ marginLeft: '10px' }} sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={deactiveAccount} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Deactivate Account:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Temporarily deactivate your Wiraa account</p>
@@ -127,7 +174,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10} style={{ marginLeft: '10px' }}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Change Password:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Choose a strong password that you are not using anywhere</p>
@@ -179,12 +226,12 @@ function Setting() {
                                 <Col sm={1}></Col>
                             </Row>
 
-                           
+
 
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={{ blockuser }} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Block Accounts:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>When you block someone, that person won’t be able to follow or message you</p>
@@ -197,7 +244,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={deactiveAccount} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Deactivate Account:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Temporarily deactivate your Wiraa account</p>
@@ -227,11 +274,11 @@ function Setting() {
                                 </Link>
                             </center>
 
-                           
 
 
 
-                         
+
+
                         </Container>
 
                     </Col>
@@ -287,11 +334,30 @@ function Setting() {
 
                     <Modal.Body>
                         <div>
-                            <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-                                <Form.Label style={{ fontSize: '18px' }}>Change Password </Form.Label>
-                                <Form.Control placeholder="Change Password" />
-                            </Form.Group>
-                            <button style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '5px', fontWeight: 600 }}> Submit </button>
+                            <h5 className=' mt-2 mb-4
+                            text-center'>Block List</h5>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <td><b> User-Name</b>
+                                        </td>
+                                        <td> <b>
+                                            Option
+                                        </b>
+                                        </td>
+                                    </tr>
+                                </thead>
+                                <tbody className='mt-4'>
+                                    {blockuserlist && blockuserlist.map((list) =>
+                                        <tr>
+                                            <td style={{ width: "50vh" }}>{list.FirstName} {list.LastName}</td>
+                                            <td><button style={{ backgroundColor: '#008080', borderStyle: "none", borderRadius: "5px" }}
+                                                // onClick={unblockuser(list.UserID)}
+                                                onClick={() => { unblockuser(list.UserID) }}
+                                            > Unblock</button></td>
+                                        </tr>)}
+                                </tbody>
+                            </table>
 
                         </div>
 

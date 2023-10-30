@@ -65,6 +65,7 @@ import Learnwithoutlogin from './Pages/Learn/Learnwithoutlogin';
 import Messagebox from './Pages/freelancerdashboard/Messagebox';
 import Modulee from './Pages/freelancerdashboard/Modulee';
 import Settingss from './Pages/freelancerdashboard/Settingss';
+import FreeLearn from './Pages/Learn/FreeLearn';
 // import Nonotiftyy from './Pages/freelancerdashboard/nootify/Notification';
 
 function App() {
@@ -72,89 +73,90 @@ function App() {
     <>
       <Outlet />
       <Router>
-          <Routes>
-            <Route  element={<WithNav />}>
-              <Route path='/' element={<Homepage/>} />
-            </Route>
-            {/* indexpage link */}
-              <Route path='/Account/singup' element={<Singup/>}/>
-              <Route path='/Account/login' element={<Login/>}/>
-              <Route path="/Home/PostRequirement" element={<PostRequirement/>} />
-              <Route path='/Home/Project' element={<Project/>}/>
-              <Route path='/Home/Projectdetails' element={<Projectdetails/>}/>
-              <Route path='/Projeectdetailss/:id' element={<Projeectdetailss/>}/>
-              <Route path='/learn' element={<Index/>}/>
-              <Route path='/Profiledetails/:id' element={<Profiledetails/>}/>
-              <Route path='/About Us' element={<Aboutus/>}/>
-              <Route path='/Career' element={<Career/>}/>
-              <Route path='/PrivacyPolicy' element={<PrivacyPolicy/>}/>
-              <Route path='/ContactComponent' element={<ContactComponent/>}/>
-              <Route path='/ProfessionalServiceAgreement' element={<ProfessionalServiceAgreement/>}/>
-              <Route path='/Termsandcondition' element={<TermsandCondition/>}/>
-              <Route path='/UserAgreement' element={<UserAgreement/>}/>
-            {/* User-Dashborad link */}
-              <Route path='/user/dashboard'  element={<Dashboard />}/>
-            {/* Order page link*/}
-              <Route path='/Order' element={<Order/>}/>
-              {/* <Route path='/Ordertable' element={<Ordertable/>}/> */}
-              <Route path='/Orderdetails/:id' element={<Orderdetails/>}/>
-              <Route path='/Orderdetailsbreief/:id' element={<Orderdetailsbrief/>}/>
-            {/*project page link*/}
-              <Route path='/user/Project' element={<Clientproject/>}/>
-              <Route path='/FreeProject/:id' element={<FreeProjectdetails/>}/>
-              <Route path='/user/Projectdetails' element={<Dashprojectdetails/>}/>
-              <Route path='/Home/StartUp' element={<StartUp/>} />
-            {/* Leran page link */} 
+        <Routes>
+          <Route element={<WithNav />}>
+            <Route path='/' element={<Homepage />} />
+          </Route>
+          {/* indexpage link */}
+          <Route path='/Account/singup' element={<Singup />} />
+          <Route path='/Account/login' element={<Login />} />
+          <Route path="/Home/PostRequirement" element={<PostRequirement />} />
+          <Route path='/Home/Project' element={<Project />} />
+          <Route path='/Home/Projectdetails' element={<Projectdetails />} />
+          <Route path='/Projeectdetailss/:id' element={<Projeectdetailss />} />
+          <Route path='/learn' element={<Index />} />
+          <Route path='/Profiledetails/:id' element={<Profiledetails />} />
+          <Route path='/About Us' element={<Aboutus />} />
+          <Route path='/Career' element={<Career />} />
+          <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
+          <Route path='/ContactComponent' element={<ContactComponent />} />
+          <Route path='/ProfessionalServiceAgreement' element={<ProfessionalServiceAgreement />} />
+          <Route path='/Termsandcondition' element={<TermsandCondition />} />
+          <Route path='/UserAgreement' element={<UserAgreement />} />
+          {/* User-Dashborad link */}
+          <Route path='/user/dashboard' element={<Dashboard />} />
+          {/* Order page link*/}
+          <Route path='/Order' element={<Order />} />
+          {/* <Route path='/Ordertable' element={<Ordertable/>}/> */}
+          <Route path='/Orderdetails/:id' element={<Orderdetails />} />
+          <Route path='/Orderdetailsbreief/:id' element={<Orderdetailsbrief />} />
+          {/*project page link*/}
+          <Route path='/user/Project' element={<Clientproject />} />
+          <Route path='/FreeProject/:id' element={<FreeProjectdetails />} />
+          <Route path='/user/Projectdetails' element={<Dashprojectdetails />} />
+          <Route path='/Home/StartUp' element={<StartUp />} />
+          {/* Leran page link */}
 
-              <Route path='Packages' element={<Packages/>}/>
-              <Route path='/Notification' element={<Nonotifiy/>} />
+          <Route path='Packages' element={<Packages />} />
+          <Route path='/Notification' element={<Nonotifiy />} />
 
-              <Route path='/Notifications' element={<Nonotifiyy/>} />
-             
-
-              <Route path='/User/Notification' element={<Notificationn/>}/>
-              <Route path='/Uses/Natification' element={<Notificationnn/>}/>
-
-              <Route path='/User/Notifications' element={<Unreadnotification/>}/>
-              <Route path='/Users/Notificationss' element={<Unreadnotificationn/>}/>
-
-              <Route path='/Notification' element={<Notification />}/>
-              <Route path='/Notificationss' element={<Notification />}/>
+          <Route path='/Notifications' element={<Nonotifiyy />} />
 
 
-              <Route path='/Profile' element={<Viewprofile/>} />
-              <Route path='/Module' element={<Modulle/>}/>
-              <Route path='/Modulee' element={<Modulee/>}/>
-              <Route path='/Learrn' element={<Learnwithoutlogin/>}/>
-              <Route path='/Module' element={<Module/>}/>
-              <Route path='/user/Setting' element={<Setting/>}/>
-              <Route path='/Settingss' element={<Settingss/>}/>
+          <Route path='/User/Notification' element={<Notificationn />} />
+          <Route path='/Uses/Natification' element={<Notificationnn />} />
 
-              <Route path='/Switchaccount' element={<SwitchAccount/>}/>
-              <Route path='/Hiretalent' element={<Hiretalent/>}/>
-              <Route path='/Project/ProjectDetails' element={<Projectdetails/>} />
-              <Route path='/Message' element={<Messaages/>}/>
-              <Route path='/Messagebox' element={<Messagebox/>}/>
-              
-              <Route path='/Professionalsdashboard' element={<Dashboardfreelancer/>}/>
-              <Route path='/Community' element={<Community/>} />
-              <Route path='/Package' element={<Package/>} />
-              {/* <Route path ='/Editp'/> */}
-              <Route path='/Editproflie' element={<Editprofile/>}/>
-              <Route path='/Switchaccount-next' element={<Moreprof/>}/>
-              <Route path='/Quesans/:questionId' element={<Quesans/>}/>         
-              <Route path='/Project' element={<Dashprojectdetails/>}/> 
-              <Route path='/Ordermessage' element={<Messagedetails/>} />
-              <Route path='/UserProject' element={<Userproject/>}/>
-              <Route path='/Chat' element={<Chat/>}/>
-              <Route path='/MyAffilate' element={<MyAffiliations/>}/>
-              <Route path='/Affilate' element={<Affiliate/>}/>
-              <Route path='/Switchacc' element={<SwitchAccountt/>}/>
-              {/* Freelancer */}
-              <Route path='/ProProjectDetails' element={<FreeProDetails/>}/>
-              <Route path='/Wiraastartup' element={<WiraaStartup/>}/>
-        </Routes> 
-      </Router> 
+          <Route path='/User/Notifications' element={<Unreadnotification />} />
+          <Route path='/Users/Notificationss' element={<Unreadnotificationn />} />
+
+          <Route path='/Notification' element={<Notification />} />
+          <Route path='/Notificationss' element={<Notification />} />
+
+
+          <Route path='/Profile' element={<Viewprofile />} />
+          <Route path='/Module' element={<Modulle />} />
+          <Route path='/Modulee' element={<Modulee />} />
+          <Route path='/ProModule' element={<FreeLearn />} />
+          <Route path='/Learrn' element={<Learnwithoutlogin />} />
+          <Route path='/Module' element={<Module />} />
+          <Route path='/user/Setting' element={<Setting />} />
+          <Route path='/Settingss' element={<Settingss />} />
+
+          <Route path='/Switchaccount' element={<SwitchAccount />} />
+          <Route path='/Hiretalent' element={<Hiretalent />} />
+          <Route path='/Project/ProjectDetails' element={<Projectdetails />} />
+          <Route path='/Message' element={<Messaages />} />
+          <Route path='/Messagebox' element={<Messagebox />} />
+
+          <Route path='/Professionalsdashboard' element={<Dashboardfreelancer />} />
+          <Route path='/Community' element={<Community />} />
+          <Route path='/Package' element={<Package />} />
+          {/* <Route path ='/Editp'/> */}
+          <Route path='/Editproflie' element={<Editprofile />} />
+          <Route path='/Switchaccount-next' element={<Moreprof />} />
+          <Route path='/Quesans/:questionId' element={<Quesans />} />
+          <Route path='/Project' element={<Dashprojectdetails />} />
+          <Route path='/Ordermessage' element={<Messagedetails />} />
+          <Route path='/UserProject' element={<Userproject />} />
+          <Route path='/Chat' element={<Chat />} />
+          <Route path='/MyAffilate' element={<MyAffiliations />} />
+          <Route path='/Affilate' element={<Affiliate />} />
+          <Route path='/Switchacc' element={<SwitchAccountt />} />
+          {/* Freelancer */}
+          <Route path='/ProProjectDetails' element={<FreeProDetails />} />
+          <Route path='/Wiraastartup' element={<WiraaStartup />} />
+        </Routes>
+      </Router>
     </>
   )
 }

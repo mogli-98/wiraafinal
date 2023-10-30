@@ -124,7 +124,7 @@ function WiraaStartup() {
                             <Container fluid >
                                 <Row className='mt-5'>
                                     <Col>
-                                        <h1 className='text-center wiraastartup_h1' style={{ fontSize: '37px' }}>Keep growing with Wira Care </h1>
+                                        <h1 className='text-center wiraastartup_h1' style={{ fontSize: '37px' }}>Keep growing with Wiraa Care </h1>
 
                                     </Col>
                                 </Row>
@@ -212,14 +212,14 @@ function WiraaStartup() {
 
 
 
-                        <hr />                        
-                            <center>
-                                <Button centered style={{ backgroundColor: '#008080', border: 'none',marginBottom:'20px',padding:'6px 40px' }} type='submit'>
-                                    Submit
-                                </Button>
-                            </center>
+                        <hr />
+                        <center>
+                            <Button centered style={{ backgroundColor: '#008080', border: 'none', marginBottom: '20px', padding: '6px 40px' }} type='submit'>
+                                Submit
+                            </Button>
+                        </center>
 
-                        
+
                         {/* </Container> */}
                         <Grid sm={3}>
 
@@ -230,7 +230,7 @@ function WiraaStartup() {
 
                 </div>
                 {/* <Accountfootor /> */}
-                <Footor/>
+                <Footor />
             </div>
 
 

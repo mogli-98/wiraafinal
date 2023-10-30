@@ -43,22 +43,8 @@ function PostRequirement() {
     //     });
     // };
     const handleSubmit = (event) => {
-
-        console.log(event);
         event.preventDefault();
-
-        const formdata = new FormData(event.target);
-        formdata.append("userId", localStorage.getItem("UserID"));
-        formdata.append("isFeatured", false);
-        Auth.PostRequest(formdata)
-            .then((response) => {
-                // console.log(response.data, "yes data update");
-                helper.sweetalert.toast("Project Submit Sucessfully")
-            })
-            .catch((error) => {
-                // console.log(error);
-
-            });
+        window.location.replace("/Account/login")
     };
 
     useEffect(() => {
@@ -122,7 +108,7 @@ function PostRequirement() {
 
     return (
         <>
-            <Container fluid className='dashboard-conatiner-top' >
+            <Container fluid className='dashboard-conatiner-top ' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
 
@@ -136,18 +122,18 @@ function PostRequirement() {
                                 <Link to='/Account/login'>
                                     <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-arrow-right-circle container-left-first " viewBox="0 0 16 16">
                                         <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-                                    </svg><span 
-                                    // className='container-left-first-span'
-                                     style={{ fontSize: '25px', marginLeft: '30px' }}>Login</span>
+                                    </svg><span
+                                        // className='container-left-first-span'
+                                        style={{ fontSize: '25px', marginLeft: '30px' }}>Login</span>
                                 </Link><br />
 
                                 <Link to='/Account/singup'>
                                     <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" className="bi bi-person-plus container-left-second" viewBox="0 0 16 16">
                                         <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
                                         <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z" />
-                                    </svg><span 
-                                    // className='container-left-first-span'
-                                     style={{ fontSize: '25px',marginLeft:'20px' }}>  Signup </span>
+                                    </svg><span
+                                        // className='container-left-first-span'
+                                        style={{ fontSize: '25px', marginLeft: '20px' }}>  Signup </span>
                                 </Link>
                             </div>
 
@@ -159,7 +145,7 @@ function PostRequirement() {
 
                             </div>
                             <div style={{ marginTop: '30px' }}>
-                                <p className='p-1' style={{ margin: '10px', color: '#008080', fontSize: '25px',marginLeft:'30px' }}> <b>Let the match  <br />begin...</b> </p>
+                                <p className='p-1' style={{ margin: '10px', color: '#008080', fontSize: '25px', marginLeft: '30px' }}> <b>Let the match  <br />begin...</b> </p>
 
                                 <p className='p-1' style={{ color: 'grey', fontSize: '18px', margin: '10px' }}>Post a request and start <br /> <center>conversation with</center>  <center> peofessionals</center> </p>
                             </div>
@@ -167,11 +153,11 @@ function PostRequirement() {
                     </Col>
 
 
-                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
-                        <Container className='square border border-bottom-0'>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row square border border-bottom-0'>
+                        <Container className='square  border-bottom'>
 
-                            <div className="mt-4">
-                                <Link to="/"><ion-icon name="chevron-back-outline"></ion-icon></Link>
+                            <div className="mt-4 square  border-bottom">
+                                <Link to="/"><ion-icon name="chevron-back-outline "></ion-icon></Link>
                                 <span style={{ fontSize: '27px', fontWeight: 600 }}> Post a Request</span>
                             </div>
 
@@ -219,7 +205,7 @@ function PostRequirement() {
                                             name='projectDescription'
                                         /> */}
 
-<Form.Control
+                                        <Form.Control
                                             style={{ border: '2px solid lightgrey', fontSize: '16px' }} as="textarea" rows={3} placeholder="Our requriments are...."
                                             required
                                             type='text'
@@ -227,10 +213,10 @@ function PostRequirement() {
                                             value={formData.description}
                                             onChange={handleInputChange}
 
-                                        />                      
+                                        />
 
 
-                                        {descriptionError && <p style={{color:'red'}} className="error p-2">Description is too short.</p>}
+                                        {descriptionError && <p style={{ color: 'red' }} className="error p-2">Description is too short.</p>}
 
 
 
@@ -261,6 +247,7 @@ function PostRequirement() {
                                                     name='country'
                                                     placeholder='Category'
                                                 >
+                                                    <option value="" disabled selected>Select your Category</option>
                                                     {
                                                         city && city.map((categorylist) =>
                                                             <option value={categorylist.CountryID}>{categorylist.CountryName}</option>)
@@ -515,10 +502,10 @@ function PostRequirement() {
 
 
                                         <center>
-                                            <Link to="/Account/login">
-                                                <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '20px' }} className='hire-button d-none d-sm-block' type='submit'><b>Submit</b></button>
-                                                <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '80px' }} className='hire-button d-block d-sm-none' type='submit'><b>Submit</b></button>
-                                            </Link>
+
+                                            <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '20px' }} className='hire-button d-none d-sm-block' type='submit'><b>Submit</b></button>
+                                            <button style={{ height: '40px', width: '180px', borderRadius: '10px', marginBottom: '80px' }} className='hire-button d-block d-sm-none' type='submit'><b>Submit</b></button>
+
 
                                         </center>
 

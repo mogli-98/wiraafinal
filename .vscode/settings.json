@@ -9,5 +9,8 @@
     "editor.cursorBlinking": "smooth",
     "editor.cursorWidth": 5,
     "editor.formatOnSave": true,
-    "diffEditor.hideUnchangedRegions.contextLineCount": 8
+    "diffEditor.hideUnchangedRegions.contextLineCount": 10,
+    "editor.autoClosingBrackets": "always",
+    "diffEditor.experimental.showEmptyDecorations": false,
+    "diffEditor.hideUnchangedRegions.minimumLineCount": 5
 }

@@ -13,21 +13,21 @@ import Select from "react-select";
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 
-function Dashboard(name ) {
+function Dashboard(name) {
     const [inputValue, setInputValue] = useState("");
-  const [selectedOption, setSelectedOption] = useState(null);
+    const [selectedOption, setSelectedOption] = useState(null);
     const handleChange = (selectedOption) => {
         console.log('Selected option:', selectedOption);
         setSelectedOptions(selectedOption)
     };
     const handleInputChange = (inputValue) => {
         setInputValue(inputValue);
-      };
-        const filterOptions = (inputValue) => {
-    return options.filter((option) =>
-      option.label.toLowerCase().includes(inputValue.toLowerCase())
-    );
-  };
+    };
+    const filterOptions = (inputValue) => {
+        return options.filter((option) =>
+            option.label.toLowerCase().includes(inputValue.toLowerCase())
+        );
+    };
     const [options, setSubCategory] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState();
     const [showComponent, setShowComponent] = useState(false);
@@ -44,24 +44,23 @@ function Dashboard(name ) {
         )
     }, [])
 
-
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
 
-                        <Sidenav activekey="home"   />
+                        <Sidenav activekey="home" />
                     </Col>
-                    
-                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
-                        <Container  className='square border border-bottom-0'>
+
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
+                        <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Home" />
 
 
-                            <Row style={{paddingLeft:'10px',paddingRight:'10px'}}>
+                            <Row style={{ paddingLeft: '10px', paddingRight: '10px' }}>
 
-                                <Col style={{marginTop:'6vh'}} className='d-block d-sm-none'>
+                                <Col style={{ marginTop: '6vh' }} className='d-block d-sm-none'>
 
                                     <div>
                                         <Link to="/Hiretalent">
@@ -80,23 +79,21 @@ function Dashboard(name ) {
 
 
                                 <Col className='d-none d-sm-block'>
-                                    <div style={{ width:'99%',display: "flex", backgroundColor: '#efefef', borderRadius: "30px"}} className='mb-4 mt-4'>
+                                    <div style={{ width: '99%', display: "flex", backgroundColor: '#efefef', borderRadius: "30px" }} className='mb-4 mt-4'>
 
-                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px",width:'99%' }}>
-                                            <InputGroup style={{ borderStyle: 'none',cursor:'pointer' }} className='  search-outer-container'>
+                                        <div style={{ backgroundColor: "#efefef", borderRadius: "30px", width: '99%' }}>
+                                            <InputGroup style={{ borderStyle: 'none', cursor: 'pointer' }} className='  search-outer-container'>
 
                                                 <Select
                                                     options={options}
-                                                    arrowRenderer={null}
-                                                    placeholder="Serach     Portfolio"                                                 
-                                                    
+                                                    placeholder="Serach Here"
+                                                    openMenuOnClick={false}
                                                     onMenuOpen={false}
                                                     isClearable
-                                                    openOnClick={false}
                                                     className='d-none d-sm-block'
                                                     onChange={handleChange}
-                                                    ValueContainer                                                    
-                                                    styles={{                                                        
+                                                    ValueContainer
+                                                    styles={{
                                                         border: 'none',
                                                         display: 'flex',
 
@@ -106,7 +103,7 @@ function Dashboard(name ) {
 
                                                         }),
                                                         control: () => ({
-                                                            border: 'none', paddingTop: '5px', paddingLeft: '20px', display: 'flex',width:'100vh' 
+                                                            border: 'none', paddingTop: '5px', paddingLeft: '20px', display: 'flex', width: '100vh'
 
                                                         }),
                                                         dropdownIndicator: () => ({
@@ -141,11 +138,11 @@ function Dashboard(name ) {
 
                                         <div style={{ float: 'left' }}>
 
-                                            <p style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '6px',marginLeft:'10px' }}> <u>Explore </u> </p>
+                                            <p style={{ fontSize: '20px', fontWeight: 'bold', marginTop: '6px', marginLeft: '10px' }}> <u>Explore </u> </p>
                                         </div>
 
-                                        
-                                        <div className="button-check" style={{ float: 'right', height: '45px',marginRight:'10px' }}>
+
+                                        <div className="button-check" style={{ float: 'right', height: '45px', marginRight: '10px' }}>
                                             <div style={{ float: 'right' }} className="button1 b2 new-class-toggle " id="button-10" >
                                                 <input type="checkbox" className="checkbox"
                                                     checked={showComponent}
@@ -165,13 +162,16 @@ function Dashboard(name ) {
 
                                             <Select
                                                 options={options}
+                                                placeholder="Serach Here"
+                                                openMenuOnClick={false}
+                                                onMenuOpen={false}
                                                 isClearable
                                                 className='d-block d-sm-none'
                                                 onChange={handleChange}
                                                 styles={{
                                                     border: 'none',
                                                     display: 'flex',
-                                                    margin:'10px',
+                                                    margin: '10px',
 
 
                                                     clearIndicator: () => ({
@@ -193,7 +193,7 @@ function Dashboard(name ) {
 
                                 </div>
                             </Row>
-                            {showComponent ? <Profile  data={selectedOptions}/> : <Portfolio data={selectedOptions} />}
+                            {showComponent ? <Profile data={selectedOptions} /> : <Portfolio data={selectedOptions} />}
                         </Container>
                         <Phoneviewfooter />
                     </Col>

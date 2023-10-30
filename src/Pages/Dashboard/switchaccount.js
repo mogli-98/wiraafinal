@@ -8,6 +8,7 @@ import AllCountryList from './layout/AllCountrylist'
 import AllCitylistID from './layout/AllCitylistID';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Link } from 'react-router-dom';
+import { helper } from '../../lib/helper';
 function SwitchAccount() {
     const [selectedOption, setSelectedOption] = useState([1]);
     const [GetSubCategory, setGetSubCategory] = useState([]);
@@ -66,21 +67,28 @@ function SwitchAccount() {
         });
     };
     const handleSubmit = (event) => {
-
-        console.log(event);
         event.preventDefault();
+        helper.sweetalert.confirm('Are you sure?', "You won't be able to revert this!", "warning", true).then((result) => {
 
-        const form = new FormData(event.target);
-        form.append("userId", parseInt(localStorage.getItem("UserID")));
-        form.append("userProfileId", parseInt(localStorage.getItem("userProfileId")));
-        // form.append("occupationId", parseInt("occupationId"));
-        Switchform.CreateProfessinoal(form).then((response) => {
-            console.log(response.data, "Profession Form Fill Successfuly");
+            console.log(event);
+
+            if (result.isConfirmed) {
+                const form = new FormData(event.target);
+                form.append("userId", parseInt(localStorage.getItem("UserID")));
+                form.append("userProfileId", parseInt(localStorage.getItem("userProfileId")));
+                Switchform.CreateProfessinoal(form).then((response) => {
+                    console.log(response.data, "Profession Form Fill Successfuly");
+
+                    helper.sweetalert.toast("Submited", 'Your professional dashboard request is under review.', 'Please wait for the admin approval.')
+                    localStorage.setItem("UserType", 3)
+                    window.location.replace("/Professionalsdashboard")
+
+                }).catch((error) => {
+                    console.log(error);
+                });
+            };
         })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
+    }
     const [selectedButton, setSelectedButton] = useState(null);
     const [selectedButon, setSelectedButon] = useState(null);
     const handleButtonClick = (buttonName) => {
@@ -90,7 +98,7 @@ function SwitchAccount() {
     const handleButonClick = (buttonName) => {
         setSelectedButon(buttonName);
     };
-
+    const userNamedata = localStorage.getItem("FirstName")
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -117,10 +125,10 @@ function SwitchAccount() {
                                                 <Card style={{ backgroundColor: "#efefef", border: 'none', display: 'flex', justifyContent: 'center' }}>
                                                     <p className='m-2' style={{ fontSize: '15px', marginLeft: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>  <span > Update your latest image </span>  <span>
 
-                                                        <Button style={{ color: 'white', backgroundColor: '#008080', border: 'none', float: 'right', fontWeight: 500, paddingLeft: '20px', paddingRight: '20px' }} class="- btn">
+                                                        <button style={{ color: 'white', backgroundColor: '#008080', border: 'none', float: 'right', fontWeight: 500, paddingLeft: '20px', paddingRight: '20px', cursor: "pointer" }} class="btn">
                                                             Upload
                                                             <input className='inputselectfile' type="file" name="file" />
-                                                        </Button>
+                                                        </button>
                                                         {/* <button style={{ border: 'none', padding: '7px', fontSize: '12px' }} className='swtich-upload'> <b>Update Image</b>    </button> */}
 
 
@@ -136,7 +144,9 @@ function SwitchAccount() {
                                                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                     </svg>
                                                     </Form.Label>
-                                                    <Form.Control placeholder="Your Name" required
+                                                    <Form.Control placeholder="Your Name"
+
+                                                        value={userNamedata}
                                                         className='formborder' style={{ paddingLeft: '20px', fontSize: '15px' }} />
                                                 </Form.Group>
 
@@ -148,7 +158,7 @@ function SwitchAccount() {
                                                     </svg></Form.Label>
 
                                                     <Form.Control
-                                                   
+
                                                         onChange={handleInputChange}
                                                         required
                                                         placeholder="Your Phone No." name='mobile' type='number' className='formborder' style={{ paddingLeft: '20px', fontSize: '15px' }} />
@@ -283,7 +293,7 @@ function SwitchAccount() {
                                         </Row>
                                         <center>
                                             {/* <Link to='/Professionalsdashboard'> */}
-                                            <button style={{ fontWeight: 600, padding: '8px', marginTop: '20px', border: 'none', backgroundColor: '#008080', width: '160px', borderRadius: '8px', color: 'white', marginBottom: '10vh' }} className=''>Submit</button>
+                                            <button style={{ fontWeight: 600, padding: '8px', marginTop: '20px', border: 'none', backgroundColor: '#008080', width: '160px', borderRadius: '8px', color: 'white', marginBottom: '10vh' }} className=' ' type='submit'>Submit</button>
 
                                             {/* </Link> */}
                                         </center>

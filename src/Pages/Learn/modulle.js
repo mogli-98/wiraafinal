@@ -10,6 +10,7 @@ import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
+import Iframe from 'react-iframe';
 function Project() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
@@ -32,18 +33,18 @@ function Project() {
                     <Col sm={1} xs={2} className='d-none d-sm-block'>
                         <Sidenav activekey="module" />
                     </Col>
-                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Learn"/>
+                            <Topnav activeLink="Learn" />
                             <Row >
                                 <Col sm={8} className='scrollable squarew '  >
                                     <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>
 
-                                    <div  className='d-block d-sm-none'>
-                                        <img src={model} alt="" style={{ width: "100%",marginTop:'80px' }} className='p-2' /> 
+                                    <div className='d-block d-sm-none'>
+                                        <img src={model} alt="" style={{ width: "100%", marginTop: '80px' }} className='p-2' />
                                     </div>
 
-                                   
+
 
                                     <h5 className='d-block d-sm-none pt-4 ' style={{ padding: "5px" }}>{courseList?.[0]?.CourseTitle}</h5>
 
@@ -82,7 +83,7 @@ function Project() {
                                         <Col sm={12} >
                                             <Row>
                                                 <Col sm={6}>
-                                                    <ul style={{paddingLeft:'40px'}}>
+                                                    <ul style={{ paddingLeft: '40px' }}>
                                                         <li style={{ listStyle: 'none', color: 'black', fontWeight: 600, marginTop: '12px' }}>
                                                             <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
                                                                 <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -137,7 +138,7 @@ function Project() {
                                     <Row className='d-block d-sm-none'>
                                         <p className='mt-4' style={{ fontSize: "16px", paddingLeft: "45px" }}><b>Course Include :</b></p>
                                         <Col >
-                                            <ul style={{paddingLeft:'20px'}}>
+                                            <ul style={{ paddingLeft: '20px' }}>
                                                 <li style={{ listStyle: 'none', color: 'black', fontWeight: 600, marginTop: '12px' }}>
                                                     <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
                                                         <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
@@ -161,7 +162,7 @@ function Project() {
                                             </ul>
                                         </Col>
                                         <Col>
-                                            <ul style={{paddingLeft:'20px'}}>
+                                            <ul style={{ paddingLeft: '20px' }}>
                                                 <li style={{ listStyle: 'none', marginTop: '10px', color: 'black', fontWeight: '600' }}>
                                                     <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-view-stacked" viewBox="0 0 16 16">
                                                         <path d="M3 0h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3zm0 8h10a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v3a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-3a1 1 0 0 0-1-1H3z" />
@@ -186,32 +187,31 @@ function Project() {
                                             </ul>
                                         </Col>
                                     </Row>
+                                    <Card style={{ backgroundColor: 'white', border: 'none', boxShadow: "rgba(14, 4, 3, 0.42) 19px 7px 17px -12px, rgba(0, 0, 0, 0.12) 0px 4px 23px 0px, rgba(53, 15, 13, 0.2) 7px -5px 5px 0px" }}>
+                                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                                            <p className='mt-1 d-none d-sm-block' style={{ fontSize: "18px", paddingLeft: "28px", fontWeight: "600" }}>Course Content :</p>
+                                            <p className='mt-3 d-block d-sm-none' style={{ fontSize: "14px", paddingLeft: "20px", marginRight: '20px', fontWeight: "600" }}>Course Content :</p>
+                                            <p style={{ color: 'grey', paddingRight: '20px' }} >  8 Modules | 70 Lectures | 20 Hours </p>
+                                        </div>
+                                        <Accordion flush>
+                                            {courseListdetails && courseListdetails.map((details) =>
+                                                <Accordion.Item eventKey={details.UnqId}>
+                                                    <Accordion.Header>{details.ModuleTitle}</Accordion.Header>
+                                                    <Accordion.Body>
 
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                                        <p className='mt-1 d-none d-sm-block' style={{ fontSize: "18px", paddingLeft: "28px", fontWeight: "600" }}>Course Content :</p>
-                                        <p className='mt-3 d-block d-sm-none' style={{ fontSize: "14px", paddingLeft: "20px", marginRight: '20px', fontWeight: "600" }}>Course Content :</p>
-                                        <p style={{ color: 'grey', paddingRight: '20px' }} >  8 Modules | 70 Lectures | 20 Hours </p>
-                                    </div>
-
-
-
-                                    <Accordion flush>
-                                        {courseListdetails && courseListdetails.map((details) =>
-                                            <Accordion.Item eventKey={details.UnqId}>
-                                                <Accordion.Header>{details.ModuleTitle}</Accordion.Header>
-                                                <Accordion.Body>
-                                                    <Link to={details.ModuleURL}><img src={Test} alt="" style={{ height: "13vh", }} /></Link>{details.ModuleDescription}
-                                                </Accordion.Body>
-                                            </Accordion.Item>
-                                        )}
-                                        {/* <Accordion.Item eventKey={courseListdetails.UnqId}>
+                                                        <Iframe url="https://www.youtube.com/embed/sjNcTJYRkEI" width='100%' />{details.ModuleDescription}
+                                                    </Accordion.Body>
+                                                </Accordion.Item>
+                                            )}
+                                            {/* <Accordion.Item eventKey={courseListdetails.UnqId}>
                                             <Accordion.Header>BEGINNERS MODULE</Accordion.Header>
                                             <Accordion.Body>
                                                 This module is designed to provide a comprehensive guide for individuals who are interested in starting their freelance careers. The module will cover essential topics such as benefits, pros and cons, and challenges of freelancing.
                                             </Accordion.Body>
                                         </Accordion.Item> */}
-                                    </Accordion>
-                                    <p className='mt-2 p-2' style={{fontSize:'18px',color:'black'}}> <b> Who you will learn with?</b> </p>
+                                        </Accordion>
+                                    </Card>
+                                    <p className='mt-2 p-2' style={{ fontSize: '18px', color: 'black' }}> <b> Who you will learn with?</b> </p>
 
                                     <div style={{ marginBottom: '40px' }} ><img src={Test} alt="" style={{ height: "13vh", borderRadius: '50%', width: "13vh" }} /> <span>{courseList?.[0]?.AuthorName}</span>
                                         <br />
@@ -223,10 +223,10 @@ function Project() {
 
                                 </Col>
 
-                                <Col style={{marginTop:'12vh'}} sm={4}  >
-                                    <Card className='  mb-4 shadow-2 d-none d-sm-block ' style={{position: 'fixed', top: '20px', width: '20%',marginTop:'80px',  boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
+                                <Col style={{ marginTop: '12vh' }} sm={4}  >
+                                    <Card className='  mb-4 shadow-2 d-none d-sm-block ' style={{ position: 'fixed', top: '20px', width: '20%', marginTop: '80px', boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
                                         <img src={model} alt="" style={{ width: "100%" }} className='p-2' />
-                                        <ul style={{ listStyle: "none",paddingLeft:'20px' }}>
+                                        <ul style={{ listStyle: "none", paddingLeft: '20px' }}>
                                             <p className='mt-2' style={{ fontSize: '16px', fontWeight: 600, color: 'black' }}> <b>This Course includes : </b>  </p>
                                             <li> <p className='small' style={{ fontSize: '14px' }}>
                                                 <svg style={{ marginRight: '10px', color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-play-circle" viewBox="0 0 16 16">
@@ -265,28 +265,28 @@ function Project() {
 
 
                                         <div className='d-none d-sm-block' >
-                                            <center>                                           
-                                            <p className='text-center'>
-                                                <span className='text-center' style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
-                                                <span className='text-center pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080', marginRight: '25px' }}>₹4999 </b>
-                                                </span>
-                                            </p>
+                                            <center>
+                                                <p className='text-center'>
+                                                    <span className='text-center' style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
+                                                    <span className='text-center pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080', marginRight: '25px' }}>₹4999 </b>
+                                                    </span>
+                                                </p>
 
-                                            <button style={{ height: '35px', width: '160px', marginBottom: "40px",marginRight:'80px' }} className='model-button'> Buy Now</button>
-                                             </center>
+                                                <button style={{ height: '35px', width: '160px', marginBottom: "40px", marginRight: '80px' }} className='model-button'> Buy Now</button>
+                                            </center>
                                         </div>
 
 
                                         <div className='d-block d-sm-none mb-5' >
-                                          <div className='p-2' style={{ display:'flex',justifyContent:'space-between',alignItems:'center',backgroundColor:'ButtonHighlight' }} >                                                                                        
-                                            <p style={{display:'flex',alignItems:'center',paddingTop:'10px'}}>
-                                                <span  style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
-                                                <span className=' pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080'}}>₹4999 </b>
-                                                </span>
-                                            </p>
+                                            <div className='p-2' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'ButtonHighlight' }} >
+                                                <p style={{ display: 'flex', alignItems: 'center', paddingTop: '10px' }}>
+                                                    <span style={{ fontSize: '20px', color: '#008080', marginRight: '20px' }}> <b >₹1999</b> </span>
+                                                    <span className=' pricing-tableli' style={{ fontSize: '20px', color: 'Black' }}> <b style={{ color: '#008080' }}>₹4999 </b>
+                                                    </span>
+                                                </p>
 
-                                            <button style={{ height: '35px', fontSize:'18px' }} className='model-button'> Buy Now</button>
-                                            </div> 
+                                                <button style={{ height: '35px', fontSize: '18px' }} className='model-button'> Buy Now</button>
+                                            </div>
                                         </div>
 
 
@@ -299,7 +299,7 @@ function Project() {
                     </Col>
                 </Row>
             </Container>
-            <Phoneviewfooter/>
+            <Phoneviewfooter />
 
         </>
     )

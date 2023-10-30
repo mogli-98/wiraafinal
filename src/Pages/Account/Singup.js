@@ -37,17 +37,27 @@ function Singup() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    const formData = new FormData(event.target);
-    AuthModal.singUp(formData)
-      .then((response) => {
+    const form = new FormData(event.target);
+    AuthModal.singUp(form).then((response) => {
+      if (response.data.status === true) {
+        const accessToken = response?.data?.token;
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem("UserID", response.data.user.UserID);
+        localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
+        localStorage.setItem("UserType", response.data.user.UserType);
+        localStorage.setItem("FirstName", response.data.signupResult[0]?.FirstName);
         console.log(response.data);
-        helper.sweetalert.toast("Registered Successfully")
         window.location.replace("/user/dashboard")
-      })
+        console.log(response?.data)
+        helper.sweetalert.toast("Registered Successfully")
+
+      }
+    })
       .catch((error) => {
         console.log(error);
       });
   };
+
   return (
     <div>
       <Grid container spacing={3}>

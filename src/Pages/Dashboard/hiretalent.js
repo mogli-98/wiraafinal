@@ -54,7 +54,8 @@ function Hiretalent() {
         Auth.PostRequest(formdata)
             .then((response) => {
                 console.log(response.data, "yes data update");
-                helper.sweetalert.toast("Project Submit Sucessfully")
+                helper.sweetalert.toast("Your order request is under review.", 'Your order request is under review.')
+                window.location.replace("/Order")
             })
             .catch((error) => {
                 console.log(error);
