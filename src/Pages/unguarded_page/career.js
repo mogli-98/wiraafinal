@@ -55,7 +55,9 @@ function Career() {
             </div>
           </div>
         </center>
-        <div className="container1">
+
+
+        {/* <div className="container1">
           <div className="row">
             <div className="col-sm-6 career_la">
 
@@ -71,14 +73,14 @@ function Career() {
 
             </div>
             <div className="col-sm-6 career_la">
-              {/* <img className="career-img1" src="career.jpg" alt="" /> */}
+             
               <img className="career-img" src={Image1} alt="" />
             </div>
           </div>
-        </div>
+        </div> */}
 
         <center>
-          <h4 className="career-h4">Join us and help share knowledge to every corner of the world.
+          <h4 style={{marginBottom:'12vh'}} className="career-h4 ">Join us and help share knowledge to every corner of the world.
             <b> Drop us a Mail </b>: hello@wiraa.com
           </h4>
         </center>

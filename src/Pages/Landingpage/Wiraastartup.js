@@ -125,7 +125,7 @@ function WiraaStartup() {
                             <Container fluid >
                                 <Row className='mt-5'>
                                     <Col>
-                                        <h1 className='text-center wiraastartup_h1' style={{ fontSize: '37px' }}>Keep growing with Wiraa Care </h1>
+                                        <h1 className='text-center wiraastartup_h1' style={{ fontSize: '37px' }}>Keep growing with wiraa Care </h1>
 
                                     </Col>
                                 </Row>
@@ -234,14 +234,6 @@ function WiraaStartup() {
 
 
 
-
-
-
-
-
-
-
-
             <div className='d-block d-sm-none' style={{ backgroundColor: 'white' }}>
                 <Navbar />
                 <div className="page">
@@ -308,7 +300,7 @@ function WiraaStartup() {
                             <Container fluid >
                                 <Row className=''>
                                     <Col>
-                                        <h1 className='text-center wiraastartup_h1' style={{ fontSize: '37px' }}>Keep growing with Wira Care </h1>
+                                        <h1 className='text-center wiraastartup_h1' style={{ fontSize: '37px' }}>Keep growing with Wiraa Care </h1>
 
                                     </Col>
                                 </Row>

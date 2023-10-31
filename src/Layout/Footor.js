@@ -24,7 +24,7 @@ function Footor() {
                                 </ol>
 
                                 <ol className='text-light'>
-                                    <p>Terms & Conditions</p>
+                                    <Link to='/Termsandcondition'> <p>Terms & Conditions</p></Link>
                                 </ol>
 
 

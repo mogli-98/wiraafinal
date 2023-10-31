@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import '../../asset/css/dashboard.css'
 import Sidenav from './layout/Sidenav';
 import Topnav from './layout/topnav';
@@ -248,19 +248,21 @@ function Viewprofile() {
                             </Row>
                         </Container>
 
-                        <Modal show={show1} onHide={handleClose1} style={{}}>
+                        <Modal size='lg' centered show={show1} onHide={handleClose1}>
+                            <Modal.Header style={{ borderBottom: 'none', paddingBottom: '0px' }} closeButton>
 
-                            <Modal.Body>
-                                <form onSubmit={handleSubmit}>
+                            </Modal.Header>
 
+                            <Modal.Body style={{ paddingTop: '0px' }} >
+                                <form style={{ padding: '0px 60px', }} onSubmit={handleSubmit}>
                                     <div>
                                         <center>
                                             <div onClick={handleimageClick}   >
-                                                {selectedImage ? <img src={selectedImage} alt="" style={{ height: "70px", width: '70px', borderRadius: '50%', marginBottom: '20px', }} /> :
-                                                    <img src={test1} alt="" name style={{ height: "70px", width: '70px', borderRadius: '50%', }} />
+                                                {selectedImage ? <img src={selectedImage} alt="" style={{ height: "80px", width: '80px', borderRadius: '50%' }} /> :
+                                                    <img src={test1} alt="" name style={{ height: "80px", width: '80px', borderRadius: '50%' }} />
 
                                                 }
-                                                <span style={{ fontSize: '20px', marginTop: "12px", marginLeft: '50px' }}>Change Image</span>
+                                                {/* <span style={{ fontSize: '20px', marginTop: "12px", marginLeft: '50px' }}>Change Image</span> */}
                                                 <input type="file" accept="image/*" onChange={handleInputChange}
                                                     name='files' style={{ display: 'none' }} ref={inputRef} />
 
@@ -270,7 +272,24 @@ function Viewprofile() {
                                         <Form.Group className="mb-1 " controlId="exampleForm.ControlTextarea1">
                                             <Row>
 
-                                                <Form.Label>Name: </Form.Label>
+
+                                                <Card className='mt-4' style={{ backgroundColor: "#efefef", border: 'none', display: 'flex', justifyContent: 'center' }}>
+                                                    <p className='m-2' style={{ fontSize: '15px', marginLeft: '20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>  <span > Update your latest image </span>  <span>
+
+                                                        <Button style={{ color: 'white', backgroundColor: '#008080', border: 'none', float: 'right', fontWeight: 500, padding: '4px 30px', fontSize: '14px' }} class="- btn">
+                                                            Update Image
+                                                            <input className='inputselectfile' type="file" name="file" />
+                                                        </Button>
+                                                    </span>
+                                                    </p>
+                                                </Card>
+
+
+                                                <Form.Label className='mt-2'>Name:
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+                                                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                    </svg>
+                                                </Form.Label>
                                                 <Col sm={6}>
                                                     <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
 
@@ -303,8 +322,13 @@ function Viewprofile() {
                                             />
                                         </Form.Group>
                                         <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1">
-                                            <Form.Label>Experience:</Form.Label>
-                                            <Form.Control as="textarea" rows={3} placeholder="Please enter work Experience" />
+                                            <Form.Label>Experience:
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+                                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                </svg>
+
+                                            </Form.Label>
+                                            <Form.Control required as="textarea" rows={3} placeholder="Please enter work Experience" />
                                         </Form.Group>
                                         <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1"
                                             defaultValue={profileData?.[0]?.ExperienceName}
@@ -312,8 +336,13 @@ function Viewprofile() {
 
                                             <Row>
                                                 <Col sm={6}>
-                                                    <Form.Label>Qualification:</Form.Label>
-                                                    <select name='qualificationId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
+                                                    <Form.Label className='mt-1'>Qualification:
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                        </svg>
+                                                    </Form.Label>
+                                                    <select required name='qualificationId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
+                                                        <option value="" disabled selected>Select Qualifaction</option>
                                                         {AllQualificationListt && AllQualificationListt.map((quallist) =>
                                                             <option value={quallist.QualificationID}>{quallist.QualificationName}</option>
 
@@ -321,8 +350,13 @@ function Viewprofile() {
                                                     </select>
                                                 </Col>
                                                 <Col sm={6}>
-                                                    <Form.Label>City:</Form.Label>
-                                                    <select name='cityId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
+                                                    <Form.Label className='mt-1'>City:
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
+                                                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
+                                                        </svg>
+                                                    </Form.Label>
+                                                    <select required name='cityId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
+                                                        <option value="" disabled selected>Select City</option>
                                                         {allCity && allCity.map((quallist) =>
                                                             <option value={quallist.CityID}>{quallist.CityName}</option>
 
@@ -331,7 +365,7 @@ function Viewprofile() {
                                                 </Col>
                                             </Row>
                                             <center>
-                                                <button className='mt-4' style={{ padding: '2px', borderRadius: '8px', width: '25%', color: 'white', borderStyle: 'none', backgroundColor: '#008080' }}> Done</button>
+                                                <button className='mt-4' style={{ padding: '6px 40px', borderRadius: '8px', color: 'white', borderStyle: 'none', backgroundColor: '#008080', fontWeight: 'bold' }}> Done</button>
                                             </center>
                                         </Form.Group>
                                     </div>

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Row, Col, Card, Accordion, } from 'react-bootstrap';
+import { Container, Row, Col, Card, Accordion } from 'react-bootstrap';
 import "../../asset/css/postrequirement.css"
 import { Link } from 'react-router-dom';
 import '../../asset/css/learn.css'
 import model from '../../asset/image/model.png'
-import Sidenavbar from '../freelancerdashboard/layout/Sidenavbar';
-import Topnavbar from '../freelancerdashboard/layout/topnavbar';
+import Sidenav from '../Dashboard/layout/Sidenav';
+import Topnav from '../Dashboard/layout/topnav';
 import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
-// import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
+import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
 import Iframe from 'react-iframe';
 function FreeLearn() {
      const [courseList, setCourseList] = useState();
@@ -31,11 +31,11 @@ function FreeLearn() {
                <Container fluid className='dashboard-conatiner-top ' >
                     <Row>
                          <Col sm={1} xs={2} className='d-none d-sm-block'>
-                              <Sidenavbar activekey="module" />
+                              <Sidenav activekey="modules" />
                          </Col>
                          <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                               <Container className='square border border-bottom-0'>
-                                   <Topnavbar activeLink="Learn" />
+                                   <Topnav activeLink="Learn" />
                                    <Row >
                                         <Col sm={8} className='scrollable squarew '  >
                                              <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "27px" }}>{courseList?.[0]?.CourseTitle}</h4>

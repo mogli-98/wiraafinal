@@ -125,7 +125,7 @@ function App() {
 
           <Route path='/Profile' element={<Viewprofile />} />
           <Route path='/Module' element={<Modulle />} />
-          <Route path='/Modulee' element={<Modulee />} />
+          {/* <Route path='/Modulee' element={<Modulee />} /> */}
           <Route path='/ProModule' element={<FreeLearn />} />
           <Route path='/Learrn' element={<Learnwithoutlogin />} />
           <Route path='/Module' element={<Module />} />

@@ -12,6 +12,7 @@ import Switchform from '../../Model/switch.model';
 import { helper } from '../../lib/helper';
 import { Link } from 'react-router-dom';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
+import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
 // import Input from 'cdbreact/dist/components/Input';
 
 function Hiretalent() {
@@ -222,7 +223,7 @@ function Hiretalent() {
                                                 </select>
                                             </Col>
                                             <Col sm={6} xs={6}>
-                                                <Form.Control className='form-control-lg' style={{ border: '2px solid lightgrey', fontSize: '16px' }} type="text" placeholder="Phone Number"
+                                                <Form.Control className='form-control-lg' style={{ border: '2px solid lightgrey', fontSize: '16px' }} type="number" placeholder="Phone Number"
 
                                                     name='mobile'
                                                 ></Form.Control>
@@ -492,14 +493,21 @@ function Hiretalent() {
                                                 <p className='m-3' style={{ color: 'black', paddingLeft: '10px' }}>10x changes of finding professionals with featured projects</p>
                                                 <p className='m-3' style={{ color: 'black', paddingLeft: '10px' }}>Expert Staff is assigned to understand the requirements</p>
                                                 <p className='m-3' style={{ color: 'black', paddingLeft: '10px' }}>Priority customer support in managing and finding talents</p>
-                                                <center><button className='hire-upgared' style={{ fontWeight: 900, height: '40px', margin: '35px' }}>Upgarde</button></center>
+
+
+                                                <center>
+                                                    <Link to="/Packages">
+                                                        <button className='hire-upgared' style={{ fontWeight: 900, height: '40px', margin: '35px' }}>Upgarde</button>
+
+                                                    </Link>
+                                                </center>
                                             </div>
                                         </div>
                                     </Card>
 
 
 
-                                    <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2'>
+                                    {/* <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2'>
                                         <Link to='/About Us'  >
                                             <span style={{ paddingRight: '10px', color: 'grey' }}>
                                                 About </span>
@@ -527,7 +535,10 @@ function Hiretalent() {
                                         </Link>
 
                                         <span> ©️ 2023 Wiraa. All Rights Reserved</span>
-                                    </div>
+                                    </div> */}
+                                    <Desktoploginfooter />
+
+
                                 </Col>
                             </Row>
 

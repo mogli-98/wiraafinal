@@ -277,7 +277,7 @@ function Setting() {
                         <div>
                             <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
                                 <Form.Label style={{ fontSize: '18px' }}>Update Email </Form.Label>
-                                <Form.Control placeholder="Please enter your update Email" />
+                                <Form.Control required placeholder="Please enter your update Email" />
                             </Form.Group>
                             <button style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '5px', fontWeight: 600 }}> Submit </button>
 
@@ -286,6 +286,8 @@ function Setting() {
                     </Modal.Body>
 
                 </Modal>
+
+
                 <Modal show={show1} onHide={handleClose1}>
 
                     <Modal.Body>
@@ -294,6 +296,7 @@ function Setting() {
                                 <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
                                     <Form.Label style={{ fontSize: '18px' }}>Update Phone Number: </Form.Label>
                                     <Form.Control
+                                   
                                         placeholder="Please enter your update Phone Number"
                                         name='cl_cont'
                                         required

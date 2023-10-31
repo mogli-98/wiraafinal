@@ -201,12 +201,12 @@ function Orderdetailsbrief() {
                                             <Table borderless>
                                                 <tbody>
                                                     <tr>
-                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Status :</td>
-                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td text-success'><b>{orderdetails[0]?.Status}</b></td>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '16px' }} className='left-td'>Status :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '16px' }} className='right-td text-success'><b>{orderdetails[0]?.Status}</b></td>
                                                     </tr>
                                                     <tr>
-                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Order Date :</td>
-                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '12px' }} className='left-td'>Order Date :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '12px' }} className='right-td'>
                                                             <b>
 
 
@@ -216,8 +216,8 @@ function Orderdetailsbrief() {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Due Date :</td>
-                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '12px' }} className='left-td'>Due Date :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '12px' }} className='right-td'>
 
                                                             <b>
 
@@ -229,16 +229,16 @@ function Orderdetailsbrief() {
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Response :</td>
-                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '12px' }} className='left-td'>Response :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '12px' }} className='right-td'>
 
                                                             {orderdetails[0]?.response === null ? (
                                                                 <h6 className='text-center'>0</h6>
                                                             ) : <h6 className='text-center'>{orderdetails[0]?.response}</h6>}</td>
                                                     </tr>
                                                     <tr>
-                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '22px' }} className='left-td'>Order Number :</td>
-                                                        <td style={{ paddingRight: '20px', paddingTop: '22px' }} className='right-td'><b>{orderdetails[0]?.orderNumber}</b></td>
+                                                        <td style={{ color: 'grey', padding: '10px', paddingLeft: '20px', paddingTop: '12px' }} className='left-td'>Order Number :</td>
+                                                        <td style={{ paddingRight: '20px', paddingTop: '12px' }} className='right-td'><b>{orderdetails[0]?.orderNumber}</b></td>
                                                     </tr>
                                                 </tbody>
                                             </Table>

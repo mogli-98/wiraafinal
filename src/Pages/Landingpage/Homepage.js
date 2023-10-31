@@ -57,10 +57,8 @@ function Homepage() {
       {/* Top-banner-section */}
       <section xs={12} style={{ backgroundColor: 'white' }}>
         <Container xs={12} sm={12} fluid className='pt-5 '>
-          <Row className='pt-0' >
-            {/* <Col sm={1} className="mt-5" >
 
-            </Col> */}
+          <Row className='pt-0' >           
 
             <Col sm={2} className="mb-5 d-none d-sm-block" style={{ paddingLeft: '8vh' }} >
               <img src={Picture1} alt="" className='p-1' style={{ width: '28vh' }} />
@@ -71,21 +69,72 @@ function Homepage() {
               <img src={Picture3} alt="" className='p-1' style={{ width: '28vh' }} />
               <img src={Picture4} alt="" className='p-1' style={{ width: '28vh' }} />
             </Col>
-            {/* <Col sm={1} className="mt-5" >
+            
 
-            </Col> */}
+            <Col xs={6} className='d-block d-sm-none'>
+              <center>
+                <img src={Picture1} alt="" className='p-1' style={{ width: '100%' }} />
+              </center>       
 
+            </Col>
 
-            <Col sm={4} xs={12} >
-              <p className='top-text-h1'>Discover the world's top professionals</p>
+            <Col xs={6}  className='d-block d-sm-none'>
+
+              <center>
+                <img src={Picture2} alt="" className='p-1' style={{ width: '100%' }} />
+              </center>
+
+              
+
+            </Col>
+
+            <Col xs={12} className='d-block d-sm-none'>
+
+              <p 
+              className='top-texxt-h1'
+              >
+                Discover the world's top professionals</p>
+
               <p className='text-disable top-text-p' style={{  color: 'grey' }}>Hire world’s top freelancers and get work done in a safe and flexible environment.</p>
-              <Link to='/Home/PostRequirement'><button className='post-request'> <b>Post a Project</b></button></Link>
+
+            </Col>
+
+
+            <Col sm={4} xs={12} className='d-none d-sm-block' >
+
+            <p className='top-text-h1'>Discover the world's top professionals</p>
+              <p className='text-disable top-text-p' style={{  color: 'grey' }}>Hire world’s top freelancers and get work done in a safe and flexible environment.</p>             
+
+
+
+              <Link to='/Home/PostRequirement'><button className='post-request '> <b>Post a Project</b></button></Link>
               <Link to='/Account/singup'><button className='find-project '><b>Find Project</b></button></Link>
             </Col>
-            {/* <Col sm={1} className="mt-5" >
 
-            </Col> */}
 
+
+            <Col xs={6} className='d-block d-sm-none'>
+              <center>
+                <img src={Picture5} alt="" className='p-1' style={{ width: '100%' }} />
+              </center>       
+
+            </Col>
+
+            <Col xs={6} className='d-block d-sm-none'>
+              <center>
+                <img src={Picture6} alt="" className='p-1' style={{ width: '100%' }} />
+              </center>       
+
+            </Col>
+
+
+
+            <Col className='d-block d-sm-none'>
+            <Link to='/Home/PostRequirement'><button className='post-requesst'> <b>Post a Project</b></button></Link>
+              <Link to='/Account/singup'><button className='find-projecct '><b>Find Project</b></button></Link>
+
+            </Col>
+            
 
 
             <Col sm={2} className="mb-5 d-none d-sm-block " style={{ paddingLeft: '4vh' }}>
@@ -96,9 +145,7 @@ function Homepage() {
               <img src={Picture7} alt="" className='p-1' style={{ width: '28vh' }} />
               <img src={Picture8} alt="" className='p-1' style={{ width: '28vh' }} />
             </Col>
-            {/* <Col sm={1} className="mt-5" >
- 
-            </Col> */}
+           
 
           </Row>
         </Container>

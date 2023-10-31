@@ -74,6 +74,8 @@ function Learnwithoutlogin() {
 
 
                     </Col>
+
+
                     <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <div style={{ backgroundColor: 'white', zIndex: 100, top: '0px' }} className='d-none d-sm-block'>
@@ -93,12 +95,10 @@ function Learnwithoutlogin() {
                                     <div style={{ display: 'flex', alignItems: 'center' }}>
 
                                         <Link className='pt-2 ' to='/Account/login'>
-                                            {/* <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" className="bi bi-arrow-right-circle container-left-first " viewBox="0 0 16 16">
-                                                <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z" />
-                                            </svg> */}
+                                            
                                             <Button style={{ backgroundColor: 'white', color: 'Black', border: '1px solid #008080', borderRadius: '8px', marginTop: '10px' }} >
                                                 <span
-                                                    // className='container-left-first-span '
+                                                   
                                                     style={{ fontSize: '18px', fontWeight: 'bold' }}>Login</span>
 
 
@@ -133,6 +133,8 @@ function Learnwithoutlogin() {
 
 
                             <Row >
+
+
                                 <Col sm={8} className='scrollable squarew '  >
                                     <h4 className='d-none d-sm-block' style={{ padding: "15px", fontSize: "25px" }}>{courseList?.[0]?.CourseTitle}</h4>
 
@@ -152,9 +154,7 @@ function Learnwithoutlogin() {
 
                                         <p>
                                             <span style={{ float: "right", marginRight: '20px' }}>
-                                                {/* <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-person-heart" viewBox="0 0 16 16">
-                                                <path d="M9 5a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm-9 8c0 1 1 1 1 1h10s1 0 1-1-1-4-6-4-6 3-6 4Zm13.5-8.09c1.387-1.425 4.855 1.07 0 4.277-4.854-3.207-1.387-5.702 0-4.276Z" />
-                                            </svg>  */}
+                                               
                                                 <span style={{ fontWeight: 600, fontSize: "16px" }}> 11,222 </span> <span style={{ fontSize: '15px', color: 'grey' }}> student</span>   </span>
                                         </p>
 
@@ -335,6 +335,8 @@ function Learnwithoutlogin() {
 
                                 </Col>
 
+
+
                                 <Col className='d-none d-sm-block' sm={4} >
                                     <Card className=' mb-4 shadow-2 ' style={{ position: 'fixed', top: '20px', width: '20%', marginTop: '80px', boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
                                         <img src={model} alt="" style={{ width: "100%" }} className='p-2' />
@@ -397,6 +399,9 @@ function Learnwithoutlogin() {
 
                                     </Card>
                                 </Col>
+
+
+
                                 <div style={{ position: 'fixed', bottom: '0px', padding: '0px' }} className='d-block d-sm-none ' >
                                     <div className='p-2' style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', backgroundColor: 'ButtonHighlight' }} >
                                         <p style={{ display: 'flex', alignItems: 'center', paddingTop: '10px' }}>
@@ -417,6 +422,9 @@ function Learnwithoutlogin() {
                             </Row>
                         </Container>
                     </Col>
+
+
+
                 </Row>
             </Container>
             {/* <Phoneviewfooter/> */}

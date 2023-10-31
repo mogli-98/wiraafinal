@@ -360,6 +360,7 @@ function Explorepage() {
                                     </Button>
 
                                     <br />
+                                    <hr />
                                     <Link to='/user/dashboard'>
                                         <Button className='mt-2' style={{ padding: '5px 24px' }} variant='secondary'
 

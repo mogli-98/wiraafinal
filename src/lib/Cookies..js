@@ -1,21 +1,8 @@
-import React from 'react';
 import Cookies from 'js-cookie';
 
-function Cookie() {
-  // Set a cookie
-  Cookies.set('accessToken', 'yourAuthToken', { expires: 7 });
-
-  // Get a cookie
-  const userToken = Cookies.get('accessToken');
-
-  // Delete a cookie
-  Cookies.remove('accessToken');
-
-  return (
-    <div>
-      <p>User Token: {userToken}</p>
-    </div>
-  );
-}
-
-export default Cookie;
+// After successful login
+const loginUser = (accessToken) => {
+  // Set a cookie with the name 'userToken' that expires in 7 days
+  Cookies.set('accessToken', accessToken.token, { expires: 7 });
+  // Additional logic for logging in the user
+};

@@ -55,8 +55,8 @@ const Sidebar = ({ activekey }) => {
             <NavLink exact to="/Notifications" activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"> {activekey === "notification" ? <IoNotifications fontSize={25} fill='#008080' /> : <IoNotificationsOutline fontSize={25} />} <p style={{ fontSize: '25px' }} className={`chh ${activekey === "notification" ? "active" : ""}`}  >Notifications</p></CDBSidebarMenuItem>
             </NavLink>
-            <NavLink exact to="/ProModule" activeClassName="activeClicked">
-              <CDBSidebarMenuItem className="text-dark"> {activekey === "learn" ? <IoBook fontSize={25} fill='#008080' /> : <IoBookOutline fontSize={25} />} <p style={{ fontSize: '25px' }} className={`chh ${activekey === "learn" ? "active" : ""}`}  >Learn</p></CDBSidebarMenuItem>
+            <NavLink exact to="/Module" activeClassName="activeClicked">
+              <CDBSidebarMenuItem className="text-dark"> {activekey === "leran" ? <IoBook fontSize={25} fill='#008080' /> : <IoBookOutline fontSize={25} />} <p style={{ fontSize: '25px' }} className={`chh ${activekey === "leran" ? "active" : ""}`}  >Learn</p></CDBSidebarMenuItem>
             </NavLink>
             <NavLink exact to="/Package" activeClassName="activeClicked">
               <CDBSidebarMenuItem className="text-dark"> {activekey === "package" ? <IoBriefcase fontSize={25} fill='#008080' /> : <IoBriefcaseOutline fontSize={25} />}  <p style={{ fontSize: '25px' }} className={`chh ${activekey === "package" ? "active" : ""}`}  >Package</p></CDBSidebarMenuItem>

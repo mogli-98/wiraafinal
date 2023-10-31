@@ -29,7 +29,7 @@ function Messagebox(props) {
                             <Topnavbar activeLink="Messages" />
 
                             <Row >
-                                <Col sm={4} className="square border-end">
+                                <Col style={{marginTop:'12vh'}} sm={4} className="square border-end">
 
                                     <div className="tabs-container mt-3">
                                         <Container>

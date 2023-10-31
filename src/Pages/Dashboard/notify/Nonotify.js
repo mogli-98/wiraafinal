@@ -17,18 +17,18 @@ function Messages() {
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
                     <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav activekey="notification"  />
+                        <Sidenav activekey="notification" />
                     </Col>
-                    <Col sm={8} xs={12} style={{padding:'0px'}} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Notification" />
                             <Row className=''>
                                 <Col sm={8}>
                                     <div className="tabs-container">
                                         <Container>
-                                            <Row  className=' mb-4'>
+                                            <Row className=' mb-4'>
                                                 <Col className=''>
-                                                    
+
                                                     <Link to='/User/Notifications'>
                                                         <button className='notifi-unread-button mt-4' style={{ marginLeft: '22px', fontSize: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px' }}>
                                                             <svg style={{ color: 'grey', paddingRight: '4px' }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-left-dots" viewBox="0 0 16 16">
@@ -40,7 +40,7 @@ function Messages() {
                                                 </Col>
                                                 <Col className='mt-4'>
                                                     <div >
-                                                       
+
 
                                                         <button style={{ marginRight: '22px', fontSize: '12px', display: 'flex', justifyContent: 'center', alignItems: 'center', paddingLeft: '10px', paddingRight: '10px' }} className='notifi-delete-button'  >
                                                             <svg style={{ color: 'grey', paddingRight: '4px' }} xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" className="bi bi-trash3-fill" viewBox="0 0 16 16">
@@ -56,7 +56,7 @@ function Messages() {
                                                             style={{
                                                                 position: "relative",
                                                                 top: '15vh',
-                                                                
+
                                                             }} />
                                                     </center>
 
@@ -72,7 +72,7 @@ function Messages() {
                                                             style={{
                                                                 position: "relative",
                                                                 top: '5vh',
-                                                                
+
                                                             }} />
                                                     </center>
 
@@ -85,24 +85,29 @@ function Messages() {
 
                                     </div>
                                 </Col>
-                              
 
-                                <Col  sm={4} className='p-2' >
+
+                                <Col sm={4} className='p-2' >
                                     <div className='last-left-span' style={{ backgroundColor: '#f5f5f5', width: "-webkit-fill-available" }} >
                                         <div className=''>
                                             <center><img style={{ height: '80px', width: '80px' }} src={bookbullb} alt="" className='switchaccount-img' />
                                                 <h5 style={{ fontSize: '25px' }} className='switch-text'><b>Advance <br /> Freelancing <br /> Course</b></h5>
                                                 <p style={{ fontSize: '19px', color: 'grey' }}>Polish your skills and expand<br />your knowledge base</p>
 
+                                                <Link to="/Module">
+                                                    <button style={{ padding: '8px', backgroundColor: 'black', color: 'white', borderRadius: '8px', border: 'none', marginBottom: '100px', paddingLeft: '50px', paddingRight: '50px' }} className="mt-4"><b> Learn </b></button>
 
-                                                <button style={{ padding: '8px', backgroundColor: 'black', color: 'white', borderRadius: '8px', border: 'none', marginBottom: '100px', paddingLeft: '50px', paddingRight: '50px' }} className="mt-4"><b> Learn </b></button>
+
+                                                </Link>
+
+
                                             </center>
 
                                         </div>
                                     </div>
 
-                                    
-                                    <Desktoploginfooter/>
+
+                                    <Desktoploginfooter />
 
 
 

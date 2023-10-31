@@ -71,8 +71,8 @@ const Sidebar = ({activekey}) => {
               </NavLink>
 
 
-              <NavLink exact to="/Module" activeClassName="activeClicked">
-                <CDBSidebarMenuItem className="text-dark">  {activekey === "module" ? <IoBook fontSize={25} fill='#008080'  /> : <IoBookOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "module" ? "active" : ""}`} >Learn</p></CDBSidebarMenuItem>
+              <NavLink exact to="/ProModule" activeClassName="activeClicked">
+                <CDBSidebarMenuItem className="text-dark">  {activekey === "modules" ? <IoBook fontSize={25} fill='#008080'  /> : <IoBookOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "modules" ? "active" : ""}`} >Learn</p></CDBSidebarMenuItem>
               </NavLink>
 
 

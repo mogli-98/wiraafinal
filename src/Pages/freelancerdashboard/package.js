@@ -254,6 +254,21 @@ function Package() {
 
                                             
 
+                                            {/* <tr>
+                                                <td style={{ color: 'grey', fontWeight: 700 }}>
+                                                    Project Credits
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    05
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    50
+                                                </td>
+                                                <td style={{ fontWeight: 600 }}>
+                                                    Unlimited
+                                                </td>
+                                            </tr> */}
+
                                             <tr>
                                                 <td style={{ color: 'grey', fontWeight: 700 }}>
                                                     Project Commission
