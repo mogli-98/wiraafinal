@@ -18,12 +18,12 @@ export default function Desktoploginfooter() {
         <Link to='/ContactComponent'>
           <span style={{ paddingRight: '10px', color: 'grey' }}>Conatct</span>
         </Link>
-        
+
 
         <br />
 
-     
-{/* 
+
+        {/* 
         <span style={{ paddingRight: '10px' }}>FAQ</span>
 
         <span style={{ paddingRight: '10px' }}>Blog</span> */}
@@ -31,9 +31,9 @@ export default function Desktoploginfooter() {
           <span style={{ color: 'grey' }}>Term of services</span>
         </Link>
         <Link to='/PrivacyPolicy'>
-          <span style={{ paddingRight: '10px', color: 'grey' }}>Privacy policy</span>
+          <span style={{ paddingLeft: '20px', color: 'grey' }}>Privacy policy</span>
         </Link>
-
+        <br />
         <span> ©️ 2023 Wiraa. All Rights Reserved</span>
       </div>
 

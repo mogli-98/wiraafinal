@@ -9,6 +9,8 @@ import AllCitylistID from './layout/AllCitylistID';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Link } from 'react-router-dom';
 import { helper } from '../../lib/helper';
+import Accountfootor from '../../Layout/Accountfooter';
+import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
 function SwitchAccount() {
     const [selectedOption, setSelectedOption] = useState([1]);
     const [GetSubCategory, setGetSubCategory] = useState([]);
@@ -311,15 +313,9 @@ function SwitchAccount() {
 
                                         </div>
                                     </div>
-                                    {/* <div className='last-left-span' style={{ padding: '30px', fontSize: '16px', color: 'grey' }}>
-                                        <span>About    </span> <span>Career   </span> <span>Term of services    </span>
 
 
-                                        <span>Conatct    </span> <span>FAQ   </span> <span>Blog  </span>
-                                        <span> Privacy policy  </span> <span> ©️ 2023 Wiraa. All Rights Reserved </span>
-                                    </div> */}
-
-
+                                    <Desktoploginfooter />
 
 
 
