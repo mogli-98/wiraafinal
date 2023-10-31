@@ -108,7 +108,7 @@ function SwitchAccount() {
                     </Col>
                     <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <Topnav />
+                            <Topnav activeLink="Professional Form" />
                             <Row>
                                 <Col sm={8} style={{ padding: '0px' }} className=" square border-end mt-4">
 

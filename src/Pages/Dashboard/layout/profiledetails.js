@@ -124,6 +124,8 @@ function Explorepage() {
             .then((response) => {
                 // console.log(response.data, "yes data update");
                 helper.sweetalert.toast("Your professional dashboard request is under review  We will notify you once it's approved.")
+                handleClose1();
+                handleClose()
             })
             .catch((error) => {
                 console.log(error);
@@ -422,7 +424,7 @@ function Explorepage() {
                                             <Row style={{ marginTop: '10px', padding: '0px 35px' }}>
                                                 <Col xs={10}></Col>
                                                 <Col xs={2}>
-                                                    <Button style={{ backgroundColor: '#008080', border: 'none', fontWeight: 600 }} >
+                                                    <Button style={{ backgroundColor: '#008080', border: 'none', fontWeight: 600 }} type='submit'>
                                                         Submit
                                                     </Button>
                                                 </Col>
@@ -470,7 +472,7 @@ function Explorepage() {
                                             <Row style={{ marginTop: '10px', padding: '0px 35px' }}>
                                                 <Col xs={10}></Col>
                                                 <Col xs={2}>
-                                                    <Button style={{ backgroundColor: '#008080', border: 'none', fontWeight: 600 }} >
+                                                    <Button style={{ backgroundColor: '#008080', border: 'none', fontWeight: 600 }} type='submit' >
                                                         Submit
                                                     </Button>
                                                 </Col>
