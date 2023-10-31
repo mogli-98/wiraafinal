@@ -10,22 +10,21 @@ function Order() {
   useEffect(() => {
     const userId = localStorage.getItem("UserID");
     Orderbook.ordertable({ userId }).then((respnse) => {
-      if (respnse.data.lenght > 0) {
-        setUserData(respnse?.data);
-      } else {
 
-      }
-      setLoading(false);
+      setUserData(respnse?.data);
+
+
     })
       .catch((error) => console.log(error));
   }, []);
 
   return (
     <div >
-      {userData?.length > 0 ? (
-        <NOorder />
-      ) : (
+      {userData?.length ? (
         <Ordertable />
+      ) : (
+        <NOorder />
+
       )}
     </div>
   );

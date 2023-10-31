@@ -372,7 +372,7 @@ function PostRequirement() {
 
 
                                                             <Col sm={4} xs={12}>
-                                                                <select className='form-control-lg mt-2' name="cars" id="cars" style={{
+                                                                <select className='form-control-lg ' name="cars" id="cars" style={{
                                                                     borderRadius: '5px', border: '2px solid lightgrey',
                                                                     width: "-webkit-fill-available"
                                                                     , height: "35px", fontSize: '16px'
@@ -576,7 +576,7 @@ function PostRequirement() {
                     </Col>
                 </Row>
             </Container>
-            <Phoneviewfooter />
+            {/* <Phoneviewfooter /> */}
 
 
         </>

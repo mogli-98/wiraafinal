@@ -76,7 +76,7 @@ function Learnwithoutlogin() {
                     </Col>
                     <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
-                            <div style={{ backgroundColor: 'white', zIndex: 100, width: '65%', top: '0px' }} className='d-none d-sm-block'>
+                            <div style={{ backgroundColor: 'white', zIndex: 100, top: '0px' }} className='d-none d-sm-block'>
                                 <h2 className='pt-4 '>Learn</h2>
                                 <hr style={{ color: 'grey' }} />
 
@@ -285,17 +285,17 @@ function Learnwithoutlogin() {
                                     </Row>
 
 
-                                    <Card style={{backgroundColor:'ButtonHighlight',border:'none',boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)'}}>
+                                    <Card style={{ backgroundColor: 'ButtonHighlight', border: 'none', boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)' }}>
 
                                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                                             <p className='mt-4 d-none d-sm-block' style={{ fontSize: "18px", paddingLeft: "28px", fontWeight: "600" }}>Course Content :</p>
                                             <p className='mt-3 d-block d-sm-none' style={{ fontSize: "14px", paddingLeft: "20px", marginRight: '20px', fontWeight: "600" }}>Course Content :</p>
-                                            <p style={{ color: 'grey', paddingRight: '20px',marginTop:'20px' }} >  8 Modules | 70 Lectures | 20 Hours </p>
+                                            <p style={{ color: 'grey', paddingRight: '20px', marginTop: '20px' }} >  8 Modules | 70 Lectures | 20 Hours </p>
                                         </div>
 
 
 
-                                        <Accordion  flush>
+                                        <Accordion flush>
                                             {courseListdetails && courseListdetails.map((details) =>
                                                 <Accordion.Item style={{ backgroundColor: 'ButtonHighlight' }} eventKey={details.UnqId}>
                                                     <Accordion.Header>{details.ModuleTitle}</Accordion.Header>

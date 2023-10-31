@@ -114,17 +114,16 @@ function ProtfolioCard(props) {
                                 // </svg>
                             ) :
                                 <IoHeartOutline onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} style={{ cursor: "pointer" }} fontSize='20px' />
-                                // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
-                                //     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />
-                                // </svg>
+
                             }
                             <span className='small'>{data.LikeCount}</span>
-                            {data.CommentCount !== 0 ? (
-                                <> <IoChatboxOutline style={{ cursor: 'pointer' }} fontSize='20px' /><span className='small'>{data.CommentCount} </span>
-
+                            {data.CommentCount === null ? (
+                                <>
+                                    <IoChatboxOutline style={{ cursor: 'pointer' }} fontSize='20px' /><span className='  ' style={{ marginLeft: "2px" }}>0</span>
                                 </>
                             ) : (
-                                <><IoChatboxOutline style={{ cursor: 'pointer' }} fontSize='20px' /><span className=''>0</span>
+                                <>
+                                    <IoChatboxOutline style={{ cursor: 'pointer' }} fontSize='20px' /><span className='small ' style={{ marginLeft: "2px" }}>{data.CommentCount} </span>
                                 </>
                             )
                             }
@@ -140,12 +139,12 @@ function ProtfolioCard(props) {
             <Modal.Body>
                 <Container >
                     <Row>
-                        <Col xs={12} sm={6}>
+                        {/* <Col xs={12} sm={6}>
                             <div style={{ height: '85vh', border: "1px solid black", backgroundColor: 'black', textAlign: 'center', position: "relative", width: '100%' }}>
                                 <img src={test1} alt="Avatar" className=" " style={{ height: '100%', width: '100%' }} />
 
                             </div>
-                        </Col>
+                        </Col> */}
                         <Col xs={12} sm={6}>
                             <p className='small mt-1'>{data?.Description} {data.UserLiked !== 0 ? (
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" className='bi bi-heart-fill' viewBox="0 0 16 16">

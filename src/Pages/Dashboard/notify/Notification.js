@@ -5,30 +5,21 @@ import clientBoard from "../../../Model/clientdash";
 
 function Nonotiftyy() {
   const [userData, setUserData] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     const userProfileId = localStorage.getItem("UserID");
     console.log(userProfileId)
     clientBoard.allNotifi({ userProfileId }).then((respnse) => {
-
-      if (respnse?.data.length > 0) {
-        setUserData(respnse?.data);
-      } else {
-        
-      }
-      setLoading(false);
-
+      setUserData(respnse?.data);
     })
       .catch((error) => console.log(error));
   }, []);
- 
+
   return (
     <div>
-      {userData?.length > 0 ? (
+      {userData?.length ? (
         <Notification />
       ) : (
-        <Nonotifty data={userData} />
+        <Nonotifty />
       )}
     </div>
   );

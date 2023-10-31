@@ -11,14 +11,14 @@ import { Col, Row } from 'react-bootstrap';
 function Accountfootor() {
     return (
         <>
-            <footer style={{position:'fixed',bottom:'0px',backgroundColor:'white',width:'100%'}} className="Account_footer d-flex  ">
+            <footer style={{ bottom: '0px', backgroundColor: 'white', width: '100%' }} className="Account_footer d-flex  ">
                 <div className="container d-none d-sm-block">
                     <div className="row">
 
                         <div className="Account_footercontent" > {/* Center the content */}
 
-                            <Link style={{display:'flex',flexDirection:'row'}} to='/'><img src={Wiraalogo} alt="LOGO" /> <span style={{color:'grey',fontWeight:400,fontSize:'14px',paddingLeft:'5px'}}>@2023</span> </Link>
-                            
+                            <Link style={{ display: 'flex', flexDirection: 'row' }} to='/'><img src={Wiraalogo} alt="LOGO" /> <span style={{ color: 'grey', fontWeight: 400, fontSize: '14px', paddingLeft: '5px' }}>@2023</span> </Link>
+
                             <Link to='/About Us'><p className='pt-3' >About Us</p></Link>
                             <Link to='/Termsandcondition'><p className='pt-3'>Terms & Conditions</p></Link>
                             <Link to='/PrivacyPolicy'><p className='pt-3'  >Privacy Policy</p></Link>
@@ -68,20 +68,20 @@ function Accountfootor() {
                         </div>
                     </div> */}
 
-                    <Row style={{backgroundColor:'ButtonHighlight'}}>
+                    <Row style={{ backgroundColor: 'ButtonHighlight' }}>
                         <Col xs={4}>
-                        <div className='center mt-4'>
-                            <Link to='/'><img src={Wiraalogo} alt="LOGO" /></Link>
-                        </div>
+                            <div className='center mt-4'>
+                                <Link to='/'><img src={Wiraalogo} alt="LOGO" /></Link>
+                            </div>
 
-                             </Col>
-                             <Col className='mt-4' xs={8}>
-                                <p> @ 2023 Copyright</p>
-                             </Col>
+                        </Col>
+                        <Col className='mt-4' xs={8}>
+                            <p> @ 2023 Copyright</p>
+                        </Col>
 
                         <Col xs={6}>
 
-                        <ul>
+                            <ul>
                                 <li> <Link to='/About Us'><p className='pt-3' >About Us</p></Link></li>
                                 <li><Link to='/Termsandcondition'><p className='pt-3'>Terms & Conditions</p></Link></li>
                                 <li><Link to='/PrivacyPolicy'><p className='pt-3'  >Privacy Policy</p></Link></li>
@@ -93,16 +93,16 @@ function Accountfootor() {
 
                         <Col xs={6}>
 
-                        <ul>
-                                <li style={{listStyle:'none'}}> <Link to='/About Us'><p className='pt-3' >About Us</p></Link></li>
-                                <li style={{listStyle:'none'}}><Link to='/ProfessionalServiceAgreement'><p className='pt-3'>Professional Agreement</p></Link></li>
-                                <li style={{listStyle:'none'}}><Link to='/Career'><p className='pt-3'  >Career</p></Link></li>
-                                <li style={{listStyle:'none'}}><Link to='/ContactComponent'><p className='pt-3'>Contact</p></Link></li>
+                            <ul>
+                                <li style={{ listStyle: 'none' }}> <Link to='/About Us'><p className='pt-3' >About Us</p></Link></li>
+                                <li style={{ listStyle: 'none' }}><Link to='/ProfessionalServiceAgreement'><p className='pt-3'>Professional Agreement</p></Link></li>
+                                <li style={{ listStyle: 'none' }}><Link to='/Career'><p className='pt-3'  >Career</p></Link></li>
+                                <li style={{ listStyle: 'none' }}><Link to='/ContactComponent'><p className='pt-3'>Contact</p></Link></li>
 
                             </ul>
 
                         </Col>
-                       
+
 
                     </Row>
 

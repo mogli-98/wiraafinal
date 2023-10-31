@@ -61,9 +61,9 @@ function Singup() {
   return (
     <div>
       <Grid container spacing={3}>
-        <Grid xs={4}></Grid>
+        <Grid sm={4}></Grid>
 
-        <Grid item xs={4}>
+        <Grid item sm={4} xs={12}>
 
           <Grid> <Link to="/">
 

@@ -22,6 +22,9 @@ function Setting() {
     const [show2, setShow2] = useState(false);
     const handleClose2 = () => setShow2(false);
     const handleShow2 = () => setShow2(true);
+    const [show3, setShow3] = useState(false);
+    const handleClose3 = () => setShow3(false);
+    const handleShow3 = () => setShow3(true);
     const [FormData, setFormData] = useState({
         number: '',
     })
@@ -105,15 +108,13 @@ function Setting() {
 
 
                     <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row  d-none d-sm-block'>
-
-
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Setting" />
 
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col style={{ marginLeft: '10px', marginTop: '20px' }} sm={10}>
-                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={handleShow} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Email address of your account  </p>
@@ -122,11 +123,6 @@ function Setting() {
                                 </Col>
                                 <Col sm={1}></Col>
                             </Row>
-
-
-
-
-
 
                             <Row>
                                 <Col sm={1}></Col>
@@ -174,7 +170,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10} style={{ marginLeft: '10px' }}>
-                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={handleShow3} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Change Password:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Choose a strong password that you are not using anywhere</p>
@@ -257,7 +253,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={handleShow3} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Change Password:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Choose a strong password that you are not using anywhere</p>
@@ -273,25 +269,9 @@ function Setting() {
                                     <button s onClick={logout} style={{ marginBottom: '8vh', float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '5px', fontWeight: 600 }}> logout</button>
                                 </Link>
                             </center>
-
-
-
-
-
-
                         </Container>
-
                     </Col>
-
-
-
-
-
-
                 </Row>
-
-
-
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Body>
                         <div>
@@ -364,11 +344,30 @@ function Setting() {
                     </Modal.Body>
 
                 </Modal>
+                <Modal show={show3} onHide={handleClose3}>
 
+                    <Modal.Body>
+                        <div>
+                            <form onClick={handleSubmitPhone} >
+                                <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
+                                    <Form.Label style={{ fontSize: '18px' }}>Update Your Password </Form.Label>
+                                    <Form.Control
+                                        placeholder="Please enter your update Password"
+                                        name='cl_cont'
+                                        required
+                                        type="number"
+                                        onChange={handleInputChange}
+                                    />
+                                    {/* <button className='hire' style={{ width: '100%' }}>Update Number</button> */}
+                                    <button style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '8px', fontWeight: 600 }}> Submit </button>
+                                </Form.Group>
 
+                            </form>
+                        </div>
 
+                    </Modal.Body>
 
-
+                </Modal>
             </Container >
 
 

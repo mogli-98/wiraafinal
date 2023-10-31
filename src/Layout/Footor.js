@@ -11,7 +11,7 @@ function Footor() {
                         <Col sm={2}>
                         </Col>
                         <Col sm={2} xs={12}>
-                            <center>   <img src={Wiraalogowhite} alt="" className='' /></center>
+                            <center>   <Link to='/'><img src={Wiraalogowhite} alt="" className='' /></Link></center>
                             <p className='text-light footertext mb-5'>Connect With Experts</p>
                         </Col>
                         <Col sm={2} xs={6}>

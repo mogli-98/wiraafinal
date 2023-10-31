@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Container, Row, Col, Card, Modal, Button } from "react-bootstrap";
 import '../../../asset/css/dashboard.css'
 import Sidenav from './Sidenav';
@@ -102,7 +102,34 @@ function Explorepage() {
             // Display error message to the user
         });
     }
+    const inputRef = useRef(null);
+    const [formData, setFormData] = useState({
+        feedback: '',
+    });
+    const handleInputChange = (event) => {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value,
+        });
 
+    };
+
+    const handleSubmit = (event) => {
+
+        console.log(event);
+        event.preventDefault();
+        const formdata = new FormData(event.target);
+        formdata.append("userId", localStorage.getItem("UserID"));
+        SettingModal.CreateReport(formdata)
+            .then((response) => {
+                // console.log(response.data, "yes data update");
+                helper.sweetalert.toast("Your professional dashboard request is under review  We will notify you once it's approved.")
+            })
+            .catch((error) => {
+                console.log(error);
+                // Display error message to the user
+            });
+    };
 
     return (
         <>
@@ -373,37 +400,40 @@ function Explorepage() {
                                 </Modal.Header>
 
                                 <Modal.Body>
+                                    <form onSubmit={handleSubmit}>
+                                        <Container>
 
-                                    <Container>
-                                        <Row>
-                                            <Col sm={6}>
-                                                <div>
-                                                    <img style={{ height: '190px', width: '200px', borderRadius: '5px' }} src={test} alt="" />
-                                                </div>
+                                            <Row>
 
-
-                                            </Col>
-                                            <Col xs={6}>
-                                                {/* <div style={{width:'200px',height:'200px',border:'1px solid grey'}}> */}
-                                                <textarea style={{ borderRadius: '5px' }} name="Feedback" id="" cols="25" rows="8" placeholder='Feddback'></textarea>
-                                                {/* </div> */}
-
-                                            </Col>
-                                        </Row>
-                                        <Row style={{ marginTop: '10px', padding: '0px 35px' }}>
-                                            <Col xs={10}></Col>
-                                            <Col xs={2}>
-                                                <Button style={{ backgroundColor: '#008080', border: 'none', fontWeight: 600 }} >
-                                                    Submit
-                                                </Button>
-                                            </Col>
+                                                <Col sm={6}>
+                                                    <div>
+                                                        <img style={{ height: '190px', width: '200px', borderRadius: '5px' }} src={test} alt="" />
+                                                    </div>
 
 
-                                        </Row>
-                                    </Container>
+                                                </Col>
+                                                <Col xs={6}>
+                                                    {/* <div style={{width:'200px',height:'200px',border:'1px solid grey'}}> */}
+                                                    <textarea style={{ borderRadius: '5px' }} name="feedback" id="" cols="25" rows="8" placeholder='Feddback'></textarea>
+                                                    {/* </div> */}
+
+                                                </Col>
+                                            </Row>
+                                            <Row style={{ marginTop: '10px', padding: '0px 35px' }}>
+                                                <Col xs={10}></Col>
+                                                <Col xs={2}>
+                                                    <Button style={{ backgroundColor: '#008080', border: 'none', fontWeight: 600 }} >
+                                                        Submit
+                                                    </Button>
+                                                </Col>
 
 
+                                            </Row>
 
+                                        </Container>
+
+
+                                    </form>
 
                                 </Modal.Body>
 
@@ -420,35 +450,35 @@ function Explorepage() {
 
                                 </Modal.Header>
                                 <Modal.Body>
-
-                                    <Container>
-                                        <Row>
-                                            <Col sm={6}>
-                                                <div>
-                                                    <img style={{ height: '200px', width: '320px', borderRadius: '5px' }} src={test} alt="" />
-                                                </div>
-
-
-                                            </Col>
-                                            <Col className='mt-2' xs={6}>
-                                                {/* <div style={{width:'200px',height:'200px',border:'1px solid grey'}}> */}
-                                                <textarea style={{ borderRadius: '5px' }} name="Feedback" id="" cols="43" rows="10" placeholder='Feddback'></textarea>
-                                                {/* </div> */}
-
-                                            </Col>
-                                        </Row>
-                                        <Row style={{ marginTop: '10px', padding: '0px 35px' }}>
-                                            <Col xs={10}></Col>
-                                            <Col xs={2}>
-                                                <Button style={{ backgroundColor: '#008080', border: 'none', fontWeight: 600 }} >
-                                                    Submit
-                                                </Button>
-                                            </Col>
+                                    <form onSubmit={handleSubmit}>
+                                        <Container>
+                                            <Row>
+                                                <Col sm={6}>
+                                                    <div>
+                                                        <img style={{ height: '200px', width: '320px', borderRadius: '5px' }} src={test} alt="" />
+                                                    </div>
 
 
-                                        </Row>
-                                    </Container>
+                                                </Col>
+                                                <Col className='mt-2' xs={6}>
+                                                    {/* <div style={{width:'200px',height:'200px',border:'1px solid grey'}}> */}
+                                                    <textarea style={{ borderRadius: '5px' }} name="feedback" id="" cols="43" rows="10" placeholder='Feddback'></textarea>
+                                                    {/* </div> */}
 
+                                                </Col>
+                                            </Row>
+                                            <Row style={{ marginTop: '10px', padding: '0px 35px' }}>
+                                                <Col xs={10}></Col>
+                                                <Col xs={2}>
+                                                    <Button style={{ backgroundColor: '#008080', border: 'none', fontWeight: 600 }} >
+                                                        Submit
+                                                    </Button>
+                                                </Col>
+
+
+                                            </Row>
+                                        </Container>
+                                    </form>
 
 
 
@@ -465,7 +495,7 @@ function Explorepage() {
 
                     </Col>
                 </Row>
-            </Container>
+            </Container >
 
             <Phoneviewfooter />
 

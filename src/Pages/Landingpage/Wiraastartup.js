@@ -50,6 +50,7 @@ function WiraaStartup() {
         Settingupdate.addStartup(form).then((response) => {
             console.log(response.data, "yes data update");
             helper.sweetalert.toast("StartUp add Sucessfully")
+            handleClose(true)
         })
             .catch((error) => {
                 console.log(error);
@@ -204,7 +205,11 @@ function WiraaStartup() {
                                             maxRows={4} fullWidth id="outlined-basic" label="Enter Note..." type='text' placeholder='Enter Note ' minRows={2} variant="outlined" name='description' onChange={handleInputChange} required />
                                     </Col>
                                 </Row>
-
+                                <center>
+                                    <Button centered style={{ backgroundColor: '#008080', border: 'none', marginBottom: '20px', padding: '6px 40px' }} type='submit'>
+                                        Submit
+                                    </Button>
+                                </center>
                             </form>
 
                         </Grid>
@@ -212,12 +217,6 @@ function WiraaStartup() {
 
 
 
-                        <hr />
-                        <center>
-                            <Button centered style={{ backgroundColor: '#008080', border: 'none', marginBottom: '20px', padding: '6px 40px' }} type='submit'>
-                                Submit
-                            </Button>
-                        </center>
 
 
                         {/* </Container> */}
