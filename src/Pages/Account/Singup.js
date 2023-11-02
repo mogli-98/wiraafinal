@@ -47,7 +47,9 @@ function Singup() {
         localStorage.setItem("UserType", response.data.user.UserType);
         localStorage.setItem("FirstName", response.data.signupResult[0]?.FirstName);
         console.log(response.data);
-        window.location.replace("/user/dashboard")
+        // window.location.replace("/user/dashboard")
+        window.location.replace("/Verify-Email")
+
         console.log(response?.data)
         helper.sweetalert.toast("Registered Successfully")
 
