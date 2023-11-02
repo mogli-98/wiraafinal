@@ -75,11 +75,15 @@ function Setting() {
     }
 
     const blockuser = () => {
+
         const userProfileId = localStorage.getItem("userProfileId");
         SettingModal.Blocklist({ userProfileId }).then((respnse) => {
-            handleShow2(true)
+
             console.log(respnse.data)
             setBlockuserlist(respnse.data)
+
+            handleShow2(true)
+
         }).catch((error) => {
             console.log(error);
             // Display error message to the user
@@ -95,7 +99,7 @@ function Setting() {
         });
     }
     useEffect(() => {
-        blockuser()
+
     }, [])
     return (
         <>
@@ -163,10 +167,6 @@ function Setting() {
                                 </Col>
                                 <Col sm={1}></Col>
                             </Row>
-
-
-
-
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10} style={{ marginLeft: '10px' }}>
@@ -198,7 +198,7 @@ function Setting() {
                             <Row >
                                 <Col sm={1}></Col>
                                 <Col style={{ marginTop: "8vh" }} sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Email address of your account  </p>
@@ -212,7 +212,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-2' onClick={handleShow2} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Phone Number:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Phone number in case you have trouble signing in</p>
@@ -227,7 +227,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col sm={10}>
-                                    <Card className='mt-2' onClick={{ blockuser }} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    <Card className='mt-2' onClick={blockuser} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Block Accounts:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>When you block someone, that person won’t be able to follow or message you</p>
@@ -296,7 +296,7 @@ function Setting() {
                                 <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
                                     <Form.Label style={{ fontSize: '18px' }}>Update Phone Number: </Form.Label>
                                     <Form.Control
-                                   
+
                                         placeholder="Please enter your update Phone Number"
                                         name='cl_cont'
                                         required
@@ -313,31 +313,31 @@ function Setting() {
                     </Modal.Body>
 
                 </Modal>
-                <Modal show={show2} onHide={handleClose2}>
+                <Modal show={show2} onHide={handleClose2} centered >
 
-                    <Modal.Body>
-                        <div>
+                    <Modal.Body >
+                        <div >
                             <h5 className=' mt-2 mb-4
                             text-center'>Block List</h5>
-                            <table>
+                            <table className='m-3 ' style={{ width: '100%' }}>
                                 <thead>
                                     <tr>
-                                        <td><b> User-Name</b>
+                                        <td style={{ width: '50%' }}><b> <center>User-Name</center></b>
                                         </td>
-                                        <td> <b>
-                                            Option
+                                        <td style={{ width: '50%' }}> <b>
+                                            <center> Option</center>
                                         </b>
                                         </td>
                                     </tr>
                                 </thead>
-                                <tbody className='mt-4'>
+                                <tbody>
                                     {blockuserlist && blockuserlist.map((list) =>
-                                        <tr>
-                                            <td style={{ width: "50vh" }}>{list.FirstName} {list.LastName}</td>
-                                            <td><button style={{ backgroundColor: '#008080', borderStyle: "none", borderRadius: "5px" }}
+                                        <tr className='mt-5'>
+                                            <td style={{ width: '50%' }}><center><span className='text-center' >{list.FirstName} {list.LastName}</span></center></td>
+                                            <td style={{ width: '50%' }}><center><button style={{ backgroundColor: '#008080', borderStyle: "none", borderRadius: "5px", }}
                                                 // onClick={unblockuser(list.UserID)}
                                                 onClick={() => { unblockuser(list.UserID) }}
-                                            > Unblock</button></td>
+                                            > Unblock</button></center></td>
                                         </tr>)}
                                 </tbody>
                             </table>

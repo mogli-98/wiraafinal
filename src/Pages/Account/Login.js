@@ -45,7 +45,7 @@ const Login = () => {
         localStorage.setItem("UserType", response.data.user.UserType);
         localStorage.setItem("FirstName", response.data.user.FirstName);
         console.log(response.data);
-        window.location.replace("/user/dashboard")
+        window.location.replace("/Verify-Email")
         console.log(response?.data)
         helper.sweetalert.toast("Welcome Back")
 

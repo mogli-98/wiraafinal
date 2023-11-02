@@ -11,7 +11,7 @@ import { Col, Row } from 'react-bootstrap';
 function Accountfootor() {
     return (
         <>
-            <footer style={{ bottom: '0px', backgroundColor: 'white', width: '100%' }} className="Account_footer d-flex  ">
+            <footer style={{ marginBottom: '0px', backgroundColor: 'white', width: '100%', position: "absolute" }} className="Account_footer d-flex  ">
                 <div className="container d-none d-sm-block">
                     <div className="row">
 

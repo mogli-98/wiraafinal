@@ -5,7 +5,6 @@
     ],
     "appService.defaultWebAppToDeploy": "/subscriptions/21497437-aa91-49a6-b2b9-f0af10f55bce/resourceGroups/Wiraa-Infra/providers/Microsoft.Web/sites/wiraaapp",
     "appService.deploySubpath": ".",
-    "editor.tabSize": 5,
     "editor.cursorBlinking": "smooth",
     "editor.cursorWidth": 5,
     "editor.formatOnSave": true,

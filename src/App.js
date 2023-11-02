@@ -66,6 +66,7 @@ import Messagebox from './Pages/freelancerdashboard/Messagebox';
 import Modulee from './Pages/freelancerdashboard/Modulee';
 import Settingss from './Pages/freelancerdashboard/Settingss';
 import FreeLearn from './Pages/Learn/FreeLearn';
+import VerifyEmail from './Pages/Account/VerifyEmail';
 // import Nonotiftyy from './Pages/freelancerdashboard/nootify/Notification';
 
 function App() {
@@ -76,9 +77,10 @@ function App() {
         <Routes>
           <Route element={<WithNav />}>
             <Route path='/' element={<Homepage />} />
-          </Route>
-          {/* indexpage link */}
+          </Route >
           <Route path='/Account/singup' element={<Singup />} />
+          <Route path='/Verify-Email' element={<VerifyEmail />} />
+          <Route path='/Email-Verified' element={<VerifyEmail />} />
           <Route path='/Account/login' element={<Login />} />
           <Route path="/Home/PostRequirement" element={<PostRequirement />} />
           <Route path='/Home/Project' element={<Project />} />
