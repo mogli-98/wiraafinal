@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, Button } from 'react-bootstrap'
 import '../../asset/css/account.css';
 import { Link } from "react-router-dom";
@@ -11,11 +11,11 @@ import AuthModal from "../../modal/Auth.modal";
 import { helper } from "../../lib/helper";
 
 const CompleteEmail = () => {
-     const { token } = useParams();
-
-     // Now you can use the 'token' variable in your component
+     const urlParams = new URLSearchParams(window.location.search);
+     const token = urlParams.get('token');
      console.log('Token:', token);
      const emailverify = () => {
+          // const token = token;
           AuthModal.Verifyemailuser({ token }).then((res) => {
                helper.sweetalert.toast("Your Email is Verifiyed")
                window.location.replace("/user/dashboard")
