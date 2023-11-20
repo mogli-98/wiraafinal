@@ -21,9 +21,9 @@ const VerifyEmail = () => {
 
                               <Card className="shadow-5 login-card " size="lg" style={{ borderRadius: '8px', border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }} >
                                    <center>
-                                        <p style={{ marginTop: "20px",fontSize:'30px' }}>Verify Your Email</p>
-                                        <p style={{color:'grey'}}>Check your email & click  the link to activate your account</p>
-                                        <img src={VerifyEmal} alt="" />
+                                        <p style={{ marginTop: "20px", fontSize: '30px' }}>Verify Your Email</p>
+                                        <p style={{ color: 'grey' }}>Check your email & click  the link to activate your account</p>
+                                        <img src={VerifyEmal} alt="" style={{ width: "100%" }} />
                                    </center>
 
 

@@ -14,9 +14,10 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AuthModal from '../../modal/Auth.modal';
+import CompleteEmail from './CompleteEmail';
 function Singup() {
   const [showPassword, setShowPassword] = React.useState(false);
-
+  const [dataloaclhost, setDatalocalhost] = React.useState()
   const handleClickShowPassword = () => setShowPassword((show) => !show);
 
   const handleMouseDownPassword = (event) => {
@@ -41,12 +42,14 @@ function Singup() {
     AuthModal.singUp(form).then((response) => {
       if (response?.data?.status === true) {
         const accessToken = response?.data?.token;
-        localStorage.setItem('accessToken', accessToken); 
-        localStorage.setItem("UserID", response.data.signupResult.UserID);
-        localStorage.setItem("userProfileId", response.data.signupResult.UsersProfileID);
-        localStorage.setItem("UserType", response.data.signupResult.UserType);
-        localStorage.setItem("FirstName", response.data.signupResult.FirstName);
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem("UserID", response.data.signupResult[0]?.UserID);
+        localStorage.setItem("userProfileId", response.data.signupResult[0]?.UsersProfileID);
+        localStorage.setItem("UserType", response.data.signupResult[0]?.UserType);
+        localStorage.setItem("FirstName", response.data.signupResult[0]?.FirstName);
+
         console.log(response.data);
+        setDatalocalhost(response.data)
         // window.location.replace("/user/dashboard")
         window.location.replace("/Verify-Email")
 
@@ -62,6 +65,11 @@ function Singup() {
 
   return (
     <div>
+      <div style={{ display: 'none' }} className='d-none d-block'>
+        <CompleteEmail 
+        data={dataloaclhost} />
+
+      </div> 
       <Grid container spacing={3}>
         <Grid sm={4}></Grid>
 

@@ -45,19 +45,18 @@ const Login = () => {
         localStorage.setItem("UserType", response.data.user.UserType);
         localStorage.setItem("FirstName", response.data.user.FirstName);
         localStorage.setItem("LastName", response.data.user.LastName);
-        if (response.data.user.IsEmailVerified === '1'){
+        if (response.data.user.IsEmailVerified === 1) {
+          console.log('eeeeeeeeee', response.data)
           window.location.replace("/user/dashboard")
+          helper.sweetalert.toast("Welcome Back")
+        } else {
+          window.location.replace("/Verify-Email")
         }
-        console.log(response.data);
-        window.location.replace("/Verify-Email")
-        // console.log(response?.data)
-        helper.sweetalert.toast("Welcome Back")
-
+        // console.log(response.data);
       }
     })
       .catch((error) => {
         helper.sweetalert.toast1("Incorrect username or password.")
-        // Display error message to the user
       });
   };
   const handleSubmited = (event) => {
@@ -72,27 +71,22 @@ const Login = () => {
         localStorage.setItem("UserType", response.data.user.UserType);
         localStorage.setItem("FirstName", response.data.user.FirstName);
         localStorage.setItem("LastName", response.data.user.LastName);
-        if (response.data.user.IsEmailVerified === '1'){
+        if (response.data.user.IsEmailVerified === '1') {
           window.location.replace("/user/dashboard")
         }
         console.log(response.data);
         window.location.replace("/Verify-Email")
-        // console.log(response?.data)
         helper.sweetalert.toast("Welcome Back")
-
       }
     })
       .catch((error) => {
         helper.sweetalert.toast1("Incorrect username or password.")
-        // Display error message to the user
       });
   };
   return (
     <>
       <div>
         <Grid container spacing={3}>
-          {/* <Container style={{ height: '92.6vh' }} > */}
-
           <Grid sm={4}></Grid>
           <Grid sm={4} xs={12} style={{ padding: '10px' }} className='signup  '>
             <center> <Link to="/"> <img src={wirralogo} alt="" className="m-5 " /></Link> </center>
@@ -103,10 +97,6 @@ const Login = () => {
               <form style={{ padding: '10px 10px' }} onSubmit={handleSubmit}>
                 <div className='mt-3' style={{ marginLeft: '40px', marginRight: '40px' }}>
                   <TextField id="outlined-basic" onChange={handleChange} name='email' className='mb-3' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
-
-
-
-
                   <TextField
                     fullWidth
                     label="Password"
@@ -142,49 +132,29 @@ const Login = () => {
               </form>
             </Card>
           </Grid>
-
           <Grid xs={4}></Grid>
-
-
           <Accountfooter />
-          {/* </Container> */}
         </Grid>
       </div>
 
-
-
-
-
       <Modal centered show={show} onHide={handleClose}>
-
-
-
         <Card className="shadow-5 login-card" style={{ borderRadius: '10px', border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }}>
           <h2 className="mt-5 mb-2" style={{ marginLeft: "50px" }}>Reset password</h2>
           <span style={{ marginLeft: '50px', color: '#008080', fontWeight: '500' }}>Let me first find your account </span>
           <form onSubmit={handleSubmited}>
             <div style={{ padding: '5px 30px' }} className='m-4'>
               <TextField id="outlined-basic" onChange={handleChange} name='email' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
-
               <div fullWidth style={{ backgroundColor: 'pink' }} className="mt-4 mb-4">
-
                 <Button style={{ backgroundColor: '#008080', color: 'white' }} fullWidth >Reset Password</Button>
               </div>
-
               <h6 className='text-center mt-5'> <b onClick={handleClose} style={{ cursor: 'pointer' }}><u> Back to Login
-
               </u></b>  </h6>
             </div>
           </form>
         </Card>
-
       </Modal>
-
     </>
   )
-
-
-
 }
 
 export default Login;
