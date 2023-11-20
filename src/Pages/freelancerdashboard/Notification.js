@@ -49,7 +49,9 @@ function Notification() {
                 })
 
             }
-        })
+        }).catch((error) => {
+            console.log(error);
+       });
     }
     useEffect(() => {
         fetchData();

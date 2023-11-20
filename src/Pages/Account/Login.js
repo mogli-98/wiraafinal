@@ -37,16 +37,20 @@ const Login = () => {
     event.preventDefault();
     const form = new FormData(event.target);
     AuthModal.login(form).then((response) => {
-      if (response.data.status === true) {
+      if (response?.data?.status === true) {
         const accessToken = response?.data?.token;
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem("UserID", response.data.user.UserID);
         localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
         localStorage.setItem("UserType", response.data.user.UserType);
         localStorage.setItem("FirstName", response.data.user.FirstName);
+        localStorage.setItem("LastName", response.data.user.LastName);
+        if (response.data.user.IsEmailVerified === '1'){
+          window.location.replace("/user/dashboard")
+        }
         console.log(response.data);
         window.location.replace("/Verify-Email")
-        console.log(response?.data)
+        // console.log(response?.data)
         helper.sweetalert.toast("Welcome Back")
 
       }
@@ -56,7 +60,33 @@ const Login = () => {
         // Display error message to the user
       });
   };
+  const handleSubmited = (event) => {
+    event.preventDefault();
+    const form = new FormData(event.target);
+    AuthModal.login(form).then((response) => {
+      if (response?.data?.status === true) {
+        const accessToken = response?.data?.token;
+        localStorage.setItem('accessToken', accessToken);
+        localStorage.setItem("UserID", response.data.user.UserID);
+        localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
+        localStorage.setItem("UserType", response.data.user.UserType);
+        localStorage.setItem("FirstName", response.data.user.FirstName);
+        localStorage.setItem("LastName", response.data.user.LastName);
+        if (response.data.user.IsEmailVerified === '1'){
+          window.location.replace("/user/dashboard")
+        }
+        console.log(response.data);
+        window.location.replace("/Verify-Email")
+        // console.log(response?.data)
+        helper.sweetalert.toast("Welcome Back")
 
+      }
+    })
+      .catch((error) => {
+        helper.sweetalert.toast1("Incorrect username or password.")
+        // Display error message to the user
+      });
+  };
   return (
     <>
       <div>
@@ -132,7 +162,7 @@ const Login = () => {
         <Card className="shadow-5 login-card" style={{ borderRadius: '10px', border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }}>
           <h2 className="mt-5 mb-2" style={{ marginLeft: "50px" }}>Reset password</h2>
           <span style={{ marginLeft: '50px', color: '#008080', fontWeight: '500' }}>Let me first find your account </span>
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmited}>
             <div style={{ padding: '5px 30px' }} className='m-4'>
               <TextField id="outlined-basic" onChange={handleChange} name='email' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
 

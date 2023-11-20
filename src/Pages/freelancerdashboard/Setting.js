@@ -43,8 +43,6 @@ function Setting() {
 
         Setting.editbusiness(form)
             .then((response) => {
-
-
             })
             .catch((error) => {
                 console.log(error);

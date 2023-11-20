@@ -16,7 +16,7 @@ import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { helper } from '../../lib/helper';
 function Viewprofile() {
     const inputRef = useRef(null);
-    const [AllQualificationListt, setAllQualificationListt] = useState()
+    const [AllQualificationListt, setAllQualificationListt] = useState([])
     const [allCity, setallcity] = useState()
     const [Freelancer, setFreelancer] = useState();
     const [activeTab, setActiveTab] = useState("Tab1");
@@ -37,6 +37,8 @@ function Viewprofile() {
         ProfileModal.ClientProfile({ userId }).then((response) => {
             console.log(response.data);
             setProfileData(response.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }
     const handleimageClick = () => {
@@ -45,13 +47,17 @@ function Viewprofile() {
     useEffect(() => {
         Staticmodal.getAllQualificationList().then((response) => {
             console.log(response.data);
-            setAllQualificationListt(response.data);
+            setAllQualificationListt(response?.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     useEffect(() => {
         Staticmodal.getallCity().then((response) => {
             console.log(response.data);
-            setallcity(response.data);
+            setallcity(response?.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     const [formdata, setformdata] = useState({
@@ -97,7 +103,9 @@ function Viewprofile() {
     useEffect(() => {
         Auth.getthreeprofile().then((response) => {
             console.log(response.data);
-            setFreelancer(response.data);
+            setFreelancer(response?.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     return (
@@ -208,7 +216,7 @@ function Viewprofile() {
 
                                 <Col md={4} className=" d-none d-sm-block">
                                     <h6 style={{ fontSize: '20px', marginTop: '20px', marginLeft: '20px' }}><b>Explore</b></h6>
-                                    {Freelancer && Freelancer.map((freelist) =>
+                                    {Freelancer && Freelancer?.map((freelist) =>
                                         <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
 
                                             <div className='order-details-container mt-2'>
@@ -343,8 +351,8 @@ function Viewprofile() {
                                                     </Form.Label>
                                                     <select required name='qualificationId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
                                                         <option value="" disabled selected>Select Qualifaction</option>
-                                                        {AllQualificationListt && AllQualificationListt.map((quallist) =>
-                                                            <option value={quallist.QualificationID}>{quallist.QualificationName}</option>
+                                                        {AllQualificationListt && AllQualificationListt?.map((quallist) =>
+                                                            <option value={quallist?.QualificationID}>{quallist?.QualificationName}</option>
 
                                                         )}
                                                     </select>
@@ -357,8 +365,8 @@ function Viewprofile() {
                                                     </Form.Label>
                                                     <select required name='cityId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
                                                         <option value="" disabled selected>Select City</option>
-                                                        {allCity && allCity.map((quallist) =>
-                                                            <option value={quallist.CityID}>{quallist.CityName}</option>
+                                                        {allCity && allCity?.map((quallist) =>
+                                                            <option value={quallist?.CityID}>{quallist?.CityName}</option>
 
                                                         )}
                                                     </select>

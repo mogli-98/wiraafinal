@@ -34,7 +34,9 @@ function Freelancerdashboard(props) {
         Staticmodal.AllSubcategorynoid().then((response) => {
             console.log(response.data);
             setallcity(response.data);
-        });
+        }).catch((error) => {
+            console.log(error);
+       });
     }, [])
     const [formdata, setformdata] = useState({
         subCategoryId: "",

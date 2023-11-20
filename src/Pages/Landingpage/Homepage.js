@@ -325,6 +325,7 @@ function Homepage() {
       {/* <Hiretalent/> */}
       {/* <PhoneViewSidebar/> */}
       {/* <Phoneviewfooter/> */}
+      
     </>
   )
 }

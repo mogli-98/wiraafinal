@@ -88,6 +88,8 @@ function Setting() {
 
             console.log('user unblock', respnse.data)
             helper.sweetalert.toast('Unblock Account')
+        }).catch((error) => {
+            console.log(error);
         });
     }
     useEffect(() => {

@@ -14,9 +14,9 @@ import Staticmodal from '../../modal/Static.modal';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 function Editprofile() {
     const inputRef = useRef(null);
-    const [AllQualificationListt, setAllQualificationListt] = useState()
-    const [allCity, setallcity] = useState()
-    const [Freelancer, setFreelancer] = useState();
+    const [AllQualificationListt, setAllQualificationListt] = useState(null)
+    const [allCity, setallcity] = useState(null)
+    const [Freelancer, setFreelancer] = useState([]);
     const [activeTab, setActiveTab] = useState("Tab1");
     const [selectedImage, setSelectedImage] = useState(null);
     const handleClick = (tab) => {
@@ -31,10 +31,12 @@ function Editprofile() {
 
     const [profileData, setProfileData] = useState([]);
     const fetchdata = () => {
-        const userId  = localStorage.getItem("UserID");
-        ProfileModal.ClientProfile({userId}).then((response) => {
+        const userId = localStorage.getItem("UserID");
+        ProfileModal.ClientProfile({ userId }).then((response) => {
             console.log(response.data);
             setProfileData(response.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }
     const handleimageClick = () => {
@@ -43,13 +45,17 @@ function Editprofile() {
     useEffect(() => {
         Staticmodal.getAllQualificationList().then((response) => {
             console.log(response.data);
-            setAllQualificationListt(response.data);
+            setAllQualificationListt(response?.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     useEffect(() => {
         Staticmodal.getallCity().then((response) => {
             console.log(response.data);
-            setallcity(response.data);
+            setallcity(response?.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     const [formdata, setformdata] = useState({
@@ -80,9 +86,9 @@ function Editprofile() {
         const form = new FormData(event.target);
         form.append("userId", parseInt(localStorage.getItem("UserID")));
 
-        ProfileModal.Updateprofile(form ).then((response) => {
-                console.log(response.data, "Profession Form Fill Successfuly");
-            })
+        ProfileModal.Updateprofile(form).then((response) => {
+            console.log(response.data, "Profession Form Fill Successfuly");
+        })
             .catch((error) => {
                 console.log(error);
             });
@@ -93,15 +99,17 @@ function Editprofile() {
     useEffect(() => {
         Auth.getthreeprofile().then((response) => {
             console.log(response.data);
-            setFreelancer(response.data);
+            setFreelancer(response?.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
-                    <Col sm={1}className='d-none d-sm-block'>
-                        <Sidenav  activekey="profile"/>
+                    <Col sm={1} className='d-none d-sm-block'>
+                        <Sidenav activekey="profile" />
                     </Col>
 
 
@@ -178,7 +186,7 @@ function Editprofile() {
                                             </center>
                                             <Container>
                                                 <Row className='mb-3'>
-                                                    <Col className='square border-end' style={{borderRight:'1px solid black'}}>  {profileData?.[0]?.FollowerCount === null ? (
+                                                    <Col className='square border-end' style={{ borderRight: '1px solid black' }}>  {profileData?.[0]?.FollowerCount === null ? (
                                                         <h6 className='text-center'>0</h6>
                                                     ) : <h6 className='text-center'>{profileData?.[0]?.FollowerCount}</h6>}
 
@@ -261,9 +269,9 @@ function Editprofile() {
 
 
 
-                                <Col  md={4} className="d-none d-sm-block">
+                                <Col md={4} className="d-none d-sm-block">
                                     <h6 style={{ fontSize: '20px', marginTop: '20px', marginLeft: '30px' }}><b>Explore</b></h6>
-                                    {Freelancer && Freelancer.map((freelist) =>
+                                    {Freelancer && Freelancer?.map((freelist) =>
                                         <Card className='mt-3' style={{ border: 'none', backgroundColor: "#efefef", borderRadius: '10px' }}>
 
                                             <div className='order-details-container mt-2'>
@@ -410,8 +418,8 @@ function Editprofile() {
                                                 <Col sm={6}>
                                                     <Form.Label>Qualification:</Form.Label>
                                                     <select name='qualificationId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
-                                                        {AllQualificationListt && AllQualificationListt.map((quallist) =>
-                                                            <option value={quallist.QualificationID}>{quallist.QualificationName}</option>
+                                                        {AllQualificationListt && AllQualificationListt?.map((quallist) =>
+                                                            <option value={quallist?.QualificationID}>{quallist?.QualificationName}</option>
 
                                                         )}
                                                     </select>
@@ -419,8 +427,8 @@ function Editprofile() {
                                                 <Col sm={6}>
                                                     <Form.Label>City:</Form.Label>
                                                     <select name='cityId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
-                                                        {allCity && allCity.map((quallist) =>
-                                                            <option value={quallist.CityID}>{quallist.CityName}</option>
+                                                        {allCity && allCity?.map((quallist) =>
+                                                            <option value={quallist?.CityID}>{quallist?.CityName}</option>
 
                                                         )}
                                                     </select>

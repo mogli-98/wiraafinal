@@ -24,7 +24,7 @@ function ProtfolioCard(props) {
         //console.log(outid)
         const postId = PostID
         Auth.Allcomment({ postId }).then((res) => {
-            setallcomment(res.data)
+            setallcomment(res?.data)
 
         })
             .catch((error) => {
@@ -107,7 +107,7 @@ function ProtfolioCard(props) {
                         </td>
                         <td className="frloo">
 
-                            {data.UserLiked !== 0 ? (
+                            {data?.UserLiked !== 0 ? (
                                 <IoHeart onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} fill="red" style={{ cursor: "pointer" }} fontSize='20px' />
                                 // <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" onClick={() => { Likeadd(data?.PostID); console.log("data?.id", data?.PostID) }} className='bi bi-heart-fill' viewBox="0 0 16 16" style={{ cursor: "pointer" }}>
                                 //     <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z" />

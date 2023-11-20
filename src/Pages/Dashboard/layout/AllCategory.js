@@ -10,29 +10,32 @@ function Dropdown1({ onSelect }) {
     };
     useEffect(() => {
         Switchform.Allcategory().then((response) => {
-            setGetSubCategory(response.data)
-            console.log(response.data)
-        }
-        )
-    }, [])
+            setGetSubCategory(response?.data)
+            console.log(response?.data)
+        })
+            .catch((error) => {
+                console.log(error);
+            });
+    }
+        , [])
     return (
         <div >
             {
-                    GetSubCategory && GetSubCategory.map((categorylist) =>
-                        <div className='card' value={categorylist.CurriculumID} style={{
-                            borderStyle: "none",
-                            flex: "1 1 30%",
-                          
-                            margin: "8px"
-                        }} >{categorylist.CurriculumName}</div>
-                   
-                        )
-                        
-                }
-            </div>
-           
+                GetSubCategory && GetSubCategory?.map((categorylist) =>
+                    <div className='card' value={categorylist?.CurriculumID} style={{
+                        borderStyle: "none",
+                        flex: "1 1 30%",
 
-    
+                        margin: "8px"
+                    }} >{categorylist?.CurriculumName}</div>
+
+                )
+
+            }
+        </div>
+
+
+
     );
 }
 

@@ -13,15 +13,15 @@ function Nonotiftyyuser() {
     clientBoard.allNotifi({ userProfileId }).then((respnse) => {
       if (respnse?.data.length > 0) {
         setUserData(respnse?.data);
-      } else { 
+      } else {
       }
     })
       .catch((error) => console.log(error));
   }, []);
- 
+
   return (
     <div>
-      {userData?.length > 0 ? (
+      {userData?.length > null ? (
         <Notificationuser />
       ) : (
         <Nonotifty data={userData} />

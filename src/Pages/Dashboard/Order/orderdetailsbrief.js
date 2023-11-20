@@ -20,9 +20,9 @@ function Orderdetailsbrief() {
 
         const order_id = params.id;
         Orderbook.orderdetails({ order_id }).then((respone) => {
-
-
-            setOrderDetails(respone.data)
+            setOrderDetails(respone?.data)
+        }).catch((error) => {
+            console.log("error => ", error)
         })
     }
     const Closeorder = () => {
@@ -30,9 +30,9 @@ function Orderdetailsbrief() {
         form.append("userId", parseInt(localStorage.getItem("UserID")));
         form.append("orderId", params.id);
         OrderModal.CLosedorder(form).then((respone) => {
-
             fetchdata();
-
+        }).catch((error) => {
+            console.log("error => ", error)
         })
     }
     useEffect(() => {

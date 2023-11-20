@@ -25,7 +25,7 @@ function Unreadnotification() {
         clientBoard.Unreadnotice({ userProfileId }).then((response) => {
             // localStorage.setItem('delid' ,response.data[0]['notificationID']);
             console.log(response.data)
-            setallNotifi(response.data);
+            setallNotifi(response?.data);
         }).catch((error) => {
             console.log("error => ", error)
         })
@@ -56,7 +56,9 @@ function Unreadnotification() {
                 })
 
             }
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }
     useEffect(() => {
         fetchData();
@@ -124,12 +126,12 @@ function Unreadnotification() {
                                         <div className="tab-content">
                                             {activeTab === "Tab1" && <>
                                                 <div className='m-1'>
-                                                    {allnotifi && allnotifi.map((pdata) =>
+                                                    {allnotifi && allnotifi?.map((pdata) =>
                                                         <Card style={{ backgroundColor: ' #efefef', cursor: 'pointer', border: 'none' }} className='m-2' onClick={() => { Read(pdata.NotificationID) }}>
                                                             <div>
 
                                                                 <p className='m-2'>
-                                                                    <img src={`http://.wiraa.com/${pdata.profilePic}`} alt="" height={40} width={40} style={{ borderRadius: "8px" }} className="m-2" /> <span style={{ fontSize: '20px' }}><b> {pdata.FirstName}</b> </span> <span style={{ fontSize: '18px' }}>{pdata.Comments} </span>  <span className='small text-disable m-2'><span style={{ color: 'grey', fontSize: '16px' }}>2 h  </span>   </span>
+                                                                    <img src={`http://.wiraa.com/${pdata?.profilePic}`} alt="" height={40} width={40} style={{ borderRadius: "8px" }} className="m-2" /> <span style={{ fontSize: '20px' }}><b> {pdata?.FirstName}</b> </span> <span style={{ fontSize: '18px' }}>{pdata.Comments} </span>  <span className='small text-disable m-2'><span style={{ color: 'grey', fontSize: '16px' }}>2 h  </span>   </span>
                                                                 </p>
                                                             </div>
                                                         </Card>
@@ -151,11 +153,11 @@ function Unreadnotification() {
                                                 <h5 style={{ fontSize: '25px' }} className='switch-text'><b>Advance <br /> Freelancing <br /> Course</b></h5>
                                                 <p style={{ fontSize: '19px', color: 'grey' }}>Polish your skills and expand<br />your knowledge base</p>
 
-                                                
-                                                    <button style={{ padding: '8px', backgroundColor: 'black', color: 'white', borderRadius: '8px', border: 'none', marginBottom: '100px', paddingLeft: '50px', paddingRight: '50px' }} className="mt-4"><b> Learn </b></button>
+
+                                                <button style={{ padding: '8px', backgroundColor: 'black', color: 'white', borderRadius: '8px', border: 'none', marginBottom: '100px', paddingLeft: '50px', paddingRight: '50px' }} className="mt-4"><b> Learn </b></button>
 
 
-                                              
+
 
 
 

@@ -17,7 +17,7 @@ function ProfileCard(props) {
         const userProfileId = localStorage.getItem("userProfileId");
         ProfileModal.Followunfollow({ userProfileId }, { followProfileId }).then((response) => {
 
-            console.log(response.data);
+            console.log(response?.data);
             // setprotfoliData(response.data);
         });
     }
@@ -51,7 +51,7 @@ function ProfileCard(props) {
                     // onMouseEnter={() => setIsHovered1(true)}
                     // onMouseLeave={() => setIsHovered1(false)}
                     >
-                        {data.FollowerCount === null ? (
+                        {data?.FollowerCount === null ? (
                             <h6 className='text-center'>0</h6>
                         ) : <h6 className='text-center'>{data.FollowerCount}</h6>}
                         {/* <h6 className='text-center'>{data.FollowerCount}</h6> */}
@@ -60,7 +60,7 @@ function ProfileCard(props) {
                     </div>
 
                     {isHovered1 && (
-                        data.IsFollow === 1 ? (
+                        data?.IsFollow === 1 ? (
                             <center>
                                 {/* <Link to="Home/PostRequirement"> */}
                                 <button style={{

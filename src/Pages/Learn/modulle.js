@@ -18,13 +18,17 @@ function Module() {
           LearnModal.Modulelist().then((response) => {
                setCourseList(response.data)
                console.log(response.data)
-          })
+          }).catch((error) => {
+               console.log(error);
+          });
      }, [])
      useEffect(() => {
           LearnModal.Modulelistdetails().then((response) => {
                setCourseListdetails(response.data)
                console.log(response.data)
-          })
+          }).catch((error) => {
+               console.log(error);
+          });
      }, [])
      return (
           <>

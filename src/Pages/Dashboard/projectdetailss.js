@@ -16,7 +16,9 @@ function Orderdetailsbrief() {
          console.log(respone.data)
          setOrderDetails(respone.data[0])
  
-         })
+         }).catch((error) => {
+            console.log(error);
+       });
      }, [])
     return (
         <>

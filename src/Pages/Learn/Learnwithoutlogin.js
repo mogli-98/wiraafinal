@@ -18,13 +18,17 @@ function Learnwithoutlogin() {
         LearnModal.Modulelist().then((response) => {
             setCourseList(response.data)
             console.log(response.data)
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
     useEffect(() => {
         LearnModal.Modulelistdetails().then((response) => {
             setCourseListdetails(response.data)
             console.log(response.data)
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
     return (
         <>
@@ -95,10 +99,10 @@ function Learnwithoutlogin() {
                                     <div style={{ display: 'flex', alignItems: 'center' }}>
 
                                         <Link className='pt-2 ' to='/Account/login'>
-                                            
+
                                             <Button style={{ backgroundColor: 'white', color: 'Black', border: '1px solid #008080', borderRadius: '8px', marginTop: '10px' }} >
                                                 <span
-                                                   
+
                                                     style={{ fontSize: '18px', fontWeight: 'bold' }}>Login</span>
 
 
@@ -154,7 +158,7 @@ function Learnwithoutlogin() {
 
                                         <p>
                                             <span style={{ float: "right", marginRight: '20px' }}>
-                                               
+
                                                 <span style={{ fontWeight: 600, fontSize: "16px" }}> 11,222 </span> <span style={{ fontSize: '15px', color: 'grey' }}> student</span>   </span>
                                         </p>
 

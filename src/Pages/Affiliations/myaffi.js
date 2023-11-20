@@ -7,7 +7,7 @@ import DataTable from 'react-data-table-component';
 import AffiliateModel from '../../modal/Affiliate.modal';
 function Orderdetailsbrief() {
     const [affi, setAfii] = useState();
-    const [report , setReport] = useState();
+    const [report, setReport] = useState();
     //model for copunn
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -40,67 +40,72 @@ function Orderdetailsbrief() {
             console.log(respone.data)
             setAfii(respone.data)
 
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
     useEffect(() => {
-        AffiliateModel.Report().then((respone) =>{
-        console.log(respone.data)
-        setReport(respone.data)
+        AffiliateModel.Report().then((respone) => {
+            console.log(respone.data)
+            setReport(respone.data)
 
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
-const columns = [
-    {
-        name:"Id",
-        selector: (row) => row.AffiliateId,
-        width:"50px",
-    },
-    {
-        name:"Affiliate ",
-        selector: (row) => row.AffiliateCode,
-    },
-    {
-        name:"Date ",
-        selector: (row) => row.affliateStartDate,
-    },
-    {
-        name:"Amount",
-        selector: (row) => row.PayableCommission,
-    },
-    {
-        name:"Coupon",
-        selector: (row) => row.CouponCode,
-    },
-    {
-        name:"Commission",
-        selector: (row) => row.CouponTotalCommission,
-    },
-    {
-        name:"Status",
-        selector: (row) => row.ConversionStatus,
-        cell: row => {
-            if (row.ConversionStatus === '1') {
-                return<><p style={{color:"green",fontWeight:"700"}}>Converted</p></>;
-              } else if (row.ConversionStatus === '2') {
-                return<><p style={{color:"red",fontWeight:"700"}}>Dropped</p></>;
-              }},
-            
-    },
+    const columns = [
+        {
+            name: "Id",
+            selector: (row) => row.AffiliateId,
+            width: "50px",
+        },
+        {
+            name: "Affiliate ",
+            selector: (row) => row.AffiliateCode,
+        },
+        {
+            name: "Date ",
+            selector: (row) => row.affliateStartDate,
+        },
+        {
+            name: "Amount",
+            selector: (row) => row.PayableCommission,
+        },
+        {
+            name: "Coupon",
+            selector: (row) => row.CouponCode,
+        },
+        {
+            name: "Commission",
+            selector: (row) => row.CouponTotalCommission,
+        },
+        {
+            name: "Status",
+            selector: (row) => row.ConversionStatus,
+            cell: row => {
+                if (row.ConversionStatus === '1') {
+                    return <><p style={{ color: "green", fontWeight: "700" }}>Converted</p></>;
+                } else if (row.ConversionStatus === '2') {
+                    return <><p style={{ color: "red", fontWeight: "700" }}>Dropped</p></>;
+                }
+            },
 
-]
+        },
+
+    ]
     const customStyles = {
 
-    rows: {
-        style: {
-          border: '1px solid white', // Add a border to the table rows
+        rows: {
+            style: {
+                border: '1px solid white', // Add a border to the table rows
+            },
         },
-      },
-      Cell: {
-        style: {
-          border: '1px solid white', // Add a border to the table rows
+        Cell: {
+            style: {
+                border: '1px solid white', // Add a border to the table rows
+            },
         },
-      },
-};
+    };
     return (
         <>
             <>
@@ -127,7 +132,7 @@ const columns = [
                                     <Col>
                                         <div className="table">
                                             <div className="table_affi">
-                                                <h6 className='' style={{ color: '#008080',marginTop:'10px',marginLeft:"22px" }} onClick={handleShow4}>All Visitors</h6>
+                                                <h6 className='' style={{ color: '#008080', marginTop: '10px', marginLeft: "22px" }} onClick={handleShow4}>All Visitors</h6>
                                                 <button className='butn' onClick={handleShow1} >Copy Link </button>
                                             </div>
                                             {/* <Table style={{ border: '2px solid lightgrey' }}>
@@ -160,9 +165,9 @@ const columns = [
                                                 </tbody>
                                             </Table> */}
                                             <DataTable
-                                            customStyles={customStyles}
-                                            columns={columns}
-                                            data={affi}
+                                                customStyles={customStyles}
+                                                columns={columns}
+                                                data={affi}
                                             />
                                         </div>
                                     </Col>
@@ -227,15 +232,15 @@ const columns = [
                                 <Modal show={show1} onHide={handleClose1} size='lg'>
                                     <Container >
                                         <h3 className='text-center mt-3'>Report</h3>
-                                        <p  className='text-center  '>Check your monthly affiliation Report </p>
+                                        <p className='text-center  '>Check your monthly affiliation Report </p>
                                         <Row>
                                             <Col sm={4}>
-                                                <Form.Group className="mb-3" controlId="formBasiclink" style={{width:"90%" }}>
+                                                <Form.Group className="mb-3" controlId="formBasiclink" style={{ width: "90%" }}>
                                                     <Form.Control type="text" placeholder="Suresh Srivastav" defaultValue={report?.[0].AffiliateCode} />
                                                 </Form.Group>
                                             </Col>
                                             <Col sm={4}>
-                                                <select name="Month" id="Month" className='month' style={{ width: '90%', height: '35px',marginLeft:'10px' }} >
+                                                <select name="Month" id="Month" className='month' style={{ width: '90%', height: '35px', marginLeft: '10px' }} >
                                                     <option value="Jan" disabled>Month</option>
                                                     <option value="feb">Febuary</option>
                                                     <option value="march">March</option>
@@ -245,7 +250,7 @@ const columns = [
                                             </Col>
 
                                             <Col sm={4}>
-                                                <select name="Month" id="Month" className='month'style={{ width: '90%', height: '35px',marginLeft:'px' }} >
+                                                <select name="Month" id="Month" className='month' style={{ width: '90%', height: '35px', marginLeft: 'px' }} >
                                                     <option value="Jan" disabled>Year</option>
                                                     <option value="feb">Febuary</option>
                                                     <option value="march">March</option>
@@ -320,7 +325,7 @@ const columns = [
                                                 <Form.Group className="" controlId="formBasiclink">
                                                     <Form.Control type="link" placeholder="Payout no.04" />
                                                 </Form.Group>
-                                                </Col>
+                                            </Col>
                                         </Row>
                                         <Row>
                                             <Col sm={12}>
@@ -553,14 +558,14 @@ const columns = [
                                         <h3 className='text-center' style={{ fontWeight: '600' }}>Affiliate Details</h3>
                                         <Row className='mb-4 mt-4'>
                                             <Col sm={2}>
-                                            <select name="Month" id="Month" className='month' style={{ color: 'green', fontWeight: '600', fontSize: '1.2vmax' }} >
-                                                <option style={{ color: 'green', fontWeight: '600' }} value="Jan" >Approved</option>
-                                                <option style={{ color: 'red' }} value="feb">Not Approved</option>
+                                                <select name="Month" id="Month" className='month' style={{ color: 'green', fontWeight: '600', fontSize: '1.2vmax' }} >
+                                                    <option style={{ color: 'green', fontWeight: '600' }} value="Jan" >Approved</option>
+                                                    <option style={{ color: 'red' }} value="feb">Not Approved</option>
 
-                                            </select>
+                                                </select>
                                             </Col>
                                             <Col sm={3}><div className="box11">
-                                               <span className='small'> Lifetime visitors:23,293</span>
+                                                <span className='small'> Lifetime visitors:23,293</span>
                                             </div></Col>
                                             <Col sm={3}><div className="box12">
                                                 <span className='small'>lifetime revenue Rs.39393</span>
@@ -572,51 +577,51 @@ const columns = [
                                                 <span className='small'>Download Paouts</span>
                                             </div></Col>
                                         </Row>
-                                        
+
 
 
                                         <Row>
                                             <Col>
-                                            <Card>
-                                               <center>
-                                               <p className='pt-2'>
-                                               Suresh Srivastav
-                                                </p> 
-                                               </center>
-                                            </Card>
-                                               
+                                                <Card>
+                                                    <center>
+                                                        <p className='pt-2'>
+                                                            Suresh Srivastav
+                                                        </p>
+                                                    </center>
+                                                </Card>
+
                                             </Col>
                                             <Col >
-                                            <Card>
-                                               <center>
-                                               <p className='pt-2'>
-                                               anshumangupta123
+                                                <Card>
+                                                    <center>
+                                                        <p className='pt-2'>
+                                                            anshumangupta123
 
-                                                </p> 
-                                               </center>
-                                            </Card>
-                                            </Col>
-
-                                            <Col >
-                                            <Card>
-                                               <center>
-                                               <p className='pt-2'>
-                                               sureshyadav23@gmail.com
-
-                                                </p> 
-                                               </center>
-                                            </Card>
+                                                        </p>
+                                                    </center>
+                                                </Card>
                                             </Col>
 
                                             <Col >
-                                            <Card>
-                                               <center>
-                                               <p className='pt-2'>
-                                               9874373828
+                                                <Card>
+                                                    <center>
+                                                        <p className='pt-2'>
+                                                            sureshyadav23@gmail.com
 
-                                                </p> 
-                                               </center>
-                                            </Card>
+                                                        </p>
+                                                    </center>
+                                                </Card>
+                                            </Col>
+
+                                            <Col >
+                                                <Card>
+                                                    <center>
+                                                        <p className='pt-2'>
+                                                            9874373828
+
+                                                        </p>
+                                                    </center>
+                                                </Card>
                                             </Col>
                                         </Row>
                                         <Row className='mt-2 mb-4'>
@@ -628,19 +633,19 @@ const columns = [
                                             <Col sm={6}>
                                             </Col>
                                             <Col sm={4}>
-                                            <div className="box17">
-                                                <select name="Month" id="Month" className='ApprovedMonth'>
-                                                    <option value="year" >2023</option>
-                                                    <option value="year">2022</option>
-                                                    <option value="year">2021</option>
-                                                </select>
-                                                <select name="Month" id="Month" className='ApprovedMonth' >
-                                                    <option value="Jan" >Month</option>
-                                                    <option value="feb">January</option>
-                                                    <option value="year">Febuary</option>
-                                                </select>
-                                                Filter
-                                            </div>
+                                                <div className="box17">
+                                                    <select name="Month" id="Month" className='ApprovedMonth'>
+                                                        <option value="year" >2023</option>
+                                                        <option value="year">2022</option>
+                                                        <option value="year">2021</option>
+                                                    </select>
+                                                    <select name="Month" id="Month" className='ApprovedMonth' >
+                                                        <option value="Jan" >Month</option>
+                                                        <option value="feb">January</option>
+                                                        <option value="year">Febuary</option>
+                                                    </select>
+                                                    Filter
+                                                </div>
                                             </Col>
                                         </Row>
                                         {/* <div className="box15">
@@ -664,7 +669,7 @@ const columns = [
 
 
                                         <div className="box18">
-                                        <Row>
+                                            <Row>
                                                 <Col >
                                                     <span className='small'>Coupon code:</span>
                                                     <Card>

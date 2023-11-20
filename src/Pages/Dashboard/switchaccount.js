@@ -21,20 +21,26 @@ function SwitchAccount() {
         Switchform.getAllOccupationList().then((response) => {
             console.log(response.data);
             setOccupaqtionList(response.data);
-        });
+        }).catch((error) => {
+            console.log(error);
+       });
     }, [])
     useEffect(() => {
         Switchform.getAllQualificationList().then((response) => {
             console.log(response.data);
             setAllQualificationListt(response.data);
-        });
+        }).catch((error) => {
+            console.log(error);
+       });
     }, [])
     useEffect(() => {
         Switchform.Allcategory().then((response) => {
             setGetSubCategory(response.data)
             console.log(response.data)
         }
-        )
+        ).catch((error) => {
+            console.log(error);
+       });
     }, [])
 
     const ShowSubcatogery = (CurriculumID) => {
@@ -45,7 +51,9 @@ function SwitchAccount() {
             console.log(response.data)
 
 
-        })
+        }).catch((error) => {
+            console.log(error);
+       });
     }
 
     const [formdata, setformdata] = useState({

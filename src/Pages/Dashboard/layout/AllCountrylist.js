@@ -10,23 +10,25 @@ function Dropdown1({ onSelect }) {
         onSelect(selectedValue);
     };
     useEffect(() => {
-        Switchform.AllCountryList().then((response) =>{
+        Switchform.AllCountryList().then((response) => {
             console.log(response.data);
-            setCountryList(response.data);
+            setCountryList(response?.data);
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     return (
         <div>
-           <select id="cars"
-                style={{ width: "-webkit-fill-available", height: "40px" ,border: '2px solid lightgrey',borderRadius:"8px"}}
+            <select id="cars"
+                style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }}
                 onChange={handleDropdownChange}
                 name='countryId'
                 placeholder='Category'
                 required
             >
                 {
-                    CountryList && CountryList.map((listCountry) =>
-                        <option value={listCountry.CountryID}>{listCountry.CountryName}</option>)
+                    CountryList && CountryList?.map((listCountry) =>
+                        <option value={listCountry?.CountryID}>{listCountry?.CountryName}</option>)
                 }
             </select>
 

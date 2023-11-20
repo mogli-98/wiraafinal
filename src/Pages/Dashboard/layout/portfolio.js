@@ -87,7 +87,7 @@ function Portfolio(selectedOptions) {
           }
         } onClick={fetchdata}>
 
-          {protfoliData && protfoliData.map((pdata) => <Portfoliocard data={pdata} />)}
+          {protfoliData && protfoliData?.map((pdata) => <Portfoliocard data={pdata} />)}
           {loading && <Loading />}
         </div>
       </Container>

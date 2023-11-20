@@ -39,19 +39,19 @@ function Singup() {
     event.preventDefault();
     const form = new FormData(event.target);
     AuthModal.singUp(form).then((response) => {
-      if (response.data.status === true) {
+      if (response?.data?.status === true) {
         const accessToken = response?.data?.token;
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem("UserID", response.data.user.UserID);
-        localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
-        localStorage.setItem("UserType", response.data.user.UserType);
-        localStorage.setItem("FirstName", response.data.signupResult[0]?.FirstName);
+        localStorage.setItem('accessToken', accessToken); 
+        localStorage.setItem("UserID", response.data.signupResult.UserID);
+        localStorage.setItem("userProfileId", response.data.signupResult.UsersProfileID);
+        localStorage.setItem("UserType", response.data.signupResult.UserType);
+        localStorage.setItem("FirstName", response.data.signupResult.FirstName);
         console.log(response.data);
         // window.location.replace("/user/dashboard")
         window.location.replace("/Verify-Email")
 
         console.log(response?.data)
-        helper.sweetalert.toast("Registered Successfully")
+        helper.sweetalert.toast("Check your email & click  the link to activate your account")
 
       }
     })

@@ -57,7 +57,9 @@ function Unreadnotification() {
                 })
 
             }
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }
     useEffect(() => {
         fetchData();

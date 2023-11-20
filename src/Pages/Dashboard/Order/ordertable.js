@@ -125,10 +125,11 @@ function Orderdetailsbrief() {
         const userId = localStorage.getItem("UserID");
         Orderbook.ordertable({ userId }).then((respnse) => {
             console.log(respnse.data)
-            setoederTable(respnse.data)
+            setoederTable(respnse?.data)
             setStatus(respnse?.data?.PostStatus)
-            console.log(status)
+
         }).catch((error) => {
+            setoederTable([])
             console.log(error);
             // Display error message to the user
         });
@@ -197,7 +198,7 @@ function Orderdetailsbrief() {
                                 <DataTable
                                     customStyles={customStyles}
                                     columns={columns}
-                                    data={oederTable}
+                                    data={oederTable.length > 0 ? oederTable : ""}
                                     pagination
                                     conditionalRowStyles={conditionalRowStyles}
                                 />
@@ -213,12 +214,12 @@ function Orderdetailsbrief() {
 
                             <Card className='d-block d-sm-none' style={{ marginBottom: '50px', padding: '0px', backgroundColor: 'ButtonHighlight', Width: '100%', borderRadius: '25px', borderEndEndRadius: '0px', borderEndStartRadius: '0px', border: 'none', cursor: 'pointer' }}>
                                 <Col xs={12}>
-                                    {oederTable && oederTable.map((tableitem) =>
-                                        <Link to={`/Orderdetailsbreief/${tableitem.PostreqID}`}>
+                                    {oederTable.length > 0 && oederTable.map((tableitem, index) =>
+                                        <Link to={`/Orderdetailsbreief/${tableitem.PostreqID}`} key={index}>
 
                                             <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
 
-                                                <h5>{tableitem.Title}</h5>
+                                                <h5>{tableitem?.Title}</h5>
 
                                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
 
@@ -249,41 +250,7 @@ function Orderdetailsbrief() {
 
                                 </Col>
 
-                                {/* <Col xs={12}>
-                                        {oederTable && oederTable.map((tableitem) =>
 
-                                            <Link to={`/Orderdetailsbreief/${tableitem.PostreqID}`}>
-
-                                                <Card style={{ margin: '15px', padding: '10px', borderRadius: '20px', border: 'none', boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
-
-                                                    <h5>{tableitem.CategoryId} - {tableitem.SubCategoryId}</h5>
-
-                                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-
-                                                        <p style={{ fontSize: '15px' }}>
-                                                            {tableitem.Title}
-                                                        </p>
-                                                        <span style={{ float: 'right' }}>
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" class="bi bi-dot" viewBox="0 0 16 16">
-                                                                <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
-                                                            </svg>
-                                                        </span>
-                                                    </div>
-
-
-                                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                        <p style={{ color: 'grey' }}>$200-$350</p>
-                                                        <p style={{ color: 'grey' }}> <svg style={{ color: 'grey' }} xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-stopwatch" viewBox="0 0 16 16">
-                                                            <path d="M8.5 5.6a.5.5 0 1 0-1 0v2.9h-3a.5.5 0 0 0 0 1H8a.5.5 0 0 0 .5-.5V5.6z" />
-                                                            <path d="M6.5 1A.5.5 0 0 1 7 .5h2a.5.5 0 0 1 0 1v.57c1.36.196 2.594.78 3.584 1.64a.715.715 0 0 1 .012-.013l.354-.354-.354-.353a.5.5 0 0 1 .707-.708l1.414 1.415a.5.5 0 1 1-.707.707l-.353-.354-.354.354a.512.512 0 0 1-.013.012A7 7 0 1 1 7 2.071V1.5a.5.5 0 0 1-.5-.5zM8 3a6 6 0 1 0 .001 12A6 6 0 0 0 8 3z" />
-                                                        </svg> 22-10-2001</p>
-                                                    </div>
-
-                                                </Card>
-
-                                            </Link>
-                                        )}
-                                    </Col> */}
                             </Card>
 
                         </Row>

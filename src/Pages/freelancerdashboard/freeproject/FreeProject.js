@@ -23,7 +23,9 @@ function FreeProjectdetails() {
         ProjectModal.getPrjectdetails({ projectId }).then((respone) => {
             console.log(respone.data)
             setOrderDetails(respone.data)
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
     const Markfav = async (id) => {
         console.log(id)

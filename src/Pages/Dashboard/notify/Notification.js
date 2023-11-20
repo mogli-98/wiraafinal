@@ -4,7 +4,7 @@ import Notification from "../notification";
 import clientBoard from "../../../Model/clientdash";
 
 function Nonotiftyy() {
-  const [userData, setUserData] = useState([]);
+  const [userData, setUserData] = useState(null);
   useEffect(() => {
     const userProfileId = localStorage.getItem("UserID");
     console.log(userProfileId)
@@ -16,10 +16,12 @@ function Nonotiftyy() {
 
   return (
     <div>
-      {userData?.length ? (
-        <Notification />
+      {userData === null || userData?.length ? (
+        // {userData?.length ? (
+          <Nonotifty />
       ) : (
-        <Nonotifty />
+    
+        <Notification />
       )}
     </div>
   );

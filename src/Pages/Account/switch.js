@@ -12,15 +12,16 @@ function SwitchAcc() {
     if (storedUserID) {
       setUserID(Number(storedUserID));
     }
-  }, []);
+  }
+    , []);
 
   return (
     <div>
-     {userProfileId === 3 ? (
-        <Dashborad/>
-      ): (
-      
-        <Switch/>
+      {userProfileId === 3 ? (
+        <Dashborad />
+      ) : (
+
+        <Switch />
       )}
 
     </div>

@@ -51,7 +51,9 @@ function PostRequirement() {
         Switchform.AllCountryList().then((response) => {
             setCity(response.data)
             console.log(response.data)
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
 
 

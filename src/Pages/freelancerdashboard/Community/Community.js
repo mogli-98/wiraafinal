@@ -14,7 +14,7 @@ function Community() {
         setActiveTab(tab);
     };
     const [allQues, setallQues] = useState();
-    const [Myquestion , setMyquestion] = useState();
+    const [Myquestion, setMyquestion] = useState();
     const columns = [
         {
             name: 'Professional',
@@ -35,21 +35,25 @@ function Community() {
             selector: (row) => row.answerCount
         },
     ]
-   
+
     useEffect(() => {
         const id = localStorage.getItem("id");
-        Orderbook.community({id}).then((response) => {
+        Orderbook.community({ id }).then((response) => {
             console.log(response.data);
             setallQues(response.data);
 
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     useEffect(() => {
         const id = localStorage.getItem("id");
-        Orderbook.community({id}).then((response) => {
+        Orderbook.community({ id }).then((response) => {
             console.log(response.data);
             setMyquestion(response.data);
 
+        }).catch((error) => {
+            console.log(error);
         });
     }, [])
     return (
@@ -67,9 +71,9 @@ function Community() {
                             <Row>
                                 <Col>
                                     <Form.Control type="text" className='square rounded-pill CiSearch' placeholder="Search Project" style={{ backgroundColor: "#efefef" }} />
-                                 
-                                       <div className='mt-5 mb-5'>
-                                       <div
+
+                                    <div className='mt-5 mb-5'>
+                                        <div
                                             className={`tab  ${activeTab === "Tab1" ? "active" : ""}`}
                                             onClick={() => handleClick("Tab1")}
                                         >
@@ -87,7 +91,7 @@ function Community() {
                                         >
                                             <button className='project-button project-button1 userproject'>My Answer</button>
                                         </div>
-                                        </div>                                
+                                    </div>
                                     {activeTab === "Tab1" && <>
                                         <div className=''>
                                             <DataTable className='bordered'

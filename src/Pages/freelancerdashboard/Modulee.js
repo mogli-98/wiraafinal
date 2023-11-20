@@ -17,13 +17,17 @@ function Modulee() {
         LearnModal.Modulelist().then((response) => {
             setCourseList(response.data)
             console.log(response.data)
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
     useEffect(() => {
         LearnModal.Modulelistdetails().then((response) => {
             setCourseListdetails(response.data)
             console.log(response.data)
-        })
+        }).catch((error) => {
+            console.log(error);
+        });
     }, [])
     return (
         <>
@@ -41,9 +45,9 @@ function Modulee() {
 
                                     <div className='d-block d-sm-none'>
                                         <center>
-                                            
-                                            <iframe style={{ width: "100%", marginTop: '80px' }}  src="https://www.youtube.com/embed/2yCS9tpckQw?si=p5EAKWRqvqTekf5t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                        </center>                                        
+
+                                            <iframe style={{ width: "100%", marginTop: '80px' }} src="https://www.youtube.com/embed/2yCS9tpckQw?si=p5EAKWRqvqTekf5t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                                        </center>
                                     </div>
 
 
@@ -207,7 +211,7 @@ function Modulee() {
                                                 </Accordion.Body>
                                             </Accordion.Item>
                                         )}
-                                        
+
                                     </Accordion>
                                     <p className='mt-2 p-2' style={{ fontSize: '18px', color: 'black' }}> <b> Who you will learn with?</b> </p>
 
@@ -223,10 +227,10 @@ function Modulee() {
 
                                 <Col style={{ marginTop: '12vh' }} sm={4}  >
                                     <Card className='  mb-4 shadow-2 d-none d-sm-block ' style={{ position: 'fixed', top: '20px', width: '20%', marginTop: '80px', boxShadow: '0 14px 26px -12px rgb(14 4 3 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(53 15 13 / 20%)', borderStyle: 'none' }}>
-                                      
 
-                                        <iframe  src="https://www.youtube.com/embed/2yCS9tpckQw?si=p5EAKWRqvqTekf5t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                                        
+
+                                        <iframe src="https://www.youtube.com/embed/2yCS9tpckQw?si=p5EAKWRqvqTekf5t" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
                                         <ul style={{ listStyle: "none", paddingLeft: '20px' }}>
                                             <p className='mt-2' style={{ fontSize: '16px', fontWeight: 600, color: 'black' }}> <b>This Course includes : </b>  </p>
                                             <li> <p className='small' style={{ fontSize: '14px' }}>

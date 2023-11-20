@@ -35,6 +35,8 @@ function Orderdetails() {
             }
 
 
+        }).catch((error) => {
+            console.log("error => ", error)
         })
     }, [])
     const [activeTab, setActiveTab] = useState("Tab1");
@@ -56,13 +58,15 @@ function Orderdetails() {
         const proUserId = InterestedUserId;
         OrderModal.InterestAnswer({ orderId }, { proUserId }).then((response) => {
             console.log(response)
-            setAnswerOrders(response.data);
+            setAnswerOrders(response?.data);
 
             handleShow(true);
         }).catch((error) => {
             console.log("error => ", error)
 
 
+        }).catch((error) => {
+            console.log("error => ", error)
         })
     }
     const Getpeople = async (InterestedUserId) => {
@@ -71,7 +75,7 @@ function Orderdetails() {
         const userId = InterestedUserId;
         PeopleModal.Userporfiolio({ userId }).then((response) => {
             console.log(response.data)
-            setAnswerOrders(response.data);
+            setAnswerOrders(response?.data);
 
             handleShow(true);
             if ((response.data)) {
@@ -82,6 +86,8 @@ function Orderdetails() {
             console.log("error => ", error)
 
 
+        }).catch((error) => {
+            console.log("error => ", error)
         })
     }
     return (
