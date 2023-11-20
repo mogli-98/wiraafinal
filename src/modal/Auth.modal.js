@@ -12,7 +12,7 @@ const AuthModal = {
     },
     async Verifyemailuser(data) {
         return (await axiosInstance.post(
-            `/auth/signup`, data));
+            `auth/verifyEmail?token=${data.token}`, data));
     },
     async Verifyuser(data) {
         return (await axiosInstance.post(
