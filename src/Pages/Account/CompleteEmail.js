@@ -11,12 +11,11 @@ import AuthModal from "../../modal/Auth.modal";
 import { helper } from "../../lib/helper";
 
 const CompleteEmail = () => {
-     const { tokenn } = useParams();
+     const { token } = useParams();
 
      // Now you can use the 'token' variable in your component
-     console.log('Token:', tokenn);
+     console.log('Token:', token);
      const emailverify = () => {
-          const token = tokenn;
           AuthModal.Verifyemailuser({ token }).then((res) => {
                helper.sweetalert.toast("Your Email is Verifiyed")
                window.location.replace("/user/dashboard")
