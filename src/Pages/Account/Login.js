@@ -15,6 +15,7 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AuthModal from "../../modal/Auth.modal";
 const Login = () => {
+  const [loginlocal, setLoginloacl] = useState();
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -32,7 +33,7 @@ const Login = () => {
       ...formData,
       [event.target.name]: event.target.value,
     });
-  };
+  }
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
@@ -42,9 +43,7 @@ const Login = () => {
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem("UserID", response.data.user.UserID);
         localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
-        localStorage.setItem("UserType", response.data.user.UserType);
-        localStorage.setItem("FirstName", response.data.user.FirstName);
-        localStorage.setItem("LastName", response.data.user.LastName);
+        setLoginloacl(response.data.user.IsEmailVerified)
         if (response.data.user.IsEmailVerified === 1) {
           console.log('eeeeeeeeee', response.data)
           window.location.replace("/user/dashboard")
@@ -59,30 +58,38 @@ const Login = () => {
         helper.sweetalert.toast1("Incorrect username or password.")
       });
   };
+  const [ResetformData, setResetFormData] = useState({
+    email: '',
+  });
+  const handleChangerest = (event) => {
+    setResetFormData({
+      ...ResetformData,
+      [event.target.name]: event.target.value,
+    });
+  }
   const handleSubmited = (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
-    AuthModal.login(form).then((response) => {
-      if (response?.data?.status === true) {
-        const accessToken = response?.data?.token;
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem("UserID", response.data.user.UserID);
-        localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
-        localStorage.setItem("UserType", response.data.user.UserType);
-        localStorage.setItem("FirstName", response.data.user.FirstName);
-        localStorage.setItem("LastName", response.data.user.LastName);
-        if (response.data.user.IsEmailVerified === '1') {
-          window.location.replace("/user/dashboard")
-        }
-        console.log(response.data);
-        window.location.replace("/Verify-Email")
-        helper.sweetalert.toast("Welcome Back")
+
+    AuthModal.restpassword(form).then((response) => {
+      if(response.data.email === false){
+      helper.sweetalert.toast1("Something is wrong ....","Plaese enter mail again")
       }
-    })
-      .catch((error) => {
+      else if(response.data.email === true && response.data.emailVerified === false)
+      {
+        helper.sweetalert.toast1( "Email is not verified, please open your mail verify email");
+        window.location.replace("/Verify-Email");
+      }
+      else if( response.data.email === true && response.data.emailVerified === true ) 
+      {
+        helper.sweetalert.toast("Password reset successfully")
+      }
+    }).catch((error) => {
         helper.sweetalert.toast1("Incorrect username or password.")
       });
-  };
+  }
+
+
   return (
     <>
       <div>
@@ -143,9 +150,9 @@ const Login = () => {
           <span style={{ marginLeft: '50px', color: '#008080', fontWeight: '500' }}>Let me first find your account </span>
           <form onSubmit={handleSubmited}>
             <div style={{ padding: '5px 30px' }} className='m-4'>
-              <TextField id="outlined-basic" onChange={handleChange} name='email' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
+              <TextField id="outlined-basic" onChange={handleChangerest} name='email' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
               <div fullWidth style={{ backgroundColor: 'pink' }} className="mt-4 mb-4">
-                <Button style={{ backgroundColor: '#008080', color: 'white' }} fullWidth >Reset Password</Button>
+                <button style={{ backgroundColor: '#008080', color: 'white' }} fullWidth type="submit" >Reset Password</button>
               </div>
               <h6 className='text-center mt-5'> <b onClick={handleClose} style={{ cursor: 'pointer' }}><u> Back to Login
               </u></b>  </h6>
