@@ -51,10 +51,10 @@ const Updatepassword = () => {
                                         </center>
                                         <Row>
                                             <Col sm={3}></Col>
-                                            <Col md={6}>
+                                            <Col md={6} sm={12}>
                                                 <h4 className='mt-4 mb-4' >Update Password</h4>
 
-                                                <TextField type="text" name='password' placeholder="Enter New Password" size='small' fullWidth />
+                                                <TextField type="text" required onChange={handleInputChange} name='password' placeholder="Enter New Password" size='small' fullWidth />
                                             </Col>
                                         </Row>
 

@@ -11,8 +11,8 @@ import { Col, Row } from 'react-bootstrap';
 function Accountfootor() {
     return (
         <>
-            <footer style={{ marginBottom: '0px', backgroundColor: 'white', width: '100%', position: "absolute" }} className="Account_footer d-flex  ">
-                <div className="container d-none d-sm-block">
+            <footer style={{ marginBottom: '0px', backgroundColor: 'white', width: '100%', }} className=" mt-5Account_footer d-flex  ">
+                <div className="container d-none d-sm-block mt-4">
                     <div className="row">
 
                         <div className="Account_footercontent" > {/* Center the content */}
@@ -39,7 +39,7 @@ function Accountfootor() {
 
 
 
-                <div className='container d-block d-sm-none'>
+                <div className='container d-block d-sm-none mt-5'>
 
                     {/* <div className='row'>
                         <div className='col-xs-12'>
