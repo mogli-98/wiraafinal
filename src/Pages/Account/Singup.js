@@ -66,10 +66,10 @@ function Singup() {
   return (
     <div>
       <div style={{ display: 'none' }} className='d-none d-block'>
-        <CompleteEmail 
-        data={dataloaclhost} />
+        <CompleteEmail
+          data={dataloaclhost} />
 
-      </div> 
+      </div>
       <Grid container spacing={3}>
         <Grid sm={4}></Grid>
 

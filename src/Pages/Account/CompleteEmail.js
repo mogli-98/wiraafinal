@@ -10,16 +10,18 @@ import AuthModal from "../../modal/Auth.modal";
 import { helper } from "../../lib/helper";
 
 const CompleteEmail = (dataloaclhost) => {
-     console.log('ghjkl-====>0' , dataloaclhost)
+     if (dataloaclhost.IsEmailVerified === 0) {
+          localStorage.setItem('accessToken', dataloaclhost.token);
+          localStorage.setItem("UserID", dataloaclhost.signupResult?.UserID);
+          localStorage.setItem("userProfileId", dataloaclhost.signupResult?.UsersProfileID);
+          localStorage.setItem("UserType", dataloaclhost.signupResult?.UserType);
+          localStorage.setItem("FirstName", dataloaclhost.signupResult?.FirstName);
+     }
+     console.log('ghjkl-====>0', dataloaclhost)
      const urlParams = new URLSearchParams(window.location.search);
      const token = urlParams.get('token');
      console.log('Token:', token);
-     const accessToken = dataloaclhost.token;
-     localStorage.setItem('accessToken', accessToken);
-     localStorage.setItem("UserID", dataloaclhost.signupResult?.UserID);
-     localStorage.setItem("userProfileId", dataloaclhost.signupResult?.UsersProfileID);
-     localStorage.setItem("UserType", dataloaclhost.signupResult?.UserType);
-     localStorage.setItem("FirstName", dataloaclhost.signupResult?.FirstName);
+
      const emailverify = () => {
           AuthModal.Verifyemailuser({ token }).then((res) => {
 
