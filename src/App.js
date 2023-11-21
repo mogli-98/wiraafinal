@@ -68,6 +68,7 @@ import Settingss from './Pages/freelancerdashboard/Settingss';
 import FreeLearn from './Pages/Learn/FreeLearn';
 import VerifyEmail from './Pages/Account/VerifyEmail';
 import VerifyEmaill from './Pages/Account/CompleteEmail';
+import Updatepassword from './Pages/Account/Updatepassword';
 
 // import Nonotiftyy from './Pages/freelancerdashboard/nootify/Notification';
 
@@ -83,6 +84,7 @@ function App() {
           <Route path='/Account/singup' element={<Singup />} />
           <Route path='/Verify-Email' element={<VerifyEmail />} />
           <Route path='/Email-Verified' element={<VerifyEmaill />} />
+          <Route path='/Update-Password' element={<Updatepassword />} />
           <Route path='/Account/login' element={<Login />} />
           <Route path="/Home/PostRequirement" element={<PostRequirement />} />
           <Route path='/Home/Project' element={<Project />} />

@@ -16,7 +16,7 @@ export function toast(title, text = "", icon = "success") {
     timerProgressBar: false,
     showConfirmButton: false,
     position: 'top-end',
-    timer: 5000,
+    timer: 9000,
     heightAuto: 'false',
     height: '100px'
   });
@@ -31,7 +31,7 @@ export function toast1(title, text = "", icon = "warning") {
     timerProgressBar: false,
     showConfirmButton: false,
     position: 'top-end',
-    timer: 5000,
+    timer: 9000,
     heightAuto: 'false',
     height: '100px'
   });

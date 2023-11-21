@@ -72,23 +72,23 @@ const Login = () => {
     const form = new FormData(event.target);
 
     AuthModal.restpassword(form).then((response) => {
-      if(response.data.email === false){
-      helper.sweetalert.toast1("Something is wrong ....","Plaese enter mail again")
+      console.log(response)
+      if (response.data.email === false) {
+        helper.sweetalert.toast1("Something is wrong ....", "The email address you entered could not be found.")
       }
-      else if(response.data.email === true && response.data.emailVerified === false)
-      {
-        helper.sweetalert.toast1( "Email is not verified, please open your mail verify email");
+      else if (response.data.email === true && response.data.emailVerified === false) {
+        helper.sweetalert.toast1("Your email is not verified.", " Kindly check your inbox and complete the email verification process. ");
         window.location.replace("/Verify-Email");
       }
-      else if( response.data.email === true && response.data.emailVerified === true ) 
-      {
-        helper.sweetalert.toast("Please open your mail to Reset Your Password")
+      else if (response.data.email === true && response.data.emailVerified === true) {
+        helper.sweetalert.toast("Please open your Email to reset your password.....")
+
+        // window.location.replace("/");
         window.location.replace("/Update-Password");
-        // window.location.replace("/Verify-Password");
       }
     }).catch((error) => {
-        helper.sweetalert.toast1("Incorrect username or password.")
-      });
+      helper.sweetalert.toast1("Incorrect username or password.")
+    });
   }
 
 
@@ -99,7 +99,7 @@ const Login = () => {
           <Grid sm={4}></Grid>
           <Grid sm={4} xs={12} style={{ padding: '10px' }} className='signup  '>
             <center> <Link to="/"> <img src={wirralogo} alt="" className="m-5 " /></Link> </center>
-            <Card className="shadow-5 login-card " style={{ borderRadius: '8px', border: 'none', boShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }} >
+            <Card className="shadow-5 login-card " style={{ borderRadius: '8px', border: 'none', boxShadow: "0 14px 26px -12px rgb(54 191 244 / 42%), 0 4px 23px 0px rgb(0 0 0 / 12%), 0 8px 10px -5px rgb(54 165 244 / 20%);" }} >
               <h2 style={{ marginTop: "20px", marginLeft: "50px" }}>Login</h2>
               <p style={{ marginLeft: '50px', color: '#008080', fontWeight: '500' }}>Login now & find projects through our community </p>
 
@@ -153,8 +153,8 @@ const Login = () => {
           <form onSubmit={handleSubmited}>
             <div style={{ padding: '5px 30px' }} className='m-4'>
               <TextField id="outlined-basic" onChange={handleChangerest} name='email' label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
-              <div fullWidth style={{ backgroundColor: 'pink' }} className="mt-4 mb-4">
-                <button style={{ backgroundColor: '#008080', color: 'white' }} fullWidth type="submit" >Reset Password</button>
+              <div className="mt-4 mb-4">
+                <button style={{ backgroundColor: '#008080', color: 'white', borderRadius: '8px', borderStyle: 'none', padding: '10px', width: '100%' }} type="submit" >Reset Password</button>
               </div>
               <h6 className='text-center mt-5'> <b onClick={handleClose} style={{ cursor: 'pointer' }}><u> Back to Login
               </u></b>  </h6>
