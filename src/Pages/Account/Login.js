@@ -82,7 +82,9 @@ const Login = () => {
       }
       else if( response.data.email === true && response.data.emailVerified === true ) 
       {
-        helper.sweetalert.toast("Password reset successfully")
+        helper.sweetalert.toast("Please open your mail to Reset Your Password")
+        window.location.replace("/Update-Password");
+        // window.location.replace("/Verify-Password");
       }
     }).catch((error) => {
         helper.sweetalert.toast1("Incorrect username or password.")
