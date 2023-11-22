@@ -22,10 +22,11 @@ const AuthModal = {
         return (await axiosInstance.patch(
             `/auth/resetPassword`, data));
     },
-    async updatepassword(data) {
+    async updatepassword(data, password) {
+        console.log(password, 'uio-------------')
 
         return (await axiosInstance.patch(
-            `/auth/updatePassword?token=${data.token}`, data));
+            `/auth/updatePassword?token=${data.token}`, password));
     }
 }
 export default AuthModal;
