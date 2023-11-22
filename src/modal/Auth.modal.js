@@ -24,6 +24,7 @@ const AuthModal = {
     },
     async updatepassword(data, password) {
         console.log(data)
+        console.log(password, 'sdfgh')
         return (await axiosInstance.patch(
             `/auth/updatePassword?token=${data.token}`, password));
     }
