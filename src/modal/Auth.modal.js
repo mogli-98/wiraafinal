@@ -23,8 +23,7 @@ const AuthModal = {
             `/auth/resetPassword`, data));
     },
     async updatepassword(data, password) {
-        console.log(password, 'uio-------------')
-
+        console.log(data)
         return (await axiosInstance.patch(
             `/auth/updatePassword?token=${data.token}`, password));
     }
