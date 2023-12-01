@@ -10,6 +10,7 @@ import Test from '../../asset/image/test1.png'
 import LearnModal from '../../modal/Learn.modal';
 import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import Topnavbar from './layout/topnavbar';
+import axios from 'axios';
 function Modulee() {
     const [courseList, setCourseList] = useState();
     const [courseListdetails, setCourseListdetails] = useState();
@@ -29,6 +30,39 @@ function Modulee() {
             console.log(error);
         });
     }, [])
+    const checkoutHandler = async (amount) => {
+
+        const { data: { key } } = await axios.get("http://www.localhost:4000/api/getkey")
+
+        const { data: { order } } = await axios.post("http://localhost:4000/api/checkout", {
+            amount
+        })
+
+        const options = {
+            key,
+            amount: order.amount,
+            currency: "INR",
+            name: "6 Pack Programmer",
+            description: "Tutorial of RazorPay",
+            image: "https://avatars.githubusercontent.com/u/25058652?v=4",
+            order_id: order.id,
+            callback_url: "http://localhost:4000/api/paymentverification",
+            prefill: {
+                name: "Wiraa",
+                email: "Wiraa@example.com",
+                contact: "9999999999"
+            },
+            notes: {
+                "address": "Razorpay Corporate Office"
+            },
+            theme: {
+                "color": "#121212"
+            }
+        };
+        const razor = new window.Razorpay(options);
+        razor.open();
+    }
+ 
     return (
         <>
             <Container fluid className='dashboard-conatiner-top ' >
@@ -277,7 +311,7 @@ function Modulee() {
                                                     </span>
                                                 </p>
 
-                                                <button style={{ height: '35px', width: '160px', marginBottom: "40px", marginRight: '80px' }} className='model-button'> Buy Now</button>
+                                                <button style={{ height: '35px', width: '160px', marginBottom: "40px", marginRight: '80px' }} className='model-button' onClick={() => checkoutHandler(4000)}> Buy Now</button>
                                             </center>
                                         </div>
 
@@ -290,7 +324,7 @@ function Modulee() {
                                                     </span>
                                                 </p>
 
-                                                <button style={{ height: '35px', fontSize: '18px' }} className='model-button'> Buy Now</button>
+                                                <button style={{ height: '35px', fontSize: '18px' }} className='model-button' onClick={() => checkoutHandler(4000)}> Buy Now</button>
                                             </div>
                                         </div>
 

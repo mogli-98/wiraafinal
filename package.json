@@ -17,6 +17,7 @@
     "icons": "^1.0.0",
     "js-cookie": "^3.0.5",
     "moment": "^2.29.4",
+    "razorpay": "^2.9.2",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-data-table-component": "^7.5.4",
@@ -26,7 +27,9 @@
     "react-ion-icon": "^4.0.0",
     "react-router-dom": "^6.16.0",
     "react-scripts": "5.0.1",
+    "react-scroll-to-bottom": "^4.2.0",
     "react-select": "^5.7.4",
+    "socket.io-client": "^4.7.2",
     "sweetalert2": "^11.7.27",
     "web-vitals": "^2.1.4"
   },

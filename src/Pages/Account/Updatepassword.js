@@ -24,7 +24,7 @@ const Updatepassword = () => {
         const from = new FormData(event.target);
         console.log("fomr ", from);
         AuthModal.updatepassword({ token }, from).then((res) => {
-            helper.sweetalert.toast("Your Email is Verifiyed")
+            helper.sweetalert.toast("Your Password is update", 'Now you can login')
             window.location.replace("/Account/login")
         }).catch((error) => {
             console.log(error);

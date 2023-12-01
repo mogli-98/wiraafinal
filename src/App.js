@@ -36,7 +36,7 @@ import Modulle from './Pages/Learn/modulle';
 import Module from './Pages/Dashboard/package';
 import Aboutus from './Pages/unguarded_page/about';
 import Userproject from './Pages/freelancerdashboard/userproject';
-import Chat from './Pages/Dashboard/chat';
+import Chat from './Pages/Dashboard/cchat/Chat/Chat';
 
 import Nonotifiy from './Pages/Dashboard/notify/Nonotify';
 import Nonotifiyy from './Pages/freelancerdashboard/nootify/Nonotify';
@@ -69,6 +69,9 @@ import FreeLearn from './Pages/Learn/FreeLearn';
 import VerifyEmail from './Pages/Account/VerifyEmail';
 import VerifyEmaill from './Pages/Account/CompleteEmail';
 import Updatepassword from './Pages/Account/Updatepassword';
+import PaymentSucess from './Pages/Learn/PaymentSucess';
+import Checkmessage from './Pages/Dashboard/cchat/CheckMessage';
+import Join from './Pages/Dashboard/cchat/Join/Join';
 
 // import Nonotiftyy from './Pages/freelancerdashboard/nootify/Notification';
 
@@ -91,6 +94,7 @@ function App() {
           <Route path='/Home/Projectdetails' element={<Projectdetails />} />
           <Route path='/Projeectdetailss/:id' element={<Projeectdetailss />} />
           <Route path='/learn' element={<Index />} />
+          <Route path='/Success-Payment' element={<PaymentSucess />} />
           <Route path='/Profiledetails/:id' element={<Profiledetails />} />
           <Route path='/About Us' element={<Aboutus />} />
           <Route path='/Career' element={<Career />} />
@@ -141,7 +145,7 @@ function App() {
           <Route path='/Switchaccount' element={<SwitchAccount />} />
           <Route path='/Hiretalent' element={<Hiretalent />} />
           <Route path='/Project/ProjectDetails' element={<Projectdetails />} />
-          <Route path='/Message' element={<Messaages />} />
+          <Route path='/Message' element={<Checkmessage />} />
           <Route path='/Messagebox' element={<Messagebox />} />
 
           <Route path='/Professionalsdashboard' element={<Dashboardfreelancer />} />
@@ -154,7 +158,9 @@ function App() {
           <Route path='/Project' element={<Dashprojectdetails />} />
           <Route path='/Ordermessage' element={<Messagedetails />} />
           <Route path='/UserProject' element={<Userproject />} />
-          <Route path='/Chat' element={<Chat />} />
+          {/* <Route path='/Chat' element={<Chat />} /> */}
+          <Route path='/chatt' element={<Join />} />
+          <Route path='/chatts' element={<Chat />} />
           <Route path='/MyAffilate' element={<MyAffiliations />} />
           <Route path='/Affilate' element={<Affiliate />} />
           <Route path='/Switchacc' element={<SwitchAccountt />} />

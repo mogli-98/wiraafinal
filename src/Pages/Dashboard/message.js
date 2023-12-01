@@ -8,7 +8,7 @@ import { Select } from '@mui/material';
 import { IoMailOutline } from 'react-icons/io5';
 import { Link } from 'react-router-dom';
 
-function Messaages(props) {
+function MessaagesNolist(props) {
     const [activeTab, setActiveTab] = useState("Tab1");
 
     const handleClick = (tab) => {
@@ -27,22 +27,22 @@ function Messaages(props) {
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Messages" />
                             <Row >
-                                <Col  sm={4} className="square border-end">
+                                <Col sm={4} className="square border-end">
 
                                     <div className="tabs-container mt-3">
                                         <Container>
                                             <Row className='mt-3 mb-3'>
                                                 <Col className='no-message'>
                                                     {/* <div style={{height:'25px',borderRadius:'10px',backgroundColor:'ButtonHighlight',border:'1px solid black'}} > */}
-                                                    <input style={{ height: '25px', borderRadius: '10px', border: '1px solid black', width: '100%',padding:'10px 10px' }} type="text" placeholder='Search' />
+                                                    <input style={{ height: '25px', borderRadius: '10px', border: '1px solid black', width: '100%', padding: '10px 10px' }} type="text" placeholder='Search' />
 
                                                     {/* </div> */}
                                                     <center>
                                                         <h3 className='mb-4 '>Welcome to your
                                                             <br />Inbox
                                                         </h3>
-                                                        <p style={{ fontSize: '18px', color: 'grey' }} className='mt-3 pt-3'>Post a request and start</p>
-                                                        <p style={{ fontSize: '18px', color: 'grey' }}>conversation with professionals.</p>
+                                                        <p style={{ fontSize: '18px', color: 'grey' }} className='mt-3'>Post a request and start</p>
+                                                        <p style={{ fontSize: '18px', color: 'grey' }}>conversation with <br /><br /> professionals.</p>
 
                                                         <Link to="/Hiretalent">
                                                             <button className='message-post mt-5'>Post a request</button>
@@ -54,7 +54,7 @@ function Messaages(props) {
                                         </Container>
                                     </div>
                                 </Col>
-                                <Col  md={8} className="">
+                                <Col md={8} className="">
                                     <div className='mt-5  no-message-show'>
                                         <center>
                                             {/* <ion-icon name="mail-unread-outline"></ion-icon> */}
@@ -74,4 +74,4 @@ function Messaages(props) {
     )
 }
 
-export default Messaages;
+export default MessaagesNolist;
