@@ -19,6 +19,7 @@ const Chat = () => {
         const message = document.getElementById('chatInput').value;
         socket.emit('message', { message, id });
         document.getElementById('chatInput').value = "";
+        console.log("jkjjj")
     }
 
     console.log(messages);
