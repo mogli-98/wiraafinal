@@ -2,14 +2,16 @@ import axiosInstance from "../lib/axiosInstance";
 
 const PeopleModal = {
 
-    // async Profile(data) {
-    //     return await axiosInstance.get(
-    //         `/people/${data.userId}?page=1&per_page=15`);
-    // },
+    async userProfile(data, data1) {
+        console.log(data, data1, 'data')
+        return (await axiosInstance.get(
+            `/people/peopleById/${data.userProfileId}/${data1.searchUserId}`, data
+        ));
+    },
     async Userporfiolio(data) {
         return (await axiosInstance.get(
             `/people/peopleById/${data.userId}`))
-            
+
     },
     async Profile(data) {
         return await axiosInstance.get(

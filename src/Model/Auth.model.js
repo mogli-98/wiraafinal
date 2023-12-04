@@ -18,17 +18,17 @@ const Auth = {
         return await axiosInstance.get(
             `/portfolio/all/${data.userProfileId}?page=1&per_page=9`);
     },
-    async userProfile(data) {
+    async userProfile(data ,data1) {
         return (await axiosInstance.get(
             `/people/peopleById/${data.userId}`, data 
         ));
     },
-    async projectNew(data) {
-        return await axiosInstance.get(
-            `http://demo.wiraa.com/api/project/GetAllProjectsByNewtest?Id=0
-            `
-        );
-    },
+    // async projectNew(data) {
+    //     return await axiosInstance.get(
+    //         `http://demo.wiraa.com/api/project/GetAllProjectsByNewtest?Id=0
+    //         `
+    //     );
+    // },
 
 
     async addLikes(data) {

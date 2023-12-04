@@ -15,6 +15,7 @@ import SettingModal from '../../../modal/Setting.modal';
 import { helper } from '../../../lib/helper';
 import PortfolioModal from '../../../modal/Portfolio.modal';
 import { IoChatboxOutline, IoHeart, IoHeartOutline } from 'react-icons/io5';
+import PeopleModal from '../../../modal/People.modal';
 
 function Explorepage() {
     const params = useParams();
@@ -69,10 +70,10 @@ function Explorepage() {
     // const router = useSea();
 
     useEffect(() => {
-
-        const userId = params.id;
-        Auth.userProfile({ userId }).then((response) => {
-            console.log(response.data, 'hjklkjhghjuygfghjuwlooooooooooo');
+        const userProfileId = parseInt(localStorage.getItem("UserID"));
+        const searchUserId = params.id;
+        PeopleModal.userProfile({ userProfileId }, { searchUserId }).then((response) => {
+            // console.log(response.data, 'hjklkjhghjuygfghjuwlooooooooooo');
             setMyDetails(response.data);
         }).catch((error) => {
             console.log(error);
@@ -94,7 +95,7 @@ function Explorepage() {
         const userProfileId = parseInt(localStorage.getItem("userProfileId"));
         const userId = UserID;
         SettingModal.blockuser({ userProfileId }, { userId }).then((response) => {
-            console.log(response.data);
+            // console.log(response.data);
             helper.sweetalert.toast("User Blocked Successfully")
             // setFreelancer(response.data);
 
