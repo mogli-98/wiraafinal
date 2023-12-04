@@ -72,6 +72,7 @@ import Updatepassword from './Pages/Account/Updatepassword';
 import PaymentSucess from './Pages/Learn/PaymentSucess';
 import Checkmessage from './Pages/Dashboard/cchat/CheckMessage';
 import Join from './Pages/Dashboard/cchat/Join/Join';
+import UpdateEmail from './Pages/Account/UpdateEmail';
 
 // import Nonotiftyy from './Pages/freelancerdashboard/nootify/Notification';
 
@@ -88,6 +89,7 @@ function App() {
           <Route path='/Verify-Email' element={<VerifyEmail />} />
           <Route path='/Email-Verified' element={<VerifyEmaill />} />
           <Route path='/Update-Password' element={<Updatepassword />} />
+          <Route path='/UpdateEmail' element={<UpdateEmail />} />
           <Route path='/Account/login' element={<Login />} />
           <Route path="/Home/PostRequirement" element={<PostRequirement />} />
           <Route path='/Home/Project' element={<Project />} />

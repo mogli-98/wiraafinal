@@ -11,9 +11,10 @@ const SettingModal = {
             `/report/createReport`, data
         ))
     }
-    , async blockuser(data) {
+    , async blockuser(data, data1) {
+        console.log(data1, data, 'hhhhh')
         return (await axiosInstance.post(
-            `/setting/createBlockUser/${data.userProfileId}/${data.userId}`,
+            `/setting/createBlockUser/${data.userProfileId}/${data1.userId}`,
         ))
     }
     , async accdeactive(data) {
@@ -29,6 +30,16 @@ const SettingModal = {
         console.log(data)
         return (await axiosInstance.delete(
             `/setting/UnblockUserById/${data.userProfileId}/${data.userId}`,
+        ))
+    }, async Checkemail(userId, data) {
+        console.log(userId, data)
+        return (await axiosInstance.patch(
+            `/setting/checkEmailUpdation/${userId}`, data,
+        ))
+    }, async UpdateEmail(data) {
+        console.log(data)
+        return (await axiosInstance.patch(
+            `/setting/updateEmail`, data,
         ))
     }
 

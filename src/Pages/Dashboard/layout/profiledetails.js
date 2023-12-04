@@ -72,7 +72,7 @@ function Explorepage() {
 
         const userId = params.id;
         Auth.userProfile({ userId }).then((response) => {
-            console.log(response.data);
+            console.log(response.data, 'hjklkjhghjuygfghjuwlooooooooooo');
             setMyDetails(response.data);
         }).catch((error) => {
             console.log(error);
@@ -90,9 +90,10 @@ function Explorepage() {
         });
     }, [])
     const Blockacc = async (UserID) => {
+        console.log(UserID)
         const userProfileId = parseInt(localStorage.getItem("userProfileId"));
-        const userId = parseInt(UserID);
-        SettingModal.blockuser({ userProfileId, userId }).then((response) => {
+        const userId = UserID;
+        SettingModal.blockuser({ userProfileId }, { userId }).then((response) => {
             console.log(response.data);
             helper.sweetalert.toast("User Blocked Successfully")
             // setFreelancer(response.data);
@@ -361,13 +362,13 @@ function Explorepage() {
 
                                     <br />
                                     <hr />
-                                    <Link to='/user/dashboard'>
-                                        <Button className='mt-2' style={{ padding: '5px 24px' }} variant='secondary'
 
-                                            onClick={() => { Blockacc(MyDetails?.[0]?.UserID) }}>
-                                            Block
-                                        </Button>
-                                    </Link>
+                                    <Button className='mt-2' style={{ padding: '5px 24px' }} variant='secondary'
+
+                                        onClick={() => { Blockacc(MyDetails?.[0]?.UserID) }}>
+                                        Block
+                                    </Button>
+
                                 </Box>
 
                             </Popover>
@@ -383,7 +384,7 @@ function Explorepage() {
 
 
                                     <br />
-                                    <Button className='mt-2' style={{ padding: '5px 24px' }} variant='secondary'>
+                                    <Button className='mt-2' style={{ padding: '5px 24px' }} variant='secondary' onClick={() => { Blockacc(MyDetails?.[0]?.UserID) }}>
                                         Block
                                     </Button>
 

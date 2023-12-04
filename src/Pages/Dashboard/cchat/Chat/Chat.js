@@ -17,9 +17,17 @@ const Chat = () => {
 
     const send = () => {
         const message = document.getElementById('chatInput').value;
-        socket.emit('message', { message, id });
+        const obj = {};
+        obj.userId = localStorage.getItem("UserID");
+        obj.senderUserId = 42;
+        obj.message = message.trim();
+        obj.projectId = 1;
+        console.log("myMessage", obj, socket.id);
+        socket.emit("message", obj, socket.id);
+        // socket.emit('message', { message, id, obj });
+
         document.getElementById('chatInput').value = "";
-        console.log("jkjjj", message)
+        console.log("jkjjj", message,)
     }
 
     console.log(messages);

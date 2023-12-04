@@ -17,7 +17,7 @@ function Order() {
 
   return (
     <div >
-      {userData === null || userData?.length ? (
+      {userData === null || userData?.length === 0? (
         <NOorder />
       ) : (
         <Ordertable />

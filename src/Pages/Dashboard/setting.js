@@ -8,6 +8,7 @@ import Phoneviewfooter from '../../Layout/Phoneviewfooter';
 import { Link } from 'react-router-dom';
 import { helper } from '../../lib/helper';
 import SettingModal from '../../modal/Setting.modal';
+import { CDBPageLink } from 'cdbreact';
 
 
 // import InputGroup from 'react-bootstrap/InputGroup';
@@ -25,15 +26,15 @@ function Setting() {
     const [show3, setShow3] = useState(false);
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
-    const [FormData, setFormData] = useState({
-        number: '',
-    })
-    const handleInputChange = (event) => {
-        setFormData({
-            ...FormData,
-            [event.target.name]: event.target.value,
-        });
-    };
+    // const [FormData, setFormData] = useState({
+    //     email: '',
+    // })
+    // const handleInputChange = (event) => {
+    //     setFormData({
+    //         ...FormData,
+    //         [event.target.name]: event.target.value,
+    //     });
+    // };
     const logout = () => {
         sessionStorage.clear();
         localStorage.clear();
@@ -73,20 +74,35 @@ function Setting() {
             };
         })
     }
-
-    const blockuser = () => {
-
-        const userProfileId = localStorage.getItem("userProfileId");
-        SettingModal.Blocklist({ userProfileId }).then((respnse) => {
-
+    const [formData, setformData] = useState({
+        email: '',
+    })
+    const handleInputChange1 = (event) => {
+        setformData({
+            ...formData,
+            [event.target.name]: event.target.value,
+        });
+    };
+    const CheckEmailUdation = (event) => {
+        event.preventDefault();
+        const form = new FormData(event.target);
+        const userId = localStorage.getItem("UserID");
+        SettingModal.Checkemail(userId, form).then((respnse) => {
             console.log(respnse.data)
-            setBlockuserlist(respnse.data)
-
+            // setBlockuserlist(respnse.data)
             handleShow2(true)
-
         }).catch((error) => {
             console.log(error);
-            // Display error message to the user
+        });
+    }
+    const blockuser = () => {
+        const userProfileId = localStorage.getItem("userProfileId");
+        SettingModal.Blocklist({ userProfileId }).then((respnse) => {
+            console.log(respnse.data)
+            setBlockuserlist(respnse.data)
+            handleShow2(true)
+        }).catch((error) => {
+            console.log(error);
         });
     }
     const unblockuser = (UserID) => {
@@ -277,12 +293,13 @@ function Setting() {
                 <Modal show={show} onHide={handleClose}>
                     <Modal.Body>
                         <div>
-                            <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-                                <Form.Label style={{ fontSize: '18px' }}>Update Email </Form.Label>
-                                <Form.Control required placeholder="Please enter your update Email" />
-                            </Form.Group>
-                            <button style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '5px', fontWeight: 600 }}> Submit </button>
-
+                            <form onSubmit={CheckEmailUdation} >
+                                <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
+                                    <Form.Label style={{ fontSize: '18px' }}>Update Email </Form.Label>
+                                    <Form.Control required placeholder="Please enter your update Email" name='email' onChange={handleInputChange1} />
+                                </Form.Group>
+                                <button style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '5px', fontWeight: 600 }} type='submit'> Submit </button>
+                            </form>
                         </div>
 
                     </Modal.Body>
@@ -303,7 +320,7 @@ function Setting() {
                                         name='cl_cont'
                                         required
                                         type="number"
-                                        onChange={handleInputChange}
+                                    // onChange={handleInputChange}
                                     />
                                     {/* <button className='hire' style={{ width: '100%' }}>Update Number</button> */}
                                     <button style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '8px', fontWeight: 600 }}> Submit </button>
@@ -361,7 +378,7 @@ function Setting() {
                                         name='cl_cont'
                                         required
                                         type="number"
-                                        onChange={handleInputChange}
+                                    // onChange={handleInputChange}
                                     />
                                     {/* <button className='hire' style={{ width: '100%' }}>Update Number</button> */}
                                     <button style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '8px', fontWeight: 600 }}> Submit </button>
