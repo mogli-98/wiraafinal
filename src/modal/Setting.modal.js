@@ -36,10 +36,10 @@ const SettingModal = {
         return (await axiosInstance.patch(
             `/setting/checkEmailUpdation/${userId}`, data,
         ))
-    }, async UpdateEmail(data) {
-        console.log(data)
+    }, async UpdateEmail(data1, data) {
+        console.log(data1, data)
         return (await axiosInstance.patch(
-            `/setting/updateEmail?token=${data.token}`, data,
+            `/setting/updateEmail?token=${data1.token}`, data
         ))
     }
 

@@ -18,7 +18,7 @@ const handleInputChange1 = (event) => {
   const emailverify = (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
-    SettingModal.UpdateEmail( token, form ).then((res) => {
+    SettingModal.UpdateEmail( {token}, form ).then((res) => {
 
          helper.sweetalert.toast("Your Email is Verifiyed")
          window.location.replace("/user/Settingd")
