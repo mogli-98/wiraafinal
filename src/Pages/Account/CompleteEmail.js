@@ -19,7 +19,16 @@ const CompleteEmail = (dataloaclhost) => {
 
           AuthModal.Verifyemailuser({ token }).then((res) => {
                if (res.data.status === true) {
+                    localStorage.setItem('accessToken', dataloaclhost.accessToken);
+                    localStorage.setItem("UserID", dataloaclhost.data.user.UserID);
+                    localStorage.setItem("userProfileId", dataloaclhost.data.user.UsersProfileID);
+                    localStorage.setItem("UserType", dataloaclhost.data.user.UserType);
+                    localStorage.setItem("FirstName", dataloaclhost.data.user.FirstName);
+                    localStorage.setItem("AffiliateId",dataloaclhost.data.user.AffiliateId);
+                    localStorage.setItem("UserType",dataloaclhost.data.user.UserType)
+                    localStorage.setItem("AffiliateCode",dataloaclhost.data.user.AffiliateCode)
                     helper.sweetalert.toast("Your Email is Verifiyed")
+
                     window.location.replace("/user/dashboard")
                } else {
                     window.location.replace("/")
