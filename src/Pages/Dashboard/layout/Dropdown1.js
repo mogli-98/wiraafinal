@@ -23,6 +23,7 @@ function Dropdown1({ onSelect }) {
                 style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }}
                 onChange={handleDropdownChange}
                 name='category'
+                required
                 placeholder='Category'
             >
                 <option value="" disabled selected>Select your Category</option>

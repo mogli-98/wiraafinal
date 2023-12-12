@@ -65,10 +65,11 @@ function Viewprofile() {
         lName: "",
         occupationId: "",
         qualificationId: "",
-        cityId: '',
+        countryId: '',
         about: "",
         experience: "",
         files: "",
+
     });
     const handleInputChange = (event) => {
         setformdata({
@@ -91,6 +92,7 @@ function Viewprofile() {
             console.log(response.data, "Profession Form Fill Successfuly");
             helper.sweetalert.toast("Your Profile Update Successfully")
             handleClose1(true);
+            fetchdata();
         })
             .catch((error) => {
                 console.log(error);
@@ -205,9 +207,9 @@ function Viewprofile() {
                                                 <span><b>Qualification:</b></span>
                                                 <p>{profileData?.[0]?.QualificationName}
                                                 </p>
-                                                <span><b>City:</b></span>
+                                                <span><b>Country:</b></span>
                                                 <p>
-                                                    {profileData?.[0]?.City}
+                                                    {profileData?.[0]?.Country}
                                                 </p>
                                             </div>
                                         </Card>
@@ -336,7 +338,7 @@ function Viewprofile() {
                                                 </svg>
 
                                             </Form.Label>
-                                            <Form.Control required as="textarea" rows={3}   defaultValue={profileData?.[0]?.ExperienceName} />
+                                            <Form.Control required as="textarea" rows={3} name='experience' onChange={handleInputChange} defaultValue={profileData?.[0]?.ExperienceName} />
                                         </Form.Group>
                                         <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1"
                                             defaultValue={profileData?.[0]?.ExperienceName}
@@ -363,7 +365,7 @@ function Viewprofile() {
                                                             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                         </svg>
                                                     </Form.Label>
-                                                    <select required name='cityId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
+                                                    <select required name='countryId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
                                                         <option value="" disabled selected>Select Country Name</option>
                                                         {allCity && allCity?.map((quallist) =>
                                                             <option value={quallist?.CountryID}>{quallist?.CountryName}</option>

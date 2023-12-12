@@ -10,9 +10,7 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 import Phoneviewfooter from '../../../Layout/Phoneviewfooter';
 import { Tooltip } from '@mui/material';
-
-
-
+import  gooorder from '../../../asset/image/goorder.png'
 function Orderdetailsbrief() {
     const [oederTable, setoederTable] = useState([]);
     const [activeLink, setActiveLink] = useState('');
@@ -65,16 +63,26 @@ function Orderdetailsbrief() {
             name: 'Title',
             selector: (row) => row.Title,
             cell: row => {
-                return (
-                    <div style={{
-                        "height": "20px",
-                        "overflow": 'hidden',
-                        "text-overflow": "ellipsis",
-
-                    }}>
-                        <Tooltip title={row.ApprovalStatus} placement="top">
-                            <Link to={`/Orderdetailsbreief/${row.PostreqID}`}>{row.Title}</Link>  </Tooltip></div>
-                )
+                       if (row.ApprovalStatus === 'Approved') {
+                            return <> <div style={{
+                                "height": "20px",
+                                "overflow": 'hidden',
+                                "text-overflow": "ellipsis",
+                            }}>
+                               
+                                    <Link to={`/Orderdetailsbreief/${row.PostreqID}`}>{row.Title}</Link>  </div></>;
+                        } else if (row.ApprovalStatus === 'Under Review') {
+                            return <> <div style={{
+                                "height": "20px",
+                                "overflow": 'hidden',
+                                "text-overflow": "ellipsis",
+        
+                            }}>
+                                <Tooltip title={row.ApprovalStatus} placement="top">
+                                  <span > {row.Title}</span>  </Tooltip></div></>;
+                        }
+                   
+                 
             },
             width: "370px",
         },
@@ -110,16 +118,32 @@ function Orderdetailsbrief() {
             width: "60px",
             cell: row => {
                 if (row.Status === 'Closed') {
-                    return <><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="red" class="bi bi-dot" viewBox="0 0 16 16">
+                    return <><svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" fill="red" class="bi bi-dot" viewBox="0 0 16 16">
                         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
                     </svg></>;
                 } else if (row.Status === 'Active') {
-                    return <><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" class="bi bi-dot" viewBox="0 0 16 16">
+                    return <><svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" fill="green" class="bi bi-dot" viewBox="0 0 16 16">
                         <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
                     </svg></>;
                 }
             },
         },
+        // {
+        //     name: '',
+        //     selector: (row) => row.ApprovalStatus,
+        //     width: "60px",
+        //     cell: row => {
+        //         if (row.ApprovalStatus === 'Under Review') {
+        //             return <>
+        //          <img src={gooorder} alt=""   height={20} width={30}/>
+        //             </>;
+        //         } else if (row.ApprovalStatus === 'Approved') {
+        //             return <>
+        //              <img src={gooorder} alt=""   height={20} width={30}/> 
+        //             </>;
+        //         }
+        //     },
+        // },
     ]
     useEffect(() => {
         const userId = localStorage.getItem("UserID");

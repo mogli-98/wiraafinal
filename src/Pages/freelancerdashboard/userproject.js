@@ -73,6 +73,23 @@ function Userproject() {
                 return <div> {moment(row.ApplyDate).format('DD/MM/YYYY')} </div>
             },
         }
+        ,
+        {
+            name: '',
+            selector: (row) => row.Status,
+            width: "60px",
+            cell: row => {
+                if (row.Status === 'Closed') {
+                    return <><svg xmlns="http://www.w3.org/2000/svg" width="100" height="50" fill="red" class="bi bi-dot" viewBox="0 0 16 16">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                    </svg></>;
+                } else if (row.Status === 'Active') {
+                    return <><svg xmlns="http://www.w3.org/2000/svg" width="80" height="60" fill="green" class="bi bi-dot" viewBox="0 0 16 16">
+                        <path d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z" />
+                    </svg></>;
+                }
+            },
+        },
 
     ]
     useEffect(() => {

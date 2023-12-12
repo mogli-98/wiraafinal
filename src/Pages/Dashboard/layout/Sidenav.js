@@ -76,11 +76,17 @@ const Sidebar = ({activekey}) => {
               </NavLink>
 
 
-            
-
-              <NavLink exact to="/Myaffilate" >
+             {localStorage.getItem("AffiliateId") === null ?   (<>
+      datttt  
+          </>):(<><NavLink exact to="/Myaffilate" >
                 <CDBSidebarMenuItem className="text-dark">  {activekey === "Affilate" ? <IoHome fontSize={25} fill='#008080'  /> : <IoHomeOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "package" ? "active" : ""}`}  >Affilate</p></CDBSidebarMenuItem>
-              </NavLink>
+              </NavLink>  
+             </>)
+            } 
+
+              {/* <NavLink exact to="/Myaffilate" >
+                <CDBSidebarMenuItem className="text-dark">  {activekey === "Affilate" ? <IoHome fontSize={25} fill='#008080'  /> : <IoHomeOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "package" ? "active" : ""}`}  >Affilate</p></CDBSidebarMenuItem>
+              </NavLink> */}
 
 
               <NavLink exact to="/user/Setting" activeClassName="active">

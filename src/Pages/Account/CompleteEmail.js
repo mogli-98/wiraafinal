@@ -16,12 +16,12 @@ const CompleteEmail = (dataloaclhost) => {
      console.log('Token:', token);
 
      const emailverify = () => {
-         
+
           AuthModal.Verifyemailuser({ token }).then((res) => {
-               if (res.dats.status === true) {
+               if (res.data.status === true) {
                     helper.sweetalert.toast("Your Email is Verifiyed")
                     window.location.replace("/user/dashboard")
-               }else {
+               } else {
                     window.location.replace("/")
                }
           }).catch((error) => {

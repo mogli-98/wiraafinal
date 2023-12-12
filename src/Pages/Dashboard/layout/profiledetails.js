@@ -286,8 +286,7 @@ function Explorepage() {
                                                                                     )
                                                                                     }
 
-                                                                                    {/* <IoChatboxOutline style={{cursor:'pointer'}}  fontSize='20px'/><span className='small'>{data.CommentCount} </span>
-                            <ion-icon name="chatbox-ellipses-outline"   ></ion-icon>  */}
+                                                                                  
                                                                                 </td>
                                                                             </tr>
                                                                         </tbody>

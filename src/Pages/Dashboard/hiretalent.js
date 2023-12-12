@@ -94,7 +94,7 @@ function Hiretalent() {
     const [descriptionError, setDescriptionError] = useState(false);
 
     const titleMaxWords = 8; // Change this to your maximum word limit
-    const descriptionMinWords = 20;       // Change this to your minimum word limit
+    const descriptionMinWords = 8;       // Change this to your minimum word limit
 
     const handleInputChange = (e) => {
         const { name, value } = e.target;
@@ -227,7 +227,7 @@ function Hiretalent() {
                                             <Col sm={6} xs={6}>
                                                 <select id="cars"
                                                     style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }}
-
+                                                    required
                                                     name='country'
                                                     placeholder='Category'
                                                 >
@@ -240,7 +240,7 @@ function Hiretalent() {
                                             </Col>
                                             <Col sm={6} xs={6}>
                                                 <Form.Control className='form-control-lg' style={{ border: '2px solid lightgrey', fontSize: '16px' }} type="number" placeholder="Phone Number"
-
+                                                    required
                                                     name='mobile'
                                                 ></Form.Control>
 
@@ -255,7 +255,7 @@ function Hiretalent() {
                                             <Row>
                                                 <Col sm={2} xs={6}>
 
-                                                    <select className='form-control-lg' name="currency" id="cars" style={{
+                                                    <select className='form-control-lg' name="currency" id="cars"  requiredstyle={{
                                                         borderRadius: '5px', border: '2px solid lightgrey',
                                                         width: "-webkit-fill-available"
                                                         , height: "40px", fontSize: '16px'
@@ -270,7 +270,7 @@ function Hiretalent() {
                                                 </Col>
                                                 <Col sm={3} xs={6}>
                                                     <input className='form-control-lg' type="text" placeholder='e.g 10000'
-
+required
                                                         style={{
                                                             borderRadius: '5px', border: '2px solid lightgrey',
                                                             width: "-webkit-fill-available"
@@ -284,18 +284,16 @@ function Hiretalent() {
                                                 </Col>
                                                 <Col sm={1} xs={12}><p className='mt-2' style={{ fontSize: '18px' }}>to</p></Col>
                                                 <Col sm={3} xs={6}>
-                                                    <input className='form-control-lg' type="text" placeholder='e.g 20,000' style={{
+                                                    <input required className='form-control-lg' type="text" placeholder='e.g 20,000' style={{
                                                         borderRadius: '5px', border: '2px solid lightgrey',
                                                         width: "-webkit-fill-available"
                                                         , height: "40px", fontSize: '16px'
                                                     }}
-
                                                         name='budgetEnd'
-
                                                     /></Col>
                                                 <Col sm={3} xs={6}>
 
-                                                    <select className='form-control-lg' name="workType" id="cars" style={{
+                                                    <select required className='form-control-lg' name="workType" id="cars" style={{
                                                         borderRadius: '5px', border: '2px solid lightgrey',
                                                         width: "-webkit-fill-available"
                                                         , height: "40px", fontSize: '16px'

@@ -80,8 +80,8 @@ function Orderdetailsbrief() {
 
     useEffect(() => {
         const id = localStorage.getItem("AffiliateId");
-        AffiliateModel.allAffi(id).then((respone) => {
-            console.log(respone.data)
+        AffiliateModel.allAffi({id}).then((respone) => {
+            console.log(respone.data , "shiavmmmmmm")
             setAfii(respone.data)
 
         }).catch((error) => {
@@ -101,6 +101,18 @@ function Orderdetailsbrief() {
     }, [])
 
 
+    useEffect(() => {
+        const id = localStorage.getItem("AffiliateId");
+
+        AffiliateModel.Payout(id).then((respone) => {
+            console.log(respone.data);
+            setpayout(respone.data);
+
+        }).catch((error) => {
+            console.log(error);
+        });
+
+    }, [])
     useEffect(() => {
         const id = localStorage.getItem("AffiliateId");
 
@@ -254,7 +266,7 @@ function Orderdetailsbrief() {
 
 
 
-                            {affi ? (
+                            {affi !== null || affi.lenght !== 0  ? (
                                 <>
                                     {/* Render UI when data is not null */}
                                     <Row className='mt-3'>
@@ -345,7 +357,7 @@ function Orderdetailsbrief() {
                                                             {/* <Button variant="light" className="px-5" style={{color:"#087F7F", fontWeight:"500", borderRadius:"10px", paddingTop:"1px", paddingBottom:"1px"}}>
                     Copy Link
                   </Button> */}
-                                                            <Button className="btnn" style={{padding:'6px 50px',fontSize:'15px'}} >
+                                                            <Button className="btnn" style={{padding:'6px 50px',fontSize:'15px'}} onClick={handleCopyLink} >
                                                                 Copy Link
                                                             </Button>
                                                         </div>
@@ -358,7 +370,7 @@ function Orderdetailsbrief() {
                                                             {/* <Button variant="light" className="px-5" style={{color:"#087F7F", fontWeight:"500", borderRadius:"10px", paddingTop:"1px", paddingBottom:"1px"}}>
                     Copy Link
                   </Button> */}
-                                                            <Button className="btnn">
+                                                            <Button className="btnn"  onClick={handleCopyLink}>
                                                                 Copy Link
                                                             </Button>
                                                         </div>

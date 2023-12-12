@@ -47,6 +47,8 @@ const Login = () => {
         localStorage.setItem("FirstName", response.data.user.FirstName);
         localStorage.setItem("AffiliateId",response.data.user.AffiliateId);
         localStorage.setItem("UserType",response.data.user.UserType)
+        localStorage.setItem("AffiliateCode",response.data.user.AffiliateCode)
+
         setLoginloacl(response.data.user.IsEmailVerified)
         if (response.data.user.IsEmailVerified === 1) {
           console.log('eeeeeeeeee', response.data)
@@ -87,8 +89,8 @@ const Login = () => {
       else if (response.data.email === true && response.data.emailVerified === true) {
         helper.sweetalert.toast("Please open your Email to reset your password.....")
 
-        // window.location.replace("/");
-        window.location.replace("/Update-Password");
+        window.location.replace("/");
+        // window.location.replace("/Update-Password");
       }
     }).catch((error) => {
       helper.sweetalert.toast1("Incorrect username or password.")

@@ -2,7 +2,7 @@ import axiosInstance from "../lib/axiosInstance";
 const AffiliateModal = {
     async allAffi(data) {
         return (await axiosInstance.get(
-            `/affiliate/visitor/${data.Id}`
+            `/affiliate/visitor/${data.id}`
         ));
     },
     async Report(data) {

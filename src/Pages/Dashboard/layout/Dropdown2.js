@@ -20,7 +20,7 @@ function Dropdown2({ selectedOption }) {
   return (
     <div>
 
-      <select style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }} name='subCategory'>
+      <select required style={{ width: "-webkit-fill-available", height: "40px", border: '2px solid lightgrey', borderRadius: "8px" }} name='subCategory'>
         <option value="" disabled selected>Select your Sub-category</option>
         {
           GetSubCategory && GetSubCategory?.map((categorylist) =>
