@@ -15,6 +15,8 @@ import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import AuthModal from '../../modal/Auth.modal';
 import CompleteEmail from './CompleteEmail';
+import VerifyEmail from './VerifyEmail';
+import Cookies from 'js-cookie';
 function Singup() {
   const [showPassword, setShowPassword] = React.useState(false);
   const [dataloaclhost, setDatalocalhost] = React.useState()
@@ -41,34 +43,32 @@ function Singup() {
     const form = new FormData(event.target);
     AuthModal.singUp(form).then((response) => {
       if (response?.data?.status === true) {
-        const accessToken = response?.data?.token;
-        localStorage.setItem('accessToken', accessToken);
-        localStorage.setItem("UserID", response.data.signupResult[0]?.UserID);
-        localStorage.setItem("userProfileId", response.data.signupResult[0]?.UsersProfileID);
-        localStorage.setItem("UserType", response.data.signupResult[0]?.UserType);
-        localStorage.setItem("FirstName", response.data.signupResult[0]?.FirstName);
+        // const accessToken = response?.data?.token;
+        // localStorage.setItem('accessToken', accessToken);
+        // localStorage.setItem('sEmailVerified', response.data.signupResult[0]?.datata);
+        // localStorage.setItem("UserID", response.data.signupResult[0]?.UserID);
+        // localStorage.setItem("userProfileId", response.data.signupResult[0]?.UsersProfileID);
+        // localStorage.setItem("UserType", response.data.signupResult[0]?.UserType);
+        // localStorage.setItem("FirstName", response.data.signupResult[0]?.FirstName);
 
-        console.log(response.data);
+        // console.log(response.data);
         setDatalocalhost(response.data)
-        // window.location.replace("/user/dashboard")
         window.location.replace("/Verify-Email")
-
         console.log(response?.data)
         helper.sweetalert.toast("Check your email & click  the link to activate your account")
-
       }
     })
       .catch((error) => {
         console.log(error);
       });
   };
-
+  const storedCode = Cookies.get('signupCode');
   return (
     <div>
       <div style={{ display: 'none' }} className='d-none d-block'>
         <CompleteEmail
           data={dataloaclhost} />
-
+          {/* <VerifyEmail    data={dataloaclhost}/> */}
       </div>
       <Grid container spacing={3}>
         <Grid sm={4}></Grid>
@@ -109,6 +109,7 @@ function Singup() {
                       ),
                     }}
                   />
+                                    <TextField id="outlined-basic"  style={{display:'none'}} onChange={handleInputChange} name='affiliateCode' className='mt-3 mb-3' value={storedCode} label=" Email Id" fullWidth placeholder=" Your  Email Id" variant="outlined" />
 
 
                   <button type='submit' className='mt-5 btn' style={{ width: "-webkit-fill-available", backgroundColor: "#008080", color: 'white' }}><b>CREATE ACCOUNT</b></button>

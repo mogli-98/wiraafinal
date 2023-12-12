@@ -34,8 +34,8 @@ function Dashboard(name) {
     useEffect(() => {
         Switchform.AllSubcategorynoid().then((response) => {
             const apiOptions = response.data.map(item => ({
-                value: item.GradeID,
-                label: item.GradeName,
+                value: item.SubCategoryId,
+                label: item.SubCategoryName,
             }));
             setSubCategory(apiOptions)
             console.log(response.data)

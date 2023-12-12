@@ -15,12 +15,11 @@ function Noorder() {
                     </Col>
 
 
-                    <Col sm={8} xs={12} className='dashboard-conatiner-top-row '>
+                    <Col sm={8} xs={12} style={{ padding: '0px' }} className='dashboard-conatiner-top-row '>
                         <Container className='square border border-bottom-0'>
                             <Topnav activeLink="Order" />
                             <Row className='mt-5'>
-                                <Col sm={1}></Col>
-                                <Col sm={10} >
+                           
                                     <center>
                                         <Card className='' style={{ borderRadius: "40px", border: "2px solid black", marginTop: "50px",padding:'20px'}}>
                                             <center>
@@ -37,8 +36,8 @@ function Noorder() {
                                             </center>
                                         </Card>
                                     </center>
-                                </Col>
-                                <Col sm={1}></Col>
+                                {/* </Col>
+                                <Col sm={1}></Col> */}
                             </Row>
                         </Container>
                         <Phoneviewfooter/>

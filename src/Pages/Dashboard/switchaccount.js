@@ -23,7 +23,7 @@ function SwitchAccount() {
             setOccupaqtionList(response.data);
         }).catch((error) => {
             console.log(error);
-       });
+        });
     }, [])
     useEffect(() => {
         Switchform.getAllQualificationList().then((response) => {
@@ -31,7 +31,7 @@ function SwitchAccount() {
             setAllQualificationListt(response.data);
         }).catch((error) => {
             console.log(error);
-       });
+        });
     }, [])
     useEffect(() => {
         Switchform.Allcategory().then((response) => {
@@ -40,12 +40,12 @@ function SwitchAccount() {
         }
         ).catch((error) => {
             console.log(error);
-       });
+        });
     }, [])
 
-    const ShowSubcatogery = (CurriculumID) => {
-        console.log(CurriculumID)
-        const categoryId = (CurriculumID);
+    const ShowSubcatogery = (SuperCatID) => {
+        console.log(SuperCatID)
+        const categoryId = (SuperCatID);
         Switchform.Allsubcategory({ categoryId }).then((response) => {
             setShowSubcategory(response.data)
             console.log(response.data)
@@ -53,7 +53,7 @@ function SwitchAccount() {
 
         }).catch((error) => {
             console.log(error);
-       });
+        });
     }
 
     const [formdata, setformdata] = useState({
@@ -90,8 +90,8 @@ function SwitchAccount() {
                     console.log(response.data, "Profession Form Fill Successfuly");
 
                     helper.sweetalert.toast("Submited", 'Your professional dashboard request is under review.', 'Please wait for the admin approval.')
-                    localStorage.setItem("UserType", 3)
-                    window.location.replace("/Professionalsdashboard")
+                    // localStorage.setItem("UserType", 3)
+                    window.location.replace("/User/Notification")
 
                 }).catch((error) => {
                     console.log(error);
@@ -155,7 +155,7 @@ function SwitchAccount() {
                                                     </svg>
                                                     </Form.Label>
                                                     <Form.Control placeholder="Your Name"
-
+                                                        disabled
                                                         value={userNamedata}
                                                         className='formborder' style={{ paddingLeft: '20px', fontSize: '15px' }} />
                                                 </Form.Group>
@@ -283,8 +283,8 @@ function SwitchAccount() {
                                             {GetSubCategory && GetSubCategory.map((categorylist, index) =>
                                                 <Col sm={3} xs={4}>
                                                     <label className='label-radio' style={{ width: "100%" }}>
-                                                        <input type="radio" onChange={handleInputChange} name="categoryId" value={categorylist.CurriculumID} class=" d-none " id="demo1" />
-                                                        <div className='card mt-2' onClick={() => (ShowSubcatogery(categorylist.CurriculumID), handleButtonClick(categorylist.CurriculumName))} value={categorylist.CurriculumID} style={{ border: `2px solid lightgrey`, borderRadius: "8px", cursor: 'pointer', backgroundColor: selectedButton === categorylist.CurriculumName ? 'lightgrey' : '' }} ><center >{categorylist.CurriculumName}</center></div>
+                                                        <input type="radio" onChange={handleInputChange} name="categoryId" value={categorylist.CategoryID} class=" d-none " id="demo1" />
+                                                        <div className='card mt-2' onClick={() => (ShowSubcatogery(categorylist.CategoryID), handleButtonClick(categorylist.CategoryName))} value={categorylist.CategoryID} style={{ border: `2px solid lightgrey`, borderRadius: "8px", cursor: 'pointer', backgroundColor: selectedButton === categorylist.CategoryName ? 'lightgrey' : '' }} ><center >{categorylist.CategoryName}</center></div>
                                                     </label>
                                                 </Col>
                                             )}

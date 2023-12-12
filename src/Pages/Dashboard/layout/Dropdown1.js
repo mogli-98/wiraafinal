@@ -30,7 +30,7 @@ function Dropdown1({ onSelect }) {
                     GetSubCategory && GetSubCategory?.map((categorylist) =>
                         <>
 
-                            <option value={categorylist?.SuperCatID}>{categorylist?.CategoryName}</option>
+                            <option value={categorylist?.CategoryID}>{categorylist?.CategoryName}</option>
                         </>)
                 }
             </select>

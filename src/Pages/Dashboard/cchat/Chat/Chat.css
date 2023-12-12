@@ -56,7 +56,7 @@
    
     width: 80%;
     border: none;
-    padding: 2vmax;
+    padding: 5px;
     box-sizing: border-box;
     background-color: white;
     outline: none;
@@ -67,22 +67,16 @@
 
 
 .sendBtn{
-    background-color: crimson;
+    background-color: #348080;
     color: white;
     border: none;
     width: 21%;
     transition: all 0.3s;
     cursor: pointer;
+    border-radius: 8px;
 }
 
-.sendBtn>img{
-    width: 2.6vmax;
-    filter:brightness(100) invert();
-    transition: all 0.3s;
-}
+
 .sendBtn:hover{
     background-color: rgb(156, 13, 42);
 } 
-.sendBtn:hover img{
-    transform: translateX(10px);
-}

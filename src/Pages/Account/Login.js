@@ -43,7 +43,10 @@ const Login = () => {
         localStorage.setItem('accessToken', accessToken);
         localStorage.setItem("UserID", response.data.user.UserID);
         localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
-        localStorage.setItem("userProfileId", response.data.user.UsersProfileID);
+        localStorage.setItem("UserType", response.data.user.UserType);
+        localStorage.setItem("FirstName", response.data.user.FirstName);
+        localStorage.setItem("AffiliateId",response.data.user.AffiliateId);
+        localStorage.setItem("UserType",response.data.user.UserType)
         setLoginloacl(response.data.user.IsEmailVerified)
         if (response.data.user.IsEmailVerified === 1) {
           console.log('eeeeeeeeee', response.data)

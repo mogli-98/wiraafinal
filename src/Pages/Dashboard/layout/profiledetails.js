@@ -16,6 +16,7 @@ import { helper } from '../../../lib/helper';
 import PortfolioModal from '../../../modal/Portfolio.modal';
 import { IoChatboxOutline, IoHeart, IoHeartOutline } from 'react-icons/io5';
 import PeopleModal from '../../../modal/People.modal';
+import ChatModal from '../../../modal/Chat.modal';
 
 function Explorepage() {
     const params = useParams();
@@ -113,9 +114,7 @@ function Explorepage() {
             ...formData,
             [event.target.name]: event.target.value,
         });
-
     };
-
     const handleSubmit = (event) => {
 
         console.log(event);
@@ -134,7 +133,13 @@ function Explorepage() {
                 // Display error message to the user
             });
     };
-
+    const NewChatt = () => {
+        const senderId  = parseInt(localStorage.getItem("UserID"));
+        const userId = params.id
+        ChatModal.CreateChat({userId} ,{senderId}).then((res) =>{
+            console.log(res.data)
+        })
+    }
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -172,7 +177,7 @@ function Explorepage() {
                                                         <p style={{ fontSize: '18px', fontWeight: 600, color: 'grey' }} className='text-center'>Followers</p>
                                                         <center>
                                                             <Link to='/Message'>
-                                                                <Button style={{ marginTop: '10px', backgroundColor: '#008080', padding: '6px 30px', fontSize: '14px', border: 'none', borderRadius: '8px' }} >Chat</Button></Link>
+                                                                <Button style={{ marginTop: '10px', backgroundColor: '#008080', padding: '6px 30px', fontSize: '14px', border: 'none', borderRadius: '8px' }} onClick={NewChatt} >Chat</Button></Link>
                                                         </center>
 
                                                     </Col>

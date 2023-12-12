@@ -8,7 +8,9 @@ import Accountfooter from '../../Layout/Accountfooter';
 import VerifyEmal from "../../asset/image/Verifyemail.png";
 
 const VerifyEmail = () => {
-
+     // if (localStorage.getItem("sEmailVerified") === null) {
+     //      window.location.replace("/")
+     // }
 
      return (
           <>

@@ -56,3 +56,46 @@
     color: grey;
     border: none;
 }
+
+
+
+
+.gradiant{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    background: linear-gradient(to right, #EB5868, #087F7F);
+    border-radius: 20px;
+}
+
+
+
+.btnn{
+    background-color: white;
+    color:#087F7F ;
+    font-weight: 700;
+    border-radius: 10px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 30px;
+    padding-right: 30px;
+    font-size: small;
+    border: none;
+}
+
+@media(max-width:576px){
+    .btnn{
+        background-color: #087F7F ;
+        color: white;
+    }
+}
+
+.txt{
+    font-size: small;
+    color: #797979;
+    font-weight: 500;
+}

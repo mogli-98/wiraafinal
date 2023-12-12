@@ -74,7 +74,10 @@ function ProtfolioCard(props) {
                 console.log("error => ", error)
             })
     }
-
+// useEffect(() => {
+//     Likeadd()
+//     fetchdata()
+// }, [])
     return <>
         <Card
             style={{

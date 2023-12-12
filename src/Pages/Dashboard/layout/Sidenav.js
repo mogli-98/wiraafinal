@@ -76,8 +76,10 @@ const Sidebar = ({activekey}) => {
               </NavLink>
 
 
-              <NavLink exact to="/Packages" >
-                <CDBSidebarMenuItem className="text-dark">  {activekey === "package" ? <IoHome fontSize={25} fill='#008080'  /> : <IoHomeOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "package" ? "active" : ""}`}  >Package</p></CDBSidebarMenuItem>
+            
+
+              <NavLink exact to="/Myaffilate" >
+                <CDBSidebarMenuItem className="text-dark">  {activekey === "Affilate" ? <IoHome fontSize={25} fill='#008080'  /> : <IoHomeOutline  fontSize={25}/> } <p style={{fontSize:'25px'}} className={`chh ${activekey === "package" ? "active" : ""}`}  >Affilate</p></CDBSidebarMenuItem>
               </NavLink>
 
 

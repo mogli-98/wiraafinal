@@ -17,11 +17,8 @@ import Desktoploginfooter from '../unguarded_page/Desktoploginfooter';
 
 function Hiretalent() {
     const [selectedOption, setSelectedOption] = useState([1]);
-    // const [GetSubCategory, setGetSubCategory] = useState([]);
-
 
     const [city, setCity] = useState([]);
-    // const [formData, setFormData] = useState({
     //     title: '',
     //     projectDescription: '',
     //     category: '',
@@ -60,7 +57,6 @@ function Hiretalent() {
             })
             .catch((error) => {
                 console.log(error);
-                // Display error message to the user
             });
     };
 
@@ -121,7 +117,27 @@ function Hiretalent() {
             setDescriptionError(false);
         }
     };
+    const [radio1Checked, setRadio1Checked] = useState(false);
+    const [radio2Checked, setRadio2Checked] = useState(false);
+    const [dropdownActive, setDropdownActive] = useState(false);
 
+    const handleRadioChange = (event) => {
+        const { name, checked } = event.target;
+
+        if (name === 'radio1') {
+            setRadio1Checked(checked);
+        } else if (name === 'radio2') {
+            setRadio2Checked(checked);
+        }
+
+        // Activate dropdown if both radio buttons are checked
+        setDropdownActive(radio1Checked && radio2Checked);
+    };
+
+    const handleDropdownChange = (event) => {
+        // Handle dropdown change here
+        console.log('Dropdown value:', event.target.value);
+    };
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -300,39 +316,30 @@ function Hiretalent() {
                                                 <Accordion.Header><p style={{ fontSize: '18px' }}><b>Advanced details</b></p> </Accordion.Header>
                                                 <Accordion.Body>
 
-                                                    <Form.Group className="mb-2 mt-4" controlId="exampleForm.ControlTextarea1">
-                                                        <Form.Label style={{ fontSize: '18px' }}>Preferred location:
-
+                                                    <Form.Group className="mb-2 mt-1" controlId="exampleForm.ControlTextarea1">
+                                                        {/* <Form.Label style={{ fontSize: '18px' }}>Preferred location:
                                                         </Form.Label>
-
-
-
-
                                                         <Row >
 
                                                             <Col sm={4} xs={6}>
 
                                                                 <label>
-                                                                    <input type="radio" name="serviceMode" class="card-input-element" />
+                                                                    <input type="radio" name="serviceMode" className="card-input-element"
+                                                                    />
 
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey ' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey ' }} className="panel panel-default card-input">
                                                                         <div class="panel-heading">Global</div>
-
                                                                     </div>
-
                                                                 </label>
-
                                                             </Col>
-
-
-
                                                             <Col sm={4} xs={6}>
 
 
                                                                 <label>
-                                                                    <input type="radio" name="serviceMode" class="card-input-element" />
+                                                                    <input type="radio" name="serviceMode" class="card-input-element"
+                                                                      />
 
-                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
+                                                                    <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} className="panel panel-default card-input">
                                                                         <div class="panel-heading">Local</div>
 
                                                                     </div>
@@ -344,19 +351,19 @@ function Hiretalent() {
 
 
                                                             <Col sm={4} xs={12}>
-                                                                <select className='form-control-lg ' name="cars" id="cars" style={{
-                                                                    borderRadius: '5px', border: '2px solid lightgrey',
-                                                                    width: "-webkit-fill-available"
-                                                                    , height: "35px", fontSize: '16px'
-                                                                }}>
-                                                                    <option value="Business">City</option>
-                                                                    <option value="IT">IT</option>
-                                                                    <option value="Marketing">Marketing</option>
-                                                                    <option value="Lifestyle">Lifestyle</option>
-                                                                </select>
+                                                          
+                                                                    <select className='form-control-lg ' name="cars" id="cars" style={{
+                                                                        borderRadius: '5px', border: '2px solid lightgrey',
+                                                                        width: "-webkit-fill-available"
+                                                                        , height: "35px", fontSize: '16px'
+                                                                    }}>
+                                                                        <option value="Business">City</option>
+                                                                        <option value="IT">IT</option>
+                                                                        <option value="Marketing">Marketing</option>
+                                                                        <option value="Lifestyle">Lifestyle</option>
+                                                                    </select>
                                                             </Col>
-                                                        </Row>
-
+                                                        </Row> */}
                                                     </Form.Group>
                                                     <Form.Group className="mb-2 mt-4" controlId="exampleForm.ControlTextarea1">
                                                         <Form.Label style={{ fontSize: '18px' }} className='mb-2'>Project Duration:</Form.Label>
@@ -364,7 +371,7 @@ function Hiretalent() {
                                                             <Col sm={3} xs={6} >
 
                                                                 <label>
-                                                                    <input type="radio" name="duration" class="card-input-element" />
+                                                                    <input type="radio" name="duration" className="card-input-element" />
                                                                     <div style={{ padding: '6px 20px', borderRadius: '6px', fontWeight: 500, border: '1px solid grey' }} class="panel panel-default card-input">
                                                                         <div class="panel-heading">1 Month</div>
                                                                     </div>

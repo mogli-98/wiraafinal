@@ -8,31 +8,26 @@ import Accountfooter from '../../Layout/Accountfooter';
 import VerifyEmal from "../../asset/image/Verifyemail.png";
 import AuthModal from "../../modal/Auth.modal";
 import { helper } from "../../lib/helper";
-
 const CompleteEmail = (dataloaclhost) => {
-     if (dataloaclhost.IsEmailVerified === 0) {
-          localStorage.setItem('accessToken', dataloaclhost.token);
-          localStorage.setItem("UserID", dataloaclhost.signupResult?.UserID);
-          localStorage.setItem("userProfileId", dataloaclhost.signupResult?.UsersProfileID);
-          localStorage.setItem("UserType", dataloaclhost.signupResult?.UserType);
-          localStorage.setItem("FirstName", dataloaclhost.signupResult?.FirstName);
-     }
+
      console.log('ghjkl-====>0', dataloaclhost)
      const urlParams = new URLSearchParams(window.location.search);
      const token = urlParams.get('token');
      console.log('Token:', token);
 
      const emailverify = () => {
+         
           AuthModal.Verifyemailuser({ token }).then((res) => {
-
-               helper.sweetalert.toast("Your Email is Verifiyed")
-               window.location.replace("/user/dashboard")
+               if (res.dats.status === true) {
+                    helper.sweetalert.toast("Your Email is Verifiyed")
+                    window.location.replace("/user/dashboard")
+               }else {
+                    window.location.replace("/")
+               }
           }).catch((error) => {
                console.log(error);
           });
-
      }
-
      return (
           <>
                <div>

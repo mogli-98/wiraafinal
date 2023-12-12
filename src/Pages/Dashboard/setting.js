@@ -9,9 +9,17 @@ import { Link } from 'react-router-dom';
 import { helper } from '../../lib/helper';
 import SettingModal from '../../modal/Setting.modal';
 import { CDBPageLink } from 'cdbreact';
+import { auth } from '../Account/firebase.config';
+import { getAuth, } from "firebase/auth";
+import { BsFillShieldLockFill, BsTelephoneFill } from "react-icons/bs";
+import { toast, Toaster } from "react-hot-toast";
+import { RecaptchaVerifier, signInWithPhoneNumber } from "firebase/auth";
+import { CgSpinner } from "react-icons/cg";
 
+import OtpInput from "otp-input-react";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 
-// import InputGroup from 'react-bootstrap/InputGroup';
 function Setting() {
     const [blockuserlist, setBlockuserlist] = useState();
     const [show, setShow] = useState(false);
@@ -26,34 +34,26 @@ function Setting() {
     const [show3, setShow3] = useState(false);
     const handleClose3 = () => setShow3(false);
     const handleShow3 = () => setShow3(true);
-    // const [FormData, setFormData] = useState({
-    //     email: '',
-    // })
-    // const handleInputChange = (event) => {
-    //     setFormData({
-    //         ...FormData,
-    //         [event.target.name]: event.target.value,
-    //     });
-    // };
+
     const logout = () => {
         sessionStorage.clear();
         localStorage.clear();
     };
-    const handleSubmitPhone = (event) => {
+    // const handleSubmitPhone = (event) => {
 
-        event.preventDefault();
-        const form = new FormData(event.target);
-        form.append("update_bus", localStorage.getItem("token"));
+    //     event.preventDefault();
+    //     const form = new FormData(event.target);
+    //     form.append("update_bus", localStorage.getItem("token"));
 
-        Setting.editbusiness(form)
-            .then((response) => {
-                console.log(response.data, "yes data update");
+    //     Setting.editbusiness(form)
+    //         .then((response) => {
+    //             console.log(response.data, "yes data update");
 
-            })
-            .catch((error) => {
-                console.log(error);
-            });
-    };
+    //         })
+    //         .catch((error) => {
+    //             console.log(error);
+    //         });
+    // };
     const deactiveAccount = () => {
         helper.sweetalert.confirm('Are you sure?', "You won't be able to revert this!", "warning", true).then((result) => {
             if (result.isConfirmed) {
@@ -119,8 +119,67 @@ function Setting() {
     useEffect(() => {
 
     }, [])
+    const [otp, setOtp] = useState("");
+    const [ph, setPh] = useState("");
+    const [loading, setLoading] = useState(false);
+    const [showOTP, setShowOTP] = useState(false);
+    const [user, setUser] = useState(null);
+
+    function onCaptchVerify() {
+        if (!window.recaptchaVerifier) {
+            console.log(auth, "authh")
+            window.recaptchaVerifier = new RecaptchaVerifier(
+                auth,
+                "recaptcha-container",
+                {
+                    size: "invisible",
+                    callback: (response) => {
+                        onSignup();
+                    },
+                    "expired-callback": () => { },
+                },
+            );
+        }
+    }
+
+    function onSignup() {
+        setLoading(true);
+        onCaptchVerify();
+
+        const appVerifier = window.recaptchaVerifier;
+
+        const formatPh = "+" + ph;
+
+        signInWithPhoneNumber(auth, formatPh, appVerifier)
+            .then((confirmationResult) => {
+                window.confirmationResult = confirmationResult;
+                setLoading(false);
+                setShowOTP(true);
+                toast.success("OTP sended successfully!");
+            })
+            .catch((error) => {
+                console.log(error);
+                setLoading(false);
+            });
+    }
+
+    function onOTPVerify() {
+        setLoading(true);
+        window.confirmationResult
+            .confirm(otp)
+            .then(async (res) => {
+                console.log(res);
+                setUser(res.user);
+                setLoading(false);
+            })
+            .catch((err) => {
+                console.log(err);
+                setLoading(false);
+            });
+    }
     return (
         <>
+            <div className='recaptcha-container' id='recaptcha-container'> </div>
             <Container fluid className='dashboard-conatiner-top' >
                 <Row>
 
@@ -136,6 +195,7 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col style={{ marginLeft: '10px', marginTop: '20px' }} sm={10}>
+
                                     <Card className='mt-2' onClick={handleShow} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Email Address:</b></p>
@@ -149,12 +209,76 @@ function Setting() {
                             <Row>
                                 <Col sm={1}></Col>
                                 <Col style={{ marginLeft: '10px' }} sm={10}>
-                                    <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
+                                    {/* <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
-                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Phone Number:</b></p>
+                                            <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Phone Number 1:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Phone number in case you have trouble signing in</p>
                                         </div>
-                                    </Card>
+                                    </Card> */}
+                                    <section className="bg-emerald-500 flex items-center justify-center h-screen">
+                                        <div>
+                                            <Toaster toastOptions={{ duration: 4000 }} />
+                                            <div id="recaptcha-container"></div>
+                                            {user ? (
+                                                <h2 className="text-center text-white font-medium text-2xl">
+                                                    👍Login Success
+                                                </h2>
+                                            ) : (
+                                                <div className="w-80 flex flex-col gap-4 rounded-lg p-4">
+
+                                                    {showOTP ? (
+                                                        <>
+                                                          
+                                                            <label
+                                                                htmlFor="otp"
+                                                                className="font-bold text-xl text-white text-center"
+                                                            >
+                                                                Enter your OTP
+                                                            </label>
+                                                            <OtpInput
+                                                                value={otp}
+                                                                onChange={setOtp}
+                                                                OTPLength={6}
+                                                                otpType="number"
+                                                                disabled={false}
+                                                                autoFocus
+                                                                className="opt-container "
+                                                            ></OtpInput>
+                                                            <button
+                                                                onClick={onOTPVerify}
+                                                                className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+                                                            >
+                                                                {loading && (
+                                                                    <CgSpinner size={20} className="mt-1 animate-spin" />
+                                                                )}
+                                                                <span>Verify OTP</span>
+                                                            </button>
+                                                        </>
+                                                    ) : (
+                                                        <>
+                                                            
+                                                            <label
+                                                                htmlFor=""
+                                                                className="font-bold text-xl text-white text-center"
+                                                            >
+                                                                Verify your phone number
+                                                            </label>
+                                                            <PhoneInput country={"in"} value={ph} onChange={setPh} />
+                                                            <button
+                                                                onClick={onSignup}
+                                                                className="bg-emerald-600 w-full flex gap-1 items-center justify-center py-2.5 text-white rounded"
+                                                            >
+                                                                {loading && (
+                                                                    <CgSpinner size={20} className="mt-1 animate-spin" />
+                                                                )}
+                                                                <span>Send code via SMS</span>
+                                                            </button>
+                                                        </>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </section>
                                 </Col>
                                 <Col sm={1}></Col>
                             </Row>
@@ -229,14 +353,22 @@ function Setting() {
 
                             <Row>
                                 <Col sm={1}></Col>
-                                <Col sm={10}>
+                                {/* <Col sm={10}>
                                     <Card className='mt-2' onClick={handleShow1} style={{ backgroundColor: '#D9DDDC', borderColor: "#fff", borderRadius: '10px' }}>
                                         <div className='m-1 setting-text'>
                                             <p style={{ fontSize: '15px', color: 'black', fontWeight: 600, cursor: 'pointer' }} className='mt-3 '><b>Phone Number:</b></p>
                                             <p style={{ fontSize: '13px', color: 'grey', cursor: 'pointer' }} className=''>Upload Phone number in case you have trouble signing in</p>
                                         </div>
                                     </Card>
-                                </Col>
+                                    <div>
+                                        <input type="text" placeholder="Phone Number" onChange={(e) => setPhoneNumber(e.target.value)} />
+                                        <button onClick={handleSendCode}>Send Code</button>
+
+                                        <input type="text" placeholder="Verification Code" onChange={(e) => setVerificationCode(e.target.value)} />
+                                        <button onClick={handleVerifyCode}>Verify Code</button>
+                                    </div>
+
+                                </Col> */}
                                 <Col sm={1}></Col>
                             </Row>
 
@@ -310,24 +442,8 @@ function Setting() {
                 <Modal show={show1} onHide={handleClose1}>
 
                     <Modal.Body>
-                        <div>
-                            <form onClick={handleSubmitPhone} >
-                                <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
-                                    <Form.Label style={{ fontSize: '18px' }}>Update Phone Number: </Form.Label>
-                                    <Form.Control
 
-                                        placeholder="Please enter your update Phone Number"
-                                        name='cl_cont'
-                                        required
-                                        type="number"
-                                    // onChange={handleInputChange}
-                                    />
-                                    {/* <button className='hire' style={{ width: '100%' }}>Update Number</button> */}
-                                    <button style={{ float: 'right', backgroundColor: '#008080', color: 'white', border: 'none', borderRadius: '5px', padding: '4px 10px', marginTop: '8px', fontWeight: 600 }}> Submit </button>
-                                </Form.Group>
 
-                            </form>
-                        </div>
 
                     </Modal.Body>
 
@@ -370,7 +486,7 @@ function Setting() {
 
                     <Modal.Body>
                         <div>
-                            <form onClick={handleSubmitPhone} >
+                            <form  >
                                 <Form.Group className="mb-2" controlId="exampleForm.ControlInput1">
                                     <Form.Label style={{ fontSize: '18px' }}>Update Your Password </Form.Label>
                                     <Form.Control
@@ -397,5 +513,5 @@ function Setting() {
         </>
     )
 }
-
 export default Setting;
+

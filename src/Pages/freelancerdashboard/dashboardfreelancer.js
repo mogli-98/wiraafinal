@@ -25,7 +25,7 @@ function Freelancerdashboard(props) {
     }
     const inputRef = useRef(null);
     const [Proproject, setProexport] = useState();
-    const [allCity, setallcity] = useState()
+    const [allsubcat, setallsubcat] = useState()
     const [selectedImage, setSelectedImage] = useState(null);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -33,7 +33,7 @@ function Freelancerdashboard(props) {
     useEffect(() => {
         Staticmodal.AllSubcategorynoid().then((response) => {
             console.log(response.data);
-            setallcity(response.data);
+            setallsubcat(response.data);
         }).catch((error) => {
             console.log(error);
        });
@@ -301,8 +301,8 @@ function Freelancerdashboard(props) {
                                         <Col sm={6}>
 
                                             <select name='subCategoryId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }} className='mt-4'>
-                                                {allCity && allCity.map((quallist) =>
-                                                    <option value={quallist.GradeID}>{quallist.GradeName}</option>
+                                                {allsubcat && allsubcat.map((quallist) =>
+                                                    <option value={quallist.SubCategoryId}>{quallist.SubCategoryName}</option>
 
                                                 )}
                                             </select>

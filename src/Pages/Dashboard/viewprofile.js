@@ -53,7 +53,7 @@ function Viewprofile() {
         });
     }, [])
     useEffect(() => {
-        Staticmodal.getallCity().then((response) => {
+        Staticmodal.AllCountryList().then((response) => {
             console.log(response.data);
             setallcity(response?.data);
         }).catch((error) => {
@@ -127,7 +127,7 @@ function Viewprofile() {
                                         <Card className='order-detail-profile   d-none d-sm-block' style={{ marginTop: '5px', backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
 
                                             <center>
-                                                <img src={`https://wiraaback.azurewebsites.net/api/v1/${profileData?.[0]?.ProfilePic}`} alt="" className='mb-3' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
+                                                <img src={`https://wiraaback.azurewebsites.net/${profileData?.[0]?.ProfilePic}`} alt="" className='mb-3' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
                                                 <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>
                                                 <p>{profileData?.[0]?.OccupationName}</p>
                                             </center>
@@ -160,7 +160,7 @@ function Viewprofile() {
                                         <Card className='order-detail-profile  d-block d-sm-none' style={{ backgroundColor: "#efefef", borderRadius: "35px", border: 'none', borderBottomLeftRadius: '0px', marginTop: '70px' }}>
 
                                             <center>
-                                                <img src={`https://wiraaback.azurewebsites.net/api/v1/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
+                                                <img src={`https://wiraaback.azurewebsites.net/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
                                                 <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>
                                                 <p>{profileData?.[0]?.OccupationName}</p>
                                             </center>
@@ -336,7 +336,7 @@ function Viewprofile() {
                                                 </svg>
 
                                             </Form.Label>
-                                            <Form.Control required as="textarea" rows={3} placeholder="Please enter work Experience" />
+                                            <Form.Control required as="textarea" rows={3}   defaultValue={profileData?.[0]?.ExperienceName} />
                                         </Form.Group>
                                         <Form.Group className="mb-1 mt-1" controlId="exampleForm.ControlTextarea1"
                                             defaultValue={profileData?.[0]?.ExperienceName}
@@ -352,21 +352,21 @@ function Viewprofile() {
                                                     <select required name='qualificationId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
                                                         <option value="" disabled selected>Select Qualifaction</option>
                                                         {AllQualificationListt && AllQualificationListt?.map((quallist) =>
-                                                            <option value={quallist?.QualificationID}>{quallist?.QualificationName}</option>
+                                                            <option value={quallist?.QualificationID} >{quallist?.QualificationName}</option>
 
                                                         )}
                                                     </select>
                                                 </Col>
                                                 <Col sm={6}>
-                                                    <Form.Label className='mt-1'>City:
+                                                    <Form.Label className='mt-1'>Country:
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" fill="red" className="bi bi-star-fill" viewBox="0 0 16 16">
                                                             <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z" />
                                                         </svg>
                                                     </Form.Label>
                                                     <select required name='cityId' style={{ height: '35px', width: '100%', border: '1px solid lightgrey', borderRadius: '8px' }}>
-                                                        <option value="" disabled selected>Select City</option>
+                                                        <option value="" disabled selected>Select Country Name</option>
                                                         {allCity && allCity?.map((quallist) =>
-                                                            <option value={quallist?.CityID}>{quallist?.CityName}</option>
+                                                            <option value={quallist?.CountryID}>{quallist?.CountryName}</option>
 
                                                         )}
                                                     </select>

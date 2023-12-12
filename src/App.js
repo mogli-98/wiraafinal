@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, } from "react-router-dom";
 import Login from './Pages/Account/Login';
 import Singup from './Pages/Account/Singup';
 import Dashboard from './Pages/Dashboard/dashboard';
@@ -37,7 +37,7 @@ import Module from './Pages/Dashboard/package';
 import Aboutus from './Pages/unguarded_page/about';
 import Userproject from './Pages/freelancerdashboard/userproject';
 import Chat from './Pages/Dashboard/cchat/Chat/Chat';
-
+import Cookies from 'js-cookie';
 import Nonotifiy from './Pages/Dashboard/notify/Nonotify';
 import Nonotifiyy from './Pages/freelancerdashboard/nootify/Nonotify';
 
@@ -73,102 +73,105 @@ import PaymentSucess from './Pages/Learn/PaymentSucess';
 import Checkmessage from './Pages/Dashboard/cchat/CheckMessage';
 import Join from './Pages/Dashboard/cchat/Join/Join';
 import UpdateEmail from './Pages/Account/UpdateEmail';
+import Singupcode from './Pages/Account/Singupcode';
 
 // import Nonotiftyy from './Pages/freelancerdashboard/nootify/Notification';
 
 function App() {
+
   return (
     <>
       <Outlet />
       <Router>
         <Routes>
-          <Route element={<WithNav />}>
-            <Route path='/' element={<Homepage />} />
+          <Route exact element={<WithNav />}>
+            <Route path='/' exact element={<Homepage />} />
           </Route >
-          <Route path='/Account/singup' element={<Singup />} />
-          <Route path='/Verify-Email' element={<VerifyEmail />} />
-          <Route path='/Email-Verified' element={<VerifyEmaill />} />
-          <Route path='/Update-Password' element={<Updatepassword />} />
-          <Route path='/UpdateEmail' element={<UpdateEmail />} />
-          <Route path='/Account/login' element={<Login />} />
-          <Route path="/Home/PostRequirement" element={<PostRequirement />} />
-          <Route path='/Home/Project' element={<Project />} />
-          <Route path='/Home/Projectdetails' element={<Projectdetails />} />
-          <Route path='/Projeectdetailss/:id' element={<Projeectdetailss />} />
-          <Route path='/learn' element={<Index />} />
-          <Route path='/Success-Payment' element={<PaymentSucess />} />
-          <Route path='/Profiledetails/:id' element={<Profiledetails />} />
-          <Route path='/About Us' element={<Aboutus />} />
-          <Route path='/Career' element={<Career />} />
-          <Route path='/PrivacyPolicy' element={<PrivacyPolicy />} />
-          <Route path='/ContactComponent' element={<ContactComponent />} />
-          <Route path='/ProfessionalServiceAgreement' element={<ProfessionalServiceAgreement />} />
-          <Route path='/Termsandcondition' element={<TermsandCondition />} />
-          <Route path='/UserAgreement' element={<UserAgreement />} />
+          <Route path='/Account/singup' exact element={<Singup />} />
+          <Route path='/Account/singup/:code' exact element={<Singupcode />} />
+          <Route path='/Verify-Email' exact element={<VerifyEmail />} />
+          <Route path='/Email-Verified' exact element={<VerifyEmaill />} />
+          <Route path='/Update-Password' exact element={<Updatepassword />} />
+          <Route path='/UpdateEmail' exact element={<UpdateEmail />} />
+          <Route path='/Account/login' exact element={<Login />} />
+          <Route path="/Home/PostRequirement" exact element={<PostRequirement />} />
+          <Route path='/Home/Project' exact element={<Project />} />
+          <Route path='/Home/Projectdetails' exact element={<Projectdetails />} />
+          <Route path='/Projeectdetailss/:id' exact element={<Projeectdetailss />} />
+          <Route path='/learn' exact element={<Index />} />
+          <Route path='/Success-Payment' exact element={<PaymentSucess />} />
+          <Route path='/Profiledetails/:id' exact element={<Profiledetails />} />
+          <Route path='/About Us' exact element={<Aboutus />} />
+          <Route path='/Career' exact element={<Career />} />
+          <Route path='/PrivacyPolicy' exact element={<PrivacyPolicy />} />
+          <Route path='/ContactComponent' exact element={<ContactComponent />} />
+          <Route path='/ProfessionalServiceAgreement' exact element={<ProfessionalServiceAgreement />} />
+          <Route path='/Termsandcondition' exact element={<TermsandCondition />} />
+          <Route path='/UserAgreement' exact element={<UserAgreement />} />
           {/* User-Dashborad link */}
-          <Route path='/user/dashboard' element={<Dashboard />} />
+          <Route path='/user/dashboard' exact element={<Dashboard />} />
           {/* Order page link*/}
-          <Route path='/Order' element={<Order />} />
-          {/* <Route path='/Ordertable' element={<Ordertable/>}/> */}
-          <Route path='/Orderdetails/:id' element={<Orderdetails />} />
-          <Route path='/Orderdetailsbreief/:id' element={<Orderdetailsbrief />} />
+          <Route path='/Order' exact element={<Order />} />
+          {/* <Route path='/Ordertable' exact  element={<Ordertable/>}/> */}
+          <Route path='/Orderdetails/:id' exact element={<Orderdetails />} />
+          <Route path='/Orderdetailsbreief/:id' exact element={<Orderdetailsbrief />} />
           {/*project page link*/}
-          <Route path='/user/Project' element={<Clientproject />} />
-          <Route path='/FreeProject/:id' element={<FreeProjectdetails />} />
-          <Route path='/user/Projectdetails' element={<Dashprojectdetails />} />
-          <Route path='/Home/StartUp' element={<StartUp />} />
+          <Route path='/user/Project' exact element={<Clientproject />} />
+          <Route path='/FreeProject/:id' exact element={<FreeProjectdetails />} />
+          <Route path='/user/Projectdetails' exact element={<Dashprojectdetails />} />
+          <Route path='/Home/StartUp' exact element={<StartUp />} />
           {/* Leran page link */}
 
-          <Route path='Packages' element={<Packages />} />
-          <Route path='/Notification' element={<Nonotifiy />} />
+          <Route path='Packages' exact element={<Packages />} />
+          <Route path='/Notification' exact element={<Nonotifiy />} />
 
-          <Route path='/Notifications' element={<Nonotifiyy />} />
-
-
-          <Route path='/User/Notification' element={<Notificationn />} />
-          <Route path='/Uses/Natification' element={<Notificationnn />} />
-
-          <Route path='/User/Notifications' element={<Unreadnotification />} />
-          <Route path='/Users/Notificationss' element={<Unreadnotificationn />} />
-
-          <Route path='/Notification' element={<Notification />} />
-          <Route path='/Notificationss' element={<Notification />} />
+          <Route path='/Notifications' exact element={<Nonotifiyy />} />
 
 
-          <Route path='/Profile' element={<Viewprofile />} />
-          <Route path='/Module' element={<Modulle />} />
-          {/* <Route path='/Modulee' element={<Modulee />} /> */}
-          <Route path='/ProModule' element={<FreeLearn />} />
-          <Route path='/Learrn' element={<Learnwithoutlogin />} />
-          <Route path='/Module' element={<Module />} />
-          <Route path='/user/Setting' element={<Setting />} />
-          <Route path='/Settingss' element={<Settingss />} />
+          <Route path='/User/Notification' exact element={<Notificationn />} />
+          <Route path='/Uses/Natification' exact element={<Notificationnn />} />
 
-          <Route path='/Switchaccount' element={<SwitchAccount />} />
-          <Route path='/Hiretalent' element={<Hiretalent />} />
-          <Route path='/Project/ProjectDetails' element={<Projectdetails />} />
-          <Route path='/Message' element={<Checkmessage />} />
-          <Route path='/Messagebox' element={<Messagebox />} />
+          <Route path='/User/Notifications' exact element={<Unreadnotification />} />
+          <Route path='/Users/Notificationss' exact element={<Unreadnotificationn />} />
 
-          <Route path='/Professionalsdashboard' element={<Dashboardfreelancer />} />
-          <Route path='/Community' element={<Community />} />
-          <Route path='/Package' element={<Package />} />
+          <Route path='/Notification' exact element={<Notification />} />
+          <Route path='/Notificationss' exact element={<Notification />} />
+
+
+          <Route path='/Profile' exact element={<Viewprofile />} />
+          <Route path='/Module' exact element={<Modulle />} />
+          {/* <Route path='/Modulee' exact  element={<Modulee />} /> */}
+          <Route path='/ProModule' exact element={<FreeLearn />} />
+          <Route path='/Learrn' exact element={<Learnwithoutlogin />} />
+          <Route path='/Module' exact element={<Module />} />
+          <Route path='/user/Setting' exact element={<Setting />} />
+          <Route path='/Settingss' exact element={<Settingss />} />
+
+          <Route path='/Switchaccount' exact element={<SwitchAccount />} />
+          <Route path='/Hiretalent' exact element={<Hiretalent />} />
+          <Route path='/Project/ProjectDetails' exact element={<Projectdetails />} />
+          <Route path='/Message' exact element={<Checkmessage />} />
+          <Route path='/Messagebox' exact element={<Messagebox />} />
+
+          <Route path='/Professionalsdashboard' exact element={<Dashboardfreelancer />} />
+          <Route path='/Community' exact element={<Community />} />
+          <Route path='/Package' exact element={<Package />} />
           {/* <Route path ='/Editp'/> */}
-          <Route path='/Editproflie' element={<Editprofile />} />
-          <Route path='/Switchaccount-next' element={<Moreprof />} />
-          <Route path='/Quesans/:questionId' element={<Quesans />} />
-          <Route path='/Project' element={<Dashprojectdetails />} />
-          <Route path='/Ordermessage' element={<Messagedetails />} />
-          <Route path='/UserProject' element={<Userproject />} />
-          {/* <Route path='/Chat' element={<Chat />} /> */}
-          <Route path='/chatt' element={<Join />} />
-          <Route path='/chatts' element={<Chat />} />
-          <Route path='/MyAffilate' element={<MyAffiliations />} />
-          <Route path='/Affilate' element={<Affiliate />} />
-          <Route path='/Switchacc' element={<SwitchAccountt />} />
+          <Route path='/Editproflie' exact element={<Editprofile />} />
+          <Route path='/Switchaccount-next' exact element={<Moreprof />} />
+          <Route path='/Quesans/:questionId' exact element={<Quesans />} />
+          <Route path='/Project' exact element={<Dashprojectdetails />} />
+          <Route path='/Ordermessage' exact element={<Messagedetails />} />
+          <Route path='/UserProject' exact element={<Userproject />} />
+          {/* <Route path='/Chat' exact  element={<Chat />} /> */}
+          <Route path='/chatt' exact element={<Join />} />
+          <Route path='/chatts' exact element={<Chat />} />
+          <Route path='/MyAffilate' exact element={<MyAffiliations />} />
+          <Route path='/Affilate' exact element={<Affiliate />} />
+          <Route path='/Switchacc' exact element={<SwitchAccountt />} />
           {/* Freelancer */}
-          <Route path='/ProProjectDetails' element={<FreeProDetails />} />
-          <Route path='/Wiraastartup' element={<WiraaStartup />} />
+          <Route path='/ProProjectDetails' exact element={<FreeProDetails />} />
+          <Route path='/Wiraastartup' exact element={<WiraaStartup />} />
         </Routes>
       </Router>
     </>

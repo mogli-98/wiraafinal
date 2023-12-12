@@ -18,8 +18,8 @@ function Portfolio(selectedOptions) {
         const subCategoryId = selectedOptions?.data?.value;
         const userProfileId = localStorage.getItem("userProfileId");
         PortfolioModal.searchPortfolio({ subCategoryId, userProfileId, page }).then((response) => {
-          console.log(response.data);
-          setprotfoliData(response.data)
+          console.log(response.data, 'data1');
+          // setprotfoliData(response.data)
           setprotfoliData((prev) => [...prev, ...response.data]);
 
         }).catch((error) => {
@@ -28,7 +28,7 @@ function Portfolio(selectedOptions) {
       } else {
         console.log("2api")
         PortfolioModal.Portfolio({ userProfileId, page }).then((response) => {
-          setprotfoliData(response.data)
+          // setprotfoliData(response.data , 'data2')
           setprotfoliData((prev) => [...prev, ...response.data]);
         }).catch((error) => {
           console.log("error => ", error)
@@ -37,13 +37,11 @@ function Portfolio(selectedOptions) {
     } catch (error) {
       console.log("error => ", error)
     }
-
-
   }
 
   useEffect(() => {
     //console.log("here")
-    fetchdata();
+    // fetchdata();
   }, [page]);
   const changeSelect = () => {
     setprotfoliData([]);
@@ -52,19 +50,15 @@ function Portfolio(selectedOptions) {
     console.log("here2")
     changeSelect();
     fetchdata();
-  }, [selectedOptions]);
+  }, []);
 
   const handelInfiniteScroll = async () => {
-    // console.log("scrollHeight" + document.documentElement.scrollHeight);
-    // console.log("innerHeight" + window.innerHeight);
-    // console.log("scrollTop" + document.documentElement.scrollTop);
     try {
       if (
         window.innerHeight + document.documentElement.scrollTop + 1 >=
         document.documentElement.scrollHeight
       ) {
         setLoading(true);
-
         setPage((prev) => prev + 1);
       }
     } catch (error) {
@@ -85,10 +79,10 @@ function Portfolio(selectedOptions) {
             "flexWrap": "wrap",
             "flexDirection": "row"
           }
-        } onClick={fetchdata}>
+        } >
 
-          {protfoliData && protfoliData?.map((pdata) => <Portfoliocard data={pdata} />)}
-          {loading && <Loading />}
+          { protfoliData?.map((pdata) => <Portfoliocard data={pdata} />)}
+          {/* {loading && <Loading />} */}
         </div>
       </Container>
     </>

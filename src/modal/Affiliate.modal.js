@@ -1,13 +1,18 @@
 import axiosInstance from "../lib/axiosInstance";
-const AffiliateModal = {                                                           
+const AffiliateModal = {
     async allAffi(data) {
         return (await axiosInstance.get(
-            `/affiliate/visitor/1`
+            `/affiliate/visitor/${data.Id}`
         ));
     },
     async Report(data) {
         return (await axiosInstance.get(
-            `/affiliate/report/1`,data))
-    }             
+            `/affiliate/report/1`, data))
+    },
+    async Payout(data) {
+        return (await axiosInstance.get(
+            `/affiliate/payout/${data}`,
+        ))
+    }
 }
-export default  AffiliateModal;
+export default AffiliateModal;
