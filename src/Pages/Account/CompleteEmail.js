@@ -8,7 +8,7 @@ import Accountfooter from '../../Layout/Accountfooter';
 import VerifyEmal from "../../asset/image/Verifyemail.png";
 import AuthModal from "../../modal/Auth.modal";
 import { helper } from "../../lib/helper";
-const CompleteEmail = (dataloaclhost) => {
+const CompleteEmail = ({ dataloaclhost }) => {
 
      console.log('ghjkl-====>0', dataloaclhost)
      const urlParams = new URLSearchParams(window.location.search);

@@ -7,7 +7,7 @@ import wirralogo from '../../asset/image/Wiraalogo.png';
 import Accountfooter from '../../Layout/Accountfooter';
 import VerifyEmal from "../../asset/image/Verifyemail.png";
 
-const VerifyEmail = () => {
+const VerifyEmail = (dataloaclhost) => {
      // if (localStorage.getItem("sEmailVerified") === null) {
      //      window.location.replace("/")
      // }

@@ -526,8 +526,8 @@ function MessaagesList(props) {
     const send = () => {
         const message = document.getElementById('chatInput').value;
         const obj = {};
-        obj.userId = localStorage.getItem("UserID");
-        obj.senderUserId = saurabh;
+        obj.userId =saurabh ;
+        obj.senderUserId =  localStorage.getItem("UserID");
         obj.message = message.trim();
         obj.projectId = 1;
         obj.file =

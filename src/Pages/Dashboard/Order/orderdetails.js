@@ -13,6 +13,7 @@ import OrderModal from '../../../modal/Order.modal';
 import Phoneviewfooter from '../../../Layout/Phoneviewfooter';
 import PeopleModal from '../../../modal/People.modal';
 import Desktoploginfooter from '../../unguarded_page/Desktoploginfooter';
+import ProfileModal from '../../../modal/Profile.modal';
 
 
 function Orderdetails() {
@@ -74,7 +75,7 @@ function Orderdetails() {
         console.log(InterestedUserId)
         const userId = InterestedUserId;
         PeopleModal.Userporfiolio({ userId }).then((response) => {
-            console.log(response.data)
+            console.log(response.data, 'dagayyyyy')
             setAnswerOrders(response?.data);
 
             handleShow(true);
@@ -89,6 +90,16 @@ function Orderdetails() {
         }).catch((error) => {
             console.log("error => ", error)
         })
+    }
+    const [intprofileData, setIntProfileData] = useState([]);
+    const fetchdata = async (InterestedUserId) => {
+        const userId = localStorage.getItem("UserID");
+        ProfileModal.ClientProfile({ userId }).then((response) => {
+            console.log(response.data);
+            setIntProfileData(response.data);
+        }).catch((error) => {
+            console.log(error);
+        });
     }
     return (
         <>
@@ -127,7 +138,7 @@ function Orderdetails() {
                                         <Card className='m-3 p-2' style={{ borderRadius: "5px", backgroundColor: "#efefef", border: 'none', cursor: 'pointer', boxShadow: '0px 0px 10px 5px rgba(192, 192, 192, 0.5)' }}>
                                             <div className='order-details-container'>
                                                 <img src={test} alt="" className='order-details-img m-3' s />
-                                                <div className='order-details-container-text' onClick={() => { Getpeople(listintrest.InterestedUserId) }}>
+                                                <div className='order-details-container-text' onClick={() => { fetchdata(listintrest.InterestedUserId) }}>
                                                     <p ><b>{listintrest?.FirstName} {listintrest?.LastName}</b></p>
                                                     <br />
                                                     <p style={{ color: 'grey' }}>{listintrest?.OccupationName}</p>
@@ -166,26 +177,40 @@ function Orderdetails() {
 
 
 
+
                                 </Col>
                                 <Col sm={4}>
-                                    <Card className='order-detail-profile m-0 p-0 d-none d-sm-block' style={{ backgroundColor: "#efefef", border: 'none' }}>
-                                        <div style={{ margin: '10px' }}>
-                                            {/* <img style={{ height: '20px', width: '20px', float: 'right' }} src={Export} alt="IMGg" /> */}
-                                        </div>
+                                   
+
+
+                                    <Card className='order-detail-profile   d-none d-sm-block' style={{ backgroundColor: "#efefef", borderRadius: "35px", borderStyle: 'none' }}>
+
 
                                         <center>
-                                            <img src={test} alt="" className='mt-2' />
-                                            <h6 className='mt-4 mb-0'><b>Chandan Innovation Pvt Ltd</b></h6>
-                                            <p className='mt-0'>Graphic Designer</p>
+                                            <img src={`https://wiraaback.azurewebsites.net/api/v1/${intprofileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
+                                            <h6 className='mt-4'><b>{intprofileData?.[0]?.FirstName} {intprofileData?.[0]?.LastName} </b></h6>
+                                            <p>{intprofileData?.[0]?.OccupationName}</p>
                                         </center>
                                         <Container>
                                             <Row className='mb-3'>
-                                                <Col className='square border-end'><h6 style={{ fontSize: '16px', fontWeight: 600 }} className='text-center'>193</h6>
-                                                    <p style={{ color: 'grey' }} className='text-center'>Followers</p>
+                                                <Col className='square border-end' style={{ borderRight: '1px solid black' }}>  {intprofileData?.[0]?.FollowerCount === null ? (
+                                                    <h6 className='text-center'>0</h6>
+                                                ) : <h6 className='text-center'>{intprofileData?.[0]?.FollowerCount}</h6>}
+
+
+                                                    <p className='text-center'>Followers</p>
                                                 </Col>
                                                 <Col className='square border-start'>
-                                                    <h6 style={{ fontSize: '16px', fontWeight: 600 }} className='text-center'>222</h6>
-                                                    <p style={{ color: 'grey' }} className='text-center'>Portfolio</p>
+                                                    {intprofileData?.[0]?.PostCount === null ? (
+                                                        <h6 className='text-center'>0</h6>
+                                                    ) : <h6 className='text-center'>{intprofileData?.[0]?.PostCount}</h6>}
+
+                                                    <p className='text-center'>Portfolio</p>
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col>
+                                                    <center><button style={{ border: 'none', padding: '4px 14px' }} onClick={handleShow1} className='editporfile'> <span style={{ fontSize: '16px' }}> Edit Profile</span>  </button></center>
                                                 </Col>
                                             </Row>
                                         </Container>
@@ -195,28 +220,25 @@ function Orderdetails() {
                                         <Container>
 
                                         </Container>
-                                        <div className="tab-content">
-                                            <div className='mt-3'>
-                                                <p className='mb-0' style={{}}><b>About :</b></p>
-                                                <p> love to make friends and interact with new people. My
-                                                    hobbies are debugging code, developing applications,
-                                                    reading good books and of course, listening music and
-                                                    watching movies.
+                                        <Card style={{ border: 'none', borderRadius: "35px" }}>
+                                            <div className='m-4'>
+                                                <span><b>About:</b></span>
+                                                <p>
+                                                    {intprofileData?.[0]?.AboutMe}
                                                 </p>
-                                                <p className='mb-0'><b>Experience :</b></p>
-                                                <p>I am passionate about crafting impactful experiences
-                                                    and digital marketing strategies at the intersection of
-                                                    brand and product. I have worked in London, Hong
-                                                    Kong and in Shanghai for companies such as the
-                                                    Adidas, L'Oreal, Pfizer and Danone
+                                                <span><b>Experience:</b></span>
+                                                <p>
+                                                    {intprofileData?.[0]?.ExperienceName}
                                                 </p>
-                                                <p className='mb-0'><b>Qualification :</b></p>
-                                                <p>Masters of Technology</p>
-                                                <p className='mb-0'><b>City :</b></p>
-                                                <p>Mumbai - Maharashtra</p>
-
+                                                <span><b>Qualification:</b></span>
+                                                <p>{intprofileData?.[0]?.QualificationName}
+                                                </p>
+                                                <span><b>City:</b></span>
+                                                <p>
+                                                    {intprofileData?.[0]?.City}
+                                                </p>
                                             </div>
-                                        </div>
+                                        </Card>
                                     </div>
 
                                     <hr className='d-none d-sm-block' style={{ border: '2px solid grey' }} />
@@ -251,6 +273,7 @@ function Orderdetails() {
                                         <span> ©️ 2023 Wiraa. All Rights Reserved</span>
                                     </div> */}
                                     <Desktoploginfooter />
+
                                 </Col>
 
                             </Row >
@@ -274,13 +297,13 @@ function Orderdetails() {
 
                                 <div>
                                     <h6>How many years of experience do you have in this field ? </h6>
-                                    <p style={{ color: 'grey' }}>Ans - {answerOrders?.YearsOfExperience} Years</p>
+                                    <p style={{ color: 'grey' }}>Ans - {answerOrders?.[0].YearsOfExperience} Years</p>
                                     <h6>Are you comfortable with my project budge ?</h6>
-                                    <p style={{ color: 'grey' }}>Ans = {answerOrders?.Comfortable}</p>
+                                    <p style={{ color: 'grey' }}>Ans = {answerOrders?.[0].Comfortable}</p>
                                     <h6>We must fill this position urgently. Can you start immediately ?</h6>
-                                    <p style={{ color: 'grey' }}>Ans ={answerOrders?.Immediately}</p>
+                                    <p style={{ color: 'grey' }}>Ans = {answerOrders?.[0].Immediately}</p>
                                     <h6>What is your work availability ?</h6>
-                                    <p style={{ color: 'grey' }}>Ans ={answerOrders?.WorkAvailability}</p>
+                                    <p style={{ color: 'grey' }}>Ans = {answerOrders?.[0].WorkAvailability}</p>
                                 </div>
 
                             </Modal.Body>
