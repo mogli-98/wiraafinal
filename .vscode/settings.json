@@ -1,0 +1,15 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/21497437-aa91-49a6-b2b9-f0af10f55bce/resourceGroups/Wiraa-Infra/providers/Microsoft.Web/sites/wiraaapp",
+    "appService.deploySubpath": ".",
+    "editor.cursorBlinking": "smooth",
+    "editor.cursorWidth": 5,
+    "editor.formatOnSave": true,
+    "diffEditor.hideUnchangedRegions.contextLineCount": 10,
+    "editor.autoClosingBrackets": "always",
+    "diffEditor.experimental.showEmptyDecorations": false,
+    "diffEditor.hideUnchangedRegions.minimumLineCount": 5
+}

@@ -8,7 +8,8 @@ import { IoHeart, IoHeartOutline, IoChatboxOutline } from "react-icons/io5";
 import ConvertImage from "../../lib/convertImage";
 
 function ProtfolioCard(props) {
-  const blobUrl ="https://wiraastorage.blob.core.windows.net/images/portfolioImage-1702208528349-logo192.png"
+  const blobUrl =
+    "https://wiraastorage.blob.core.windows.net/images/portfolioImage-1702208528349-logo192.png";
 
   const { data } = props;
   const [isHovered1, setIsHovered1] = useState(false);
@@ -115,7 +116,7 @@ function ProtfolioCard(props) {
             className="containerhoverimage "
             style={{ height: "200px", width: "100%", cursor: "pointer" }}
           />
-             <ConvertImage blobUrl={blobUrl} />
+          <ConvertImage blobUrl={blobUrl} />
 
           {/* <div className="overlay">
                     <div className="containerhovertext">

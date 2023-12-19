@@ -50,7 +50,7 @@ function Viewprofile() {
   useEffect(() => {
     Staticmodal.getAllQualificationList()
       .then((response) => {
-        console.log("Gouravvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv",response.data);
+        console.log("Gouravvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv", response.data);
         setAllQualificationListt(response?.data);
       })
       .catch((error) => {
@@ -67,7 +67,6 @@ function Viewprofile() {
         console.log(error);
       });
   }, []);
-
 
   const [formdata, setformdata] = useState({
     fName: "",
@@ -598,7 +597,6 @@ function Viewprofile() {
                       controlId="exampleForm.ControlTextarea1"
                       defaultValue={profileData?.[0]?.ExperienceName}
                     >
-                      
                       <Row>
                         <Col sm={6}>
                           <Form.Label className="mt-1">
@@ -630,7 +628,13 @@ function Viewprofile() {
                             </option>
                             {AllQualificationListt &&
                               AllQualificationListt?.map((quallist) => (
-                                <option value={quallist?.QualificationID} selected = {quallist.QualificationName == profileData?.[0]?.QualificationName} >
+                                <option
+                                  value={quallist?.QualificationID}
+                                  selected={
+                                    quallist.QualificationName ==
+                                    profileData?.[0]?.QualificationName
+                                  }
+                                >
                                   {quallist?.QualificationName}
                                 </option>
                               ))}
@@ -659,14 +663,19 @@ function Viewprofile() {
                               border: "1px solid lightgrey",
                               borderRadius: "8px",
                             }}
-                           
                           >
                             <option value="" disabled selected>
                               Select Country Name
                             </option>
                             {allCity &&
                               allCity?.map((quallist) => (
-                                <option value={quallist?.CountryID} selected ={quallist.CountryName === profileData?.[0]?.Country}>
+                                <option
+                                  value={quallist?.CountryID}
+                                  selected={
+                                    quallist.CountryName ===
+                                    profileData?.[0]?.Country
+                                  }
+                                >
                                   {quallist?.CountryName}
                                 </option>
                               ))}

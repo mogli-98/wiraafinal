@@ -13,10 +13,9 @@ import Switchform from "../../Model/switch.model";
 import Staticmodal from "../../modal/Static.modal";
 import Phoneviewfooter from "../../Layout/Phoneviewfooter";
 
-
 import { IoChatboxOutline, IoHeart, IoHeartOutline } from "react-icons/io5"; /////////Gourav
-import PortfolioModal from "../../modal/Portfolio.modal";////////////////Gourav
-import { MdDelete } from "react-icons/md";//////////Gourav delete icon
+import PortfolioModal from "../../modal/Portfolio.modal"; ////////////////Gourav
+import { MdDelete } from "react-icons/md"; //////////Gourav delete icon
 
 function Editprofile() {
   const inputRef = useRef(null);
@@ -127,31 +126,30 @@ function Editprofile() {
   ////////////////////////////////////////////
   const handleClick2 = (tab, UsersProfileID) => {
     const userProfileId = UsersProfileID;
-    PortfolioModal.Portfilobyid({ userProfileId }).then((rsp) => {
-        console.log('portfilo', rsp.data)
-        setPortfolios(rsp.data)
-
-    }).catch((error) => {
-
+    PortfolioModal.Portfilobyid({ userProfileId })
+      .then((rsp) => {
+        console.log("portfilo", rsp.data);
+        setPortfolios(rsp.data);
+      })
+      .catch((error) => {
         if (error.response?.status === 404) {
-            seterror("No Portfolio found")
+          seterror("No Portfolio found");
         } else {
-            // seterror(error.message);
+          // seterror(error.message);
         }
+      });
+    setActiveTab(tab);
+  };
+  ////////////////////////////
+  console.log("Gourav data check...............", portfolios);
 
-
-    })
-    setActiveTab(tab)
-};
-////////////////////////////
-console.log("Gourav data check...............",portfolios)
-
-const deleteportFolio= async(PostID)=>{
-    console.log(PostID , "ragagagg")
-    const userProfileId = localStorage.getItem('userProfileId')
-    PortfolioModal.deletePortfolio(userProfileId,PostID).then((res)=>{console.log(res.data)})
-
-}
+  const deleteportFolio = async (PostID) => {
+    console.log(PostID, "ragagagg");
+    const userProfileId = localStorage.getItem("userProfileId");
+    PortfolioModal.deletePortfolio(userProfileId, PostID).then((res) => {
+      console.log(res.data);
+    });
+  };
   return (
     <>
       <Container fluid className="dashboard-conatiner-top">
@@ -485,18 +483,27 @@ const deleteportFolio= async(PostID)=>{
                               {portfolios &&
                                 portfolios.map((userpost) => (
                                   <div>
-                                    <MdDelete size={30} style={{float:"inline-end"}} onClick={()=>deleteportFolio(userpost.PostID)}/> 
+                                    <MdDelete
+                                      size={30}
+                                      style={{ float: "inline-end" }}
+                                      onClick={() =>
+                                        deleteportFolio(userpost.PostID)
+                                      }
+                                    />
                                     <center>
-                                    <div  style={{height:"200px", width:"200px", border:"2px solid red"}} >
-                                      
+                                      <div
+                                        style={{
+                                          height: "200px",
+                                          width: "200px",
+                                          border: "2px solid red",
+                                        }}
+                                      >
                                         <img
                                           src={`https://wiraaback.azurewebsites.net/${userpost.ImageURL}`}
                                           alt="Avatar"
-                                         
                                           className=" m-1"
                                         />
-                                      
-                                    </div>
+                                      </div>
                                     </center>
 
                                     <center>

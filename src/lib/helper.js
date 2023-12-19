@@ -1,10 +1,10 @@
 import Swal from "sweetalert2";
 
 export const helper = {
-  sweetalert: { toast, confirm, toast1,toast2 },
+  sweetalert: { toast, confirm, toast1, toast2 },
   capitalizeLetter,
   generateRandomStrings,
-  validateContactNumber
+  validateContactNumber,
 };
 
 export function toast(title, text = "", icon = "success") {
@@ -15,10 +15,10 @@ export function toast(title, text = "", icon = "success") {
     toast: true,
     timerProgressBar: false,
     showConfirmButton: false,
-    position: 'top-end',
+    position: "top-end",
     timer: 9000,
-    heightAuto: 'false',
-    height: '100px'
+    heightAuto: "false",
+    height: "100px",
   });
 }
 
@@ -30,10 +30,10 @@ export function toast1(title, text = "", icon = "warning") {
     toast: true,
     timerProgressBar: false,
     showConfirmButton: false,
-    position: 'top-end',
+    position: "top-end",
     timer: 9000,
-    heightAuto: 'false',
-    height: '100px'
+    heightAuto: "false",
+    height: "100px",
   });
 }
 export function toast2(title, text = "", icon = "warning") {
@@ -41,12 +41,17 @@ export function toast2(title, text = "", icon = "warning") {
     icon: "success",
     title: title,
     showConfirmButton: false,
-    timer: 9000
+    timer: 9000,
   });
 }
 
-
-export function confirm(title, text, icon = "success", cancelButton = false, confirmButtonText = 'Yes') {
+export function confirm(
+  title,
+  text,
+  icon = "success",
+  cancelButton = false,
+  confirmButtonText = "Yes"
+) {
   return Swal.fire({
     title: title,
     text: text,
@@ -54,15 +59,15 @@ export function confirm(title, text, icon = "success", cancelButton = false, con
     confirmButtonText: confirmButtonText,
     showConfirmButton: true,
     showCancelButton: cancelButton,
-    cancelButtonColor: '#d33',
-    confirmButtonColor: '#3085d6',
+    cancelButtonColor: "#d33",
+    confirmButtonColor: "#3085d6",
   });
 }
 
 export function capitalizeLetter(string) {
   if (string !== "") {
     const words = string.split(" ");
-    const capitalizedWords = words.map(word => {
+    const capitalizedWords = words.map((word) => {
       return word.charAt(0).toUpperCase() + word.slice(1);
     });
     const capitalizedString = capitalizedWords.join(" ");
@@ -72,10 +77,10 @@ export function capitalizeLetter(string) {
   }
 }
 
-
 export function generateRandomStrings(length = 10) {
-  let randomString = '';
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let randomString = "";
+  const chars =
+    "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
   for (let i = 0; i < length; i++) {
     const randomIndex = Math.floor(Math.random() * chars.length);

@@ -49,8 +49,6 @@
 //     const [id, setid] = useState("");
 //     const [messages, setMessages] = useState([])
 
-
-
 //     const send = () => {
 //         const message = document.getElementById('chatInput').value;
 //         const obj = {};
@@ -78,8 +76,6 @@
 //         })
 //         console.log(socket);
 //         socket.emit('joined', { user })
-
-
 
 //         socket.on('userJoined', (data) => {
 //             setMessages([...messages, data]);
@@ -191,7 +187,6 @@
 //                                                                     <Card style={{ backgroundColor: 'red', width: "45%", border: 'none' }} className='mt-2 '>
 //                                                                         <span style={{ float: 'right' }}> {chatlistdata.Messagebody}  </span>
 
-
 //                                                                     </Card>
 //                                                                     <Card style={{ fontSize: "10px", marginLeft: '10px', width: '45%', border: 'none', color: 'grey' }}>  {moment(chatlistdata.CreatedDate).format('DD:MM:YYYY')}   {moment(chatlistdata.CreatedDate).format('HH:mm A')}
 //                                                                     </Card>
@@ -293,8 +288,6 @@
 //     const [id, setid] = useState("");
 //     const [messages, setMessages] = useState([])
 
-
-
 //     const send = () => {
 //         const message = document.getElementById('chatInput').value;
 //         const obj = {};
@@ -323,8 +316,6 @@
 //         })
 //         console.log(socket);
 //         socket.emit('joined', { user })
-
-
 
 //         socket.on('userJoined', (data) => {
 //             setMessages([...messages, data]);
@@ -472,15 +463,15 @@
 
 // export default MessaagesList;
 
-
-import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, } from "react-bootstrap";
-import '../../../asset/css/dashboard.css'
-import Sidenav from '../layout/Sidenav';
-import Topnav from '../layout/topnav';
-import Phoneviewfooter from '../../../Layout/Phoneviewfooter';
-import { IoMailOutline } from 'react-icons/io5';
-import MessageModal from '../../../modal/Message.modal';
+import React, { useEffect, useState } from "react";
+import { Container, Row, Col, Card } from "react-bootstrap";
+import "../../../asset/css/dashboard.css";
+import Sidenav from "../layout/Sidenav";
+import Topnav from "../layout/topnav";
+import Phoneviewfooter from "../../../Layout/Phoneviewfooter";
+import { IoMailOutline } from "react-icons/io5";
+import MessageModal from "../../../modal/Message.modal";
+import More from "../../../asset/image/more.jpeg";
 
 import { user } from "./Join/Join";
 import socketIo from "socket.io-client";
@@ -488,232 +479,421 @@ import "../cchat/Chat/Chat.css";
 // import sendLogo from "../../images/send.png";
 import Message from "./Message/Message";
 import ReactScrollToBottom from "react-scroll-to-bottom";
-import moment from 'moment';
+import moment from "moment";
 let socket;
 
 const ENDPOINT = "https://wiraaback.azurewebsites.net/";
 function MessaagesList(props) {
-    const [getalluserchat, setGetalluserChat] = useState();
-    const [activeTab, setActiveTab] = useState("Tab1");
-    const [Chatdetail, setChatdetails] = useState(null);
-    const fetchdata = () => {
-        const userId = localStorage.getItem("UserID");
-        MessageModal.allchatlist({ userId }).then((response) => {
-            console.log(response?.data, 'jjjjjjjjjjjjjjjjjjjj')
-            setGetalluserChat(response?.data)
-        }
+  const [MyDetails, setMyDetails] = useState();
+  const [show, setShow] = useState(false);
+  const [shows, setShows] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleClose1 = () => setShows(false);
+  const [getError, seterror] = useState("");
+  const handleShow = () => setShow(true);
+  const handleShow1 = () => setShows(true);
+  const [getalluserchat, setGetalluserChat] = useState();
+  const [activeTab, setActiveTab] = useState("Tab1");
+  const [Chatdetail, setChatdetails] = useState(null);
+  const fetchdata = () => {
+    const userId = localStorage.getItem("UserID");
+    MessageModal.allchatlist({ userId }).then((response) => {
+      console.log(response?.data, "jjjjjjjjjjjjjjjjjjjj");
+      setGetalluserChat(response?.data);
+    });
+  };
+  const Blockacc = async (UserID) => {
+    console.log(UserID);
+    const userProfileId = parseInt(localStorage.getItem("userProfileId"));
+    const userId = UserID;
+    SettingModal.blockuser({ userProfileId }, { userId })
+      .then((response) => {
+        // console.log(response.data);
+        helper.sweetalert.toast("User Blocked Successfully");
+        // setFreelancer(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+        // Display error message to the user
+      });
+  };
+  const [anchorEl, setAnchorEl] = React.useState(null);
 
-        )
-    }
+  const handleClic = (event) => {
+    handleClose1();
+    setAnchorEl(event.currentTarget);
+  };
 
-    const [saurabh, setSaurabh] = useState(null)
-    const Getdetails = () => {
-        const userId = localStorage.getItem("UserID");
-        const senderId = saurabh;
-        MessageModal.getchatByID({ userId }, { senderId }).then((resp) => {
-            console.log(resp.data, 'jjjjj')
-            setChatdetails(resp.data)
-        })
-            .catch((error) => {
-                console.log("error => ", error)
-            })
-    }
-    const [id, setid] = useState("");
-    const [messages, setMessages] = useState([])
+  const handleClos = () => {
+    setAnchorEl(null);
+  };
 
+  const open = Boolean(anchorEl);
+  // const id = open ? 'simple-popover' : undefined;
 
+  const [saurabh, setSaurabh] = useState(null);
+  const Getdetails = () => {
+    const userId = localStorage.getItem("UserID");
+    const senderId = saurabh;
+    MessageModal.getchatByID({ userId }, { senderId })
+      .then((resp) => {
+        console.log(resp.data, "jjjjj");
+        setChatdetails(resp.data);
+      })
+      .catch((error) => {
+        console.log("error => ", error);
+      });
+  };
+  const [id, setid] = useState("");
+  const [messages, setMessages] = useState([]);
 
-    const send = () => {
-        const message = document.getElementById('chatInput').value;
-        const obj = {};
-        obj.userId = localStorage.getItem("UserID");
-        obj.senderUserId = saurabh;
-        obj.message = message.trim();
-        obj.projectId = 1;
-        obj.file =
-            console.log("myMessage", obj, socket.id);
-        socket.emit("message", obj, socket.id);
-        // socket.emit('message', { message, id, obj });
+  const send = () => {
+    const file = document.getElementById("chatfile").value;
+    const message = document.getElementById("chatInput").value;
+    const obj = {};
+    obj.userId = saurabh;
+    obj.senderUserId = localStorage.getItem("UserID");
+    obj.message = message.trim();
+    obj.projectId = 1;
+    obj.file = file.trim();
+    console.log("myMessage", obj, socket.id);
+    socket.emit("message", obj, socket.id);
+    // socket.emit('message', { message, id, obj });
 
-        document.getElementById('chatInput').value = "";
-        console.log("jkjjj", saurabh)
+    document.getElementById("chatInput").value = "";
+    document.getElementById("chatfile").value = "";
+    console.log("jkjjj", saurabh);
 
-        Getdetails(saurabh)
-    }
+    Getdetails(saurabh);
+  };
 
-    console.log(messages);
-    useEffect(() => {
-        socket = socketIo(ENDPOINT, { transports: ['websocket'] });
+  console.log(messages);
+  useEffect(() => {
+    socket = socketIo(ENDPOINT, { transports: ["websocket"] });
 
-        socket.on('connect', () => {
-            // alert('Connected');
-            setid(socket.id);
-            console.log('jklnikhn')
-        })
-        console.log(socket);
-        socket.emit('joined', { user })
+    socket.on("connect", () => {
+      // alert('Connected');
+      setid(socket.id);
+      console.log("jklnikhn");
+    });
+    console.log(socket);
+    socket.emit("joined", { user });
 
+    socket.on("userJoined", (data) => {
+      setMessages([...messages, data]);
+      console.log(data.user, data.message);
+    });
 
+    socket.on("leave", (data) => {
+      setMessages([...messages, data]);
+      console.log(data.user, data.message);
+    });
 
-        socket.on('userJoined', (data) => {
-            setMessages([...messages, data]);
-            console.log(data.user, data.message);
-        })
+    return () => {
+      socket.emit("disconnects");
+      socket.off();
+    };
+  }, []);
 
-        socket.on('leave', (data) => {
-            setMessages([...messages, data]);
-            console.log(data.user, data.message)
-        })
+  useEffect(() => {
+    socket.on("sendMessage", (data) => {
+      setMessages([...messages, data]);
+      console.log(data.user, data.message, data.id);
+    });
+    return () => {
+      socket.off();
+    };
+  }, [messages]);
+  useEffect(() => {
+    fetchdata();
+    Getdetails(saurabh);
+  }, [saurabh]);
+  const [formData, setFormData] = useState({
+    feedback: "",
+  });
+  const handleInputChange = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
+  };
+  const handleSubmit = (event) => {
+    console.log(event);
+    event.preventDefault();
+    const formdata = new FormData(event.target);
+    formdata.append("userId", localStorage.getItem("UserID"));
+    SettingModal.CreateReport(formdata)
+      .then((response) => {
+        // console.log(response.data, "yes data update");
+        helper.sweetalert.toast(
+          "Your professional dashboard request is under review  We will notify you once it's approved."
+        );
+        handleClose1();
+        handleClose();
+      })
+      .catch((error) => {
+        console.log(error);
+        // Display error message to the user
+      });
+  };
+  return (
+    <>
+      <Container fluid className="dashboard-conatiner-top">
+        <Row>
+          <Col sm={1} className="d-none d-sm-block">
+            <Sidenav activekey="message" />
+          </Col>
+          <Col
+            style={{ padding: "0px" }}
+            sm={8}
+            xs={12}
+            className="dashboard-conatiner-top-row "
+          >
+            <Container className="square border border-bottom-0">
+              <Topnav activeLink="Messages" />
+              <Row>
+                <Col sm={4} className="square border-end">
+                  <div className="tabs-container mt-3">
+                    <Container>
+                      <Row className="mt-3 mb-3">
+                        <Col className="no-message">
+                          {/* <div style={{height:'25px',borderRadius:'10px',backgroundColor:'ButtonHighlight',border:'1px solid black'}} > */}
+                          <input
+                            style={{
+                              height: "25px",
+                              borderRadius: "10px",
+                              border: "1px solid black",
+                              width: "100%",
+                              padding: "10px 10px",
+                            }}
+                            type="text"
+                            placeholder="Search"
+                          />
 
-        return () => {
-            socket.emit('disconnects');
-            socket.off();
-        }
-    }, [])
+                          {/* </div> */}
+                          <div>
+                            {getalluserchat &&
+                              getalluserchat?.map((listdata) => (
+                                <Card
+                                  className="mt-2"
+                                  style={{
+                                    backgroundColor: listdata?.isRead
+                                      ? "white"
+                                      : " #efefef",
+                                    cursor: "pointer",
+                                  }}
+                                  onClick={() => {
+                                    setSaurabh(listdata.friendUserId);
+                                  }}
+                                >
+                                  <div className="p-1">
+                                    <h5
+                                      style={{ margin: "0px", padding: "0px" }}
+                                    >
+                                      {listdata?.Firstname} {listdata?.Lastname}
+                                    </h5>
 
-    useEffect(() => {
-        socket.on('sendMessage', (data) => {
-            setMessages([...messages, data]);
-            console.log(data.user, data.message, data.id);
-        })
-        return () => {
-            socket.off();
-        }
-    }, [messages])
-    useEffect(() => {
-        fetchdata()
-        Getdetails(saurabh)
-
-    }, [saurabh])
-    return (
-        <>
-            <Container fluid className='dashboard-conatiner-top' >
-                <Row>
-                    <Col sm={1} className='d-none d-sm-block'>
-                        <Sidenav activekey="message" />
-                    </Col>
-                    <Col style={{ padding: '0px' }} sm={8} xs={12} className='dashboard-conatiner-top-row '>
-                        <Container className='square border border-bottom-0'>
-                            <Topnav activeLink="Messages" />
-                            <Row >
-                                <Col sm={4} className="square border-end">
-
-                                    <div className="tabs-container mt-3">
-                                        <Container>
-                                            <Row className='mt-3 mb-3'>
-                                                <Col className='no-message'>
-                                                    {/* <div style={{height:'25px',borderRadius:'10px',backgroundColor:'ButtonHighlight',border:'1px solid black'}} > */}
-                                                    <input style={{ height: '25px', borderRadius: '10px', border: '1px solid black', width: '100%', padding: '10px 10px' }} type="text" placeholder='Search' />
-
-                                                    {/* </div> */}
-                                                    <div>
-                                                        {getalluserchat && getalluserchat?.map((listdata) =>
-
-                                                            <Card className='mt-2' style={{ backgroundColor: listdata?.isRead ? 'white' : ' #efefef', cursor: "pointer" }} onClick={() => { setSaurabh(listdata.friendUserId) }}>
-
-                                                                <div className='p-1'>
-                                                                    <h5 style={{ margin: '0px', padding: '0px' }}>{listdata?.Firstname} {listdata?.Lastname}</h5>
-
-                                                                    <div
-                                                                        style={{ height: "20px", overflow: 'hidden', textOverflow: "ellipsis" }}>
-                                                                        <span style={{ fontSize: '14px' }}>{listdata?.Messagebody}</span>
-                                                                    </div>
-
-                                                                </div>
-                                                            </Card>
-                                                        )}
-                                                    </div>
-
-                                                </Col>
-                                            </Row>
-                                        </Container>
+                                    <div
+                                      style={{
+                                        height: "20px",
+                                        overflow: "hidden",
+                                        textOverflow: "ellipsis",
+                                      }}
+                                    >
+                                      <span style={{ fontSize: "14px" }}>
+                                        {listdata?.Messagebody}
+                                      </span>
                                     </div>
-                                </Col>
-                                <Col md={8} className="">
-                                    {
-                                        Chatdetail !== null ? (<>
-                                            <div className='box'>
-                                                <Card className='mt-2 p-2' style={{ borderRadius: "10px", backgroundColor: '#EFEFEF' }}>
-                                                    <div>
-                                                        <div style={{ justifyContent: 'start', display: 'flex', padding: '10px', }}>
-
-                                                            <h6>
-                                                                {/* <img style={{ borderRadius: "50px", width: '50px', height: '50px' }} src={image} alt="img" className='order-details-img m-3' /> */}
-                                                                <b>{Chatdetail[0]?.[0]?.FirstName} {Chatdetail[0]?.[0]?.LastName}</b></h6>
-
-                                                        </div>
-
-                                                    </div>
-                                                </Card>
-                                                <hr />
-                                                <ReactScrollToBottom className="chatBox">
-                                                    <div style={{ height: "50vh", overflowY: "scroll" }}>
-                                                        {
-                                                            Chatdetail[1].map((chatlistdata) =>
-                                                                chatlistdata.UserId === localStorage.getItem("UserID") ? (
-                                                                    <>
-                                                                        <div>
-                                                                            <Card style={{ backgroundColor: 'lightcyan', width: "40%", float: "right" }} className='mt-2'>
-                                                                                <span >{chatlistdata.Messagebody}     </span>
-
-
-                                                                            </Card>
-                                                                        </div>
-                                                                        <div>
-                                                                            <span style={{ fontSize: "12px", float: "right" }}>      {moment(chatlistdata.CreatedDate).format('hh:mm: A')}</span>
-
-                                                                        </div>
-
-                                                                        <br />
-                                                                        <br />
-                                                                    </>
-                                                                ) : (
-                                                                    <>
-                                                                        <Card style={{ backgroundColor: '#f0f2f5', width: "40%" }} className='mt-2'>
-                                                                            <span style={{ float: 'right', color: 'red' }}>{chatlistdata.Messagebody}  </span>
-
-
-                                                                        </Card>
-                                                                        <p style={{ fontSize: "12px" }}>      {moment(chatlistdata.CreatedDate).format('HH:mm:ss A')}</p>
-                                                                    </>
-                                                                )
-                                                            )
-                                                        }
-                                                    </div>
-                                                </ReactScrollToBottom>
-
-                                                {/* {messages.map((item, i) => <Message user={item.id === id ? '' : item.user} message={item.message} classs={item.id === id ? 'right' : 'left'} />)}
-                                            </ReactScrollToBottom> */} 
-                                            <div className="inputBox">
-                                                <input onKeyUp={(event) => event.key === 'Enter' ? send() : null} type="text" id="chatInput" />
-                                                <button onClick={send} className="sendBtn">
-                                                    Send
-                                                </button>
-
-                                            </div>
-                                        </div>
-                                </>) :
-                                (<>
-                                    <div className='mt-5  no-message-show'>
-                                        <center>
-                                            {/* <ion-icon name="mail-unread-outline"></ion-icon> */}
-                                            <  IoMailOutline style={{ fontSize: '50px', marginTop: '40px' }} />
-                                            <h4> Let Start Message </h4>
-                                        </center>
-                                    </div>
-                                </>)
-                                    }
-
-                            </Col>
-                        </Row>
+                                  </div>
+                                </Card>
+                              ))}
+                          </div>
+                        </Col>
+                      </Row>
                     </Container>
+                  </div>
                 </Col>
-            </Row>
-        </Container >
-            <Phoneviewfooter />
+                <Col md={8} className="">
+                  {Chatdetail !== null ? (
+                    <>
+                      <div className="box">
+                        <Card
+                          className="mt-2 p-2"
+                          style={{
+                            borderRadius: "10px",
+                            backgroundColor: "#EFEFEF",
+                          }}
+                        >
+                          <div>
+                            <Link
+                              to={`/Profiledetails/${Chatdetail[0]?.[0]?.UserID}`}
+                            >
+                              <span>
+                                {/* <img style={{ borderRadius: "50px", width: '50px', height: '50px' }} src={image} alt="img" className='order-details-img m-3' /> */}
+                                <b>
+                                  {Chatdetail[0]?.[0]?.FirstName}{" "}
+                                  {Chatdetail[0]?.[0]?.LastName}
+                                </b>
+                              </span>
+                            </Link>
+                            <span
+                              style={{
+                                cursor: "pointer",
+                                color: "#fff",
+                                float: "right",
+                                borderRadius: "50%",
+                              }}
+                            >
+                              {" "}
+                              <img
+                                style={{
+                                  color: "lightgrey",
+                                  height: "30px",
+                                  width: "30px",
+                                }}
+                                src={More}
+                                alt="IMG"
+                                onClick={handleClic}
+                              />{" "}
+                            </span>
+                          </div>
+                        </Card>
+                        <hr />
+                        <ReactScrollToBottom className="chatBox">
+                          <div style={{ height: "50vh", overflowY: "scroll" }}>
+                            {Chatdetail[1].map((chatlistdata) =>
+                              chatlistdata.UserId ===
+                              localStorage.getItem("UserID") ? (
+                                <>
+                                  <div>
+                                    <Card
+                                      style={{
+                                        backgroundColor: "lightcyan",
+                                        width: "40%",
+                                        float: "right",
+                                      }}
+                                      className="mt-2"
+                                    >
+                                      <span>{chatlistdata.Messagebody} </span>
+                                    </Card>
+                                  </div>
+                                  <div>
+                                    <span
+                                      style={{
+                                        fontSize: "12px",
+                                        float: "right",
+                                      }}
+                                    >
+                                      {" "}
+                                      {moment(chatlistdata.CreatedDate).format(
+                                        "hh:mm: A"
+                                      )}
+                                    </span>
+                                  </div>
 
-        </>
-    )
+                                  <br />
+                                  <br />
+                                </>
+                              ) : (
+                                <>
+                                  <Card
+                                    style={{
+                                      backgroundColor: "#f0f2f5",
+                                      width: "40%",
+                                    }}
+                                    className="mt-2"
+                                  >
+                                    <span
+                                      style={{ float: "right", color: "red" }}
+                                    >
+                                      {chatlistdata.Messagebody}{" "}
+                                    </span>
+                                  </Card>
+                                  <p style={{ fontSize: "12px" }}>
+                                    {" "}
+                                    {moment(chatlistdata.CreatedDate).format(
+                                      "HH:mm:ss A"
+                                    )}
+                                  </p>
+                                </>
+                              )
+                            )}
+                          </div>
+                        </ReactScrollToBottom>
+
+                        {/* {messages.map((item, i) => <Message user={item.id === id ? '' : item.user} message={item.message} classs={item.id === id ? 'right' : 'left'} />)}
+                                            </ReactScrollToBottom> */}
+                        <div className="inputBox">
+                          <input
+                            onKeyUp={(event) =>
+                              event.key === "Enter" ? send() : null
+                            }
+                            type="text"
+                            id="chatInput"
+                          />
+                          <input type="file" name="file" id="chatfile" />
+                          <button onClick={send} className="sendBtn">
+                            Send
+                          </button>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="mt-5  no-message-show">
+                        <center>
+                          {/* <ion-icon name="mail-unread-outline"></ion-icon> */}
+                          <IoMailOutline
+                            style={{ fontSize: "50px", marginTop: "40px" }}
+                          />
+                          <h4> Let Start Message </h4>
+                        </center>
+                      </div>
+                    </>
+                  )}
+                </Col>
+              </Row>
+            </Container>
+          </Col>
+        </Row>
+        <Popover
+          id={id}
+          open={open}
+          anchorEl={anchorEl}
+          onClose={handleClos}
+          anchorOrigin={{
+            vertical: "bottom",
+            horizontal: "left",
+          }}
+        >
+          <Box style={{ borderRadius: "8px" }} sx={{ p: 2 }}>
+            <Button
+              onClick={handleShow1}
+              style={{ padding: "5px 20px" }}
+              variant="danger"
+            >
+              Report1
+            </Button>
+
+            <br />
+            <hr />
+
+            <Button
+              className="mt-2"
+              style={{ padding: "5px 24px" }}
+              variant="secondary"
+              onClick={() => {
+                Blockacc(MyDetails?.[0]?.UserID);
+              }}
+            >
+              Block
+            </Button>
+          </Box>
+        </Popover>
+      </Container>
+      <Phoneviewfooter />
+    </>
+  );
 }
 
 export default MessaagesList;

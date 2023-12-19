@@ -64,8 +64,11 @@ function FreeProjectdetails() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const form = new FormData(event.target);
-    
-    const experience = Math.max(0,Math.min(99, parseInt(form.get("experience")) || 0));
+
+    const experience = Math.max(
+      0,
+      Math.min(99, parseInt(form.get("experience")) || 0)
+    );
     form.set("experience", experience);
 
     form.append("userId", localStorage.getItem("UserID"));
