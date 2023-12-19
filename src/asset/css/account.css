@@ -1,0 +1,53 @@
+/* @font-face {
+    font-family: 'futura-bold';
+    src: local("futura-bold"),
+      url("../../Fonts/unicode.futurab.ttf") format("truetype");
+  }
+  @font-face {
+    /* font-family: 'futura'; 
+    src: local("futura"),
+      url("../../Fonts/OpenSans-VariableFont_wdth\,wght.ttf") format("truetype");
+  } */
+
+
+  
+.signup{
+    padding: 15px 32px 0px 32px;
+   
+}
+.signup-text{
+    font-size: 16px;
+    /* font-family: opensans; */
+    color: #171919;
+    padding-bottom: 8px; 
+}
+.conatct-button
+{
+    background: linear-gradient( 90deg, #04f, #04f) !important;
+    border: 1px solid transparent !important;
+    font-family: Futura;
+    text-transform: uppercase;
+    font-size: 14px;
+    margin-top: 20px;
+    border-radius: 5px;
+    color: #fff;
+    height: 50px;
+    font-weight: bold;
+ 
+}
+
+
+
+.filee {
+    position: relative;
+    overflow: hidden;
+    float: right;
+    background-color: #008080;    
+  }
+.inputselectfile {
+    position: absolute;
+    font-size: 50px;
+    opacity: 0;
+    right: 0;
+    top: 0;
+  }
