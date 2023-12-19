@@ -167,7 +167,7 @@ function Viewprofile() {
                                         <Card className='order-detail-profile  d-block d-sm-none' style={{ backgroundColor: "#efefef", borderRadius: "35px", border: 'none', borderBottomLeftRadius: '0px', marginTop: '70px' }}>
 
                                             <center>
-                                                <img src={`https://wiraaback.azurewebsites.net/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
+                                                <img src={profileData?.[0]?.ProfilePic} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
                                                 <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>
                                                 <p>{profileData?.[0]?.OccupationName}</p>
                                             </center>

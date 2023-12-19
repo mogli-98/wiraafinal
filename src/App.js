@@ -74,6 +74,7 @@ import Checkmessage from './Pages/Dashboard/cchat/CheckMessage';
 import Join from './Pages/Dashboard/cchat/Join/Join';
 import UpdateEmail from './Pages/Account/UpdateEmail';
 import Singupcode from './Pages/Account/Singupcode';
+import AzureBlobImage from './Pages/Dashboard/blobimg';
 
 // import Nonotiftyy from './Pages/freelancerdashboard/nootify/Notification';
 
@@ -149,6 +150,7 @@ function App() {
 
           <Route path='/Switchaccount' exact element={<SwitchAccount />} />
           <Route path='/Hiretalent' exact element={<Hiretalent />} />
+          {/* <Route path='/Hiretalent' exact element={<AzureBlobImage />} /> */}
           <Route path='/Project/ProjectDetails' exact element={<Projectdetails />} />
           <Route path='/Message' exact element={<Checkmessage />} />
           <Route path='/Messagebox' exact element={<Messagebox />} />

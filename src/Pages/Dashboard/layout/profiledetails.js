@@ -344,9 +344,6 @@ function Explorepage() {
                                 </Col>
 
                             </Row>
-
-
-
                             <Popover
                                 // className='d-none d-sm-block'
                                 id={id}
@@ -362,7 +359,7 @@ function Explorepage() {
 
                                 <Box style={{ borderRadius: '8px' }} sx={{ p: 2 }}>
                                     <Button onClick={handleShow1} style={{ padding: '5px 20px' }} variant='danger'>
-                                        Report
+                                        Report1
                                     </Button>
 
                                     <br />
@@ -377,7 +374,6 @@ function Explorepage() {
                                 </Box>
 
                             </Popover>
-
                             <Modal className='d-block d-sm-none' show={show} onHide={handleClose} size='sm' centered>
                                 <Modal.Header closeButton>
 
@@ -396,10 +392,6 @@ function Explorepage() {
                                 </Modal.Body>
 
                             </Modal>
-
-
-
-
                             <Modal className='d-none d-sm-block' show={shows} onHide={handleClose1} aria-labelledby="contained-modal-title-vcenter" size='md' centered>
                                 <Modal.Header style={{ color: '#008080', fontWeight: 600 }} closeButton>
                                     <span style={{ fontSize: '20px' }}>
@@ -447,10 +439,6 @@ function Explorepage() {
                                 </Modal.Body>
 
                             </Modal>
-
-
-
-
                             <Modal className='d-block d-sm-none' show={shows} onHide={handleClose1} aria-labelledby="contained-modal-title-vcenter" size='md' centered>
                                 <Modal.Header style={{ color: '#008080', fontWeight: 600 }} closeButton>
                                     <span style={{ fontSize: '20px' }}>
@@ -494,12 +482,6 @@ function Explorepage() {
                                 </Modal.Body>
 
                             </Modal>
-
-
-
-
-
-
                         </Container>
 
                     </Col>

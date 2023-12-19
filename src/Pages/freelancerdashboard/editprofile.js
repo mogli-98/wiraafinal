@@ -208,10 +208,7 @@ function Editprofile() {
                                                 </Row>
                                             </Container>
                                         </Card>
-
-
                                         <Card className='order-detail-profile    d-block d-sm-none' style={{ backgroundColor: "#efefef", borderRadius: "35px", border: 'none', borderBottomLeftRadius: '0px', marginTop: '80px' }}>
-
                                             <center>
                                                 <img src={`https://wiraaback.azurewebsites.net/api/v1/${profileData?.[0]?.ProfilePic}`} alt="" className='' style={{ height: "70px", width: '70px', marginTop: '20px' }} />
                                                 <h6 className='mt-4'><b>{profileData?.[0]?.FirstName} {profileData?.[0]?.LastName} </b></h6>

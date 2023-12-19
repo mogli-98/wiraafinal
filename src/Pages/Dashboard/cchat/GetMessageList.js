@@ -474,13 +474,14 @@
 
 
 import React, { useEffect, useState } from 'react';
-import { Container, Row, Col, Card, } from "react-bootstrap";
+import { Container, Row, Col, Card, Button, } from "react-bootstrap";
 import '../../../asset/css/dashboard.css'
 import Sidenav from '../layout/Sidenav';
 import Topnav from '../layout/topnav';
 import Phoneviewfooter from '../../../Layout/Phoneviewfooter';
 import { IoMailOutline } from 'react-icons/io5';
 import MessageModal from '../../../modal/Message.modal';
+import More from '../../../asset/image/more.jpeg'
 
 import { user } from "./Join/Join";
 import socketIo from "socket.io-client";
@@ -489,10 +490,22 @@ import "../cchat/Chat/Chat.css";
 import Message from "./Message/Message";
 import ReactScrollToBottom from "react-scroll-to-bottom";
 import moment from 'moment';
+import { Box, Popover } from '@mui/material';
+import SettingModal from '../../../modal/Setting.modal';
+import { helper } from '../../../lib/helper';
+import { Link } from 'react-router-dom';
 let socket;
 
 const ENDPOINT = "https://wiraaback.azurewebsites.net/";
 function MessaagesList(props) {
+    const [MyDetails, setMyDetails] = useState();
+    const [show, setShow] = useState(false);
+    const [shows, setShows] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleClose1 = () => setShows(false);
+    const [getError, seterror] = useState("")
+    const handleShow = () => setShow(true);
+    const handleShow1 = () => setShows(true);
     const [getalluserchat, setGetalluserChat] = useState();
     const [activeTab, setActiveTab] = useState("Tab1");
     const [Chatdetail, setChatdetails] = useState(null);
@@ -505,6 +518,34 @@ function MessaagesList(props) {
 
         )
     }
+    const Blockacc = async (UserID) => {
+        console.log(UserID)
+        const userProfileId = parseInt(localStorage.getItem("userProfileId"));
+        const userId = UserID;
+        SettingModal.blockuser({ userProfileId }, { userId }).then((response) => {
+            // console.log(response.data);
+            helper.sweetalert.toast("User Blocked Successfully")
+            // setFreelancer(response.data);
+
+        }).catch((error) => {
+            console.log(error);
+            // Display error message to the user
+        });
+    }
+    const [anchorEl, setAnchorEl] = React.useState(null);
+
+    const handleClic = (event) => {
+        handleClose1()
+        setAnchorEl(event.currentTarget);
+
+    };
+
+    const handleClos = () => {
+        setAnchorEl(null);
+    };
+
+    const open = Boolean(anchorEl);
+    // const id = open ? 'simple-popover' : undefined;
 
     const [saurabh, setSaurabh] = useState(null)
     const Getdetails = () => {
@@ -524,18 +565,20 @@ function MessaagesList(props) {
 
 
     const send = () => {
+        const file = document.getElementById('chatfile').value;
         const message = document.getElementById('chatInput').value;
         const obj = {};
-        obj.userId =saurabh ;
-        obj.senderUserId =  localStorage.getItem("UserID");
+        obj.userId = saurabh;
+        obj.senderUserId = localStorage.getItem("UserID");
         obj.message = message.trim();
         obj.projectId = 1;
-        obj.file =
-            console.log("myMessage", obj, socket.id);
+        obj.file = file.trim()
+        console.log("myMessage", obj, socket.id);
         socket.emit("message", obj, socket.id);
         // socket.emit('message', { message, id, obj });
 
         document.getElementById('chatInput').value = "";
+        document.getElementById('chatfile').value = "";
         console.log("jkjjj", saurabh)
 
         Getdetails(saurabh)
@@ -546,7 +589,7 @@ function MessaagesList(props) {
         socket = socketIo(ENDPOINT, { transports: ['websocket'] });
 
         socket.on('connect', () => {
-            alert('Connected');
+            // alert('Connected');
             setid(socket.id);
             console.log('jklnikhn')
         })
@@ -585,6 +628,33 @@ function MessaagesList(props) {
         Getdetails(saurabh)
 
     }, [saurabh])
+    const [formData, setFormData] = useState({
+        feedback: '',
+    });
+    const handleInputChange = (event) => {
+        setFormData({
+            ...formData,
+            [event.target.name]: event.target.value,
+        });
+    };
+    const handleSubmit = (event) => {
+
+        console.log(event);
+        event.preventDefault();
+        const formdata = new FormData(event.target);
+        formdata.append("userId", localStorage.getItem("UserID"));
+        SettingModal.CreateReport(formdata)
+            .then((response) => {
+                // console.log(response.data, "yes data update");
+                helper.sweetalert.toast("Your professional dashboard request is under review  We will notify you once it's approved.")
+                handleClose1();
+                handleClose()
+            })
+            .catch((error) => {
+                console.log(error);
+                // Display error message to the user
+            });
+    };
     return (
         <>
             <Container fluid className='dashboard-conatiner-top' >
@@ -634,14 +704,12 @@ function MessaagesList(props) {
                                         Chatdetail !== null ? (<>
                                             <div className='box'>
                                                 <Card className='mt-2 p-2' style={{ borderRadius: "10px", backgroundColor: '#EFEFEF' }}>
-                                                    <div>
-                                                        <div style={{ justifyContent: 'start', display: 'flex', padding: '10px', }}>
-
-                                                            <h6>
+                                                    <div >
+                                                        <Link to={`/Profiledetails/${Chatdetail[0]?.[0]?.UserID}`}>
+                                                            <span>
                                                                 {/* <img style={{ borderRadius: "50px", width: '50px', height: '50px' }} src={image} alt="img" className='order-details-img m-3' /> */}
-                                                                <b>{Chatdetail[0]?.[0]?.FirstName} {Chatdetail[0]?.[0]?.LastName}</b></h6>
-
-                                                        </div>
+                                                                <b>{Chatdetail[0]?.[0]?.FirstName} {Chatdetail[0]?.[0]?.LastName}</b></span></Link>
+                                                        <span style={{ cursor: 'pointer', color: '#fff', float: 'right', borderRadius: '50%' }}> <img style={{ color: 'lightgrey', height: '30px', width: '30px' }} src={More} alt="IMG" onClick={handleClic} /> </span>
 
                                                     </div>
                                                 </Card>
@@ -683,33 +751,64 @@ function MessaagesList(props) {
                                                 </ReactScrollToBottom>
 
                                                 {/* {messages.map((item, i) => <Message user={item.id === id ? '' : item.user} message={item.message} classs={item.id === id ? 'right' : 'left'} />)}
-                                            </ReactScrollToBottom> */} 
-                                            <div className="inputBox">
-                                                <input onKeyUp={(event) => event.key === 'Enter' ? send() : null} type="text" id="chatInput" />
-                                                <button onClick={send} className="sendBtn">
-                                                    Send
-                                                </button>
+                                            </ReactScrollToBottom> */}
+                                                <div className="inputBox">
 
+                                                    <input onKeyUp={(event) => event.key === 'Enter' ? send() : null} type="text" id="chatInput" />
+                                                    <input type="file" name="file" id="chatfile" />
+                                                    <button onClick={send} className="sendBtn">
+                                                        Send
+                                                    </button>
+
+                                                </div>
                                             </div>
-                                        </div>
-                                </>) :
-                                (<>
-                                    <div className='mt-5  no-message-show'>
-                                        <center>
-                                            {/* <ion-icon name="mail-unread-outline"></ion-icon> */}
-                                            <  IoMailOutline style={{ fontSize: '50px', marginTop: '40px' }} />
-                                            <h4> Let Start Message </h4>
-                                        </center>
-                                    </div>
-                                </>)
+                                        </>) :
+                                            (<>
+                                                <div className='mt-5  no-message-show'>
+                                                    <center>
+                                                        {/* <ion-icon name="mail-unread-outline"></ion-icon> */}
+                                                        <  IoMailOutline style={{ fontSize: '50px', marginTop: '40px' }} />
+                                                        <h4> Let Start Message </h4>
+                                                    </center>
+                                                </div>
+                                            </>)
                                     }
 
-                            </Col>
-                        </Row>
-                    </Container>
-                </Col>
-            </Row>
-        </Container >
+                                </Col>
+                            </Row>
+                        </Container>
+                    </Col>
+                </Row>
+                <Popover
+                    id={id}
+                    open={open}
+                    anchorEl={anchorEl}
+                    onClose={handleClos}
+                    anchorOrigin={{
+                        vertical: 'bottom',
+                        horizontal: 'left',
+                    }}
+                >
+
+
+                    <Box style={{ borderRadius: '8px' }} sx={{ p: 2 }}>
+                        <Button onClick={handleShow1} style={{ padding: '5px 20px' }} variant='danger'>
+                            Report1
+                        </Button>
+
+                        <br />
+                        <hr />
+
+                        <Button className='mt-2' style={{ padding: '5px 24px' }} variant='secondary'
+
+                            onClick={() => { Blockacc(MyDetails?.[0]?.UserID) }}>
+                            Block
+                        </Button>
+
+                    </Box>
+
+                </Popover>
+            </Container >
             <Phoneviewfooter />
 
         </>
