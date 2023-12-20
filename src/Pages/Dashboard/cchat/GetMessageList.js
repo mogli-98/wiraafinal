@@ -464,7 +464,7 @@
 // export default MessaagesList;
 
 import React, { useEffect, useState } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import "../../../asset/css/dashboard.css";
 import Sidenav from "../layout/Sidenav";
 import Topnav from "../layout/topnav";
@@ -480,6 +480,10 @@ import "../cchat/Chat/Chat.css";
 import Message from "./Message/Message";
 import ReactScrollToBottom from "react-scroll-to-bottom";
 import moment from "moment";
+import { Box, Popover } from "@mui/material";
+import SettingModal from "../../../modal/Setting.modal";
+import { helper } from "../../../lib/helper";
+import { Link } from "react-router-dom";
 let socket;
 
 const ENDPOINT = "https://wiraaback.azurewebsites.net/";
@@ -517,6 +521,17 @@ function MessaagesList(props) {
         // Display error message to the user
       });
   };
+
+  const msgdelete = async (UserId) => {
+    const userId = localStorage.getItem("UserID");
+    const senderId = UserId;
+
+    console.log("senderID msg file........", senderId);
+    MessageModal.messagedlt(userId, senderId).then((res) => {
+      console.log("msg delete check..........", res.data);
+    });
+  };
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClic = (event) => {
@@ -537,13 +552,14 @@ function MessaagesList(props) {
     const senderId = saurabh;
     MessageModal.getchatByID({ userId }, { senderId })
       .then((resp) => {
-        console.log(resp.data, "jjjjj");
+        console.log(resp.data, "jjjjjGOURAV");
         setChatdetails(resp.data);
       })
       .catch((error) => {
         console.log("error => ", error);
       });
   };
+
   const [id, setid] = useState("");
   const [messages, setMessages] = useState([]);
 
@@ -636,6 +652,8 @@ function MessaagesList(props) {
         // Display error message to the user
       });
   };
+  console.log("chatlistdata check.................", Chatdetail);
+
   return (
     <>
       <Container fluid className="dashboard-conatiner-top">
@@ -868,11 +886,12 @@ function MessaagesList(props) {
         >
           <Box style={{ borderRadius: "8px" }} sx={{ p: 2 }}>
             <Button
-              onClick={handleShow1}
+              // onClick={handleShow1}
               style={{ padding: "5px 20px" }}
               variant="danger"
+              onClick={() => msgdelete(Chatdetail[0]?.[0]?.UserID)}
             >
-              Report1
+              Delete
             </Button>
 
             <br />

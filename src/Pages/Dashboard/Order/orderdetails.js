@@ -92,13 +92,15 @@ function Orderdetails() {
         console.log("error => ", error);
       });
   };
-  const [intprofileData, setIntProfileData] = useState([]);
+  const [satrtintprofileData, setIntProfileData] = useState(null);
+  const [intprofileData, setstartIntProfileData] = useState([]);
   const fetchdata = async (InterestedUserId) => {
-    const userId = localStorage.getItem("UserID");
+    const userId = InterestedUserId;
     ProfileModal.ClientProfile({ userId })
       .then((response) => {
         console.log(response.data);
         setIntProfileData(response.data);
+        setstartIntProfileData(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -224,180 +226,184 @@ function Orderdetails() {
                               Answer{" "}
                             </span>
                           </div>
-                          <div
-                            style={{
-                              width: "50%",
-                              border: "2px solid lightgrey",
-                              padding: "2px",
-                            }}
-                          >
-                            <svg
-                              style={{ color: "grey", paddingRight: "5px" }}
-                              xmlns="http://www.w3.org/2000/svg"
-                              width="16"
-                              height="16"
-                              fill="currentColor"
-                              class="bi bi-wechat"
-                              viewBox="0 0 16 16"
+                          <Link to="/Message">
+                            <div
+                              style={{
+                                width: "50%",
+                                border: "2px solid lightgrey",
+                                padding: "2px",
+                              }}
                             >
-                              <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.324.324 0 0 0-.12.366l.218.81a.616.616 0 0 1 .029.117.166.166 0 0 1-.162.162.177.177 0 0 1-.092-.03l-1.057-.61a.519.519 0 0 0-.256-.074.509.509 0 0 0-.142.021 5.668 5.668 0 0 1-1.576.22ZM9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.615.615 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.627.627 0 0 0 .098.356Z" />
-                              <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.499.499 0 0 0-.032.14.192.192 0 0 0 .193.193c.039 0 .077-.01.111-.029l1.268-.733a.622.622 0 0 1 .308-.088c.058 0 .116.009.171.025a6.83 6.83 0 0 0 1.625.26 4.45 4.45 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02.05 0 .1 0 .15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826Zm4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0Zm3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0Z" />
-                            </svg>
-                            <span style={{ fontSize: "12px", color: "grey" }}>
-                              chat
-                            </span>
-                          </div>
+                              <svg
+                                style={{ color: "grey", paddingRight: "5px" }}
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="16"
+                                height="16"
+                                fill="currentColor"
+                                class="bi bi-wechat"
+                                viewBox="0 0 16 16"
+                              >
+                                <path d="M11.176 14.429c-2.665 0-4.826-1.8-4.826-4.018 0-2.22 2.159-4.02 4.824-4.02S16 8.191 16 10.411c0 1.21-.65 2.301-1.666 3.036a.324.324 0 0 0-.12.366l.218.81a.616.616 0 0 1 .029.117.166.166 0 0 1-.162.162.177.177 0 0 1-.092-.03l-1.057-.61a.519.519 0 0 0-.256-.074.509.509 0 0 0-.142.021 5.668 5.668 0 0 1-1.576.22ZM9.064 9.542a.647.647 0 1 0 .557-1 .645.645 0 0 0-.646.647.615.615 0 0 0 .09.353Zm3.232.001a.646.646 0 1 0 .546-1 .645.645 0 0 0-.644.644.627.627 0 0 0 .098.356Z" />
+                                <path d="M0 6.826c0 1.455.781 2.765 2.001 3.656a.385.385 0 0 1 .143.439l-.161.6-.1.373a.499.499 0 0 0-.032.14.192.192 0 0 0 .193.193c.039 0 .077-.01.111-.029l1.268-.733a.622.622 0 0 1 .308-.088c.058 0 .116.009.171.025a6.83 6.83 0 0 0 1.625.26 4.45 4.45 0 0 1-.177-1.251c0-2.936 2.785-5.02 5.824-5.02.05 0 .1 0 .15.002C10.587 3.429 8.392 2 5.796 2 2.596 2 0 4.16 0 6.826Zm4.632-1.555a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0Zm3.875 0a.77.77 0 1 1-1.54 0 .77.77 0 0 1 1.54 0Z" />
+                              </svg>
+                              <span style={{ fontSize: "12px", color: "grey" }}>
+                                chat
+                              </span>
+                            </div>
+                          </Link>
                         </div>
                       </Card>
                     ))}
                 </Col>
                 <Col sm={4}>
-                  <Card
-                    className="order-detail-profile   d-none d-sm-block"
-                    style={{
-                      backgroundColor: "#efefef",
-                      borderRadius: "35px",
-                      borderStyle: "none",
-                    }}
-                  >
-                    <center style={{ position: "relative" }}>
-                      <img
-                        src={`https://wiraaback.azurewebsites.net/api/v1/${intprofileData?.[0]?.ProfilePic}`}
-                        alt=""
-                        className=""
+                  {satrtintprofileData === null ? (
+                    <>
+                      <div
+                        className="last-left-span"
                         style={{
-                          height: "70px",
-                          width: "70px",
-                          marginTop: "20px",
+                          backgroundColor: "#f5f5f5",
+                          width: "-webkit-fill-available",
                         }}
-                      />
-                      <Link
-                        to={`/Profiledetails/${intprofileData?.[0]?.UserID}`}
                       >
-                        <RiShareBoxLine
-                          size={30}
-                          style={{
-                            position: "absolute",
-                            top: 0,
-                            right: 0,
-                            margin: "10px",
-                          }}
-                        />
-                      </Link>
-                      <h6 className="mt-4">
-                        <b>
-                          {intprofileData?.[0]?.FirstName}{" "}
-                          {intprofileData?.[0]?.LastName}{" "}
-                        </b>
-                      </h6>
-                      <p>{intprofileData?.[0]?.OccupationName}</p>
-                    </center>
-                    <Container>
-                      <Row className="mb-3">
-                        <Col
-                          className="square border-end"
-                          style={{ borderRight: "1px solid black" }}
-                        >
-                          {" "}
-                          {intprofileData?.[0]?.FollowerCount === null ? (
-                            <h6 className="text-center">0</h6>
-                          ) : (
-                            <h6 className="text-center">
-                              {intprofileData?.[0]?.FollowerCount}
-                            </h6>
-                          )}
-                          <p className="text-center">Followers</p>
-                        </Col>
-                        <Col className="square border-start">
-                          {intprofileData?.[0]?.PostCount === null ? (
-                            <h6 className="text-center">0</h6>
-                          ) : (
-                            <h6 className="text-center">
-                              {intprofileData?.[0]?.PostCount}
-                            </h6>
-                          )}
-
-                          <p className="text-center">Portfolio</p>
-                        </Col>
-                      </Row>
-                      <Row>
-                        <Col>
+                        <div className="">
                           <center>
-                            <button
-                              style={{ border: "none", padding: "4px 14px" }}
-                              onClick={handleShow1}
-                              className="editporfile"
+                            <h5
+                              style={{ fontSize: "25px" }}
+                              className="switch-text"
+                            >
+                              <b>
+                                Advance <br /> Freelancing <br /> Course
+                              </b>
+                            </h5>
+                            <p style={{ fontSize: "19px", color: "grey" }}>
+                              Polish your skills and expand
+                              <br />
+                              your knowledge base
+                            </p>
+
+                            <Link to="/Module">
+                              <button
+                                style={{
+                                  padding: "8px",
+                                  backgroundColor: "black",
+                                  color: "white",
+                                  borderRadius: "8px",
+                                  border: "none",
+                                  marginBottom: "100px",
+                                  paddingLeft: "50px",
+                                  paddingRight: "50px",
+                                }}
+                                className="mt-4"
+                              >
+                                <b> Learn </b>
+                              </button>
+                            </Link>
+                          </center>
+                        </div>
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <Card
+                        className="order-detail-profile   d-none d-sm-block"
+                        style={{
+                          backgroundColor: "#efefef",
+                          borderRadius: "35px",
+                          borderStyle: "none",
+                        }}
+                      >
+                        <center style={{ position: "relative" }}>
+                          <img
+                            src={`https://wiraaback.azurewebsites.net/api/v1/${intprofileData?.[0]?.ProfilePic}`}
+                            alt=""
+                            className=""
+                            style={{
+                              height: "70px",
+                              width: "70px",
+                              marginTop: "20px",
+                            }}
+                          />
+                          <Link
+                            to={`/Profiledetails/${intprofileData?.[0]?.UserID}`}
+                          >
+                            <RiShareBoxLine
+                              size={20}
+                              style={{
+                                position: "absolute",
+                                top: 0,
+                                right: 0,
+                                margin: "10px",
+                              }}
+                            />
+                          </Link>
+                          <h6 className="mt-4">
+                            <b>
+                              {intprofileData?.[0]?.FirstName}{" "}
+                              {intprofileData?.[0]?.LastName}{" "}
+                            </b>
+                          </h6>
+                          <p>{intprofileData?.[0]?.OccupationName}</p>
+                        </center>
+                        <Container>
+                          <Row className="mb-3">
+                            <Col
+                              className="square border-end"
+                              style={{ borderRight: "1px solid black" }}
                             >
                               {" "}
-                              <span style={{ fontSize: "16px" }}>
-                                {" "}
-                                Edit Profile{" "}
-                              </span>{" "}
-                            </button>
-                          </center>
-                        </Col>
-                      </Row>
-                    </Container>
-                  </Card>
+                              {intprofileData?.[0]?.FollowerCount === null ? (
+                                <h6 className="text-center">0</h6>
+                              ) : (
+                                <h6 className="text-center">
+                                  {intprofileData?.[0]?.FollowerCount}
+                                </h6>
+                              )}
+                              <p className="text-center">Followers</p>
+                            </Col>
+                            <Col className="square border-start">
+                              {intprofileData?.[0]?.PostCount === null ? (
+                                <h6 className="text-center">0</h6>
+                              ) : (
+                                <h6 className="text-center">
+                                  {intprofileData?.[0]?.PostCount}
+                                </h6>
+                              )}
 
-                  <div className="tabs-container d-none d-sm-block">
-                    <Container></Container>
-                    <Card style={{ border: "none", borderRadius: "35px" }}>
-                      <div className="m-4">
-                        <span>
-                          <b>About:</b>
-                        </span>
-                        <p>{intprofileData?.[0]?.AboutMe}</p>
-                        <span>
-                          <b>Experience:</b>
-                        </span>
-                        <p>{intprofileData?.[0]?.ExperienceName}</p>
-                        <span>
-                          <b>Qualification:</b>
-                        </span>
-                        <p>{intprofileData?.[0]?.QualificationName}</p>
-                        <span>
-                          <b>City:</b>
-                        </span>
-                        <p>{intprofileData?.[0]?.City}</p>
+                              <p className="text-center">Portfolio</p>
+                            </Col>
+                          </Row>
+                        </Container>
+                      </Card>
+                      <div className="tabs-container d-none d-sm-block">
+                        <Container></Container>
+                        <Card style={{ border: "none", borderRadius: "35px" }}>
+                          <div className="m-4">
+                            <span>
+                              <b>About:</b>
+                            </span>
+                            <p>{intprofileData?.[0]?.AboutMe}</p>
+                            <span>
+                              <b>Experience:</b>
+                            </span>
+                            <p>{intprofileData?.[0]?.ExperienceName}</p>
+                            <span>
+                              <b>Qualification:</b>
+                            </span>
+                            <p>{intprofileData?.[0]?.QualificationName}</p>
+                            <span>
+                              <b>City:</b>
+                            </span>
+                            <p>{intprofileData?.[0]?.City}</p>
+                          </div>
+                        </Card>
                       </div>
-                    </Card>
-                  </div>
+                      <hr
+                        className="d-none d-sm-block"
+                        style={{ border: "2px solid grey" }}
+                      />
+                    </>
+                  )}
 
-                  <hr
-                    className="d-none d-sm-block"
-                    style={{ border: "2px solid grey" }}
-                  />
-
-                  {/* <div style={{ color: 'grey', fontSize: '16px' }} className='mt-3 p-2 d-none d-sm-block'>
-                                        <Link to='/About Us'  >
-                                            <span style={{ paddingRight: '10px', color: 'grey' }}>
-                                                About </span>
-                                        </Link>
-                                        <Link to='/Career'>
-                                            <span style={{ paddingRight: '10px', color: 'grey' }}>Career</span>
-                                        </Link>
-
-                                        <Link to='/Termsandcondition'>
-                                            <span style={{ color: 'grey' }}>Term of services</span>
-                                        </Link>
-
-                                        <br />
-
-                                        <Link to='/ContactComponent'>
-                                            <span style={{ paddingRight: '20px', color: 'grey' }}>Conatct</span>
-                                        </Link>
-
-                                        <span style={{ paddingRight: '20px' }}>FAQ</span>
-
-                                        <span style={{ paddingRight: '20px' }}>Blog</span>
-
-                                        <Link to='/PrivacyPolicy'>
-                                            <span style={{ paddingRight: '10px', color: 'grey' }}>Privacy policy</span>
-                                        </Link>
-
-                                        <span> ©️ 2023 Wiraa. All Rights Reserved</span>
-                                    </div> */}
                   <Desktoploginfooter />
                 </Col>
               </Row>

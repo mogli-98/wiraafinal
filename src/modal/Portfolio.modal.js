@@ -22,7 +22,7 @@ const PortfolioModal = {
     return await axiosInstance.post(`/portfolio/addPortfolio`, data);
   },
   async searchPortfolio(data) {
-    console.log(data);
+    console.log(data, "AARA HAI DATA");
     return await axiosInstance.get(
       `/portfolio/subCategory/${data.subCategoryId}/${data.userProfileId}?page=${data.page}&per_page=10`,
       data
